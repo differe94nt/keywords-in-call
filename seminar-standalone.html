@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAEFD0">
+<title>Keywords in CALL — seminar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ════════════════════════════════════════════════════════════
+     SETTINGS — the only part of this file you need to edit.
+     Everything else lives in the content/*.md files.
+     ════════════════════════════════════════════════════════════ -->
+<script>
+const CONFIG = {
+  courseTitle: "英語數位教材與教學",
+  sessionTitle: "Keywords, AI summaries, and checking the citations",
+
+  // Response sheet. Empty here on purpose: this file is public, and a sheet
+  // id in it makes the sheet findable by anyone. Two ways to fill it:
+  //   · put an ANONYMISED sheet's id here (see README) — for everyone, always;
+  //   · or add ?sheet=<id> to the page's address — just for that visit.
+  // Either sheet must be shared "Anyone with the link — Viewer".
+  sheetId: "",
+  gid: "",                 // optional: a specific tab's gid
+
+  formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdZXD0hp_wVVYjsVOxTgB8sf6i5AV-ro2iWUvzW0ZrYA-cD_Q/viewform",
+
+  refreshSeconds: 60,      // how often to re-read the sheet
+  autoRefresh: true
+};
+</script>
+
+<style>
+:root{
+  --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
+  --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --burnt:#B9752B; --red:#A8442A;
+  --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
+  --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
+  --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --burnt:#D79A55; --red:#E08A6C;
+  --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+h4{font-family:var(--sans);font-weight:600;margin:0;font-size:.95rem}
+p{margin:0 0 .75em}
+a{color:var(--green);text-underline-offset:2px}
+button,input,textarea,select{font:inherit;color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--tint);padding:.1em .35em;border-radius:5px}
+pre{background:var(--ink);color:var(--cream);padding:.8rem .9rem;border-radius:10px;overflow:auto}
+html[data-theme="dark"] pre{background:#141C0F}
+pre code{background:none;padding:0;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.muted{color:var(--fg-soft)}
+.small{font-size:.82rem}
+.mono{font-family:var(--mono)}
+
+/* header + step nav */
+header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.55rem 0}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.05rem}
+.brand span{display:block;font-family:var(--sans);font-size:.74rem;color:var(--fg-soft);font-weight:400}
+.top-actions{margin-left:auto;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+.steps{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.4rem}
+.step-btn{display:flex;gap:.5rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
+.step-btn b{font-family:var(--mono);font-size:.74rem;color:var(--burnt)}
+.step-btn:hover{background:var(--tint);color:var(--fg)}
+.step-btn[aria-current="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .step-btn[aria-current="true"]{background:var(--green);color:#16200E}
+.step-btn[aria-current="true"] b{color:var(--gold)}
+
+/* generic bits */
+.btn{background:var(--ink);color:var(--cream);border:0;border-radius:999px;padding:.4rem .9rem;font-size:.84rem;cursor:pointer;text-decoration:none;display:inline-block}
+html[data-theme="dark"] .btn{background:var(--green);color:#16200E}
+.btn:hover{filter:brightness(1.12)}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line-2)}
+.btn.ghost:hover{background:var(--tint);filter:none}
+.btn.sm{padding:.2rem .6rem;font-size:.76rem}
+.chip{display:inline-block;border:1px solid var(--line-2);background:none;color:var(--fg);border-radius:999px;padding:.18rem .6rem;font-size:.76rem;cursor:pointer;text-decoration:none}
+.chip:hover{background:var(--tint)}
+.chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .chip.on{background:var(--green);color:#16200E}
+.chip.flat{cursor:default}
+.chiprow{display:flex;flex-wrap:wrap;gap:.35rem}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
+.row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+hr.rule{border:0;height:1px;background:var(--line);margin:1.8rem 0}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.74rem;color:var(--fg-soft);text-transform:uppercase;letter-spacing:.04em}
+
+/* step layout */
+main{padding:1.6rem 0 4rem}
+.step{display:none}
+.step.on{display:block}
+.step-head{margin-bottom:1.2rem}
+.step-head .kicker{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em}
+.step-head h2{font-size:clamp(1.5rem,3.4vw,2.1rem);margin:.15rem 0 .4rem}
+.intro{max-width:70ch}
+.intro h2{font-size:1.2rem;margin:1.2rem 0 .4rem}
+.intro h3{font-size:1.02rem;margin:1rem 0 .3rem}
+.intro ul{margin:.2rem 0 .8rem;padding-left:1.1rem}
+.intro li{margin-bottom:.25rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+
+/* status bar */
+.statusbar{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;margin-bottom:1.2rem}
+.dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--green);display:inline-block;flex:none}
+.dot.warn{background:var(--gold)} .dot.bad{background:var(--red)}
+.statusbar .txt{font-size:.82rem;color:var(--fg-soft)}
+.switch{display:flex;gap:.35rem;align-items:center;font-size:.8rem;color:var(--fg-soft)}
+.switch input{width:1rem;height:1rem;accent-color:var(--green)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;align-items:start;margin-bottom:1.4rem}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:.8rem .9rem}
+.stat h4{font-size:.72rem;color:var(--fg-soft);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+.big{font-family:var(--serif);font-size:2rem;line-height:1}
+.bar{display:grid;grid-template-columns:minmax(76px,auto) 1fr 2rem;gap:.45rem;align-items:center;font-size:.82rem;margin-bottom:.25rem}
+.bar .track{display:block;height:11px;background:var(--tint);border-radius:999px;overflow:hidden}
+.bar .fill{display:block;height:11px;background:var(--green);border-radius:999px}
+.bar .n{font-family:var(--mono);font-size:.76rem;text-align:right;color:var(--fg-soft)}
+
+/* coverage */
+.cov{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.5rem}
+.cov-cell{border:1px solid var(--line);border-radius:10px;padding:.5rem .6rem;background:var(--paper)}
+.cov-cell.claimed{border-color:var(--green);background:var(--green-soft)}
+.cov-cell .k{font-weight:600;font-size:.86rem}
+.cov-cell .v{font-size:.76rem;color:var(--fg-soft)}
+
+/* entries */
+.entry{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin-bottom:.9rem}
+.entry.focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,194,74,.3)}
+.entry-top{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;padding-bottom:.55rem;border-bottom:1px solid var(--line);margin-bottom:.8rem}
+.who{font-weight:600;font-size:.95rem}
+.stance{font-size:.74rem;border-radius:999px;padding:.1rem .55rem;border:1px solid currentColor;margin-left:auto}
+.stance.agree{color:var(--green)} .stance.partly{color:var(--burnt)}
+.stance.disagree{color:var(--red)} .stance.unclear{color:var(--fg-soft)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.col{border-left:3px solid var(--line);padding-left:.8rem}
+.col.ai{border-left-color:var(--gold)}
+.col.own{border-left-color:var(--green)}
+.col h4{font-size:.72rem;color:var(--fg-soft);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem}
+.txt{font-size:.9rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.txt.clamp{display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden}
+.more{background:none;border:0;color:var(--green);font-size:.78rem;cursor:pointer;padding:.2rem 0;text-decoration:underline}
+details.sub{margin-top:.7rem;border-top:1px solid var(--line);padding-top:.5rem}
+details.sub summary{cursor:pointer;font-size:.82rem;color:var(--fg-soft)}
+details.sub .txt{margin-top:.4rem}
+.entry-foot{margin-top:.7rem;font-size:.8rem;color:var(--fg-soft);display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.prompt-banner{background:var(--green-soft);border:1px solid var(--green);border-radius:12px;padding:.7rem .9rem;margin-bottom:1rem;font-family:var(--serif);font-size:1.05rem}
+.empty{border:1px dashed var(--line-2);border-radius:12px;padding:1.4rem;color:var(--fg-soft);max-width:62ch}
+
+/* keyword cards */
+.kwgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:.9rem;align-items:start}
+.kw{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.kw.open{grid-column:1/-1;border-color:var(--line-2)}
+.kw-head{width:100%;text-align:left;background:none;border:0;padding:.9rem 1rem;cursor:pointer;display:block}
+.kw-head:hover{background:var(--tint)}
+.kw-acr{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em}
+.kw-name{font-family:var(--serif);font-size:1.12rem;font-weight:600;margin:.1rem 0 .25rem}
+.kw-line{font-size:.88rem;color:var(--fg-soft)}
+.kw-badge{display:inline-block;font-size:.72rem;background:var(--green-soft);color:var(--green);border-radius:999px;padding:.05rem .5rem;margin-top:.45rem}
+.kw-body{padding:0 1rem 1.1rem;border-top:1px solid var(--line)}
+.kw-body h4{font-size:.72rem;color:var(--fg-soft);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .35rem}
+.kw-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.kw-body ul{margin:.2rem 0;padding-left:1.05rem}
+.kw-body li{margin-bottom:.3rem;font-size:.9rem}
+.string{font-family:var(--mono);font-size:.78rem;background:var(--ink);color:var(--cream);padding:.7rem .8rem;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5}
+html[data-theme="dark"] .string{background:#141C0F}
+.src{padding:.5rem 0;border-bottom:1px solid var(--line)}
+.src:last-child{border-bottom:0}
+.src .cite{font-size:.88rem}
+.src .links{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.25rem}
+.src .links a{font-size:.7rem;border:1px solid var(--line);border-radius:999px;padding:.05rem .45rem;color:var(--fg-soft);text-decoration:none}
+.src .links a:hover{border-color:var(--green);color:var(--green)}
+.note{font-size:.86rem;color:var(--fg-soft);border-left:3px solid var(--burnt);padding-left:.7rem;margin-top:1rem}
+
+/* compare */
+.cmp-pick{display:flex;flex-wrap:wrap;gap:.35rem;margin:.8rem 0 1.2rem}
+table.cmp th:first-child,table.cmp td:first-child{position:sticky;left:0;background:var(--bg);font-size:.74rem;color:var(--fg-soft);text-transform:uppercase;letter-spacing:.04em;min-width:120px}
+table.cmp td{min-width:210px}
+.topic{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin-bottom:.9rem}
+.topic h3{font-size:1.15rem;margin-bottom:.3rem}
+.topic ul{margin:.6rem 0 0;padding-left:1.1rem}
+.topic li{margin-bottom:.35rem;font-size:.92rem}
+
+/* verify */
+.check{display:flex;gap:.7rem;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:.8rem .9rem;margin-bottom:.6rem}
+.check input{margin-top:.3rem;width:1.05rem;height:1.05rem;accent-color:var(--green);flex:none}
+.check h4{font-size:.98rem;margin-bottom:.2rem}
+.check .do{font-size:.88rem}
+.check .fail{font-size:.84rem;color:var(--burnt);margin-top:.3rem}
+.check.done{background:var(--green-soft);border-color:var(--green)}
+.flags{columns:2;column-gap:1.4rem;padding-left:1.1rem;margin:.4rem 0}
+.flags li{margin-bottom:.4rem;font-size:.9rem;break-inside:avoid}
+.tracer input{width:100%;border:1px solid var(--line-2);border-radius:10px;padding:.55rem .7rem;background:var(--bg);font-size:.9rem}
+.progress{font-size:.86rem;color:var(--green);margin:.6rem 0 1.2rem}
+
+/* tools */
+.toolgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.9rem}
+.tool{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem}
+.tool-top{display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap}
+.tool h3{font-size:1.05rem}
+.tool .type{font-size:.7rem;border:1px solid var(--line-2);border-radius:999px;padding:.05rem .5rem;color:var(--fg-soft)}
+.tool .type.grounded{color:var(--green);border-color:var(--green)}
+.tool .type.chatbot{color:var(--burnt);border-color:var(--burnt)}
+.tool dl{margin:.6rem 0 0;font-size:.88rem}
+.tool dt{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);margin-top:.5rem}
+.tool dd{margin:.1rem 0 0}
+.tool .used{font-size:.72rem;background:var(--green-soft);color:var(--green);border-radius:999px;padding:.05rem .5rem}
+
+.banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1.2rem;font-size:.88rem}
+.banner code{background:var(--tint)}
+footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+@media (max-width:820px){
+  .cols{grid-template-columns:1fr}
+  .flags{columns:1}
+  .kw.open{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<script type="text/markdown" id="md1">
+# Step 1 · What the class submitted
+
+Answers load straight from the response sheet. Names are hidden by default, so anyone can be asked to talk about any entry.
+
+Read across the two columns: **what the AI wrote** next to **what the student wrote**. The gap between them is the lesson.
+
+## How we read these
+
+- Pick an entry. Read the AI summary, then the student summary.
+- Name one sentence in the AI summary you could trace to a page in a real paper.
+- Name one sentence you could not.
+- Decide which it is: false, unsupported, or too general to be wrong.
+
+## Discussion prompts
+
+- Which sentence in this AI summary is hardest to trace to a specific study?
+- Does this summary report findings, or only topics? Count the verbs "explores" and "investigates".
+- Five studies must disagree somewhere. Does this summary let you see where?
+- Are the numbers in this summary the studies' own numbers?
+- Whose conditions got dropped — which learners, how long, measured how?
+- This student disagreed with the AI. What did they see that the AI missed?
+- Would this summary read the same if the five papers were swapped for five others?
+- The student summary is shorter. Is anything important in it that the AI left out?
+
+</script>
+<script type="text/markdown" id="md2">
+# Step 2 · The ten keywords
+
+One card per keyword. Click a card to open it; click again to close it.
+
+Every source carries one-click lookups — Scholar, Crossref, OpenAlex, Semantic Scholar. The details below are a starting point, not an authority: confirm the year and the journal through the links before you cite anything.
+
+<!--
+HOW TO EDIT A CARD
+Each card starts with:  ## ACRONYM — Full name
+Then these fields, one per line:
+  match:      words that link this card to the form answers, separated by |
+  line:       the one line shown on the closed card
+  definition: 2-3 sentences shown when the card opens
+  unit:       what a study here counts as one case
+  method:     how studies here are usually done
+  evidence:   where the evidence is thinnest
+  search:     a search string students break and rebuild
+  check:      the database trap for this keyword
+  contested:  (list) what researchers actually argue about
+  sources:    (list) citations; add " | doi:10.xxxx/yyy" or " | https://..." to pin one
+Add or delete whole cards freely — the rest of the page follows.
+-->
+
+## CALL — Computer-assisted language learning
+match: computer-assisted language learning | computer assisted language learning | CALL
+line: Any use of computers to learn or teach a second language.
+definition: The term the field started with, and still its widest umbrella. Its own history tracks the field's: drill software, then communicative practice, then integration into ordinary teaching. Bax's question — whether technology has become invisible like the pen — is still the live one.
+unit: A programme or a classroom
+method: Position papers, surveys, classroom case studies
+evidence: Causal claims, because "CALL versus no CALL" has no clean comparison condition
+search: ("computer assisted language learning" OR CALL) AND (normalisation OR normalization OR "technology integration")
+check: The acronym collides with the ordinary verb "call". Quote the full phrase, or pair the acronym with a second term.
+contested:
+- Has technology normalised, or has the label simply been replaced every ten years?
+- Is CALL a field, a method, or just a setting where ordinary SLA questions get asked?
+sources:
+- Warschauer, M., & Healey, D. (1998). Computers and language learning: An overview. *Language Teaching*.
+- Bax, S. (2003). CALL — past, present and future. *System*.
+- Chambers, A., & Bax, S. (2006). Making CALL work: Towards normalisation. *System*.
+- Chapelle, C. A. (2001). *Computer applications in second language acquisition*. Cambridge University Press.
+
+## TELL — Technology-enhanced language learning
+match: technology-enhanced language learning | technology enhanced language learning | TELL
+line: CALL renamed, with a claim hidden in the label.
+definition: Widens the frame from the computer to any digital technology. The word "enhanced" smuggles in an outcome: enhanced compared with what, measured how? Run the same query as CALL and as TELL, then compare the top twenty results — the overlap is itself a finding.
+unit: The tool
+method: Effectiveness reviews, mixed methods
+evidence: The construct itself — reviews mix tool studies with pedagogy studies
+search: ("technology enhanced language learning" OR TELL OR "digital language learning") AND (review OR "systematic review" OR meta-analysis)
+check: TELL as an acronym retrieves the verb "tell" constantly. Use the full phrase first, then add the acronym.
+contested:
+- Does TELL retrieve a different literature from CALL, or the same papers with newer dates?
+- "Enhancement" is an outcome claim baked into a keyword. What is the baseline?
+sources:
+- Golonka, E. M., Bowles, A. R., Frank, V. M., Richardson, D. L., & Freynik, S. (2014). Technologies for foreign language learning: A review of technology types and their effectiveness. *Computer Assisted Language Learning*.
+- Macaro, E., Handley, Z., & Walter, C. (2012). A systematic review of CALL in English as a second language classrooms. *Language Teaching*.
+- Stockwell, G. (2012). *Computer-assisted language learning: Diversity in research and practice*. Cambridge University Press.
+- Godwin-Jones, R. Emerging Technologies column, *Language Learning & Technology* (ongoing).
+
+## CMC — Computer-mediated communication
+match: computer-mediated communication | computer mediated communication | CMC | telecollaboration | virtual exchange
+line: Learning through other people, with a machine in between.
+definition: Text chat, video calls, forums, class-to-class exchange across countries. Synchronous and asynchronous behave differently enough that collapsing them distorts any summary. Interactionist claims about noticing and negotiation were built on face-to-face data, and whether they transfer is an empirical question rather than an assumption.
+unit: The interactional turn
+method: Discourse analysis, quasi-experiments
+evidence: Transfer beyond the task, and intercultural gains that are hard to measure
+search: ("computer mediated communication" OR SCMC OR ACMC OR telecollaboration OR "virtual exchange") AND (interaction OR negotiation OR "second language")
+check: Check whether a study's "chat" is text or video before grouping it with others.
+contested:
+- Does text chat buy learners planning time, or remove the pressure that drives fluency?
+- Is video CMC weaker than face to face because of missing cues, or because of the task design?
+sources:
+- Warschauer, M. (1996). Comparing face-to-face and electronic discussion in the second language classroom. *CALICO Journal*.
+- Blake, R. (2000). Computer mediated communication: A window on L2 Spanish interlanguage. *Language Learning & Technology*.
+- Ziegler, N. (2016). Synchronous computer-mediated communication and interaction: A meta-analysis. *Studies in Second Language Acquisition*.
+- O'Dowd, R. (2018). From telecollaboration to virtual exchange: State-of-the-art and the role of UNICollaboration. *Journal of Virtual Exchange*.
+
+## MALL — Mobile-assisted language learning
+match: mobile-assisted language learning | mobile assisted language learning | MALL | mobile learning
+line: Learning on a device the learner already carries.
+definition: Handheld, personal, always present — which changes not only where learning happens but who decides when. Most of the evidence is short, small and vocabulary-focused, so the honest question is whether mobility is doing the work or whether it is spaced repetition delivered conveniently.
+unit: The learner's session
+method: Short quasi-experiments, app trials
+evidence: Duration, control groups, and what mobility adds beyond convenience
+search: ("mobile assisted language learning" OR MALL OR "mobile learning") AND (vocabulary OR speaking OR listening) AND (experiment* OR quasi-experimental)
+check: Date-limit hard. Pre-2012 MALL usually means SMS on feature phones — a different object of study.
+contested:
+- Is the interesting variable mobility, or spaced repetition?
+- App studies measure engagement, then report engagement as success. Is that a finding?
+sources:
+- Kukulska-Hulme, A., & Shield, L. (2008). An overview of mobile assisted language learning: From content delivery to supported collaboration and interaction. *ReCALL*.
+- Burston, J. (2015). Twenty years of MALL project implementation: A meta-analysis of learning outcomes. *ReCALL*.
+- Sung, Y.-T., Chang, K.-E., & Yang, J.-M. (2015). How effective are mobile devices for language learning? A meta-analysis. *Educational Research Review*.
+- Stockwell, G. (2010). Using mobile phones for vocabulary activities: Examining the effect of the platform. *Language Learning & Technology*.
+
+## AWE — Automated writing evaluation
+match: automated writing evaluation | AWE | automated feedback | essay scoring
+line: Writing judged without a human reader.
+definition: Essay scoring engines, grammar checkers, and the feedback layer now attached to every writing tool. Agreement with human raters is often high, which tells you the machine predicts the rating — not that the rating measures writing. Keep two questions apart: does the feedback produce revision, and does revision produce learning?
+unit: The draft
+method: Pre-post designs, corpora of revisions
+evidence: Transfer to a new, unscaffolded task
+search: ("automated writing evaluation" OR "automated essay scoring" OR "automated feedback") AND (L2 OR ESL OR EFL) AND (revision OR accuracy OR uptake)
+check: Scoring produces a number, feedback produces a comment. Papers that conflate them will distort your summary.
+contested:
+- High agreement with human raters, and still possibly the wrong construct.
+- Do learners over-trust the machine on content, or on grammar? Studies disagree.
+sources:
+- Warschauer, M., & Ware, P. (2006). Automated writing evaluation: Defining the classroom research agenda. *Language Teaching Research*.
+- Stevenson, M., & Phakiti, A. (2014). The effects of computer-generated feedback on the quality of writing. *Assessing Writing*.
+- Li, J., Link, S., & Hegelheimer, V. (2015). Rethinking the role of automated writing evaluation (AWE) feedback in ESL writing instruction. *Journal of Second Language Writing*.
+- Ranalli, J., Link, S., & Chukharev-Hudilainen, E. (2017). Automated writing evaluation for formative assessment of second language writing. *Computer Assisted Language Learning*.
+
+## DGBLL — Digital game-based language learning
+match: game-based language learning | game based language learning | DGBLL | gamification | digital game
+line: Learning through play — and the thing that only looks like play.
+definition: Commercial games repurposed for language, games built for teaching, and game mechanics bolted onto ordinary tasks. That last one is gamification, and points are not play. Vocabulary gains are reasonably documented; interaction, pragmatics and anything past one semester are not.
+unit: The play session
+method: Case studies, mixed methods, small trials
+evidence: Isolating which mechanic does the work, and whether motivation survives novelty
+search: ("game based language learning" OR DGBLL OR gamification OR MMORPG) AND ("second language" OR L2) AND (vocabulary OR motivation OR interaction)
+check: Ask of every study whether the game was designed for learning or borrowed. It changes what the finding is about.
+contested:
+- Gamification and game-based learning are routinely merged in reviews. Should they be?
+- Are motivation findings novelty effects with a short half-life?
+sources:
+- Cornillie, F., Thorne, S. L., & Desmet, P. (2012). Digital games for language learning: From hype to insight? *ReCALL*.
+- Peterson, M. (2012). Learner interaction in a massively multiplayer online role playing game (MMORPG): A sociocultural discourse analysis. *ReCALL*.
+- Reinders, H., & Wattana, S. (2014). Can I say something? The effects of digital game play on willingness to communicate. *Language Learning & Technology*.
+- Sykes, J. M. (2018). Digital games and language teaching and learning. *Foreign Language Annals*.
+
+## Multimodal — Multimodality and multimodal input
+match: multimodality and multimodal input | multimodal | captions | subtitles | multimedia
+line: Meaning arriving through more than one channel at once.
+definition: Image, sound and text together, and the claim that combining them helps — up to the point where it costs more than it gives. Dual coding predicts the gain; cognitive load predicts the cost. Caption type is a treatment variable, not a detail: L1 subtitles, L2 captions and keyword captions are three literatures.
+unit: The input episode
+method: Lab experiments, eye-tracking, classroom trials
+evidence: Listening development as something separate from comprehension on the day
+search: (caption* OR subtitle* OR multimodal) AND ("second language" OR L2 OR EFL) AND (listening OR "vocabulary acquisition") AND (eye-track* OR comprehension OR retention)
+check: "With subtitles" is not a specification. Record which language, which words, and on screen for how long.
+contested:
+- Captions aid comprehension. Do they aid listening development?
+- Learners prefer multimodal input and sometimes remember less of it. Which do we design for?
+sources:
+- Mayer, R. E. (2009). *Multimedia learning* (2nd ed.). Cambridge University Press.
+- Montero Perez, M., Van Den Noortgate, W., & Desmet, P. (2013). Captioned video for L2 listening and vocabulary learning: A meta-analysis. *System*.
+- Winke, P., Gass, S., & Sydorenko, T. (2010). The effects of captioning videos used for foreign language listening activities. *Language Learning & Technology*.
+- Vanderplank, R. (2016). *Captioned media in foreign language learning and teaching*. Palgrave Macmillan.
+
+## Autonomy — Learner autonomy and self-regulated learning with technology
+match: learner autonomy | self-regulated learning | self regulated learning | autonomy
+line: What learners do when nobody is watching.
+definition: Choosing resources, setting goals, monitoring progress — and whether technology supports that capacity or quietly assumes it. Autonomy comes from a political tradition and names a capacity; self-regulation comes from educational psychology and names a process. Databases treat them as synonyms; they are not.
+unit: The learner over time
+method: Questionnaires, diaries, interviews, log data
+evidence: Behavioural evidence, as opposed to self-reported strategy use
+search: (autonomy OR "self-regulated learning" OR "self-directed learning") AND ("language learning") AND (technology OR online OR "out of class")
+check: If all five of your studies are questionnaire studies, your summary is about beliefs, not behaviour. Say so.
+contested:
+- Access to resources is not the ability to use them. Does technology widen the gap it promises to close?
+- Which regulation actually fails in digital study — planning, or time and effort?
+sources:
+- Benson, P. (2011). *Teaching and researching autonomy* (2nd ed.). Routledge.
+- Zimmerman, B. J. (2000). Attaining self-regulation: A social cognitive perspective. In *Handbook of self-regulation*.
+- Reinders, H., & White, C. (2016). 20 years of autonomy and technology: How far have we come and where to next? *Language Learning & Technology*.
+- Lai, C. (2017). *Autonomous language learning with technology: Beyond the classroom*. Bloomsbury.
+
+## TPACK — Teacher knowledge and digital competence
+match: TPACK | technological pedagogical content knowledge | teacher digital competence | digital competence
+line: What a teacher has to know to teach a language with technology.
+definition: The frameworks that try to specify that knowledge, measure it, and build it through professional development. The seven components are hard to separate with real instruments, and most of the literature is generic education rather than language teaching — which is exactly where a thesis fits.
+unit: The teacher
+method: Survey instruments, PD case studies
+evidence: Observed practice, and anything language-specific
+search: (TPACK OR "technological pedagogical content knowledge" OR "digital competence") AND ("language teacher*" OR "EFL teacher*") AND (development OR training)
+check: Check whether the instrument was validated with language teachers or borrowed from science education.
+contested:
+- Self-reported competence rises after training while observed practice does not. Which do we believe?
+- Can the seven components be measured separately at all?
+sources:
+- Mishra, P., & Koehler, M. J. (2006). Technological pedagogical content knowledge: A framework for teacher knowledge. *Teachers College Record*.
+- Hubbard, P. (2008). CALL and the future of language teacher education. *CALICO Journal*.
+- Redecker, C. (2017). *European framework for the digital competence of educators: DigCompEdu*. Publications Office of the European Union.
+- Tseng, J.-J., Chai, C. S., Tan, L., & Park, M. (2022). A critical review of research on technological pedagogical and content knowledge in language teaching. *Computer Assisted Language Learning*.
+
+## GenAI — Generative AI and chatbots in language learning
+match: generative AI | chatbot | ChatGPT | large language model | conversational agent
+line: The tutor, the writing partner, and the thing summarising this literature.
+definition: Dialogue systems and large language models as interlocutor, tutor and co-writer. The word "chatbot" spans two different technologies: rule-based systems before 2022 and language models after, so a set of five papers can contain both without saying so. Evidence moves faster than peer review, which is why preprints dominate.
+unit: The dialogue or the text
+method: Pilot studies, small trials, perception surveys, preprints
+evidence: Replication, longer designs, and anything past self-reported perception
+search: (chatbot OR "conversational agent" OR "large language model" OR ChatGPT OR "generative AI") AND ("language learning" OR "second language") AND (speaking OR writing OR feedback)
+check: Date-limit hard, and check whether "AI" in a title means a transformer or a decision tree from 2015.
+contested:
+- Output fluency is not pedagogical quality. A model that never corrects you is pleasant and a poor tutor.
+- How much pre-2022 dialogue-based CALL still applies to language models?
+sources:
+- Bibauw, S., François, T., & Desmet, P. (2019). Discussing with a computer: A systematic review of dialogue-based CALL. *Computer Assisted Language Learning*.
+- Fryer, L. K., Ainley, M., Thompson, A., Gibson, A., & Sherlock, Z. (2017). Stimulating and sustaining interest in a language course: An experimental comparison of chatbot and human task partners. *Computers in Human Behavior*.
+- Kohnke, L., Moorhouse, B. L., & Zou, D. (2023). ChatGPT for language teaching and learning. *RELC Journal*.
+- Godwin-Jones, R. (2023). Emerging spaces for language learning: AI bots, ambient intelligence, and the metaverse. *Journal of China Computer-Assisted Language Learning*.
+
+</script>
+<script type="text/markdown" id="md3">
+# Step 3 · Compare and contrast
+
+Two keywords rarely disagree about facts. They disagree about what counts as the unit, the method, and the evidence — which is why the same study can support both.
+
+Tick the keywords you want side by side. The table is built from the cards in Step 2, so editing a card updates this.
+
+<!--
+HOW TO EDIT A TOPIC
+  ## Topic title
+  keywords: ACR | ACR | ACR        (must match the acronyms in 02-keywords.md)
+  why:      one line on why these belong together
+  then plain "- " bullets: the questions groups work on
+-->
+
+## Compared with what?
+keywords: CALL | TELL | MALL | DGBLL
+why: Every "it works" claim needs a baseline, and these four keywords hide four different baselines.
+- CALL studies compare technology with no technology. What else changed at the same time?
+- TELL puts "enhanced" in the name. Enhanced relative to which lesson, taught by whom?
+- MALL trials often compare an app with nothing at all. Would paper flashcards have done the same work?
+- DGBLL compares play with instruction, and then reports motivation. Is motivation the outcome or the mechanism?
+- Bring back one sentence: for one of your studies, name the comparison group and what it did instead.
+
+## Who is in control of the feedback?
+keywords: AWE | GenAI | Autonomy | CMC
+why: All four put a response in front of the learner. They differ on who decides what the response is worth.
+- AWE gives a judgement the learner did not ask for. GenAI gives whatever the learner's prompt invited. Does that change what gets learned?
+- A tool that never corrects you is comfortable. Which of these four risks that most?
+- Autonomy research assumes learners can evaluate feedback. Which of your studies tested that assumption rather than assuming it?
+- In CMC the feedback comes from a person who can be wrong too. Is that better or only different?
+- Bring back one sentence: who decided what counted as an error in your study?
+
+## What counts as evidence here?
+keywords: Multimodal | CMC | GenAI | TPACK
+why: These four sit at different distances from the lab, so their strongest evidence looks nothing alike.
+- Multimodal research can run an eye-tracking experiment. GenAI research mostly cannot yet. What follows for how confidently each can claim a cause?
+- CMC analyses transcripts; TPACK analyses questionnaires. Which claim would you defend to a sceptical examiner?
+- One of your keywords leans on preprints. What would you check before citing one?
+- Perception and performance come apart in several of your studies. Where exactly?
+- Bring back one sentence: name the strongest single piece of evidence in your five, and say why it is the strongest.
+
+</script>
+<script type="text/markdown" id="md4">
+# Step 4 · Checking what the AI gave you
+
+A summary can be fluent, well organised, correctly formatted — and wrong. Fluency is produced by the same process whether the papers exist or not.
+
+Work through the seven checks on one summary. Tick a box only when you can point at the evidence on screen. Use the tracer below to look up any citation in one click.
+
+<!--
+HOW TO EDIT
+  ## Check title          → becomes a checklist item
+  do:   what to actually do
+  fail: what failure looks like
+  Add "kind: flags" to a block to turn its bullets into the red-flag list instead.
+-->
+
+## 1 · The paper exists
+do: Copy the exact title into Crossref or Scholar — never back into the chatbot that produced it. Confirm authors, year and journal all at once.
+fail: Real authors, real journal, plausible title, nothing indexed. The most common failure, and the easiest to catch.
+
+## 2 · The link resolves to that paper
+do: Open the DOI. Check the title on the publisher page matches the citation you were given, word for word.
+fail: A DOI that resolves to a different article. A borrowed identifier is still a fabrication.
+
+## 3 · The claim is on a page
+do: Pick three sentences from the summary at random. Find the page in the PDF that supports each. Write down the page number.
+fail: The claim is in the paper's introduction, describing someone else's study, and has been reported as this paper's finding.
+
+## 4 · The numbers are the study's own
+do: Check every effect size, sample size and percentage against the results section, not the abstract.
+fail: Numbers that are plausible, rounded and absent from the paper. Invented figures read exactly like real ones.
+
+## 5 · The conditions survive
+do: Name the learners, the length and the measure for each finding. Keep "for beginners", "over eight weeks", "on an immediate post-test".
+fail: A finding that held on an immediate post-test only, restated as if it held in general.
+
+## 6 · The disagreements are visible
+do: Ask where your five studies conflict, then look for that conflict in the summary.
+fail: Five studies flattened into one agreeable consensus. Every sentence can be true and the summary still wrong.
+
+## 7 · Nothing important is missing
+do: Ask what a specialist on this keyword would expect to see cited. Search for it deliberately.
+fail: The landmark study is absent and nothing marks the absence. Fluent text has no gaps in it.
+
+## Red flags
+kind: flags
+- No author names anywhere in the summary, only "studies show" and "research indicates".
+- Every study agrees, and the agreement is stated more strongly than any single paper does.
+- A citation you cannot find in two databases.
+- Numbers without a sample size attached.
+- Verbs that describe activity rather than results: explores, investigates, examines, highlights.
+- Vocabulary grander than the findings: "cushions against decay", "threshold moderator".
+- A claim about teachers or workload in a set of five studies that only tested learners.
+- The summary would fit any five papers on the topic, including papers you have not read.
+
+</script>
+<script type="text/markdown" id="md5">
+# Step 5 · The tools, and what each one cannot do
+
+The question is not which tool is best. It is whether the tool is **reading a literature index** or **writing from a model's memory**. Only the first kind can be checked by following its links; the second has no links to follow.
+
+Filter by type. The tools the class actually used are marked from the response sheet.
+
+<!--
+HOW TO EDIT A TOOL
+  ## Tool name
+  type:  Grounded search | Chatbot | Discovery map | Citation check | Reference manager
+  match: names to look for in the form answers, separated by |
+  does:  what it does
+  limit: what it cannot do, or does badly
+  best:  the job it is actually good for
+  link:  https://...
+-->
+
+## ChatGPT
+type: Chatbot
+match: chatgpt | chat gpt | gpt-4 | gpt-5 | openai
+does: Writes, rewrites, summarises and explains. With browsing or a file upload it can work from sources you supply.
+limit: Without an uploaded file it writes from model memory, so citations may be plausible and non-existent. It rarely says how confident it is, and it smooths disagreement between sources into consensus.
+best: Restructuring a summary you wrote, or explaining a method section you have already read.
+link: https://chatgpt.com
+
+## Claude
+type: Chatbot
+match: claude | anthropic
+does: Same class of tool as ChatGPT; handles long uploaded PDFs well and holds several papers in view at once.
+limit: Still generates citations when none are supplied. Long context does not mean it read carefully — it can still attribute one paper's claim to another.
+best: Comparing five PDFs you have uploaded, and asking where they disagree.
+link: https://claude.ai
+
+## Gemini
+type: Chatbot
+match: gemini | bard
+does: General assistant, integrated with Google Docs and Drive.
+limit: Same fabrication risk when asked for literature it has not been given. Search grounding is inconsistent — sometimes cited, sometimes not.
+best: Working over documents already in your Drive folder.
+link: https://gemini.google.com
+
+## NotebookLM
+type: Grounded search
+match: notebooklm | notebook lm | gemini notebook
+does: Answers only from the sources you upload, and puts an inline citation on each sentence pointing back to the passage.
+limit: It cannot find literature for you — the reading list is your responsibility, and a biased set of five gives a confident, biased summary. Citations point to your PDFs, not to the wider field.
+best: Exactly this assignment: five PDFs in, a summary out, with every sentence traceable to a page.
+link: https://notebooklm.google.com
+
+## DeepSeek
+type: Chatbot
+match: deepseek
+does: Open-weight assistant with a reasoning mode that shows its working.
+limit: Visible reasoning is not verified reasoning; it can walk confidently to a fabricated reference. Coverage of paywalled applied linguistics work is thin.
+best: A second opinion on a summary, to see which claims two models both make.
+link: https://chat.deepseek.com
+
+## Perplexity
+type: Grounded search
+match: perplexity
+does: Searches the web and answers with numbered links you can open.
+limit: It ranks web pages, not peer-reviewed literature, so blogs and publisher marketing pages sit beside journal articles. The link may exist while the sentence it supports is still a paraphrase too far.
+best: Finding out whether a claim exists anywhere, then going to a database to confirm it properly.
+link: https://www.perplexity.ai
+
+## Scopus AI
+type: Grounded search
+match: scopus
+does: Generates summaries over Scopus-indexed abstracts, with the source records attached.
+limit: Only Scopus-indexed work, so it misses unindexed journals and most preprints. Institutional access required, and it summarises abstracts rather than full texts.
+best: Checking whether your five studies are representative of the indexed literature or a convenience sample.
+link: https://www.scopus.com
+
+## Elicit
+type: Grounded search
+match: elicit
+does: Searches a paper index, then extracts fields into a table — sample, method, outcome, findings — one row per study.
+limit: Extraction errors are quiet, especially for sample sizes and effect directions. Coverage leans towards open-access records.
+best: Building the first draft of a comparison matrix that you then correct against the PDFs.
+link: https://elicit.com
+
+## Consensus
+type: Grounded search
+match: consensus
+does: Returns claim-level answers to a yes/no research question, with the supporting papers listed.
+limit: It reports what papers claim, not how well they show it. Its agreement meter reflects the sample it retrieved, not the field.
+best: Finding out quickly whether a question is contested before you commit to it.
+link: https://consensus.app
+
+## Semantic Scholar
+type: Citation check
+match: semantic scholar | semanticscholar
+does: Free index of about two hundred million papers, with citation contexts showing how later work uses a paper.
+limit: Automatically extracted metadata carries occasional errors. Its summaries are short and do not replace reading.
+best: Confirming a citation exists, then seeing who cited it and whether they agreed.
+link: https://www.semanticscholar.org
+
+## Connected Papers
+type: Discovery map
+match: connected papers | connectedpapers
+does: Builds a similarity graph around one seed paper so you can see its neighbourhood.
+limit: Similarity, not influence — a prominent paper can sit at the edge. One seed paper decides the whole map.
+best: Checking whether your five studies cluster in one corner of the field.
+link: https://www.connectedpapers.com
+
+## Research Rabbit
+type: Discovery map
+match: research rabbit | researchrabbit
+does: Follows citation chains forward and backward from a starting set, and alerts you to new work.
+limit: Recommendations inherit the bias of your starting set. Metadata comes from the same open indexes and repeats their gaps.
+best: Finding the landmark study your five papers all cite but none of you read.
+link: https://www.researchrabbit.ai
+
+## Scite
+type: Citation check
+match: scite
+does: Shows whether citing papers support, contrast or merely mention a claim, and flags retractions.
+limit: Classification is automated and imperfect. Full features need a subscription.
+best: The last check before you cite something central to your argument.
+link: https://scite.ai
+
+## Zotero
+type: Reference manager
+match: zotero | mendeley | endnote
+does: Stores references and PDFs, retrieves metadata by DOI, and formats citations in APA.
+limit: It stores whatever you feed it, including a wrong year. It checks nothing for you.
+best: Keeping the verified version of every reference, so you never re-type one from a chatbot.
+link: https://www.zotero.org
+
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="brand" id="brand"></div>
+      <div class="top-actions">
+        <a class="btn ghost sm" id="formLink" href="#" target="_blank" rel="noopener">The form</a>
+        <button class="btn ghost sm" id="themeBtn">Dark</button>
+      </div>
+    </div>
+    <nav class="steps" id="stepNav" aria-label="Steps"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="loadWarn"></div>
+
+  <!-- ══ 1 ══ -->
+  <section class="step on" id="step-1">
+    <div class="step-head"><div class="kicker">STEP 1</div><h2>What the class submitted</h2></div>
+    <div class="intro" id="intro1"></div>
+
+    <div class="statusbar">
+      <span class="dot warn" id="dot"></span>
+      <span class="txt" id="statusTxt">not loaded yet</span>
+      <button class="btn sm" id="refreshBtn">Refresh</button>
+      <label class="switch"><input type="checkbox" id="autoBox"> auto every <span id="secTxt"></span>s</label>
+      <button class="btn ghost sm" id="pasteBtn">Paste CSV instead</button>
+    </div>
+    <div id="pasteWrap" hidden style="margin-bottom:1.2rem">
+      <textarea id="pasteArea" style="width:100%;min-height:110px;border:1px solid var(--line-2);border-radius:10px;padding:.6rem;font-family:var(--mono);font-size:.78rem;background:var(--paper);color:var(--fg)" placeholder="File → Download → CSV in Google Sheets, then paste the contents here"></textarea>
+      <div class="row" style="margin-top:.5rem"><button class="btn sm" id="pasteLoad">Use this</button></div>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <h3 style="font-size:1.15rem;margin-bottom:.5rem">Keyword coverage</h3>
+    <div class="cov" id="coverage"></div>
+
+    <hr class="rule">
+    <div class="row" style="margin-bottom:.8rem">
+      <button class="btn" id="randomBtn">Pick an answer to discuss</button>
+      <button class="btn ghost sm" id="clearFocus" hidden>Clear</button>
+    </div>
+    <div id="promptBanner"></div>
+    <div class="chiprow" id="filterKw" style="margin-bottom:.5rem"></div>
+    <div class="chiprow" id="filterStance" style="margin-bottom:1rem"></div>
+    <div id="entries"></div>
+    <div class="pager"><span></span><button class="btn ghost" data-go="2">Next · The ten keywords →</button></div>
+  </section>
+
+  <!-- ══ 2 ══ -->
+  <section class="step" id="step-2">
+    <div class="step-head"><div class="kicker">STEP 2</div><h2>The ten keywords</h2></div>
+    <div class="intro" id="intro2"></div>
+    <div class="row" style="margin:1rem 0">
+      <button class="btn ghost sm" id="openAll">Open all</button>
+      <button class="btn ghost sm" id="closeAll">Close all</button>
+      <label class="switch"><input type="checkbox" id="claimedOnly"> only keywords the class chose</label>
+    </div>
+    <div class="kwgrid" id="kwGrid"></div>
+    <div class="pager"><button class="btn ghost" data-go="1">← Back</button><button class="btn ghost" data-go="3">Next · Compare →</button></div>
+  </section>
+
+  <!-- ══ 3 ══ -->
+  <section class="step" id="step-3">
+    <div class="step-head"><div class="kicker">STEP 3</div><h2>Compare and contrast</h2></div>
+    <div class="intro" id="intro3"></div>
+    <div class="cmp-pick" id="cmpPick"></div>
+    <div class="tblwrap"><table class="cmp" id="cmpTable"></table></div>
+    <hr class="rule">
+    <h3 style="font-size:1.3rem;margin-bottom:.8rem">Three topics to argue about</h3>
+    <div id="topics"></div>
+    <div class="pager"><button class="btn ghost" data-go="2">← Back</button><button class="btn ghost" data-go="4">Next · Checking citations →</button></div>
+  </section>
+
+  <!-- ══ 4 ══ -->
+  <section class="step" id="step-4">
+    <div class="step-head"><div class="kicker">STEP 4</div><h2>Checking what the AI gave you</h2></div>
+    <div class="intro" id="intro4"></div>
+
+    <div class="card tracer" style="margin:1.2rem 0">
+      <h4 style="margin-bottom:.4rem">Citation tracer</h4>
+      <p class="small muted">Paste one citation — author, year, title. The buttons search the real indexes, never a chatbot.</p>
+      <input id="tracerIn" placeholder="Bax, S. (2003). CALL — past, present and future. System.">
+      <div class="chiprow" id="tracerOut" style="margin-top:.6rem"></div>
+    </div>
+
+    <div id="checks"></div>
+    <div class="progress" id="progress"></div>
+    <h3 style="font-size:1.2rem;margin:1.4rem 0 .4rem">Red flags</h3>
+    <ul class="flags" id="flags"></ul>
+    <div class="pager"><button class="btn ghost" data-go="3">← Back</button><button class="btn ghost" data-go="5">Next · The tools →</button></div>
+  </section>
+
+  <!-- ══ 5 ══ -->
+  <section class="step" id="step-5">
+    <div class="step-head"><div class="kicker">STEP 5</div><h2>The tools, and their limits</h2></div>
+    <div class="intro" id="intro5"></div>
+    <div class="chiprow" id="toolFilter" style="margin:1rem 0"></div>
+    <div class="toolgrid" id="toolGrid"></div>
+    <div class="pager"><button class="btn ghost" data-go="4">← Back</button><button class="btn ghost" data-go="1">Back to step 1 ↑</button></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  Responses read live from the class Google Sheet. Nothing typed on this page is stored or sent anywhere — checklists stay in your own browser.
+  Text for each step lives in <code>content/*.md</code>.
+</footer>
+
+<script>
+/* a sheet id can be passed per visit: index.html?sheet=<id>&gid=<gid>
+   so the instructor can open live answers without it living in this file */
+const QS=new URLSearchParams(location.search);
+if(QS.get("sheet")) CONFIG.sheetId=QS.get("sheet").trim();
+if(QS.get("gid")) CONFIG.gid=QS.get("gid").trim();
+
+/* ══════════════ helpers ══════════════ */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const enc=encodeURIComponent;
+const linkify=s=>esc(s).replace(/(https?:\/\/[^\s<]+)/g,u=>'<a href="'+u+'" target="_blank" rel="noopener">'+u+"</a>");
+const store={
+  get(k,d){ try{ const v=localStorage.getItem(k); return v==null?d:JSON.parse(v); }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+};
+
+/* ══════════════ markdown ══════════════ */
+function mdInline(s){
+  let t=esc(s);
+  t=t.replace(/`([^`]+)`/g,(m,a)=>"<code>"+a+"</code>");
+  t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  t=t.replace(/\*([^*\n]+)\*/g,"<em>$1</em>");
+  return t;
+}
+function mdToHtml(md){
+  if(!md) return "";
+  const lines=String(md).replace(/\r\n?/g,"\n").split("\n");
+  let out="",list=null,para=[],code=null,inTable=false;
+  const flushP=()=>{ if(para.length){ out+="<p>"+mdInline(para.join(" "))+"</p>"; para=[]; } };
+  const closeL=()=>{ if(list){ out+="</"+list+">"; list=null; } };
+  const closeT=()=>{ if(inTable){ out+="</tbody></table></div>"; inTable=false; } };
+  for(const line of lines){
+    if(code!==null){
+      if(/^```/.test(line)){ out+="<pre><code>"+esc(code)+"</code></pre>"; code=null; }
+      else code+=(code?"\n":"")+line;
+      continue;
+    }
+    if(/^```/.test(line)){ flushP(); closeL(); closeT(); code=""; continue; }
+    if(/^\s*\|/.test(line)){
+      flushP(); closeL();
+      if(/^[\s|:\-]+$/.test(line)) continue;
+      const cells=line.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c=>c.trim());
+      if(!inTable){ out+='<div class="tblwrap"><table><thead><tr>'+cells.map(c=>"<th>"+mdInline(c)+"</th>").join("")+"</tr></thead><tbody>"; inTable=true; }
+      else out+="<tr>"+cells.map(c=>"<td>"+mdInline(c)+"</td>").join("")+"</tr>";
+      continue;
+    }
+    closeT();
+    if(!line.trim()){ flushP(); closeL(); continue; }
+    let m;
+    if((m=line.match(/^(#{1,6})\s+(.*)$/))){ flushP(); closeL(); const n=Math.min(m[1].length+1,6); out+="<h"+n+">"+mdInline(m[2])+"</h"+n+">"; continue; }
+    if(/^(-{3,}|\*{3,})\s*$/.test(line)){ flushP(); closeL(); out+='<hr class="rule">'; continue; }
+    if((m=line.match(/^>\s?(.*)$/))){ flushP(); closeL(); out+="<blockquote>"+mdInline(m[1])+"</blockquote>"; continue; }
+    if((m=line.match(/^\s*[-*]\s+(.*)$/))){ flushP(); if(list!=="ul"){ closeL(); out+="<ul>"; list="ul"; } out+="<li>"+mdInline(m[1])+"</li>"; continue; }
+    if((m=line.match(/^\s*\d+[.)]\s+(.*)$/))){ flushP(); if(list!=="ol"){ closeL(); out+="<ol>"; list="ol"; } out+="<li>"+mdInline(m[1])+"</li>"; continue; }
+    para.push(line.trim());
+  }
+  flushP(); closeL(); closeT();
+  if(code!==null) out+="<pre><code>"+esc(code)+"</code></pre>";
+  return out;
+}
+/* splits a file into an intro + "## " items with key: value fields */
+function parseDoc(md){
+  const clean=String(md).replace(/<!--[\s\S]*?-->/g,"").replace(/\r\n?/g,"\n");
+  const parts=clean.split(/^##\s+/m);
+  const head=parts.shift()||"";
+  const intro=head.replace(/^#\s+.*$/m,"").trim();
+  const items=parts.map(block=>{
+    const nl=block.indexOf("\n");
+    const title=(nl<0?block:block.slice(0,nl)).trim();
+    const rest=nl<0?"":block.slice(nl+1);
+    const fields={},bullets=[],body=[];
+    let cur=null;
+    for(const line of rest.split("\n")){
+      const f=line.match(/^([a-z][a-z0-9_]*):[ \t]*(.*)$/);
+      if(f){ const k=f[1],v=f[2].trim(); if(v){ fields[k]=v; cur=null; } else { fields[k]=[]; cur=k; } continue; }
+      const b=line.match(/^\s*[-*]\s+(.*)$/);
+      if(b){ if(cur&&Array.isArray(fields[cur])) fields[cur].push(b[1].trim()); else bullets.push(b[1].trim()); continue; }
+      if(!line.trim()){ cur=null; body.push(line); continue; }
+      cur=null; body.push(line);
+    }
+    return {title,fields,bullets,body:body.join("\n").trim()};
+  });
+  return {intro,items};
+}
+const listOf=v=>Array.isArray(v)?v:(v?String(v).split("|").map(s=>s.trim()).filter(Boolean):[]);
+
+/* ══════════════ lookup links ══════════════ */
+function lookups(cite){
+  const q=cite.replace(/\*/g,"").replace(/\s*\|\s*(doi:|https?:)[^|]*$/i,"").replace(/[()]/g," ").replace(/\s+/g," ").trim();
+  return [
+    ["Scholar","https://scholar.google.com/scholar?q="+enc(q)],
+    ["Crossref","https://search.crossref.org/search/works?q="+enc(q)+"&from_ui=yes"],
+    ["OpenAlex","https://openalex.org/works?page=1&filter=default.search%3A"+enc(q)],
+    ["Semantic Scholar","https://www.semanticscholar.org/search?q="+enc(q)]
+  ];
+}
+function sourceParts(raw){
+  const m=String(raw).split(/\s\|\s/);
+  const cite=m[0].trim();
+  let pin=null;
+  if(m[1]){
+    const t=m[1].trim();
+    if(/^doi:/i.test(t)) pin=["DOI","https://doi.org/"+t.replace(/^doi:\s*/i,"")];
+    else if(/^https?:/i.test(t)) pin=["Open",t];
+  }
+  return {cite,pin};
+}
+function srcHtml(raw){
+  const {cite,pin}=sourceParts(raw);
+  const links=(pin?[pin]:[]).concat(lookups(cite));
+  return '<div class="src"><div class="cite">'+mdInline(cite)+'</div><div class="links">'+
+    links.map(([n,u])=>'<a href="'+u+'" target="_blank" rel="noopener">'+n+'</a>').join("")+"</div></div>";
+}
+
+/* ══════════════ state ══════════════ */
+const S={cards:[],topics:[],checks:[],flags:[],tools:[],prompts:[],intros:{},
+  rows:[],fKw:"all",fStance:"all",focus:null,
+  cmpPick:[],cmpTouched:false,toolType:"all",claimedOnly:false,timer:null,loaded:false};
+
+/* ══════════════ boot ══════════════ */
+$("#brand").innerHTML=esc(CONFIG.courseTitle)+"<span>"+esc(CONFIG.sessionTitle)+"</span>";
+$("#formLink").href=CONFIG.formUrl||"#";
+$("#secTxt").textContent=CONFIG.refreshSeconds;
+$("#autoBox").checked=!!CONFIG.autoRefresh;
+
+const STEPS=[["1","What the class submitted"],["2","The ten keywords"],["3","Compare and contrast"],["4","Checking citations"],["5","The tools"]];
+$("#stepNav").innerHTML=STEPS.map(([n,t],i)=>'<button class="step-btn" data-go="'+n+'" aria-current="'+(i===0)+'"><b>'+n+'</b>'+esc(t)+"</button>").join("");
+function goStep(n){
+  $$(".step").forEach(s=>s.classList.toggle("on",s.id==="step-"+n));
+  $$(".step-btn").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===String(n))));
+  if(location.hash!=="#step-"+n) history.replaceState(null,"","#step-"+n);
+  window.scrollTo({top:0});
+}
+document.addEventListener("click",e=>{ const b=e.target.closest("[data-go]"); if(b) goStep(b.dataset.go); });
+
+const themeBtn=$("#themeBtn");
+function applyTheme(t){ document.documentElement.dataset.theme=t; themeBtn.textContent=t==="dark"?"Light":"Dark"; store.set("kw-theme",t); }
+applyTheme(store.get("kw-theme","light"));
+themeBtn.onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+/* ══════════════ content ══════════════ */
+const FILES={1:"content/01-answers.md",2:"content/02-keywords.md",3:"content/03-compare.md",4:"content/04-verify.md",5:"content/05-tools.md"};
+async function loadContent(){
+  const texts={};
+  await Promise.all(Object.entries(FILES).map(async ([k,path])=>{
+    /* build-single-file.py inlines each file into a script block; use that when present */
+    const inline=document.getElementById("md"+k);
+    if(inline){ texts[k]=inline.textContent; return; }
+    try{ const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw new Error("HTTP "+r.status); texts[k]=await r.text(); }
+    catch(err){ texts[k]=null; }
+  }));
+  if(Object.values(texts).every(t=>t===null)){
+    $("#loadWarn").innerHTML='<div class="banner"><strong>The content files did not load.</strong> This page reads <code>content/*.md</code>, which browsers block when a file is opened directly from disk. Serve the folder instead — in Terminal, <code>cd</code> into it and run <code>python3 -m http.server 8000</code>, then open <code>http://localhost:8000</code>. Once it is on a web host, it just works.</div>';
+    return;
+  }
+  const d1=parseDoc(texts[1]||""), d2=parseDoc(texts[2]||""), d3=parseDoc(texts[3]||""),
+        d4=parseDoc(texts[4]||""), d5=parseDoc(texts[5]||"");
+
+  $("#intro1").innerHTML=mdToHtml(d1.intro);
+  const pr=d1.items.find(i=>/prompt/i.test(i.title));
+  S.prompts=pr?pr.bullets:[];
+  const how=d1.items.filter(i=>!/prompt/i.test(i.title));
+  if(how.length) $("#intro1").innerHTML+=how.map(i=>"<h3>"+esc(i.title)+"</h3>"+(i.bullets.length?"<ul>"+i.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+mdToHtml(i.body)).join("");
+
+  S.cards=d2.items.map((it,i)=>{
+    const [acr,...rest]=it.title.split(/\s+[—–-]\s+/);
+    return {id:"k"+i, acr:acr.trim(), name:(rest.join(" — ")||acr).trim(), f:it.fields,
+            match:listOf(it.fields.match).concat([acr.trim()]).map(s=>s.toLowerCase())};
+  });
+  $("#intro2").innerHTML=mdToHtml(d2.intro);
+
+  $("#intro3").innerHTML=mdToHtml(d3.intro);
+  S.topics=d3.items;
+
+  $("#intro4").innerHTML=mdToHtml(d4.intro);
+  S.checks=d4.items.filter(i=>i.fields.kind!=="flags");
+  const fl=d4.items.find(i=>i.fields.kind==="flags");
+  S.flags=fl?fl.bullets:[];
+
+  $("#intro5").innerHTML=mdToHtml(d5.intro);
+  S.tools=d5.items.map(it=>({name:it.title, f:it.fields, match:listOf(it.fields.match).concat([it.title]).map(s=>s.toLowerCase())}));
+
+  S.loaded=true;
+  renderCards(); renderCompare(); renderVerify(); renderTools();
+}
+
+/* ══════════════ CSV ══════════════ */
+function parseCSV(text){
+  const rows=[]; let row=[],field="",i=0,q=false;
+  text=text.replace(/\r\n/g,"\n").replace(/\r/g,"\n");
+  while(i<text.length){
+    const ch=text[i];
+    if(q){ if(ch==='"'){ if(text[i+1]==='"'){ field+='"'; i+=2; continue; } q=false; i++; continue; } field+=ch; i++; continue; }
+    if(ch==='"'){ q=true; i++; continue; }
+    if(ch===","){ row.push(field); field=""; i++; continue; }
+    if(ch==="\n"){ row.push(field); rows.push(row); row=[]; field=""; i++; continue; }
+    field+=ch; i++;
+  }
+  row.push(field); rows.push(row);
+  return rows.filter(r=>r.some(c=>String(c).trim()!==""));
+}
+function sheetCsvUrl(){
+  let u="https://docs.google.com/spreadsheets/d/"+CONFIG.sheetId+"/gviz/tq?tqx=out:csv&headers=1";
+  if(CONFIG.gid) u+="&gid="+encodeURIComponent(CONFIG.gid);
+  return u+"&_cb="+Date.now();
+}
+const COLDEFS=[
+  ["time",/時間戳記|timestamp/i],
+  /* name, student number and both email columns are deliberately never read:
+     this page has no way to display them, so it does not hold them either. */
+  ["keyword",/keyword/i],
+  ["drive",/drive link|google drive|link containing|5 studies/i],
+  ["tools",/tools you used|ai tools/i],
+  ["ai",/ai[-\s]?generated summary|summary generated/i],
+  ["own",/your own summary|own summary/i],
+  ["agree",/agree/i],
+  ["verify",/verify|accuracy/i]
+];
+function mapCols(header){
+  const idx={},used=new Set();
+  COLDEFS.forEach(([key,re])=>{
+    for(let i=0;i<header.length;i++){
+      if(used.has(i)) continue;
+      if(re.test(header[i])){ idx[key]=i; used.add(i); break; }
+    }
+  });
+  return idx;
+}
+function parseTS(s){
+  const m=String(s).match(/(\d{4})[\/\-.](\d{1,2})[\/\-.](\d{1,2})[^\d]*(上午|下午|AM|PM)?\s*(\d{1,2}):(\d{2})(?::(\d{2}))?/i);
+  if(!m) return 0;
+  let h=+m[5]; const mark=m[4]||"";
+  if((mark==="下午"||/PM/i.test(mark))&&h<12) h+=12;
+  if((mark==="上午"||/AM/i.test(mark))&&h===12) h=0;
+  return new Date(+m[1],+m[2]-1,+m[3],h,+m[6],+(m[7]||0)).getTime();
+}
+function cardFor(text){
+  const t=String(text||"").toLowerCase();
+  if(!t.trim()) return null;
+  let best=null,len=0;
+  S.cards.forEach(c=>c.match.forEach(tok=>{
+    if(!tok) return;
+    const hit=tok.length<=6 ? new RegExp("\\b"+tok.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\b").test(t) : t.includes(tok);
+    if(hit&&tok.length>len){ best=c; len=tok.length; }
+  }));
+  return best;
+}
+function toolsFor(text){
+  let t=" "+String(text||"").toLowerCase()+" ";
+  if(!t.trim()) return [];
+  const pairs=[];
+  S.tools.forEach(tool=>tool.match.forEach(tok=>{ if(tok) pairs.push([tok,tool.name]); }));
+  pairs.sort((a,b)=>b[0].length-a[0].length);
+  const found=[];
+  pairs.forEach(([tok,name])=>{
+    const rx=new RegExp(tok.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"g");
+    if(rx.test(t)){ if(!found.includes(name)) found.push(name); t=t.replace(rx," "); }
+  });
+  if(!found.length&&String(text||"").trim()) found.push("Other");
+  return found;
+}
+function stanceOf(text){
+  const t=String(text||"").toLowerCase().trim();
+  if(!t) return "unclear";
+  if(/(not fully agree|don'?t fully agree|do not fully agree|partly|partially|mostly|to a large extent|to some extent|somewhat|in part|yes and no|depends|mixed|部分|大致)/.test(t)) return "partly";
+  if(/(i disagree|do not agree|don'?t agree|cannot agree|can'?t agree|^no[,. ]|不同意|不認同)/.test(t)) return "disagree";
+  if(/(i agree|agree with|^yes|同意|認同)/.test(t)) return "agree";
+  return "unclear";
+}
+function normalise(table){
+  if(!table.length) return [];
+  const idx=mapCols(table[0].map(h=>String(h).trim()));
+  const out=table.slice(1).map(r=>{
+    const g=k=>idx[k]!=null?String(r[idx[k]]||"").trim():"";
+    const kw=g("keyword"), card=cardFor(kw);
+    return {ts:parseTS(g("time")), tsRaw:g("time"),
+      keywordText:kw, card, drive:g("drive"), toolsText:g("tools"), tools:toolsFor(g("tools")),
+      ai:g("ai"), own:g("own"), agree:g("agree"), stance:stanceOf(g("agree")), verify:g("verify")};
+  }).filter(r=>r.keywordText||r.ai||r.own);
+  out.sort((a,b)=>a.ts-b.ts);
+  out.forEach((r,i)=>{ r.label="Student "+String(i+1).padStart(2,"0"); r.i=i; });
+  return out;
+}
+function setStatus(msg,kind){
+  $("#dot").className="dot"+(kind?" "+kind:"");
+  $("#statusTxt").textContent=msg;
+}
+async function loadResponses(silent){
+  if(!CONFIG.sheetId){ setStatus("live answers are turned off in this copy","warn"); renderLive(); return; }
+  if(!silent) setStatus("reading the sheet…","warn");
+  try{
+    const res=await fetch(sheetCsvUrl(),{cache:"no-store"});
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    const text=await res.text();
+    if(/^\s*<(!doctype|html)/i.test(text)) throw new Error("the sheet is not shared publicly");
+    S.rows=normalise(parseCSV(text));
+    renderLive();
+    setStatus(S.rows.length+" responses · updated "+new Date().toLocaleTimeString());
+  }catch(err){
+    setStatus(location.protocol==="file:"
+      ? "opened from disk, so the browser blocks Google Sheets — serve the folder over http, or use “Paste CSV instead”"
+      : "could not read the sheet ("+err.message+") — check it is shared as “Anyone with the link”, or paste the CSV","bad");
+  }
+}
+function setAuto(){
+  clearInterval(S.timer);
+  if($("#autoBox").checked) S.timer=setInterval(()=>loadResponses(true),Math.max(15,CONFIG.refreshSeconds)*1000);
+}
+
+/* ══════════════ step 1 render ══════════════ */
+function bars(pairs,colour){
+  if(!pairs.length) return '<p class="small muted">Nothing yet.</p>';
+  const max=Math.max(1,...pairs.map(p=>p[1]));
+  return pairs.map(([l,n])=>'<div class="bar"><span>'+esc(l)+'</span><span class="track"><span class="fill" style="width:'+(n/max*100).toFixed(1)+"%"+(colour?";background:"+colour(l):"")+'"></span></span><span class="n">'+n+"</span></div>").join("");
+}
+function renderLive(){
+  const rows=S.rows;
+  const claimed=S.cards.filter(c=>rows.some(r=>r.card===c));
+  const stanceLabels={agree:"Agrees",partly:"Agrees in part",disagree:"Disagrees",unclear:"Not stated"};
+  const sp=["agree","partly","disagree","unclear"].map(k=>[stanceLabels[k],rows.filter(r=>r.stance===k).length]).filter(p=>p[1]);
+  const tc={}; rows.forEach(r=>r.tools.forEach(t=>tc[t]=(tc[t]||0)+1));
+  $("#stats").innerHTML=
+    '<div class="stat"><h4>Submissions</h4><div class="big">'+rows.length+'</div><div class="small muted">'+claimed.length+" of "+S.cards.length+" keywords covered</div></div>"+
+    '<div class="stat"><h4>Do they agree with the AI?</h4>'+bars(sp,l=>l==="Agrees"?"var(--green)":l==="Disagrees"?"var(--red)":l==="Agrees in part"?"var(--burnt)":"var(--line-2)")+"</div>"+
+    '<div class="stat"><h4>Tools used</h4>'+bars(Object.entries(tc).sort((a,b)=>b[1]-a[1]).slice(0,8))+"</div>";
+
+  $("#coverage").innerHTML=S.cards.map(c=>{
+    const who=rows.filter(r=>r.card===c);
+    return '<div class="cov-cell'+(who.length?" claimed":"")+'"><div class="k">'+esc(c.acr)+'</div><div class="v">'+
+      (who.length?who.length+(who.length>1?" answers":" answer"):"not chosen")+"</div></div>";
+  }).join("");
+
+  $("#filterKw").innerHTML='<button class="chip'+(S.fKw==="all"?" on":"")+'" data-fkw="all">All ('+rows.length+")</button>"+
+    claimed.map(c=>'<button class="chip'+(S.fKw===c.id?" on":"")+'" data-fkw="'+c.id+'">'+esc(c.acr)+" ("+rows.filter(r=>r.card===c).length+")</button>").join("")+
+    (rows.some(r=>!r.card)?'<button class="chip'+(S.fKw==="none"?" on":"")+'" data-fkw="none">Unmatched</button>':"");
+  $("#filterStance").innerHTML=["all","agree","partly","disagree","unclear"].map(k=>
+    '<button class="chip'+(S.fStance===k?" on":"")+'" data-fst="'+k+'">'+(k==="all"?"Any view":stanceLabels[k])+"</button>").join("");
+
+  const list=rows.filter(r=>(S.fKw==="all"||(S.fKw==="none"?!r.card:r.card&&r.card.id===S.fKw))&&(S.fStance==="all"||r.stance===S.fStance));
+  $("#entries").innerHTML=list.length?list.map(entryHtml).join(""):
+    (CONFIG.sheetId?'<div class="empty">No answers here yet. If the sheet is empty this is normal before class; otherwise check the sharing setting.</div>'
+      :'<div class="empty">This copy does not show the class answers. We look at those together in the seminar — start from Step 2.</div>');
+  if(S.focus!=null){ const el=$("#e"+S.focus); if(el) el.classList.add("focus"); }
+  if(!S.cmpTouched){ S.cmpPick=[]; renderCompare(); }
+  renderCards(); renderTools();
+}
+function entryHtml(r){
+  const who=esc(r.label);
+  const kw=r.card?esc(r.card.acr):(r.keywordText?esc(r.keywordText):"no keyword");
+  const stanceText={agree:"agrees",partly:"agrees in part",disagree:"disagrees",unclear:"view not stated"}[r.stance];
+  const when=r.ts?new Date(r.ts).toLocaleDateString(undefined,{month:"short",day:"numeric"}):"";
+  const col=(cls,title,text)=>'<div class="col '+cls+'"><h4>'+title+'</h4><div class="txt clamp">'+(linkify(text)||"<em>empty</em>")+
+    '</div>'+(String(text).length>420?'<button class="more" data-more>Show all</button>':"")+"</div>";
+  return '<article class="entry" id="e'+r.i+'">'+
+    '<div class="entry-top"><span class="who">'+who+'</span><span class="chip flat">'+kw+"</span>"+
+      (when?'<span class="small muted">'+when+"</span>":"")+
+      '<span class="stance '+r.stance+'">'+stanceText+"</span></div>"+
+    '<div class="cols">'+col("ai","AI summary",r.ai)+col("own","Their own summary",r.own)+"</div>"+
+    (r.agree?'<details class="sub"><summary>Why they agree or not</summary><div class="txt">'+linkify(r.agree)+"</div></details>":"")+
+    (r.verify?'<details class="sub"><summary>How they checked it</summary><div class="txt">'+linkify(r.verify)+"</div></details>":"")+
+    '<div class="entry-foot">'+(r.tools.length?"<span>Tools: "+esc(r.tools.join(", "))+"</span>":"")+
+      (/^https?:/.test(r.drive)?'<a href="'+esc(r.drive)+'" target="_blank" rel="noopener">The five studies ↗</a>':'<span style="color:var(--burnt)">no link given</span>')+
+    "</div></article>";
+}
+$("#entries").addEventListener("click",e=>{
+  const b=e.target.closest("[data-more]"); if(!b) return;
+  const t=b.parentElement.querySelector(".txt");
+  t.classList.toggle("clamp");
+  b.textContent=t.classList.contains("clamp")?"Show all":"Show less";
+});
+$("#filterKw").addEventListener("click",e=>{ const b=e.target.closest("[data-fkw]"); if(!b) return; S.fKw=b.dataset.fkw; S.focus=null; renderLive(); });
+$("#filterStance").addEventListener("click",e=>{ const b=e.target.closest("[data-fst]"); if(!b) return; S.fStance=b.dataset.fst; S.focus=null; renderLive(); });
+$("#refreshBtn").onclick=()=>loadResponses();
+$("#autoBox").onchange=setAuto;
+$("#pasteBtn").onclick=()=>{ const w=$("#pasteWrap"); w.hidden=!w.hidden; };
+$("#pasteLoad").onclick=()=>{
+  const t=$("#pasteArea").value;
+  S.rows=normalise(t.includes("\t")&&!t.includes(",")?t.split("\n").map(l=>l.split("\t")):parseCSV(t));
+  renderLive(); setStatus(S.rows.length+" responses loaded from pasted text","warn");
+};
+$("#randomBtn").onclick=()=>{
+  const list=S.rows.filter(r=>(S.fKw==="all"||(S.fKw==="none"?!r.card:r.card&&r.card.id===S.fKw))&&(S.fStance==="all"||r.stance===S.fStance));
+  if(!list.length) return;
+  const pick=list[Math.floor(Math.random()*list.length)];
+  S.focus=pick.i;
+  const prompt=S.prompts.length?S.prompts[Math.floor(Math.random()*S.prompts.length)]:"";
+  $("#promptBanner").innerHTML='<div class="prompt-banner"><strong>'+esc(pick.label)+"</strong> — "+mdInline(prompt)+"</div>";
+  $("#clearFocus").hidden=false;
+  renderLive();
+  const el=$("#e"+pick.i); if(el) el.scrollIntoView({block:"center"});
+};
+$("#clearFocus").onclick=()=>{ S.focus=null; $("#promptBanner").innerHTML=""; $("#clearFocus").hidden=true; renderLive(); };
+
+/* ══════════════ step 2 render ══════════════ */
+function runLinks(q){
+  return [["Scholar","https://scholar.google.com/scholar?q="+enc(q)],
+    ["OpenAlex","https://openalex.org/works?page=1&filter=default.search%3A"+enc(q)],
+    ["ERIC","https://eric.ed.gov/?q="+enc(q)],
+    ["Semantic Scholar","https://www.semanticscholar.org/search?q="+enc(q)],
+    ["Crossref","https://search.crossref.org/search/works?q="+enc(q)+"&from_ui=yes"]];
+}
+function renderCards(){
+  const open=new Set($$(".kw.open").map(e=>e.dataset.id));
+  const cards=S.claimedOnly?S.cards.filter(c=>S.rows.some(r=>r.card===c)):S.cards;
+  $("#kwGrid").innerHTML=cards.map(c=>{
+    const f=c.f, n=S.rows.filter(r=>r.card===c).length;
+    const body='<div class="kw-body">'+
+      (f.definition?"<p>"+mdInline(f.definition)+"</p>":"")+
+      '<div class="kw-cols">'+
+        (listOf(f.contested).length?'<div><h4>What is argued about</h4><ul>'+listOf(f.contested).map(x=>"<li>"+mdInline(x)+"</li>").join("")+"</ul></div>":"")+
+        '<div><h4>The typical study</h4><ul>'+
+          (f.unit?"<li><strong>Unit:</strong> "+mdInline(f.unit)+"</li>":"")+
+          (f.method?"<li><strong>Method:</strong> "+mdInline(f.method)+"</li>":"")+
+          (f.evidence?"<li><strong>Thinnest evidence:</strong> "+mdInline(f.evidence)+"</li>":"")+
+        "</ul></div>"+
+      "</div>"+
+      (f.search?'<h4>A search string to break and rebuild</h4><div class="string">'+esc(f.search)+"</div>"+
+        '<div class="chiprow" style="margin-top:.5rem"><button class="chip" data-copy="'+esc(f.search)+'">Copy</button>'+
+        runLinks(f.search).map(([n2,u])=>'<a class="chip" href="'+u+'" target="_blank" rel="noopener">'+n2+" ↗</a>").join("")+"</div>":"")+
+      (listOf(f.sources).length?"<h4>Sources — check each one</h4>"+listOf(f.sources).map(srcHtml).join(""):"")+
+      (f.check?'<p class="note">'+mdInline(f.check)+"</p>":"")+
+    "</div>";
+    return '<div class="kw'+(open.has(c.id)?" open":"")+'" data-id="'+c.id+'">'+
+      '<button class="kw-head" data-toggle="'+c.id+'" aria-expanded="'+open.has(c.id)+'">'+
+        '<div class="kw-acr">'+esc(c.acr).toUpperCase()+'</div><div class="kw-name">'+esc(c.name)+"</div>"+
+        '<div class="kw-line">'+mdInline(f.line||"")+"</div>"+
+        (n?'<div class="kw-badge">'+n+" answer"+(n>1?"s":"")+" in class</div>":"")+
+      "</button>"+(open.has(c.id)?body:"")+"</div>";
+  }).join("")||'<div class="empty">No keyword cards loaded.</div>';
+}
+$("#kwGrid").addEventListener("click",e=>{
+  const cp=e.target.closest("[data-copy]");
+  if(cp){ navigator.clipboard&&navigator.clipboard.writeText(cp.dataset.copy); const o=cp.textContent; cp.textContent="Copied"; setTimeout(()=>cp.textContent=o,1200); return; }
+  const h=e.target.closest("[data-toggle]"); if(!h) return;
+  const el=h.closest(".kw"); const wasOpen=el.classList.contains("open");
+  el.classList.toggle("open",!wasOpen);
+  renderCards();
+  if(!wasOpen){ const now=$('.kw[data-id="'+h.dataset.toggle+'"]'); if(now) now.scrollIntoView({block:"nearest"}); }
+});
+$("#openAll").onclick=()=>{ $$(".kw").forEach(e=>e.classList.add("open")); renderCards(); };
+$("#closeAll").onclick=()=>{ $$(".kw").forEach(e=>e.classList.remove("open")); renderCards(); };
+$("#claimedOnly").onchange=e=>{ S.claimedOnly=e.target.checked; renderCards(); };
+
+/* ══════════════ step 3 render ══════════════ */
+function renderCompare(){
+  if(!S.cards.length) return;
+  if(!S.cmpPick.length){
+    const claimed=S.cards.filter(c=>S.rows.some(r=>r.card===c)).map(c=>c.id);
+    S.cmpPick=(claimed.length?claimed:S.cards.slice(0,3).map(c=>c.id)).slice(0,4);
+  }
+  $("#cmpPick").innerHTML=S.cards.map(c=>'<button class="chip'+(S.cmpPick.includes(c.id)?" on":"")+'" data-cmp="'+c.id+'">'+esc(c.acr)+"</button>").join("");
+  const pick=S.cards.filter(c=>S.cmpPick.includes(c.id));
+  if(!pick.length){ $("#cmpTable").innerHTML='<tbody><tr><td class="muted">Choose at least one keyword.</td></tr></tbody>'; }
+  else{
+    const rows=[["In one line","line"],["Unit of analysis","unit"],["Usual method","method"],["Thinnest evidence","evidence"],["Database trap","check"]];
+    $("#cmpTable").innerHTML="<thead><tr><th></th>"+pick.map(c=>"<th>"+esc(c.acr)+"</th>").join("")+"</tr></thead><tbody>"+
+      rows.map(([label,key])=>"<tr><td>"+label+"</td>"+pick.map(c=>"<td>"+mdInline(c.f[key]||"—")+"</td>").join("")+"</tr>").join("")+
+      "<tr><td>Search string</td>"+pick.map(c=>'<td><code>'+esc(c.f.search||"—")+"</code></td>").join("")+"</tr>"+
+      "</tbody>";
+  }
+  $("#topics").innerHTML=S.topics.map(t=>{
+    const kws=listOf(t.fields.keywords);
+    return '<div class="topic"><h3>'+esc(t.title)+"</h3>"+
+      (t.fields.why?'<p class="muted">'+mdInline(t.fields.why)+"</p>":"")+
+      '<div class="chiprow">'+kws.map(k=>{
+        const c=S.cards.find(x=>x.acr.toLowerCase()===k.toLowerCase());
+        return c?'<button class="chip" data-jump="'+c.id+'">'+esc(c.acr)+"</button>":'<span class="chip flat">'+esc(k)+"</span>";
+      }).join("")+"</div>"+
+      (t.bullets.length?"<ul>"+t.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
+      mdToHtml(t.body)+"</div>";
+  }).join("");
+}
+$("#cmpPick").addEventListener("click",e=>{
+  const b=e.target.closest("[data-cmp]"); if(!b) return;
+  const id=b.dataset.cmp; S.cmpTouched=true;
+  S.cmpPick=S.cmpPick.includes(id)?S.cmpPick.filter(x=>x!==id):S.cmpPick.concat([id]);
+  renderCompare();
+});
+$("#topics").addEventListener("click",e=>{
+  const b=e.target.closest("[data-jump]"); if(!b) return;
+  goStep(2);
+  $$(".kw").forEach(el=>el.classList.toggle("open",el.dataset.id===b.dataset.jump));
+  renderCards();
+  const el=$('.kw[data-id="'+b.dataset.jump+'"]'); if(el) el.scrollIntoView({block:"center"});
+});
+
+/* ══════════════ step 4 render ══════════════ */
+function renderVerify(){
+  const state=store.get("kw-checks",{});
+  $("#checks").innerHTML=S.checks.map((c,i)=>
+    '<label class="check'+(state[i]?" done":"")+'"><input type="checkbox" data-check="'+i+'"'+(state[i]?" checked":"")+">"+
+    "<span><h4>"+esc(c.title)+"</h4>"+
+    (c.fields.do?'<div class="do">'+mdInline(c.fields.do)+"</div>":"")+
+    (c.fields.fail?'<div class="fail"><strong>Looks like:</strong> '+mdInline(c.fields.fail)+"</div>":"")+
+    (c.bullets.length?"<ul>"+c.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
+    "</span></label>").join("");
+  $("#flags").innerHTML=S.flags.map(f=>"<li>"+mdInline(f)+"</li>").join("");
+  paintProgress();
+}
+function paintProgress(){
+  const n=$$("#checks input:checked").length, t=S.checks.length;
+  $("#progress").textContent=t?(n===t?"All "+t+" checks pass. Now write one sentence: what would still have to be true for this summary to be wrong?":n+" of "+t+" checked"):"";
+}
+$("#checks").addEventListener("change",e=>{
+  const b=e.target.closest("[data-check]"); if(!b) return;
+  b.closest(".check").classList.toggle("done",b.checked);
+  const state=store.get("kw-checks",{}); state[b.dataset.check]=b.checked; store.set("kw-checks",state);
+  paintProgress();
+});
+$("#tracerIn").addEventListener("input",e=>{
+  const q=e.target.value.trim();
+  if(!q){ $("#tracerOut").innerHTML=""; return; }
+  const links=lookups(q).concat([
+    ["DOI lookup","https://search.crossref.org/search/works?q="+enc(q)+"&from_ui=yes"],
+    ["ERIC","https://eric.ed.gov/?q="+enc(q)],
+    ["Retraction Watch","https://retractiondatabase.org/RetractionSearch.aspx"]
+  ]);
+  $("#tracerOut").innerHTML=links.map(([n,u])=>'<a class="chip" href="'+u+'" target="_blank" rel="noopener">'+n+" ↗</a>").join("");
+});
+
+/* ══════════════ step 5 render ══════════════ */
+function renderTools(){
+  const types=[...new Set(S.tools.map(t=>t.f.type).filter(Boolean))];
+  $("#toolFilter").innerHTML='<button class="chip'+(S.toolType==="all"?" on":"")+'" data-tt="all">All</button>'+
+    types.map(t=>'<button class="chip'+(S.toolType===t?" on":"")+'" data-tt="'+esc(t)+'">'+esc(t)+"</button>").join("");
+  const list=S.tools.filter(t=>S.toolType==="all"||t.f.type===S.toolType);
+  $("#toolGrid").innerHTML=list.map(t=>{
+    const used=S.rows.filter(r=>r.tools.includes(t.name)).length;
+    const cls=/ground/i.test(t.f.type||"")?"grounded":/chatbot/i.test(t.f.type||"")?"chatbot":"";
+    return '<div class="tool"><div class="tool-top"><h3>'+esc(t.name)+"</h3>"+
+      (t.f.type?'<span class="type '+cls+'">'+esc(t.f.type)+"</span>":"")+
+      (used?'<span class="used">'+used+" in class</span>":"")+"</div>"+
+      "<dl>"+
+      (t.f.does?"<dt>Does</dt><dd>"+mdInline(t.f.does)+"</dd>":"")+
+      (t.f.limit?"<dt>Cannot do</dt><dd>"+mdInline(t.f.limit)+"</dd>":"")+
+      (t.f.best?"<dt>Use it for</dt><dd>"+mdInline(t.f.best)+"</dd>":"")+
+      "</dl>"+
+      (t.f.link?'<div class="chiprow" style="margin-top:.6rem"><a class="chip" href="'+esc(t.f.link)+'" target="_blank" rel="noopener">Open ↗</a></div>':"")+
+      "</div>";
+  }).join("")||'<div class="empty">No tools listed.</div>';
+}
+$("#toolFilter").addEventListener("click",e=>{ const b=e.target.closest("[data-tt]"); if(!b) return; S.toolType=b.dataset.tt; renderTools(); });
+
+/* ══════════════ go ══════════════ */
+(async function(){
+  await loadContent();
+  await loadResponses();
+  setAuto();
+  renderCards(); renderCompare(); renderTools();
+  const h=(location.hash.match(/^#step-([1-5])$/)||[])[1];
+  if(h) goStep(h);
+})();
+</script>
+</body>
+</html>

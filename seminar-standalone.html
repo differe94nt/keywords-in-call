@@ -18,11 +18,16 @@ const CONFIG = {
   courseTitle: "英語數位教材與教學",
   sessionTitle: "Keywords, AI summaries, and checking the citations",
 
-  // Response sheet. Empty here on purpose: this file is public, and a sheet
-  // id in it makes the sheet findable by anyone. Two ways to fill it:
-  //   · put an ANONYMISED sheet's id here (see README) — for everyone, always;
-  //   · or add ?sheet=<id> to the page's address — just for that visit.
-  // Either sheet must be shared "Anyone with the link — Viewer".
+  // Where the answers come from. Both are empty on purpose: this file is
+  // public, and anything here points the whole internet at that data.
+  //
+  // csvUrl — the safe one. In Sheets: File → Share → Publish to web →
+  // choose your ANONYMISED tab → Comma-separated values (.csv) → Publish.
+  // Paste the link it gives you. The spreadsheet itself can stay private;
+  // only that one tab is readable. See README.
+  csvUrl: "",
+  // sheetId — the id of a sheet shared "Anyone with the link — Viewer".
+  // Use it only for a sheet that carries no names or emails.
   sheetId: "",
   gid: "",                 // optional: a specific tab's gid
 
@@ -811,6 +816,7 @@ link: https://www.zotero.org
 const QS=new URLSearchParams(location.search);
 if(QS.get("sheet")) CONFIG.sheetId=QS.get("sheet").trim();
 if(QS.get("gid")) CONFIG.gid=QS.get("gid").trim();
+if(QS.get("csv")) CONFIG.csvUrl=QS.get("csv").trim();
 
 /* ══════════════ helpers ══════════════ */
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -1009,9 +1015,12 @@ function parseCSV(text){
   return rows.filter(r=>r.some(c=>String(c).trim()!==""));
 }
 function sheetCsvUrl(){
-  let u="https://docs.google.com/spreadsheets/d/"+CONFIG.sheetId+"/gviz/tq?tqx=out:csv&headers=1";
-  if(CONFIG.gid) u+="&gid="+encodeURIComponent(CONFIG.gid);
-  return u+"&_cb="+Date.now();
+  /* a published-to-web link is used as given; an id is turned into one */
+  let u=CONFIG.csvUrl
+    ? CONFIG.csvUrl
+    : "https://docs.google.com/spreadsheets/d/"+CONFIG.sheetId+"/gviz/tq?tqx=out:csv&headers=1"
+      +(CONFIG.gid?"&gid="+encodeURIComponent(CONFIG.gid):"");
+  return u+(u.indexOf("?")<0?"?":"&")+"_cb="+Date.now();
 }
 const COLDEFS=[
   ["time",/時間戳記|timestamp/i],
@@ -1095,7 +1104,7 @@ function setStatus(msg,kind){
   $("#statusTxt").textContent=msg;
 }
 async function loadResponses(silent){
-  if(!CONFIG.sheetId){ setStatus("live answers are turned off in this copy","warn"); renderLive(); return; }
+  if(!CONFIG.sheetId&&!CONFIG.csvUrl){ setStatus("live answers are turned off in this copy","warn"); renderLive(); return; }
   if(!silent) setStatus("reading the sheet…","warn");
   try{
     const res=await fetch(sheetCsvUrl(),{cache:"no-store"});
@@ -1147,7 +1156,7 @@ function renderLive(){
 
   const list=rows.filter(r=>(S.fKw==="all"||(S.fKw==="none"?!r.card:r.card&&r.card.id===S.fKw))&&(S.fStance==="all"||r.stance===S.fStance));
   $("#entries").innerHTML=list.length?list.map(entryHtml).join(""):
-    (CONFIG.sheetId?'<div class="empty">No answers here yet. If the sheet is empty this is normal before class; otherwise check the sharing setting.</div>'
+    ((CONFIG.sheetId||CONFIG.csvUrl)?'<div class="empty">No answers here yet. If the sheet is empty this is normal before class; otherwise check the sharing setting.</div>'
       :'<div class="empty">This copy does not show the class answers. We look at those together in the seminar — start from Step 2.</div>');
   if(S.focus!=null){ const el=$("#e"+S.focus); if(el) el.classList.add("focus"); }
   if(!S.cmpTouched){ S.cmpPick=[]; renderCompare(); }

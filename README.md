@@ -50,73 +50,69 @@ Cloudflare Pages, or your university web space.
 
 ## The response sheet
 
-The page reads the sheet live through Google's CSV endpoint. The sheet must be shared
-**Anyone with the link → Viewer**, and the page needs its ID — the part of the sheet URL between
-`/d/` and `/edit`.
+The page ships with **no data source at all**, because this repository is public and anything named
+here points the whole internet at that data. There are three ways to feed it, in order of how
+much they expose:
 
-`sheetId` ships **empty**, because this file is public and an ID in it makes that sheet findable by
-anyone. Fill it one of two ways:
+| Setting | What is exposed | Freshness |
+| --- | --- | --- |
+| `csvUrl` — a published anonymised tab | only that tab | a few minutes behind |
+| `sheetId` — a sheet shared "Anyone with the link" | the whole spreadsheet | instant |
+| `?sheet=<id>` in the address | nothing in the repo; only whoever holds the link | instant |
 
-- **For everyone, permanently:** put an *anonymised* sheet's ID in `index.html` (recipe below).
-- **For one visit:** add it to the address instead, and commit nothing —
+Use **`csvUrl` for the students' page** and **`?sheet=` for the copy you project**. The recipe is
+below.
 
-  ```
-  https://<your-pages-url>/?sheet=<the response sheet’s id>
-  ```
+Columns are found by name, so you can reorder them. The page looks for headings containing:
+*timestamp / 時間戳記*, *keyword*, *drive link*, *AI tools*, *AI-generated summary*,
+*your own summary*, *agree*, *verify*. Name, student number and email columns are never read.
 
-  Keep that link to yourself: it is the real response sheet. Add `&gid=<gid>` for a specific tab.
-
-Columns are found by name, so you can reorder them in the sheet. The page looks for headings
-containing: *timestamp / 時間戳記*, *keyword*, *drive link*, *AI tools*, *AI-generated summary*,
-*your own summary*, *agree*, *verify*. The name, student-number and email columns are never read —
-see below.
-
-If Google is ever unreachable in class: **File → Download → CSV** in Sheets, then use
-**Paste CSV instead** on the page.
+If Google is ever unreachable in class: **File → Download → CSV**, then **Paste CSV instead** on
+the page.
 
 ## Sharing it with students
 
-**It costs nothing to run.** The page has no AI calls, no API keys and no accounts, so nothing
-students do is billed to anyone. Its only automatic requests are the `content/*.md` files, the
-sheet's CSV, and Google Fonts. Every other site on it (Scholar, Crossref, ChatGPT…) is an ordinary
-link that opens in the student's own browser under their own account.
+**It costs nothing to run.** No AI calls, no API keys, no accounts — nothing students do is billed
+to anyone. The page's only automatic requests are `content/*.md`, the CSV, and Google Fonts.
+Everything else on it is an ordinary link that opens in their own browser.
 
-**The page shows no identities at all.** There is no "show names" control and no link to the sheet.
-It does not even read the name, student-number or email columns — it maps only timestamp, keyword,
-tools, the two summaries, the agree answer and the verify answer. Answers appear as
-*Student 01, Student 02…*, numbered by submission time, so the same person keeps the same label all
-session. To put a name to *Student 07*, open the response sheet yourself.
+**The page shows no identities.** There is no "show names" control and no link to the sheet, and it
+does not even read the name, student-number or email columns. Answers appear as *Student 01,
+Student 02…*, numbered by submission time, so one person keeps one label all session. To put a name
+to *Student 07*, open the response sheet yourself.
 
-**The sheet is still the thing to protect.** Any sheet this page reads has to be readable by
-anyone with the link, so whoever learns its ID can open it and read every column, emails included.
-Hiding a tab does not help — Google shares whole files, not tabs. That is why `sheetId` ships empty
-and why the `?sheet=` link above is yours alone.
+### Giving students live answers safely
 
-To give students live answers safely, publish a **separate, anonymised spreadsheet** and put *that*
-ID in the file:
+The spreadsheet itself never needs to be public. Publish one anonymised **tab** instead:
 
-1. New spreadsheet, e.g. *Seminar — class view*. A **separate file**, not a new tab.
-2. In cell A1:
+1. In the response spreadsheet, add a tab and call it **Class view**.
+2. In its cell A1:
 
    ```
-   =QUERY(IMPORTRANGE("<paste the response sheet's URL>","表單回應 1!A:M"),
-          "select Col1, Col7, Col9, Col10, Col11, Col12, Col13", 1)
+   =QUERY('表單回應 1'!A:M, "select A, G, I, J, K, L, M", 1)
    ```
 
-   Replace `表單回應 1` with your responses tab's real name (bottom-left of the sheet). This keeps
-   timestamp, keyword, tools, both summaries, the agree answer and the verify answer, and drops
-   names, student numbers, both emails and the Drive links. Click **Allow access** when prompted.
-3. Share *that* file: **Anyone with the link → Viewer**. Leave the response sheet private.
-4. Put its ID in `index.html`:
+   Replace `表單回應 1` with the responses tab's real name — read it off the bottom of the window;
+   Sheets autocompletes once you type `='`. That keeps timestamp, keyword, tools, both summaries,
+   the agree answer and the verify answer. It drops names, student numbers, both email columns, and
+   the Drive links (a shared Drive folder can show its owner's name).
+3. **File → Share → Publish to web**. Choose **Class view**, not the whole document, and
+   **Comma-separated values (.csv)**. Publish, and copy the link.
+4. Put that link in `index.html` and push:
 
    ```js
-   sheetId: "<the class-view sheet's id>",
+   csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-…/pub?gid=…&single=true&output=csv",
    ```
 
-Then the published page is anonymous all the way down, not just on screen.
+5. Now close the spreadsheet itself: **File → Share → General access → Restricted**. Publishing to
+   web is independent of sharing, so the CSV keeps working while nobody can open the file. Reload
+   the student page once to confirm answers still appear.
 
-If you would rather not publish live answers at all, set `sheetId: ""`. Steps 2–5 work fully on
-their own, and Step 1 says the answers are looked at together in the seminar.
+One trade-off: a published CSV can lag a few minutes behind a new submission. That is fine in
+practice — project your own `?sheet=` link, which is instant, and the students' page catches up.
+
+If you would rather not show live answers at all, leave both settings empty. Steps 2–5 work fully
+on their own, and Step 1 says the answers are looked at together in the seminar.
 
 ## Editing the content
 

@@ -483,18 +483,22 @@ watch: Captioned-video findings do not apply automatically to every multimodal m
 
 **Continue in your group using the matching path below: G1 → Path 1, G2 → Path 2, G3 → Path 3, G4 → Path 4.** Compare two materials or tasks for the same learners, proficiency level and learning goal. Build on the reading you presented in class.
 
-**Hand in one comparison table and a short recommendation** on one page or a few slides. Use these columns: **criterion + source/page | Material A: evidence | Material B: evidence | judgement**. Path 1 uses all six Chapelle criteria; Paths 2–4 use three criteria justified by your selected reading. Label any criteria you adapt or add. End with a recommendation for your specified learners and one limitation or unanswered question.
+**Your criteria are not handed to you — you take them from your reading.** Work out what that reading treats as mattering: what it inspects in a material, what questions it asks of one, what it warns against. Turn those into criteria you can actually apply to a screen in front of you. Give each one its source and page, and label any criterion you adapt or add yourselves.
 
-At the top, identify the learners, goal, materials, exact tasks tested, versions/platforms, test date and access costs. Include brief screenshots, quotations or task/output examples as evidence. For every path, note any practical access or learner-data concern that affects your recommendation. The reference checklist below helps you think; it is not an additional seven-row requirement for Paths 2–4.
+**Present in three parts, in this order.**
 
-**Prepare a 4-minute report.** A short trial supports judgements about design and usability. Claims about learning gains, retention or efficiency need learner evidence; efficiency also requires a measure of time or effort. If you have no such data, state what a later study would need to measure.
+1. **The two materials.** Introduce them briefly: who the learners are and what the goal is, the exact tasks you tried, versions or platforms, the date you tested, and what access costs.
+2. **The criteria you adopted or formed.** State each criterion with its source and page, and one line on why the reading supports it. Path 1 works from Chapelle's six; Paths 2–4 form three criteria from the group's reading.
+3. **The comparison.** Apply every criterion to both materials, with evidence taken from the materials themselves — a screenshot, a quotation, a task or an output. End with a recommendation for your specified learners, and one limitation or open question.
 
-**A starting point for your final project:** keep the comparison, source passages and sample tasks. Later you can refine a question, redesign a material, or evaluate it with learners. The project ideas below are optional next steps, not extra homework this week.
+**Hand in one comparison table**, on a page or a few slides, with these columns: **criterion + source/page | Material A: evidence | Material B: evidence | judgement**.
+
+**Four minutes.** A short trial supports judgements about design and usability. Claims about learning gains, retention or efficiency need learner evidence; if you have none, say what a later study would have to measure.
 
 <!--
 HOW TO EDIT
   ## Path n …              kind: pathway
-     compare / method / evidence / project / refs
+     compare / method / refs
   ## Criterion name        kind: criterion
      from / ask / evidence
   ## Anything else         kind: note
@@ -504,32 +508,24 @@ HOW TO EDIT
 kind: pathway
 compare: Following Group 1, choose two digital tasks that address the same language-learning goal, such as two reading activities or two vocabulary lessons.
 method: Apply all six criteria from Chapelle (2001), printed pp. 54–58: language learning potential, learner fit, meaning focus, authenticity, positive impact and practicality. Explain how task purpose affects your judgement; avoid treating an unweighted total score as proof of quality.
-evidence: Use comparable task samples and feedback from both materials. Distinguish opportunities you identify in the design from learner behaviour or learning you actually observe.
-project: Examine whether learners use an opportunity predicted by your evaluation, or redesign a weak part of one task and evaluate the revision.
 refs: chapelle2001
 
 ## Path 2 · Compare language-learning apps
 kind: pathway
 compare: Following Group 2’s reading review, choose two apps with lessons addressing the same skill, content and proficiency level.
 method: Use three criteria grounded in the app reading your group presented. If you use Rosell-Aguilar, select and explain relevant framework criteria; if you use Heil or Loewen, explain how you derive design questions from the review or study.
-evidence: Try equivalent lesson segments for a comparable amount of time. Show the activities, feedback and learner control relevant to your criteria. Record time and task completion, but do not substitute them for a learning measure.
-project: Investigate whether a design difference predicts learning or retention under comparable practice conditions; record both learning outcomes and time if studying efficiency.
 refs: rosellaguilar2017 | heil2016 | loewen2019
 
 ## Path 3 · Compare generative AI writing tools
 kind: pathway
 compare: Following Group 3, choose two generative AI tools used for the same writing-support task, such as feedback on an argumentative paragraph.
 method: Justify three criteria using your selected reading. Possible classroom adaptations include feedback accuracy, clarity of explanations and support for the learner’s own revision decisions. These examples are proposed evaluation questions, not a validated scale from the readings.
-evidence: Use the same starting draft, learner profile and feedback request in both tools. Save prompts, outputs, available model/version details and settings. Run two trials per tool to inspect variation and report the trial count; this small sample cannot establish reliability. Show how you checked a feedback claim and which revision you would accept or reject.
-project: Examine feedback uptake and later unaided writing, or redesign the feedback task to encourage learners to explain their revisions.
 refs: kohnke2023 | godwinjones2023 | warschauer2006
 
 ## Path 4 · Compare multimodal teaching materials
 kind: pathway
 compare: Following Group 4, choose two multimodal lessons with the same learning goal, or two versions of a video activity that differ in caption or other support.
 method: Use three criteria justified by your reading. Consider what each mode contributes to the goal, the support offered to the intended learners, and how the learning activity relates to the outcome being claimed. If using Gilmore, define the dimension of authenticity you evaluate.
-evidence: Describe the audio, images, text/captions and learner task. Match topic, language difficulty and length as closely as possible; record remaining differences. Show how a mode helps or may distract during a specific task, without assuming that adding modes improves learning.
-project: Compare a specific mode or support condition using an aligned comprehension, vocabulary or delayed listening measure. If the materials differ in several ways, limit claims about which feature caused an outcome.
 refs: monteroperez2013 | winke2010 | gilmore2007
 
 ## Language learning potential
@@ -1319,7 +1315,7 @@ function renderGroups(){
   }).join("");
 }
 function renderPathways(){
-  const labels={compare:"Compare",method:"Criteria",evidence:"Evidence to collect",project:"Possible final project"};
+  const labels={compare:"The two materials",method:"Criteria to build from your reading"};
   $("#pathways").innerHTML=S.pathways.map(p=>'<article class="pathway"><h4>'+esc(p.title)+"</h4>"+
     Object.entries(labels).map(([key,label])=>p.fields[key]?"<p><strong>"+label+":</strong> "+mdInline(p.fields[key])+"</p>":"").join("")+
     '<div class="chiprow">'+citeChips(p.fields.refs)+"</div></article>").join("");

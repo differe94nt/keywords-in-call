@@ -563,7 +563,7 @@ function renderGroups(){
   }).join("");
 }
 function renderPathways(){
-  const labels={compare:"Compare",method:"Criteria",evidence:"Evidence to collect",project:"Possible final project"};
+  const labels={compare:"The two materials",method:"Criteria to build from your reading"};
   $("#pathways").innerHTML=S.pathways.map(p=>'<article class="pathway"><h4>'+esc(p.title)+"</h4>"+
     Object.entries(labels).map(([key,label])=>p.fields[key]?"<p><strong>"+label+":</strong> "+mdInline(p.fields[key])+"</p>":"").join("")+
     '<div class="chiprow">'+citeChips(p.fields.refs)+"</div></article>").join("");

@@ -11,7 +11,8 @@ Click a publication marker to find its summary. Each summary explains the contri
 <!--
 HOW TO EDIT
   ## Title
-  kind:   era | moment | idea
+  kind:   definition | era | moment | idea
+  definition → framework, definition, focus, role, period, example, source
   era    → scheme, from, to, gist
   moment → year, what
   idea   → claim, gist
@@ -19,6 +20,72 @@ HOW TO EDIT
   plain "- " bullets are shown as detail under the item
   Integrated CALL is explained as an undated goal, not an era.
 -->
+
+## Behaviouristic CALL
+kind: definition
+framework: Warschauer & Healey (1998)
+definition: Computer-based language learning grounded in behaviourist learning theory, emphasizing repetitive practice, with the computer supplying exercises and feedback as a tutor.
+focus: Repetition and language-form practice
+role: Computer as tutor
+period: Mainly 1960s–1970s
+example: A learner repeats verb-form exercises and receives immediate correctness feedback.
+source: [Warschauer & Healey (1998), history section, author manuscript p. 1](https://education.uci.edu/uploads/7/2/7/6/72769947/computers_and_language_learning-_an_overview.pdf#page=1)
+refs: warschauer1998
+
+## Communicative CALL
+kind: definition
+framework: Warschauer & Healey (1998)
+definition: An approach influenced by cognitive learning theories that emphasizes using language forms, discovering patterns and producing original utterances; computers can stimulate learners’ expression and discussion.
+focus: Language use, discovery and expression
+role: Stimulus and tool; tutor also possible
+period: Emerges late 1970s–early 1980s
+example: Pairs discuss clues to reconstruct a text, then explain their choices.
+source: [Warschauer & Healey (1998), history section, author manuscript pp. 1–2](https://education.uci.edu/uploads/7/2/7/6/72769947/computers_and_language_learning-_an_overview.pdf#page=1)
+refs: warschauer1998
+
+## Integrative CALL
+kind: definition
+framework: Warschauer & Healey (1998)
+definition: An approach linking language skills and technology within ongoing, socially situated learning, supported by multimedia and networks and often organized around tasks, projects or content.
+focus: Connected skills and meaningful tasks
+role: Multimedia and networked learning resources
+period: Develops in the 1990s
+example: Learners research an issue online, discuss evidence and co-author a report for an audience.
+source: [Warschauer & Healey (1998), history section, author manuscript p. 2](https://education.uci.edu/uploads/7/2/7/6/72769947/computers_and_language_learning-_an_overview.pdf#page=2)
+refs: warschauer1998
+
+## Restricted CALL
+kind: definition
+framework: Bax (2003)
+definition: An approach with limited task types, responses, feedback and teacher roles, typically centred on closed exercises. The restrictions concern classroom practice as well as software, and need not imply behaviourist theory.
+focus: Closed tasks and limited interaction
+role: Teacher mainly monitors
+period: Mainly 1960s–about 1980
+example: A separate lab lesson checks fixed answers while the teacher monitors completion.
+source: [Bax (2003), pp. 20–22, especially Table 2 on p. 21](https://eclass.uoa.gr/modules/document/file.php/ENL110/callpresentpastandfuture.pdf#page=9)
+refs: bax2003
+
+## Open CALL
+kind: definition
+framework: Bax (2003)
+definition: An approach allowing more varied tasks, responses and feedback, but with computer use still often separated from routine teaching and not fully embedded in the curriculum.
+focus: More flexible activities and interaction
+role: Teacher monitors and facilitates
+period: 1980s–2003 account; no fixed end
+example: Learners use email for an occasional exchange, separate from their usual classroom work.
+source: [Bax (2003), pp. 20–22, especially Table 2 on p. 21](https://eclass.uoa.gr/modules/document/file.php/ENL110/callpresentpastandfuture.pdf#page=9)
+refs: bax2003
+
+## Integrated CALL
+kind: definition
+framework: Bax (2003)
+definition: The goal of normalisation: technology becomes an ordinary part of everyday language teaching, chosen in response to learners’ needs and the teaching context.
+focus: Routine, needs-led use
+role: Teacher facilitates and manages
+period: Undated goal; uneven adoption
+example: During a writing lesson, learners consult a digital resource briefly when it serves their task.
+source: [Bax (2003), Table 2 and normalisation discussion, pp. 21–24](https://eclass.uoa.gr/modules/document/file.php/ENL110/callpresentpastandfuture.pdf#page=9)
+refs: bax2003
 
 ## Behaviouristic CALL
 kind: era

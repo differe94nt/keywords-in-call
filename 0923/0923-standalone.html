@@ -124,12 +124,25 @@ main{padding:1.6rem 0 4rem}
 .node:hover rect{stroke-width:2.5}
 #mapDetail{margin-top:.8rem;min-height:3.4rem}
 
+/* definitions and homework pathways */
+.definition-grid,.pathway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem;margin:1rem 0 1.5rem}
+.definition,.pathway{min-width:0;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;padding:1rem 1.1rem}
+.definition h4,.pathway h4{font-family:var(--serif);font-size:1.18rem;margin:.2rem 0 .6rem}
+.definition p,.pathway p{font-size:.9rem;margin:.55rem 0}
+.definition .framework{font-size:.76rem;color:var(--fg-soft)}
+.definition .example,.definition .source{font-size:.83rem;color:var(--fg-soft)}
+.definition a,.pathway a,.group a{overflow-wrap:anywhere}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:1rem 0 1.5rem}
+.comparison{width:100%;min-width:760px;border-collapse:collapse;font-size:.85rem;background:var(--paper)}
+.comparison caption{text-align:left;padding:.8rem 1rem;color:var(--fg-soft);font-size:.85rem}
+.comparison th,.comparison td{text-align:left;vertical-align:top;padding:.75rem;border-top:1px solid var(--line)}
+.comparison thead th{background:var(--green-soft)}
+.comparison tbody th{min-width:150px;font-weight:600}
+.checklist{border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1.2rem 0}
+.checklist summary{cursor:pointer;font-weight:600}
+.checklist>p{font-size:.88rem;color:var(--fg-soft);margin:.7rem 0}
+
 /* group work */
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem;margin:1rem 0 1.6rem}
-.tool{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;padding:.9rem 1rem}
-.tool h4{font-family:var(--serif);font-size:1.05rem;margin-bottom:.35rem}
-.tool dt{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);margin-top:.5rem}
-.tool dd{margin:.1rem 0 0;font-size:.88rem}
 .group{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:.9rem}
 .group h3{font-size:1.2rem;margin-bottom:.3rem}
 .group .q{font-size:1rem;margin:.3rem 0 .6rem}
@@ -170,7 +183,8 @@ Click a publication marker to find its summary. Each summary explains the contri
 <!--
 HOW TO EDIT
   ## Title
-  kind:   era | moment | idea
+  kind:   definition | era | moment | idea
+  definition → framework, definition, focus, role, period, example, source
   era    → scheme, from, to, gist
   moment → year, what
   idea   → claim, gist
@@ -178,6 +192,72 @@ HOW TO EDIT
   plain "- " bullets are shown as detail under the item
   Integrated CALL is explained as an undated goal, not an era.
 -->
+
+## Behaviouristic CALL
+kind: definition
+framework: Warschauer & Healey (1998)
+definition: Computer-based language learning grounded in behaviourist learning theory, emphasizing repetitive practice, with the computer supplying exercises and feedback as a tutor.
+focus: Repetition and language-form practice
+role: Computer as tutor
+period: Mainly 1960s–1970s
+example: A learner repeats verb-form exercises and receives immediate correctness feedback.
+source: [Warschauer & Healey (1998), history section, author manuscript p. 1](https://education.uci.edu/uploads/7/2/7/6/72769947/computers_and_language_learning-_an_overview.pdf#page=1)
+refs: warschauer1998
+
+## Communicative CALL
+kind: definition
+framework: Warschauer & Healey (1998)
+definition: An approach influenced by cognitive learning theories that emphasizes using language forms, discovering patterns and producing original utterances; computers can stimulate learners’ expression and discussion.
+focus: Language use, discovery and expression
+role: Stimulus and tool; tutor also possible
+period: Emerges late 1970s–early 1980s
+example: Pairs discuss clues to reconstruct a text, then explain their choices.
+source: [Warschauer & Healey (1998), history section, author manuscript pp. 1–2](https://education.uci.edu/uploads/7/2/7/6/72769947/computers_and_language_learning-_an_overview.pdf#page=1)
+refs: warschauer1998
+
+## Integrative CALL
+kind: definition
+framework: Warschauer & Healey (1998)
+definition: An approach linking language skills and technology within ongoing, socially situated learning, supported by multimedia and networks and often organized around tasks, projects or content.
+focus: Connected skills and meaningful tasks
+role: Multimedia and networked learning resources
+period: Develops in the 1990s
+example: Learners research an issue online, discuss evidence and co-author a report for an audience.
+source: [Warschauer & Healey (1998), history section, author manuscript p. 2](https://education.uci.edu/uploads/7/2/7/6/72769947/computers_and_language_learning-_an_overview.pdf#page=2)
+refs: warschauer1998
+
+## Restricted CALL
+kind: definition
+framework: Bax (2003)
+definition: An approach with limited task types, responses, feedback and teacher roles, typically centred on closed exercises. The restrictions concern classroom practice as well as software, and need not imply behaviourist theory.
+focus: Closed tasks and limited interaction
+role: Teacher mainly monitors
+period: Mainly 1960s–about 1980
+example: A separate lab lesson checks fixed answers while the teacher monitors completion.
+source: [Bax (2003), pp. 20–22, especially Table 2 on p. 21](https://eclass.uoa.gr/modules/document/file.php/ENL110/callpresentpastandfuture.pdf#page=9)
+refs: bax2003
+
+## Open CALL
+kind: definition
+framework: Bax (2003)
+definition: An approach allowing more varied tasks, responses and feedback, but with computer use still often separated from routine teaching and not fully embedded in the curriculum.
+focus: More flexible activities and interaction
+role: Teacher monitors and facilitates
+period: 1980s–2003 account; no fixed end
+example: Learners use email for an occasional exchange, separate from their usual classroom work.
+source: [Bax (2003), pp. 20–22, especially Table 2 on p. 21](https://eclass.uoa.gr/modules/document/file.php/ENL110/callpresentpastandfuture.pdf#page=9)
+refs: bax2003
+
+## Integrated CALL
+kind: definition
+framework: Bax (2003)
+definition: The goal of normalisation: technology becomes an ordinary part of everyday language teaching, chosen in response to learners’ needs and the teaching context.
+focus: Routine, needs-led use
+role: Teacher facilitates and manages
+period: Undated goal; uneven adoption
+example: During a writing lesson, learners consult a digital resource briefly when it serves their task.
+source: [Bax (2003), Table 2 and normalisation discussion, pp. 21–24](https://eclass.uoa.gr/modules/document/file.php/ENL110/callpresentpastandfuture.pdf#page=9)
+refs: bax2003
 
 ## Behaviouristic CALL
 kind: era
@@ -322,105 +402,135 @@ refs: macaro2012 | golonka2014 | burston2015
 
 </script>
 <script type="text/markdown" id="md2">
-# Phase 2 · Four groups, four questions about evaluation
+# Phase 2 · One reading that helps your group evaluate materials
 
-Each group gets one question and four readings, with one marked as the **lead reading** that everyone in the group reads closely. For a book, select and record the relevant chapter or pages. Use the tools to explore all four readings and check the passages behind the claims you present.
+**Your task: teach the class one reading that will guide your homework comparison.** Start with your group’s set below. Groups 2–4 skim the abstracts or introductions, then choose **one** reading to read closely and present; the suggested focus is a starting point. Group 1 reads the specified Chapelle extract. You do not need to summarize every paper.
 
-Use all three tools and show what each contributed. Your presentation should distinguish the tool’s output from what your source checks actually support.
+**Suggested timing:** 20 minutes to prepare; each group has 4 minutes to present and 1 minute for questions. Four groups take 40 minutes in total, including preparation.
 
-**Timing** — 45 minutes to prepare, then 8 minutes per group with 2 minutes of questions.
+**Hand in one slide or one page** with three parts: **(1) Focus** — the reading’s question, purpose and type of contribution; **(2) Evaluation lesson** — its framework, main finding or design–learning gap, with a page/section citation; **(3) Homework application** — criteria you will use to compare two materials and one unanswered question. The prompts on your group card specify what to include. An article can propose a framework without testing learning; say which kind of evidence it provides.
+
+[Open the class reading folder](https://drive.google.com/drive/folders/14-Q9igIBONF99FBNBbxwoJLhQxKlVS0V?usp=sharing). Each group has a reading folder linked in its section below; direct article links are given where they are freely available. Research and AI tools are optional; check any claims you use against the reading and cite the original passage.
+
+**Keep this work for your final project.** Your selected criteria, initial comparison and unanswered question can become a materials redesign or a small evaluation study later in the semester.
 
 <!--
 HOW TO EDIT
   ## Group n · title      kind: group
-     question / why / lead / refs / watch, then "- " bullets = what they hand in
-  ## Tool …               kind: tool
-     tool / must / report
+     question / why / lead / reading_label / reading_scope / materials / refs / watch
+     "- " bullets = the three parts of the one-slide/one-page hand-in
 -->
 
-## Tool 1 · Research Rabbit or Connected Papers
-kind: tool
-tool: Pick one. Seed it with your lead paper.
-must: Build a map around your lead reading. If the book or chapter is not indexed, use a relevant article it cites and record this change of starting point.
-report: Show the map and name one relevant reading it surfaced beyond your list. Explain what the displayed links represent in the tool you used. Connections can suggest related literature; they do not establish research quality or agreement between authors.
-
-## Tool 2 · Perplexity, or another chatbot you name
-kind: tool
-tool: Name the tool and the date you used it. "AI said" is not a source.
-must: Identify the genre of your lead reading first. For an empirical study, ask about the participants, comparison, measures and findings. For a review, ask about its scope and synthesis method. For a framework, ask about its assumptions, criteria and evidence for validation. Choose two specific questions appropriate to that genre.
-report: Check the claims in both answers against the original text. Classify them as supported, contradicted or unverifiable and show the relevant page or passage. Report errors if you find them; a careful audit that finds no error is also acceptable. An explicit statement that a paper has no participants or control group can be a correct answer.
-
-## Tool 3 · NotebookLM
-kind: tool
-tool: Add the four readings as sources. For books, use the relevant chapter or page range and record the selection.
-must: Request a synthesis of about 150 words with source citations. Ask it to distinguish differences in the readings’ purposes, methods and conclusions.
-report: Show the synthesis and trace one substantive statement to its source passage. Explain whether that passage supports the full statement. Identify any disagreement or difference in scope that the synthesis leaves out; overlapping topics do not necessarily mean matching conclusions.
-
-## Group 1 · Do evaluation checklists predict learning?
+## Group 1 · Chapelle’s CALL task-evaluation framework
 kind: group
-question: What can a checklist tell us about a material’s suitability, and what additional evidence would show that highly rated materials improve learning?
-why: Hubbard provides a framework for courseware evaluation; Chapelle proposes criteria for CALL tasks; Colpaert discusses pedagogy-driven design; and Leakey examines effectiveness research. Distinguish a reasoned judgement about a material from a demonstrated relationship between checklist ratings and learning outcomes. Establish any research gap through a search rather than assuming that no relevant studies exist.
-lead: hubbard1988
-refs: hubbard1988 | chapelle2001 | colpaert2006 | leakey2011
-watch: Hubbard adapts Richards and Rodgers’ approach–design–procedure framework; Chapelle draws on SLA theory and conditions of task use. Compare what each framework asks you to inspect and whether the reading tests its ratings against learning outcomes.
-- The claim your group will defend, in one falsifiable sentence.
-- One criterion you would add to Chapelle's six for materials made after 2022, and why.
-- One thing a checklist cannot see.
+question: How can Chapelle’s six criteria help a teacher compare two CALL tasks for particular learners?
+why: Read Chapelle (2001), starting on printed p. 54: the distinction between judgemental and empirical analysis, Table 3.4 on p. 55, and the explanations through p. 58. Evaluate the task and how it is used, rather than judging a product in isolation.
+lead: chapelle2001
+reading_label: Required extract
+reading_scope: Printed pp. 54–58, especially Table 3.4 (p. 55). Use the page numbers printed in the book, which differ from the PDF viewer’s page counter.
+materials: [Group 1 reading folder](https://drive.google.com/drive/folders/1Iz6FTE0Bv-A9TnIn5qMsgIIFAlh7LDw5). Only the Chapelle extract is required for this task; other files are optional background.
+refs: chapelle2001
+watch: An inspection can identify opportunities for learning; it cannot establish that learners used those opportunities or improved. Chapelle calls for complementary judgemental and empirical analyses.
+- **Focus:** Explain what is being evaluated — a CALL task for specified learners — and why both design judgement and learner evidence matter.
+- **Evaluation lesson:** Name the six criteria: language learning potential, learner fit, meaning focus, authenticity, positive impact and practicality. Explain one with a concrete example; cite p. 55 and its explanation.
+- **Homework application:** Show how that criterion could distinguish two tasks. Name one learner observation or outcome you would need to check your judgement. This prepares Homework Path 1.
 
-## Group 2 · What a Duolingo study can and cannot tell you
+## Group 2 · Language-learning apps: design and learning evidence
 kind: group
-question: What do the selected app studies and reviews show about learning, and how far can their conclusions be generalized?
-why: Loewen et al. follow nine participants learning Turkish with Duolingo over a semester and report learning gains and learner experiences. Heil et al. inspect app features; Rosell-Aguilar proposes an evaluation framework; and Burston reviews MALL implementation. These readings provide different kinds of evidence, so keep observed learning, design judgements and proposed criteria separate.
-lead: loewen2019
-refs: loewen2019 | heil2016 | rosellaguilar2017 | burston2014
-watch: Identify who participated, who completed each measure, practice time, study duration and outcomes. State whether a comparison group exists. Do not treat improvement over time as proof that the app outperforms alternatives. If you compare a marketing claim, check whether it actually cites this study or different evidence.
-- The claim your group will defend, in one falsifiable sentence.
-- The comparison condition in your lead study, or an explicit statement that there is no comparison group.
-- One design change that would make the finding stronger, and what it would cost.
+question: What should an app comparison examine, and what evidence would support a claim that an app helps learners learn efficiently?
+why: Heil et al. (2016) review app features; Rosell-Aguilar (2017) proposes an app-evaluation framework; Loewen et al. (2019) investigate Duolingo learning and learner experiences. Choose one reading and explain whether it provides design analysis, evaluation criteria or evidence from learners.
+lead: rosellaguilar2017
+reading_label: Suggested focus reading
+reading_scope: Start with Rosell-Aguilar’s framework if your priority is choosing homework criteria. Alternatively, present Heil’s app review or Loewen’s learner study and derive criteria from that reading.
+materials: [Group 2 reading folder — the 2016, 2017 and 2019 papers](https://drive.google.com/drive/folders/1iSsOxsFwa_nU8gw1Prjz253KHhqtQUKi).
+refs: heil2016 | rosellaguilar2017 | loewen2019
+watch: App features, satisfaction and time spent are not themselves learning gains. A gain without a suitable comparison does not show that an app outperforms another. Discuss efficiency only when learning outcomes and time or effort are both considered.
+- **Focus:** Identify the selected reading’s purpose and type. For a learner study, name the learners, duration, measures and comparison, if any; for a review or framework, identify its scope and organizing categories.
+- **Evaluation lesson:** Explain two or three criteria or findings most useful for app selection, with a page/section citation. State one limitation or gap between the app’s design and evidence of learning.
+- **Homework application:** Propose three criteria for comparing equivalent lessons in two apps. State which come from the reading and which your group adapts. This prepares Homework Path 2.
 
-## Group 3 · Evaluating AI-generated activities and feedback
+## Group 3 · Generative AI and writing feedback
 kind: group
-question: When a chatbot generates texts, activities or feedback, which features of the tool, prompt, output and classroom use need evaluation?
-why: Bibauw et al. synthesize earlier dialogue-based CALL, which included mostly handcrafted systems and statistical approaches. Kohnke et al. and Godwin-Jones discuss emerging generative AI uses. Warschauer and Ware set an agenda for classroom research on automated writing evaluation. Use this earlier work to formulate questions about LLMs, while explaining why its findings may not transfer directly.
-lead: bibauw2019
-refs: bibauw2019 | kohnke2023 | godwinjones2023 | warschauer2006
-watch: Distinguish a technology overview, a proposed research agenda and an empirical finding. A useful revision after automated feedback is not by itself evidence of lasting writing development. Examine accuracy, relevance to the learner and consistency across generated outputs.
-- The claim your group will defend, in one falsifiable sentence.
-- One finding from the pre-2022 literature you think still holds, with your reason.
-- One criterion especially important for generated material, such as consistency across repeated outputs, and a way to apply it.
+question: How can we compare AI writing support while distinguishing a better text from better writing ability?
+why: Kohnke et al. (2023) discuss ChatGPT for language teaching and learning; Godwin-Jones (2023) examines AI tools and affordances; Warschauer and Ware (2006) propose an agenda for automated writing evaluation research. Choose one and extract ideas relevant to evaluating writing support.
+lead: kohnke2023
+reading_label: Suggested focus reading
+reading_scope: Focus on the chosen reading’s discussion of writing, feedback, affordances or limitations. The two 2023 papers and the 2006 paper form the selection set; the additional 2019 file in Drive is optional background.
+materials: [Group 3 reading folder — choose from the two 2023 papers and Warschauer & Ware (2006)](https://drive.google.com/drive/folders/15awz8ejqc2-VCC_lqfLYsGEQNuSn2uNE).
+refs: kohnke2023 | godwinjones2023 | warschauer2006
+watch: These readings provide discussions and a research agenda, not a validated rubric for current LLM writing tools. The 2006 paper concerns earlier automated writing evaluation; explain which questions transfer and which need reconsideration. Edited-text quality alone does not establish lasting learning.
+- **Focus:** Explain the reading’s purpose and its main point about writing support. Identify whether your selected passage is a proposal, a discussion or an empirical finding.
+- **Evaluation lesson:** Identify two or three concerns relevant to writing feedback, such as accuracy, learner understanding or revision decisions. Cite the passage and distinguish the authors’ claims from your own proposed criteria.
+- **Homework application:** Propose three criteria and a shared writing task for comparing two generative AI writing tools. Name one gap between receiving useful feedback and learning to write independently. This prepares Homework Path 3.
 
-## Group 4 · Defining authenticity and evaluating captioned video
+## Group 4 · Multimodal materials and captioned video
 kind: group
-question: How will you define authenticity, and which learning outcomes can evidence about captioned video support?
-why: Gilmore reviews different meanings of authenticity; Tomlinson reviews materials development. Montero Perez et al. synthesize studies of captioned video, while Winke et al. examine captioning in language-learning activities. Connect each judgement to a defined feature of the material, such as its source, communicative purpose or use of captions.
-lead: gilmore2007
-refs: gilmore2007 | monteroperez2013 | tomlinson2012 | winke2010
-watch: The captioning meta-analysis reports large effects on listening-comprehension and vocabulary outcomes. Inspect the tasks, test conditions and timing before interpreting these as durable gains in unaided listening. Keep immediate comprehension, vocabulary learning and later listening performance distinct.
-- The claim your group will defend, in one falsifiable sentence.
-- A workable definition of "authentic" that a colleague could apply to two materials and agree with you.
-- Examine whether any reading shows that adding a mode helped, made no detectable difference, or hindered performance. Report the observed result and conditions; if no harmful effect is documented, say so.
+question: How do captions, sound and images support a specified learning goal, and what evidence would justify that design choice?
+why: Montero Perez et al. (2013) synthesize captioned-video studies; Winke et al. (2010) investigate captioning in language-learning activities; Gilmore (2007) reviews authenticity. Choose one reading and connect it to a comparison of multimodal materials.
+lead: monteroperez2013
+reading_label: Suggested focus reading
+reading_scope: For the meta-analysis, focus on its research questions, outcomes and limitations. Alternatively, use Winke’s study to examine conditions and measures, or Gilmore’s review to define authenticity as an evaluation criterion.
+materials: [Group 4 reading folder](https://drive.google.com/drive/folders/1CY_MgMSc0IEyxmO7gzL9Ju-MRIpHNg-B) — all four readings as PDFs. Direct links if you prefer: [Montero Perez et al. (2013), full text](https://kulak.kuleuven.be/~u0006844/publications/2013%2C%20monteroperez_vandennoortgate_desmet_system.pdf) · [Winke et al. (2010), journal article](https://doi.org/10.64152/10125/44203) · [Gilmore (2007), publisher record](https://doi.org/10.1017/S0261444807004144).
+refs: monteroperez2013 | winke2010 | gilmore2007
+watch: Captioned-video findings do not apply automatically to every multimodal material. Distinguish immediate comprehension, vocabulary learning and later unaided listening. If using Gilmore, define authenticity explicitly; it is not itself proof of effectiveness.
+- **Focus:** State the reading’s question and contribution. For research on captions, identify the modes or conditions compared and the learning outcomes; for Gilmore, explain the aspect of authenticity you select.
+- **Evaluation lesson:** Explain one supported finding or concept, with a page/section citation, and its limits. Identify a design feature whose learning benefit would need further evidence.
+- **Homework application:** Propose three criteria for comparing two multimodal lessons, including the purpose of each mode and its fit with the learning goal. This prepares Homework Path 4.
 
 </script>
 <script type="text/markdown" id="md3">
 # Phase 3 · Assignment — two materials, side by side
 
-**In your group, choose two digital materials that claim to do the same job** — two vocabulary apps,
-two graded-reader platforms, two AI writing helpers, two pronunciation trainers. They must be close
-enough that choosing between them is a real decision a teacher could face.
+**Continue in your group using the matching path below: G1 → Path 1, G2 → Path 2, G3 → Path 3, G4 → Path 4.** Compare two materials or tasks for the same learners, proficiency level and learning goal. Build on the reading you presented in class.
 
-Choose comparable tasks inside each material and evaluate them against the criteria below. The first six adapt Chapelle’s task-evaluation framework; the seventh is a course extension. Present a **comparison** showing the evidence for each judgement.
-Your presentation should end with a recommendation and the condition attached to it: *for these
-learners, at this level, for this purpose*.
+**Hand in one comparison table and a short recommendation** on one page or a few slides. Use these columns: **criterion + source/page | Material A: evidence | Material B: evidence | judgement**. Path 1 uses all six Chapelle criteria; Paths 2–4 use three criteria justified by your selected reading. Label any criteria you adapt or add. End with a recommendation for your specified learners and one limitation or unanswered question.
 
-**Bring:** 8 minutes, any format. One slide or one page listing both materials with version, platform,
-date you tested, and what access costs. Include the task or lesson you inspected so someone else can repeat your evaluation. For generated material, also record the prompt, relevant settings, outputs and number of trials.
+At the top, identify the learners, goal, materials, exact tasks tested, versions/platforms, test date and access costs. Include brief screenshots, quotations or task/output examples as evidence. For every path, note any practical access or learner-data concern that affects your recommendation. The reference checklist below helps you think; it is not an additional seven-row requirement for Paths 2–4.
+
+**Prepare a 4-minute report.** A short trial supports judgements about design and usability. Claims about learning gains, retention or efficiency need learner evidence; efficiency also requires a measure of time or effort. If you have no such data, state what a later study would need to measure.
+
+**A starting point for your final project:** keep the comparison, source passages and sample tasks. Later you can refine a question, redesign a material, or evaluate it with learners. The project ideas below are optional next steps, not extra homework this week.
 
 <!--
 HOW TO EDIT
+  ## Path n …              kind: pathway
+     compare / method / evidence / project / refs
   ## Criterion name        kind: criterion
      from / ask / evidence
   ## Anything else         kind: note
 -->
+
+## Path 1 · Compare CALL tasks with Chapelle’s framework
+kind: pathway
+compare: Following Group 1, choose two digital tasks that address the same language-learning goal, such as two reading activities or two vocabulary lessons.
+method: Apply all six criteria from Chapelle (2001), printed pp. 54–58: language learning potential, learner fit, meaning focus, authenticity, positive impact and practicality. Explain how task purpose affects your judgement; avoid treating an unweighted total score as proof of quality.
+evidence: Use comparable task samples and feedback from both materials. Distinguish opportunities you identify in the design from learner behaviour or learning you actually observe.
+project: Examine whether learners use an opportunity predicted by your evaluation, or redesign a weak part of one task and evaluate the revision.
+refs: chapelle2001
+
+## Path 2 · Compare language-learning apps
+kind: pathway
+compare: Following Group 2’s reading review, choose two apps with lessons addressing the same skill, content and proficiency level.
+method: Use three criteria grounded in the app reading your group presented. If you use Rosell-Aguilar, select and explain relevant framework criteria; if you use Heil or Loewen, explain how you derive design questions from the review or study.
+evidence: Try equivalent lesson segments for a comparable amount of time. Show the activities, feedback and learner control relevant to your criteria. Record time and task completion, but do not substitute them for a learning measure.
+project: Investigate whether a design difference predicts learning or retention under comparable practice conditions; record both learning outcomes and time if studying efficiency.
+refs: rosellaguilar2017 | heil2016 | loewen2019
+
+## Path 3 · Compare generative AI writing tools
+kind: pathway
+compare: Following Group 3, choose two generative AI tools used for the same writing-support task, such as feedback on an argumentative paragraph.
+method: Justify three criteria using your selected reading. Possible classroom adaptations include feedback accuracy, clarity of explanations and support for the learner’s own revision decisions. These examples are proposed evaluation questions, not a validated scale from the readings.
+evidence: Use the same starting draft, learner profile and feedback request in both tools. Save prompts, outputs, available model/version details and settings. Run two trials per tool to inspect variation and report the trial count; this small sample cannot establish reliability. Show how you checked a feedback claim and which revision you would accept or reject.
+project: Examine feedback uptake and later unaided writing, or redesign the feedback task to encourage learners to explain their revisions.
+refs: kohnke2023 | godwinjones2023 | warschauer2006
+
+## Path 4 · Compare multimodal teaching materials
+kind: pathway
+compare: Following Group 4, choose two multimodal lessons with the same learning goal, or two versions of a video activity that differ in caption or other support.
+method: Use three criteria justified by your reading. Consider what each mode contributes to the goal, the support offered to the intended learners, and how the learning activity relates to the outcome being claimed. If using Gilmore, define the dimension of authenticity you evaluate.
+evidence: Describe the audio, images, text/captions and learner task. Match topic, language difficulty and length as closely as possible; record remaining differences. Show how a mode helps or may distract during a specific task, without assuming that adding modes improves learning.
+project: Compare a specific mode or support condition using an aligned comprehension, vocabulary or delayed listening measure. If the materials differ in several ways, limit claims about which feature caused an outcome.
+refs: monteroperez2013 | winke2010 | gilmore2007
 
 ## Language learning potential
 kind: criterion
@@ -466,7 +576,7 @@ evidence: Ortega informs the access and equity questions. For data collection, r
 
 ## What good comparison looks like
 kind: note
-- Apply every criterion to both materials and explain the trade-offs behind your recommendation. More than one criterion may determine your choice; a justified tie is acceptable.
+- Apply your selected criteria to both materials: all six for Path 1, or three justified criteria for Paths 2–4. Explain the trade-offs behind your recommendation; a justified tie is acceptable.
 - Where the two materials are equivalent, say so quickly and move on. The interesting part is where they diverge.
 - Disagreement inside the group is worth reporting. If two of you rated authenticity differently, that tells us the criterion needs a sharper definition.
 - Try both materials yourself. A short trial can support judgements about usability and task design; claims about retention or learning gains require learner data collected over an appropriate period.
@@ -501,7 +611,7 @@ refs: warschauer1998 | bax2003 | chun2016
 week: 3
 date: 09/23
 now: yes
-note: Apply criteria to tasks in two digital materials for a specified learner group. Explain which judgements concern learning opportunities, which concern practical or ethical requirements, and what evidence each requires.
+note: Use one reading to prepare a comparison of CALL tasks, apps, AI writing tools or multimodal materials. Specify the learners and learning goal, justify your criteria and retain the comparison as a starting point for the final project.
 links: 5 | 6 | 7 | 13 | 14
 refs: chapelle2001 | hubbard1988 | rosellaguilar2017
 
@@ -583,7 +693,7 @@ refs: ortega2017
 ## W15 · Final presentations I
 week: 15
 date: 12/16
-note: Present the design or research project, explain its intended contribution and show the evidence supporting your decisions. State limitations and identify the next evaluation step.
+note: Present the design or research project, explain its intended contribution and show the evidence supporting your decisions. You can develop the week 3 comparison into a materials redesign or a focused evaluation study. State limitations and identify the next evaluation step.
 links: 16
 
 ## W16 · Final presentations II
@@ -830,8 +940,15 @@ doi: 10.1558/cj.v21i1.7-27
   <div id="loadWarn"></div>
 
   <section class="phase on" id="phase-1">
-    <div class="head"><div class="kicker">PHASE 1 · LECTURE</div><h2>Where CALL came from</h2></div>
+    <div class="head"><div class="kicker">PHASE 1 · LECTURE</div><h2>How CALL developed, and what its history helps us evaluate</h2></div>
     <div class="intro" id="intro1"></div>
+
+    <h3 style="font-size:1.3rem;margin:1.6rem 0 .6rem">Definitions grounded in the literature</h3>
+    <p class="viznote">These are concise paraphrases of the cited authors. Each card links to the relevant passage; its classroom example is an illustration. <strong>Integrative CALL</strong> (Warschauer &amp; Healey) emphasizes connected skills and learning activities; <strong>Integrated CALL</strong> (Bax) emphasizes normalisation in everyday teaching. The concepts overlap but are not interchangeable.</p>
+    <div class="definition-grid" id="definitions"></div>
+    <h3 style="font-size:1.2rem;margin:1.4rem 0 .6rem">Compare the two frameworks</h3>
+    <p class="viznote">Read these as overlapping ways of describing practice, not six stages or rankings of teaching quality. Dates describe the authors’ historical accounts, not a rule for classifying today’s tools. On a narrow screen, scroll the table horizontally.</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="CALL frameworks comparison, horizontally scrollable" id="definitionTable"></div>
 
     <div class="vizwrap">
       <div class="vizhead"><h3>Two frameworks for understanding CALL history</h3></div>
@@ -856,12 +973,9 @@ doi: 10.1558/cj.v21i1.7-27
   </section>
 
   <section class="phase" id="phase-2">
-    <div class="head"><div class="kicker">PHASE 2 · GROUP PRESENTATIONS</div><h2>Four groups, four questions</h2></div>
+    <div class="head"><div class="kicker">PHASE 2 · GROUP PRESENTATIONS</div><h2>One reading, one useful evaluation lesson</h2></div>
     <div class="intro" id="intro2"></div>
-    <h3 style="font-size:1.2rem;margin:1.4rem 0 .2rem">The three required tools</h3>
-    <p class="viznote">Every group uses all three and reports what each produced, what the source checks supported, and any limitations or errors found.</p>
-    <div class="tools" id="tools"></div>
-    <h3 style="font-size:1.2rem;margin:1.6rem 0 .6rem">The questions</h3>
+    <h3 style="font-size:1.2rem;margin:1.6rem 0 .6rem">Your reading and hand-in guide</h3>
     <div id="groups"></div>
     <div class="pager"><button class="btn ghost" data-go="1">← Back</button><button class="btn ghost" data-go="3">Next · Assignment →</button></div>
   </section>
@@ -869,9 +983,14 @@ doi: 10.1558/cj.v21i1.7-27
   <section class="phase" id="phase-3">
     <div class="head"><div class="kicker">PHASE 3 · ASSIGNMENT</div><h2>Two materials, side by side</h2></div>
     <div class="intro" id="intro3"></div>
-    <h3 style="font-size:1.2rem;margin:1.4rem 0 .6rem">The criteria</h3>
-    <div id="criteria"></div>
-    <div class="progress" id="progress"></div>
+    <h3 style="font-size:1.2rem;margin:1.4rem 0 .6rem">Four homework paths</h3>
+    <div class="pathway-grid" id="pathways"></div>
+    <details class="checklist">
+      <summary>Reference checklist: Chapelle’s six criteria and a course extension</summary>
+      <p>Path 1 uses the first six criteria. Paths 2–4 use three criteria justified by their selected reading; consult this checklist where useful. The final item is a course extension on data, privacy and access. Checkboxes are personal review reminders.</p>
+      <div id="criteria"></div>
+      <div class="progress" id="progress" aria-live="polite"></div>
+    </details>
     <div id="notes"></div>
     <div class="pager"><button class="btn ghost" data-go="2">← Back</button><button class="btn ghost" data-go="4">Next · References →</button></div>
   </section>
@@ -993,7 +1112,7 @@ function renderRefs(filter){
 }
 
 /* shared state — declared before anything that reads it */
-const S={eras:[],moments:[],ideas:[],tools:[],groups:[],criteria:[],notes:[],weeks:[],loaded:false};
+const S={definitions:[],eras:[],moments:[],ideas:[],groups:[],pathways:[],criteria:[],notes:[],weeks:[],loaded:false};
 
 /* ══════ nav ══════ */
 const PHASES=[["1","Lecture"],["2","Group work"],["3","Assignment"],["4","References"]];
@@ -1038,15 +1157,16 @@ async function load(){
   });
   const d1=parseDoc(t[1]||"");
   $("#intro1").innerHTML=mdToHtml(d1.intro);
+  S.definitions=d1.items.filter(i=>i.fields.kind==="definition");
   S.eras=d1.items.filter(i=>i.fields.kind==="era");
   S.moments=d1.items.filter(i=>i.fields.kind==="moment").sort((a,b)=>(+a.fields.year)-(+b.fields.year));
   S.ideas=d1.items.filter(i=>i.fields.kind==="idea");
   const d2=parseDoc(t[2]||"");
   $("#intro2").innerHTML=mdToHtml(d2.intro);
-  S.tools=d2.items.filter(i=>i.fields.kind==="tool");
   S.groups=d2.items.filter(i=>i.fields.kind==="group");
   const d3=parseDoc(t[3]||"");
   $("#intro3").innerHTML=mdToHtml(d3.intro);
+  S.pathways=d3.items.filter(i=>i.fields.kind==="pathway");
   S.criteria=d3.items.filter(i=>i.fields.kind==="criterion");
   S.notes=d3.items.filter(i=>i.fields.kind==="note");
   const d4=parseDoc(t[4]||"");
@@ -1054,8 +1174,19 @@ async function load(){
   S.weeks=d4.items.map(i=>({...i,week:+i.fields.week}));
   $("#intro4").innerHTML=mdToHtml(parseDoc(t.r||"").intro);
   S.loaded=true;
-  drawTimeline(); renderMoments(); renderIdeas(); drawMap();
-  renderTools(); renderGroups(); renderCriteria(); renderRefs("");
+  renderDefinitions(); drawTimeline(); renderMoments(); renderIdeas(); drawMap();
+  renderGroups(); renderPathways(); renderCriteria(); renderRefs("");
+}
+
+function renderDefinitions(){
+  $("#definitions").innerHTML=S.definitions.map(d=>
+    '<article class="definition"><p class="framework">'+esc(d.fields.framework)+"</p><h4>"+esc(d.title)+"</h4>"+
+    "<p>"+mdInline(d.fields.definition||"")+"</p>"+
+    '<p class="example"><strong>Classroom illustration:</strong> '+mdInline(d.fields.example||"")+"</p>"+
+    '<p class="source"><strong>Source:</strong> '+mdInline(d.fields.source||"")+"</p></article>").join("");
+  $("#definitionTable").innerHTML='<table class="comparison"><caption>Summary of the source-linked definitions above. Historical periods are approximate.</caption><thead><tr><th scope="col">Term / source</th><th scope="col">Main emphasis</th><th scope="col">Typical roles or resources</th><th scope="col">Historical framing</th></tr></thead><tbody>'+
+    S.definitions.map(d=>'<tr><th scope="row">'+esc(d.title)+'<div class="chiprow">'+citeChips(d.fields.refs)+"</div></th>"+
+      ["focus","role","period"].map(k=>"<td>"+mdInline(d.fields[k]||"")+"</td>").join("")+"</tr>").join("")+"</tbody></table>";
 }
 
 /* ══════ timeline ══════ */
@@ -1171,27 +1302,27 @@ function drawMap(){
 }
 
 /* ══════ phase 2 + 3 ══════ */
-function renderTools(){
-  $("#tools").innerHTML=S.tools.map(t=>
-    '<div class="tool"><h4>'+esc(t.title)+"</h4><dl>"+
-    (t.fields.tool?"<dt>Which</dt><dd>"+mdInline(t.fields.tool)+"</dd>":"")+
-    (t.fields.must?"<dt>Do</dt><dd>"+mdInline(t.fields.must)+"</dd>":"")+
-    (t.fields.report?"<dt>Report</dt><dd>"+mdInline(t.fields.report)+"</dd>":"")+
-    "</dl></div>").join("");
-}
 function renderGroups(){
   $("#groups").innerHTML=S.groups.map(g=>{
     const lead=REFS[g.fields.lead];
     return '<div class="group"><h3>'+esc(g.title)+"</h3>"+
       '<p class="q">'+mdInline(g.fields.question||"")+"</p>"+
       (g.fields.why?'<p class="why">'+mdInline(g.fields.why)+"</p>":"")+
-      (lead?'<div class="lead"><strong>Lead reading — everyone reads this one:</strong> '+mdInline(lead.apa)+
+      (lead?'<div class="lead"><strong>'+esc(g.fields.reading_label||"Suggested focus reading")+":</strong> "+mdInline(lead.apa)+
         (lead.doi?' <a href="https://doi.org/'+lead.doi+'" target="_blank" rel="noopener">DOI ↗</a>':"")+"</div>":"")+
-      "<h5>The set</h5><div class='chiprow'>"+citeChips(g.fields.refs)+"</div>"+
+      (g.fields.reading_scope?'<p class="why">'+mdInline(g.fields.reading_scope)+"</p>":"")+
+      "<h5>Reading set</h5><div class='chiprow'>"+citeChips(g.fields.refs)+"</div>"+
+      (g.fields.materials?'<p class="why" style="margin-top:.6rem">'+mdInline(g.fields.materials)+"</p>":"")+
       (g.fields.watch?'<div class="watch">'+mdInline(g.fields.watch)+"</div>":"")+
-      (g.bullets.length?"<h5>Hand in</h5><ul>"+g.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
+      (g.bullets.length?"<h5>One slide or one page · three parts</h5><ul>"+g.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
       "</div>";
   }).join("");
+}
+function renderPathways(){
+  const labels={compare:"Compare",method:"Criteria",evidence:"Evidence to collect",project:"Possible final project"};
+  $("#pathways").innerHTML=S.pathways.map(p=>'<article class="pathway"><h4>'+esc(p.title)+"</h4>"+
+    Object.entries(labels).map(([key,label])=>p.fields[key]?"<p><strong>"+label+":</strong> "+mdInline(p.fields[key])+"</p>":"").join("")+
+    '<div class="chiprow">'+citeChips(p.fields.refs)+"</div></article>").join("");
 }
 function renderCriteria(){
   const state=store.get("w3-crit",{});
@@ -1210,7 +1341,7 @@ function renderCriteria(){
 }
 function paintProgress(){
   const n=$$("#criteria input:checked").length, t=S.criteria.length;
-  $("#progress").textContent=t?(n===t?"All "+t+" applied to both materials. Now name the criterion that decided it.":n+" of "+t+" applied"):"";
+  $("#progress").textContent=t?n+" of "+t+" reference items reviewed. Apply the criteria required by your chosen path.":"";
 }
 $("#criteria").addEventListener("change",e=>{
   const b=e.target.closest("[data-crit]"); if(!b) return;

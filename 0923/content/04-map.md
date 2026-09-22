@@ -26,7 +26,7 @@ refs: warschauer1998 | bax2003 | chun2016
 week: 3
 date: 09/23
 now: yes
-note: Apply criteria to tasks in two digital materials for a specified learner group. Explain which judgements concern learning opportunities, which concern practical or ethical requirements, and what evidence each requires.
+note: Use one reading to prepare a comparison of CALL tasks, apps, AI writing tools or multimodal materials. Specify the learners and learning goal, justify your criteria and retain the comparison as a starting point for the final project.
 links: 5 | 6 | 7 | 13 | 14
 refs: chapelle2001 | hubbard1988 | rosellaguilar2017
 
@@ -108,7 +108,7 @@ refs: ortega2017
 ## W15 · Final presentations I
 week: 15
 date: 12/16
-note: Present the design or research project, explain its intended contribution and show the evidence supporting your decisions. State limitations and identify the next evaluation step.
+note: Present the design or research project, explain its intended contribution and show the evidence supporting your decisions. You can develop the week 3 comparison into a materials redesign or a focused evaluation study. State limitations and identify the next evaluation step.
 links: 16
 
 ## W16 · Final presentations II

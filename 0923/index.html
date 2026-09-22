@@ -124,12 +124,25 @@ main{padding:1.6rem 0 4rem}
 .node:hover rect{stroke-width:2.5}
 #mapDetail{margin-top:.8rem;min-height:3.4rem}
 
+/* definitions and homework pathways */
+.definition-grid,.pathway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem;margin:1rem 0 1.5rem}
+.definition,.pathway{min-width:0;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;padding:1rem 1.1rem}
+.definition h4,.pathway h4{font-family:var(--serif);font-size:1.18rem;margin:.2rem 0 .6rem}
+.definition p,.pathway p{font-size:.9rem;margin:.55rem 0}
+.definition .framework{font-size:.76rem;color:var(--fg-soft)}
+.definition .example,.definition .source{font-size:.83rem;color:var(--fg-soft)}
+.definition a,.pathway a,.group a{overflow-wrap:anywhere}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:1rem 0 1.5rem}
+.comparison{width:100%;min-width:760px;border-collapse:collapse;font-size:.85rem;background:var(--paper)}
+.comparison caption{text-align:left;padding:.8rem 1rem;color:var(--fg-soft);font-size:.85rem}
+.comparison th,.comparison td{text-align:left;vertical-align:top;padding:.75rem;border-top:1px solid var(--line)}
+.comparison thead th{background:var(--green-soft)}
+.comparison tbody th{min-width:150px;font-weight:600}
+.checklist{border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1.2rem 0}
+.checklist summary{cursor:pointer;font-weight:600}
+.checklist>p{font-size:.88rem;color:var(--fg-soft);margin:.7rem 0}
+
 /* group work */
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem;margin:1rem 0 1.6rem}
-.tool{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;padding:.9rem 1rem}
-.tool h4{font-family:var(--serif);font-size:1.05rem;margin-bottom:.35rem}
-.tool dt{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);margin-top:.5rem}
-.tool dd{margin:.1rem 0 0;font-size:.88rem}
 .group{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:.9rem}
 .group h3{font-size:1.2rem;margin-bottom:.3rem}
 .group .q{font-size:1rem;margin:.3rem 0 .6rem}
@@ -171,8 +184,15 @@ footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem
   <div id="loadWarn"></div>
 
   <section class="phase on" id="phase-1">
-    <div class="head"><div class="kicker">PHASE 1 · LECTURE</div><h2>Where CALL came from</h2></div>
+    <div class="head"><div class="kicker">PHASE 1 · LECTURE</div><h2>How CALL developed, and what its history helps us evaluate</h2></div>
     <div class="intro" id="intro1"></div>
+
+    <h3 style="font-size:1.3rem;margin:1.6rem 0 .6rem">Definitions grounded in the literature</h3>
+    <p class="viznote">These are concise paraphrases of the cited authors. Each card links to the relevant passage; its classroom example is an illustration. <strong>Integrative CALL</strong> (Warschauer &amp; Healey) emphasizes connected skills and learning activities; <strong>Integrated CALL</strong> (Bax) emphasizes normalisation in everyday teaching. The concepts overlap but are not interchangeable.</p>
+    <div class="definition-grid" id="definitions"></div>
+    <h3 style="font-size:1.2rem;margin:1.4rem 0 .6rem">Compare the two frameworks</h3>
+    <p class="viznote">Read these as overlapping ways of describing practice, not six stages or rankings of teaching quality. Dates describe the authors’ historical accounts, not a rule for classifying today’s tools. On a narrow screen, scroll the table horizontally.</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="CALL frameworks comparison, horizontally scrollable" id="definitionTable"></div>
 
     <div class="vizwrap">
       <div class="vizhead"><h3>Two frameworks for understanding CALL history</h3></div>
@@ -197,12 +217,9 @@ footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem
   </section>
 
   <section class="phase" id="phase-2">
-    <div class="head"><div class="kicker">PHASE 2 · GROUP PRESENTATIONS</div><h2>Four groups, four questions</h2></div>
+    <div class="head"><div class="kicker">PHASE 2 · GROUP PRESENTATIONS</div><h2>One reading, one useful evaluation lesson</h2></div>
     <div class="intro" id="intro2"></div>
-    <h3 style="font-size:1.2rem;margin:1.4rem 0 .2rem">The three required tools</h3>
-    <p class="viznote">Every group uses all three and reports what each produced, what the source checks supported, and any limitations or errors found.</p>
-    <div class="tools" id="tools"></div>
-    <h3 style="font-size:1.2rem;margin:1.6rem 0 .6rem">The questions</h3>
+    <h3 style="font-size:1.2rem;margin:1.6rem 0 .6rem">Your reading and hand-in guide</h3>
     <div id="groups"></div>
     <div class="pager"><button class="btn ghost" data-go="1">← Back</button><button class="btn ghost" data-go="3">Next · Assignment →</button></div>
   </section>
@@ -210,9 +227,14 @@ footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem
   <section class="phase" id="phase-3">
     <div class="head"><div class="kicker">PHASE 3 · ASSIGNMENT</div><h2>Two materials, side by side</h2></div>
     <div class="intro" id="intro3"></div>
-    <h3 style="font-size:1.2rem;margin:1.4rem 0 .6rem">The criteria</h3>
-    <div id="criteria"></div>
-    <div class="progress" id="progress"></div>
+    <h3 style="font-size:1.2rem;margin:1.4rem 0 .6rem">Four homework paths</h3>
+    <div class="pathway-grid" id="pathways"></div>
+    <details class="checklist">
+      <summary>Reference checklist: Chapelle’s six criteria and a course extension</summary>
+      <p>Path 1 uses the first six criteria. Paths 2–4 use three criteria justified by their selected reading; consult this checklist where useful. The final item is a course extension on data, privacy and access. Checkboxes are personal review reminders.</p>
+      <div id="criteria"></div>
+      <div class="progress" id="progress" aria-live="polite"></div>
+    </details>
     <div id="notes"></div>
     <div class="pager"><button class="btn ghost" data-go="2">← Back</button><button class="btn ghost" data-go="4">Next · References →</button></div>
   </section>
@@ -334,7 +356,7 @@ function renderRefs(filter){
 }
 
 /* shared state — declared before anything that reads it */
-const S={eras:[],moments:[],ideas:[],tools:[],groups:[],criteria:[],notes:[],weeks:[],loaded:false};
+const S={definitions:[],eras:[],moments:[],ideas:[],groups:[],pathways:[],criteria:[],notes:[],weeks:[],loaded:false};
 
 /* ══════ nav ══════ */
 const PHASES=[["1","Lecture"],["2","Group work"],["3","Assignment"],["4","References"]];
@@ -379,15 +401,16 @@ async function load(){
   });
   const d1=parseDoc(t[1]||"");
   $("#intro1").innerHTML=mdToHtml(d1.intro);
+  S.definitions=d1.items.filter(i=>i.fields.kind==="definition");
   S.eras=d1.items.filter(i=>i.fields.kind==="era");
   S.moments=d1.items.filter(i=>i.fields.kind==="moment").sort((a,b)=>(+a.fields.year)-(+b.fields.year));
   S.ideas=d1.items.filter(i=>i.fields.kind==="idea");
   const d2=parseDoc(t[2]||"");
   $("#intro2").innerHTML=mdToHtml(d2.intro);
-  S.tools=d2.items.filter(i=>i.fields.kind==="tool");
   S.groups=d2.items.filter(i=>i.fields.kind==="group");
   const d3=parseDoc(t[3]||"");
   $("#intro3").innerHTML=mdToHtml(d3.intro);
+  S.pathways=d3.items.filter(i=>i.fields.kind==="pathway");
   S.criteria=d3.items.filter(i=>i.fields.kind==="criterion");
   S.notes=d3.items.filter(i=>i.fields.kind==="note");
   const d4=parseDoc(t[4]||"");
@@ -395,8 +418,19 @@ async function load(){
   S.weeks=d4.items.map(i=>({...i,week:+i.fields.week}));
   $("#intro4").innerHTML=mdToHtml(parseDoc(t.r||"").intro);
   S.loaded=true;
-  drawTimeline(); renderMoments(); renderIdeas(); drawMap();
-  renderTools(); renderGroups(); renderCriteria(); renderRefs("");
+  renderDefinitions(); drawTimeline(); renderMoments(); renderIdeas(); drawMap();
+  renderGroups(); renderPathways(); renderCriteria(); renderRefs("");
+}
+
+function renderDefinitions(){
+  $("#definitions").innerHTML=S.definitions.map(d=>
+    '<article class="definition"><p class="framework">'+esc(d.fields.framework)+"</p><h4>"+esc(d.title)+"</h4>"+
+    "<p>"+mdInline(d.fields.definition||"")+"</p>"+
+    '<p class="example"><strong>Classroom illustration:</strong> '+mdInline(d.fields.example||"")+"</p>"+
+    '<p class="source"><strong>Source:</strong> '+mdInline(d.fields.source||"")+"</p></article>").join("");
+  $("#definitionTable").innerHTML='<table class="comparison"><caption>Summary of the source-linked definitions above. Historical periods are approximate.</caption><thead><tr><th scope="col">Term / source</th><th scope="col">Main emphasis</th><th scope="col">Typical roles or resources</th><th scope="col">Historical framing</th></tr></thead><tbody>'+
+    S.definitions.map(d=>'<tr><th scope="row">'+esc(d.title)+'<div class="chiprow">'+citeChips(d.fields.refs)+"</div></th>"+
+      ["focus","role","period"].map(k=>"<td>"+mdInline(d.fields[k]||"")+"</td>").join("")+"</tr>").join("")+"</tbody></table>";
 }
 
 /* ══════ timeline ══════ */
@@ -512,27 +546,27 @@ function drawMap(){
 }
 
 /* ══════ phase 2 + 3 ══════ */
-function renderTools(){
-  $("#tools").innerHTML=S.tools.map(t=>
-    '<div class="tool"><h4>'+esc(t.title)+"</h4><dl>"+
-    (t.fields.tool?"<dt>Which</dt><dd>"+mdInline(t.fields.tool)+"</dd>":"")+
-    (t.fields.must?"<dt>Do</dt><dd>"+mdInline(t.fields.must)+"</dd>":"")+
-    (t.fields.report?"<dt>Report</dt><dd>"+mdInline(t.fields.report)+"</dd>":"")+
-    "</dl></div>").join("");
-}
 function renderGroups(){
   $("#groups").innerHTML=S.groups.map(g=>{
     const lead=REFS[g.fields.lead];
     return '<div class="group"><h3>'+esc(g.title)+"</h3>"+
       '<p class="q">'+mdInline(g.fields.question||"")+"</p>"+
       (g.fields.why?'<p class="why">'+mdInline(g.fields.why)+"</p>":"")+
-      (lead?'<div class="lead"><strong>Lead reading — everyone reads this one:</strong> '+mdInline(lead.apa)+
+      (lead?'<div class="lead"><strong>'+esc(g.fields.reading_label||"Suggested focus reading")+":</strong> "+mdInline(lead.apa)+
         (lead.doi?' <a href="https://doi.org/'+lead.doi+'" target="_blank" rel="noopener">DOI ↗</a>':"")+"</div>":"")+
-      "<h5>The set</h5><div class='chiprow'>"+citeChips(g.fields.refs)+"</div>"+
+      (g.fields.reading_scope?'<p class="why">'+mdInline(g.fields.reading_scope)+"</p>":"")+
+      "<h5>Reading set</h5><div class='chiprow'>"+citeChips(g.fields.refs)+"</div>"+
+      (g.fields.materials?'<p class="why" style="margin-top:.6rem">'+mdInline(g.fields.materials)+"</p>":"")+
       (g.fields.watch?'<div class="watch">'+mdInline(g.fields.watch)+"</div>":"")+
-      (g.bullets.length?"<h5>Hand in</h5><ul>"+g.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
+      (g.bullets.length?"<h5>One slide or one page · three parts</h5><ul>"+g.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
       "</div>";
   }).join("");
+}
+function renderPathways(){
+  const labels={compare:"Compare",method:"Criteria",evidence:"Evidence to collect",project:"Possible final project"};
+  $("#pathways").innerHTML=S.pathways.map(p=>'<article class="pathway"><h4>'+esc(p.title)+"</h4>"+
+    Object.entries(labels).map(([key,label])=>p.fields[key]?"<p><strong>"+label+":</strong> "+mdInline(p.fields[key])+"</p>":"").join("")+
+    '<div class="chiprow">'+citeChips(p.fields.refs)+"</div></article>").join("");
 }
 function renderCriteria(){
   const state=store.get("w3-crit",{});
@@ -551,7 +585,7 @@ function renderCriteria(){
 }
 function paintProgress(){
   const n=$$("#criteria input:checked").length, t=S.criteria.length;
-  $("#progress").textContent=t?(n===t?"All "+t+" applied to both materials. Now name the criterion that decided it.":n+" of "+t+" applied"):"";
+  $("#progress").textContent=t?n+" of "+t+" reference items reviewed. Apply the criteria required by your chosen path.":"";
 }
 $("#criteria").addEventListener("change",e=>{
   const b=e.target.closest("[data-crit]"); if(!b) return;

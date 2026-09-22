@@ -8,9 +8,9 @@ seminar/
   0923/                   week 3 — digital material evaluation
     index.html
     content/
-      01-lecture.md       CALL/TELL history: eras, moments, ideas
-      02-groupwork.md     the three tools and the four group questions
-      03-assignment.md    the evaluation criteria
+      01-lecture.md       cited definitions, comparison table, history and ideas
+      02-groupwork.md     four reading sets and one-page summary prompts
+      03-assignment.md    four homework paths and a reference checklist
       04-map.md           the semester map
       refs.md             core and further readings, with publication links
   content/

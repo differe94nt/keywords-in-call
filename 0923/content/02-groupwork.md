@@ -1,77 +1,74 @@
-# Phase 2 · Four groups, four questions about evaluation
+# Phase 2 · One reading that helps your group evaluate materials
 
-Each group gets one question and four readings, with one marked as the **lead reading** that everyone in the group reads closely. For a book, select and record the relevant chapter or pages. Use the tools to explore all four readings and check the passages behind the claims you present.
+**Your task: teach the class one reading that will guide your homework comparison.** Start with your group’s set below. Groups 2–4 skim the abstracts or introductions, then choose **one** reading to read closely and present; the suggested focus is a starting point. Group 1 reads the specified Chapelle extract. You do not need to summarize every paper.
 
-Use all three tools and show what each contributed. Your presentation should distinguish the tool’s output from what your source checks actually support.
+**Suggested timing:** 20 minutes to prepare; each group has 4 minutes to present and 1 minute for questions. Four groups take 40 minutes in total, including preparation.
 
-**Timing** — 45 minutes to prepare, then 8 minutes per group with 2 minutes of questions.
+**Hand in one slide or one page** with three parts: **(1) Focus** — the reading’s question, purpose and type of contribution; **(2) Evaluation lesson** — its framework, main finding or design–learning gap, with a page/section citation; **(3) Homework application** — criteria you will use to compare two materials and one unanswered question. The prompts on your group card specify what to include. An article can propose a framework without testing learning; say which kind of evidence it provides.
+
+[Open the class reading folder](https://drive.google.com/drive/folders/14-Q9igIBONF99FBNBbxwoJLhQxKlVS0V?usp=sharing). Each group has a reading folder linked in its section below; direct article links are given where they are freely available. Research and AI tools are optional; check any claims you use against the reading and cite the original passage.
+
+**Keep this work for your final project.** Your selected criteria, initial comparison and unanswered question can become a materials redesign or a small evaluation study later in the semester.
 
 <!--
 HOW TO EDIT
   ## Group n · title      kind: group
-     question / why / lead / refs / watch, then "- " bullets = what they hand in
-  ## Tool …               kind: tool
-     tool / must / report
+     question / why / lead / reading_label / reading_scope / materials / refs / watch
+     "- " bullets = the three parts of the one-slide/one-page hand-in
 -->
 
-## Tool 1 · Research Rabbit or Connected Papers
-kind: tool
-tool: Pick one. Seed it with your lead paper.
-must: Build a map around your lead reading. If the book or chapter is not indexed, use a relevant article it cites and record this change of starting point.
-report: Show the map and name one relevant reading it surfaced beyond your list. Explain what the displayed links represent in the tool you used. Connections can suggest related literature; they do not establish research quality or agreement between authors.
-
-## Tool 2 · Perplexity, or another chatbot you name
-kind: tool
-tool: Name the tool and the date you used it. "AI said" is not a source.
-must: Identify the genre of your lead reading first. For an empirical study, ask about the participants, comparison, measures and findings. For a review, ask about its scope and synthesis method. For a framework, ask about its assumptions, criteria and evidence for validation. Choose two specific questions appropriate to that genre.
-report: Check the claims in both answers against the original text. Classify them as supported, contradicted or unverifiable and show the relevant page or passage. Report errors if you find them; a careful audit that finds no error is also acceptable. An explicit statement that a paper has no participants or control group can be a correct answer.
-
-## Tool 3 · NotebookLM
-kind: tool
-tool: Add the four readings as sources. For books, use the relevant chapter or page range and record the selection.
-must: Request a synthesis of about 150 words with source citations. Ask it to distinguish differences in the readings’ purposes, methods and conclusions.
-report: Show the synthesis and trace one substantive statement to its source passage. Explain whether that passage supports the full statement. Identify any disagreement or difference in scope that the synthesis leaves out; overlapping topics do not necessarily mean matching conclusions.
-
-## Group 1 · Do evaluation checklists predict learning?
+## Group 1 · Chapelle’s CALL task-evaluation framework
 kind: group
-question: What can a checklist tell us about a material’s suitability, and what additional evidence would show that highly rated materials improve learning?
-why: Hubbard provides a framework for courseware evaluation; Chapelle proposes criteria for CALL tasks; Colpaert discusses pedagogy-driven design; and Leakey examines effectiveness research. Distinguish a reasoned judgement about a material from a demonstrated relationship between checklist ratings and learning outcomes. Establish any research gap through a search rather than assuming that no relevant studies exist.
-lead: hubbard1988
-refs: hubbard1988 | chapelle2001 | colpaert2006 | leakey2011
-watch: Hubbard adapts Richards and Rodgers’ approach–design–procedure framework; Chapelle draws on SLA theory and conditions of task use. Compare what each framework asks you to inspect and whether the reading tests its ratings against learning outcomes.
-- The claim your group will defend, in one falsifiable sentence.
-- One criterion you would add to Chapelle's six for materials made after 2022, and why.
-- One thing a checklist cannot see.
+question: How can Chapelle’s six criteria help a teacher compare two CALL tasks for particular learners?
+why: Read Chapelle (2001), starting on printed p. 54: the distinction between judgemental and empirical analysis, Table 3.4 on p. 55, and the explanations through p. 58. Evaluate the task and how it is used, rather than judging a product in isolation.
+lead: chapelle2001
+reading_label: Required extract
+reading_scope: Printed pp. 54–58, especially Table 3.4 (p. 55). Use the page numbers printed in the book, which differ from the PDF viewer’s page counter.
+materials: [Group 1 reading folder](https://drive.google.com/drive/folders/1Iz6FTE0Bv-A9TnIn5qMsgIIFAlh7LDw5). Only the Chapelle extract is required for this task; other files are optional background.
+refs: chapelle2001
+watch: An inspection can identify opportunities for learning; it cannot establish that learners used those opportunities or improved. Chapelle calls for complementary judgemental and empirical analyses.
+- **Focus:** Explain what is being evaluated — a CALL task for specified learners — and why both design judgement and learner evidence matter.
+- **Evaluation lesson:** Name the six criteria: language learning potential, learner fit, meaning focus, authenticity, positive impact and practicality. Explain one with a concrete example; cite p. 55 and its explanation.
+- **Homework application:** Show how that criterion could distinguish two tasks. Name one learner observation or outcome you would need to check your judgement. This prepares Homework Path 1.
 
-## Group 2 · What a Duolingo study can and cannot tell you
+## Group 2 · Language-learning apps: design and learning evidence
 kind: group
-question: What do the selected app studies and reviews show about learning, and how far can their conclusions be generalized?
-why: Loewen et al. follow nine participants learning Turkish with Duolingo over a semester and report learning gains and learner experiences. Heil et al. inspect app features; Rosell-Aguilar proposes an evaluation framework; and Burston reviews MALL implementation. These readings provide different kinds of evidence, so keep observed learning, design judgements and proposed criteria separate.
-lead: loewen2019
-refs: loewen2019 | heil2016 | rosellaguilar2017 | burston2014
-watch: Identify who participated, who completed each measure, practice time, study duration and outcomes. State whether a comparison group exists. Do not treat improvement over time as proof that the app outperforms alternatives. If you compare a marketing claim, check whether it actually cites this study or different evidence.
-- The claim your group will defend, in one falsifiable sentence.
-- The comparison condition in your lead study, or an explicit statement that there is no comparison group.
-- One design change that would make the finding stronger, and what it would cost.
+question: What should an app comparison examine, and what evidence would support a claim that an app helps learners learn efficiently?
+why: Heil et al. (2016) review app features; Rosell-Aguilar (2017) proposes an app-evaluation framework; Loewen et al. (2019) investigate Duolingo learning and learner experiences. Choose one reading and explain whether it provides design analysis, evaluation criteria or evidence from learners.
+lead: rosellaguilar2017
+reading_label: Suggested focus reading
+reading_scope: Start with Rosell-Aguilar’s framework if your priority is choosing homework criteria. Alternatively, present Heil’s app review or Loewen’s learner study and derive criteria from that reading.
+materials: [Group 2 reading folder — the 2016, 2017 and 2019 papers](https://drive.google.com/drive/folders/1iSsOxsFwa_nU8gw1Prjz253KHhqtQUKi).
+refs: heil2016 | rosellaguilar2017 | loewen2019
+watch: App features, satisfaction and time spent are not themselves learning gains. A gain without a suitable comparison does not show that an app outperforms another. Discuss efficiency only when learning outcomes and time or effort are both considered.
+- **Focus:** Identify the selected reading’s purpose and type. For a learner study, name the learners, duration, measures and comparison, if any; for a review or framework, identify its scope and organizing categories.
+- **Evaluation lesson:** Explain two or three criteria or findings most useful for app selection, with a page/section citation. State one limitation or gap between the app’s design and evidence of learning.
+- **Homework application:** Propose three criteria for comparing equivalent lessons in two apps. State which come from the reading and which your group adapts. This prepares Homework Path 2.
 
-## Group 3 · Evaluating AI-generated activities and feedback
+## Group 3 · Generative AI and writing feedback
 kind: group
-question: When a chatbot generates texts, activities or feedback, which features of the tool, prompt, output and classroom use need evaluation?
-why: Bibauw et al. synthesize earlier dialogue-based CALL, which included mostly handcrafted systems and statistical approaches. Kohnke et al. and Godwin-Jones discuss emerging generative AI uses. Warschauer and Ware set an agenda for classroom research on automated writing evaluation. Use this earlier work to formulate questions about LLMs, while explaining why its findings may not transfer directly.
-lead: bibauw2019
-refs: bibauw2019 | kohnke2023 | godwinjones2023 | warschauer2006
-watch: Distinguish a technology overview, a proposed research agenda and an empirical finding. A useful revision after automated feedback is not by itself evidence of lasting writing development. Examine accuracy, relevance to the learner and consistency across generated outputs.
-- The claim your group will defend, in one falsifiable sentence.
-- One finding from the pre-2022 literature you think still holds, with your reason.
-- One criterion especially important for generated material, such as consistency across repeated outputs, and a way to apply it.
+question: How can we compare AI writing support while distinguishing a better text from better writing ability?
+why: Kohnke et al. (2023) discuss ChatGPT for language teaching and learning; Godwin-Jones (2023) examines AI tools and affordances; Warschauer and Ware (2006) propose an agenda for automated writing evaluation research. Choose one and extract ideas relevant to evaluating writing support.
+lead: kohnke2023
+reading_label: Suggested focus reading
+reading_scope: Focus on the chosen reading’s discussion of writing, feedback, affordances or limitations. The two 2023 papers and the 2006 paper form the selection set; the additional 2019 file in Drive is optional background.
+materials: [Group 3 reading folder — choose from the two 2023 papers and Warschauer & Ware (2006)](https://drive.google.com/drive/folders/15awz8ejqc2-VCC_lqfLYsGEQNuSn2uNE).
+refs: kohnke2023 | godwinjones2023 | warschauer2006
+watch: These readings provide discussions and a research agenda, not a validated rubric for current LLM writing tools. The 2006 paper concerns earlier automated writing evaluation; explain which questions transfer and which need reconsideration. Edited-text quality alone does not establish lasting learning.
+- **Focus:** Explain the reading’s purpose and its main point about writing support. Identify whether your selected passage is a proposal, a discussion or an empirical finding.
+- **Evaluation lesson:** Identify two or three concerns relevant to writing feedback, such as accuracy, learner understanding or revision decisions. Cite the passage and distinguish the authors’ claims from your own proposed criteria.
+- **Homework application:** Propose three criteria and a shared writing task for comparing two generative AI writing tools. Name one gap between receiving useful feedback and learning to write independently. This prepares Homework Path 3.
 
-## Group 4 · Defining authenticity and evaluating captioned video
+## Group 4 · Multimodal materials and captioned video
 kind: group
-question: How will you define authenticity, and which learning outcomes can evidence about captioned video support?
-why: Gilmore reviews different meanings of authenticity; Tomlinson reviews materials development. Montero Perez et al. synthesize studies of captioned video, while Winke et al. examine captioning in language-learning activities. Connect each judgement to a defined feature of the material, such as its source, communicative purpose or use of captions.
-lead: gilmore2007
-refs: gilmore2007 | monteroperez2013 | tomlinson2012 | winke2010
-watch: The captioning meta-analysis reports large effects on listening-comprehension and vocabulary outcomes. Inspect the tasks, test conditions and timing before interpreting these as durable gains in unaided listening. Keep immediate comprehension, vocabulary learning and later listening performance distinct.
-- The claim your group will defend, in one falsifiable sentence.
-- A workable definition of "authentic" that a colleague could apply to two materials and agree with you.
-- Examine whether any reading shows that adding a mode helped, made no detectable difference, or hindered performance. Report the observed result and conditions; if no harmful effect is documented, say so.
+question: How do captions, sound and images support a specified learning goal, and what evidence would justify that design choice?
+why: Montero Perez et al. (2013) synthesize captioned-video studies; Winke et al. (2010) investigate captioning in language-learning activities; Gilmore (2007) reviews authenticity. Choose one reading and connect it to a comparison of multimodal materials.
+lead: monteroperez2013
+reading_label: Suggested focus reading
+reading_scope: For the meta-analysis, focus on its research questions, outcomes and limitations. Alternatively, use Winke’s study to examine conditions and measures, or Gilmore’s review to define authenticity as an evaluation criterion.
+materials: [Group 4 reading folder](https://drive.google.com/drive/folders/1CY_MgMSc0IEyxmO7gzL9Ju-MRIpHNg-B) — all four readings as PDFs. Direct links if you prefer: [Montero Perez et al. (2013), full text](https://kulak.kuleuven.be/~u0006844/publications/2013%2C%20monteroperez_vandennoortgate_desmet_system.pdf) · [Winke et al. (2010), journal article](https://doi.org/10.64152/10125/44203) · [Gilmore (2007), publisher record](https://doi.org/10.1017/S0261444807004144).
+refs: monteroperez2013 | winke2010 | gilmore2007
+watch: Captioned-video findings do not apply automatically to every multimodal material. Distinguish immediate comprehension, vocabulary learning and later unaided listening. If using Gilmore, define authenticity explicitly; it is not itself proof of effectiveness.
+- **Focus:** State the reading’s question and contribution. For research on captions, identify the modes or conditions compared and the learning outcomes; for Gilmore, explain the aspect of authenticity you select.
+- **Evaluation lesson:** Explain one supported finding or concept, with a page/section citation, and its limits. Identify a design feature whose learning benefit would need further evidence.
+- **Homework application:** Propose three criteria for comparing two multimodal lessons, including the purpose of each mode and its fit with the learning goal. This prepares Homework Path 4.

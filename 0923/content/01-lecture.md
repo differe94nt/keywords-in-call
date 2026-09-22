@@ -1,11 +1,12 @@
-# Phase 1 · Where CALL came from, and why the history is an argument
+# Phase 1 · How CALL developed, and what its history helps us evaluate
 
-Two people can look at the same sixty years of CALL and cut them into different periods. Warschauer
-and Healey cut by **what the machine was asked to do**; Bax cuts by **how far the technology has
-disappeared into ordinary teaching**. Neither is wrong. Which one you adopt decides what counts as
-progress — and, next hour, what counts as a good digital material.
+**Computer-assisted language learning (CALL)** includes using computers to support language practice, communication, assessment and research. Its history involves changes in both technology and teaching.
 
-Click any point on the timeline to jump to it. Every claim below carries its source.
+Warschauer and Healey (1998) describe three broad phases: behaviouristic, communicative and integrative CALL. Bax (2003) questions that account and proposes three approaches: Restricted, Open and Integrated CALL. Both consider teaching practices as well as technology; Bax places particular emphasis on how technology fits into everyday instruction.
+
+The timeline uses approximate boundaries, not dates when every classroom changed. The approaches can coexist. Bax's Open CALL band ends at 2003 because that is the date of his account, not because the approach ended then. **Integrated CALL is his goal of normalisation, with no universal starting date**, so it is not shown as a dated band.
+
+Click a publication marker to find its summary. Each summary explains the contribution and its relevance to evaluating digital materials. Classroom examples are illustrations, not findings from the cited studies.
 
 <!--
 HOW TO EDIT
@@ -16,152 +17,146 @@ HOW TO EDIT
   idea   → claim, gist
   refs:  ids from refs.md, separated by |
   plain "- " bullets are shown as detail under the item
+  Integrated CALL is explained as an undated goal, not an era.
 -->
 
 ## Behaviouristic CALL
 kind: era
 scheme: Warschauer & Healey (1998)
 from: 1960
-to: 1979
-gist: Drill and practice on mainframes. The computer is a tutor that never tires, repetition is the mechanism, and the underlying theory of language is structural.
-refs: warschauer1998 | hart1994
+to: 1980
+gist: Mainly the 1960s–1970s: programs present repeated language exercises and check answers. The computer acts as a tutor, and learners practise at their own pace. Such exercises continued after this period; newer approaches did not eliminate them.
+refs: warschauer1998 | hart1995
 
 ## Communicative CALL
 kind: era
 scheme: Warschauer & Healey (1998)
 from: 1980
-to: 1989
-gist: Microcomputers arrive and the question shifts from drilling forms to creating something to talk about. The computer becomes a stimulus and a tool rather than a tutor.
-refs: warschauer1998 | ahmad1985
+to: 1990
+gist: Associated especially with the 1980s: activities give learners more choice and opportunities to use language. Computers can provide flexible practice, stimulate discussion, or serve as writing tools. The tutor role continues alongside these other uses; the label does not mean every activity involved communication.
+refs: warschauer1998
 
 ## Integrative CALL
 kind: era
 scheme: Warschauer & Healey (1998)
 from: 1990
 to: 2026
-gist: Multimedia and the network fold the skills back together. Technology stops being an activity in itself and becomes the place where reading, writing, listening and talking happen at once.
+gist: From the 1990s in this account: multimedia and networks support tasks connecting language skills and communication in social contexts. Integration means connecting technology with the curriculum and learning purposes; it does not require all four skills in every task. The band extends the framework to the present for discussion, not as evidence of universal adoption.
 refs: warschauer1998 | warschauerkern2000 | kern2006
 
 ## Restricted CALL
 kind: era
 scheme: Bax (2003)
 from: 1960
-to: 1985
-gist: Narrow software, narrow teacher role, narrow feedback. Bax's point is that the limit was never only the hardware — the pedagogy was restricted too.
+to: 1980
+gist: Mainly the 1960s to about 1980: tasks, feedback and teacher roles offer limited choices. Bax's category covers restrictions in teaching as well as software. Restricted activities can still be useful for particular purposes.
 refs: bax2003
 
 ## Open CALL
 kind: era
 scheme: Bax (2003)
-from: 1985
+from: 1980
 to: 2003
-gist: More open software, more open feedback, more open interaction — and still, in Bax's diagnosis, technology sitting in a special room at a special time.
-refs: bax2003 | chambers2006
+gist: From about 1980 through the time of Bax's 2003 account: software, feedback and interaction become more flexible, but computer use often remains a separate activity. Open CALL can coexist with Restricted and Integrated practices in the same institution.
+refs: bax2003
 
-## Integrated CALL
-kind: era
-scheme: Bax (2003)
-from: 2003
-to: 2026
-gist: The goal rather than a description: technology as unremarkable as a pen or a book. Bax called this normalisation and argued in 2003 that we had not got there. The date it begins is exactly what is arguable.
-refs: bax2003 | bax2011 | chambers2006
-
-## PLATO begins at Illinois
+## PLATO begins: computer-based teaching before personal computers
 kind: moment
 year: 1960
-what: One of the first large computer-based education systems, and the site of sustained foreign-language work for three decades. Worth knowing because it shows that the field's questions are older than the personal computer.
-refs: hart1994
+what: The PLATO educational computing project began at the University of Illinois in 1960. Foreign-language teaching became one of its applications, with lessons delivered through terminals connected to a central computer. Hart's historical account describes the language project over subsequent decades. PLATO shows that questions about computer-delivered exercises, feedback and individual practice predate personal computers and today's apps.
+refs: hart1995
 
-## Communicative CALL argues with itself
+## A practical introduction to CALL for teachers
 kind: moment
 year: 1985
-what: Book-length treatments set out what a computer might do for a language classroom beyond drilling. The field acquires a literature it can disagree with.
+what: Ahmad, Corbett, Rogers and Sussex published *Computers, language learning and language teaching*, an introduction for teachers unfamiliar with computing. The book explains computer hardware, describes language-learning software, and discusses how teaching programs are developed. Its relevance to evaluation is practical: identify what learners do, what feedback they receive, and how the activity supports the lesson before choosing a program.
 refs: ahmad1985
 
-## Garrett's agenda-setting review
+## Garrett distinguishes technology from a teaching method
 kind: moment
 year: 1991
-what: Warns that "the use of the computer does not constitute a method" — the machine is a medium through which any pedagogy, good or bad, can be delivered. Almost every later review restates this.
+what: Garrett reviews uses of technology in language teaching and argues that a computer does not itself constitute a teaching method. The same medium can support different instructional approaches. For evaluation, describe the activity and its teaching purpose: for example, a screen might present isolated grammar exercises or support a collaborative writing task. The presence of a computer alone does not explain how learning is expected to occur.
 refs: garrett1991
 
-## CALL gets its conceptual map
+## Levy develops the tutor–tool framework
 kind: moment
 year: 1997
-what: Levy's book separates the tutor role from the tool role, giving the field a vocabulary for what a program is *for*. The journal *Language Learning & Technology* launches the same year, open access from the start.
+what: Levy's *Computer-Assisted Language Learning: Context and Conceptualization* examines CALL history, theory and practice and develops a tutor–tool framework. As a tutor, a program provides instruction or feedback; as a tool, it helps learners carry out activities such as writing or investigating language. This distinction helps evaluators ask what responsibility the software takes and what the teacher or learner must supply. A program can serve both roles.
 refs: levy1997
 
-## The three-phase history is written
+## Warschauer and Healey describe three broad phases of CALL
 kind: moment
 year: 1998
-what: Warschauer and Healey lay out behaviouristic, communicative and integrative CALL. This is the periodisation most textbooks still repeat — which is why it is worth questioning.
+what: Warschauer and Healey organize CALL history into behaviouristic, communicative and integrative phases. Their overview links changes in teaching approaches with developments such as personal computers, multimedia and the internet. Use these categories to compare the kinds of learning activities that materials support. Treat the dates as approximate: an app released today may still use drill-based exercises, and one course may combine practices associated with several phases.
 refs: warschauer1998
 
-## Criteria for judging CALL tasks
+## Chapelle proposes six criteria for evaluating CALL tasks
 kind: moment
 year: 2001
-what: Chapelle derives six criteria for CALL task appropriateness from SLA theory — language learning potential, learner fit, meaning focus, authenticity, positive impact, practicality. You will use these in Phase 2.
-refs: chapelle2001 | salaberry2001
+what: Chapelle proposes six criteria for CALL task appropriateness: language learning potential, learner fit, meaning focus, authenticity, positive impact and practicality. They connect evaluation with SLA theory, learner characteristics and conditions of use. Apply them to a specific task for a specified group of learners. A favourable inspection suggests potential value; evidence about learners' actual interaction and outcomes is needed to judge what happens in use.
+refs: chapelle2001
 
-## Normalisation
+## Bax proposes normalisation as a goal for CALL
 kind: moment
 year: 2003
-what: Bax reframes the goal: success is technology becoming invisible, like the pen or the book, not technology being visibly impressive. Followed in 2006 by a study of what normalisation actually requires in a real classroom.
+what: Bax calls for normalisation: technology becomes an ordinary part of teaching, selected to meet learning needs. He describes Integrated CALL as a goal with limited existing examples in 2003, not a phase that began that year. Chambers and Bax (2006) subsequently examine conditions affecting normalisation in two teaching settings. Evaluate integration through classroom practice, support and curriculum fit, not simply through the availability of devices.
 refs: bax2003 | chambers2006
 
-## The Modern Language Journal takes stock
+## Four reviews connect technology, SLA theory and language use
 kind: moment
 year: 2009
-what: Four papers in one year revisit the relationship between CALL and SLA: what technology is actually used for, what theory it answers to, and what learners do with it outside class.
+what: A special issue of *The Modern Language Journal* examines CALL from several perspectives. Garrett discusses technology integration; Chapelle connects CALL with theories of second language acquisition; Levy surveys technologies used for language learning; and Thorne, Black and Sykes examine language use in online communities and games. Together, these papers help evaluators consider teaching design, theoretical assumptions and learning opportunities beyond formal lessons.
 refs: garrett2009 | chapelle2009 | levy2009 | thorne2009
 
-## The syntheses arrive
+## Reviews compare results across studies (2012–2014)
 kind: moment
 year: 2013
-what: Meta-analysis and systematic review replace single-study advocacy. The headline finding across them is modest and conditional, not "technology works".
-refs: grgurovic2013 | macaro2012 | golonka2014
+what: These reviews ask related questions but cover different evidence. Macaro et al. (2012) find limited, inconclusive evidence for direct language gains in school-level English learning. Grgurović et al. (2013) compare technology-supported and other instruction across 37 studies and find a small positive overall effect. Golonka et al. (2014) find stronger support for some applications, including pronunciation training and chat. Compare each review's population, technologies and outcomes before combining its conclusions. CALL meta-analysis already existed, for example in Zhao (2003).
+refs: macaro2012 | grgurovic2013 | golonka2014 | zhao2003
 
-## Technology in language use, not just teaching
+## Reviews examine language use, skills and the quality of evidence
 kind: moment
 year: 2016
-what: The centenary review argues the field's real object is how technology changes language use itself, with teaching and learning following. A second-order synthesis in the same year asks how good the evidence base actually is.
-refs: chun2016 | plonsky2016 | blake2016
+what: Chun, Kern and Smith examine how technology shapes language use as well as language teaching and learning. Blake reviews technology in relation to reading, writing, listening and speaking. Plonsky and Ziegler synthesize earlier meta-analyses to assess evidence at the CALL–SLA interface. These are complementary contributions: evaluators need to describe the language activity, specify the skill or outcome, and assess the strength and scope of the supporting research.
+refs: chun2016 | blake2016 | plonsky2016
 
-## Whose CALL, for whom?
+## Ortega asks who benefits from technology and whose languages count
 kind: moment
 year: 2017
-what: Ortega turns the equity question on the field: who gets the technology, in which languages, and which multilingual realities the research keeps leaving out.
+what: Ortega connects CALL and SLA research with equitable multilingualism. She examines digital inequalities and asks how research can better represent multilingual language use and support social justice. For materials evaluation, this raises questions about which languages, learners and circumstances a resource accommodates. A resource may be useful for one group while excluding another through its language assumptions, access requirements or design.
 refs: ortega2017
 
-## Generative models enter the classroom
+## Public generative AI creates new material-evaluation questions
 kind: moment
 year: 2022
-what: Public large language models arrive mid-semester for most teachers. The dialogue-based CALL literature that preceded them studied rule-based systems, so part of the evidence base transfers and part does not.
+what: ChatGPT's public release in November 2022 expanded access to conversational text generation. The 2023 discussions by Kohnke et al. and Godwin-Jones describe opportunities and limitations for language learning, rather than establishing that every generated activity is effective. Earlier dialogue-based CALL included mostly handcrafted systems as well as statistical approaches. Its findings can inform questions about interaction and feedback, but transfer to general-purpose LLMs needs testing. Evaluate generated outputs and the conditions that produced them, not only the tool's name.
 refs: bibauw2019 | kohnke2023 | godwinjones2023
 
-## Periodisation is a claim, not a fact
+## Use historical categories to analyse a teaching context
 kind: idea
-claim: The two schemes on the timeline disagree about where we are now — and the disagreement is substantive.
-gist: Warschauer and Healey would say we have been in the integrative phase since the 1990s. Bax would say integration is not a phase we entered but a standard we have not met. Ask which claim your own teaching context supports.
+claim: A historical framework is a way of interpreting practice, not a universal timetable.
+gist: Compare what learners do, the feedback they receive and the teacher's role. Then examine how the activity fits the course. These observations are more informative than assigning a classroom to a period because of its devices.
 refs: warschauer1998 | bax2003
-- Test it: in your last observed lesson, was the technology remarkable to the students, or unremarkable?
-- If it was remarkable, was that because it was new, or because it was badly integrated?
+- Choose one activity and explain which features fit each framework.
+- Ask whether the technology supports the learning purpose and is manageable in that setting. Novelty alone does not demonstrate poor integration.
 
-## The medium is not the method
+## Ask a specific question about effectiveness
 kind: idea
-claim: "Does CALL work?" is unanswerable, because the comparison has no clean control.
-gist: Garrett said it in 1991 and the syntheses keep confirming it: what varies between a CALL and a non-CALL class is never only the computer. The answerable question names a condition — which learners, which task, how long, measured how.
+claim: CALL effectiveness can be studied when the intervention, comparison and outcome are defined.
+gist: A comparison estimates the effect of the teaching arrangements actually studied. To interpret it, check what differed between groups: tasks, feedback, practice time, teacher support or technology. A positive result does not establish that every technology-supported lesson will work, and a small study cannot settle the value of an entire category of tools.
 refs: garrett1991 | grgurovic2013 | macaro2012
-- Rewrite one "does it work" question into a "under what conditions" question before you leave today.
+- Specify the learners, activity, comparison, duration and outcome before asking whether a material improves learning.
+- Example research question: For these learners, does feedback during an online writing task improve performance on a later independent writing task compared with the same task without that feedback?
 
-## Criteria have to come from somewhere
+## Explain what your evaluation criteria can establish
 kind: idea
-claim: An evaluation checklist is a theory of learning in disguise.
-gist: Chapelle's six criteria are derived from interactionist SLA: they ask about input, interaction and focus on form because that is where the theory says learning happens. Adopt a different theory and you would ask different questions. This is the bridge into Phase 2 — the checklist you use tomorrow carries assumptions you should be able to name.
+claim: A checklist makes assumptions explicit; a high rating is not proof of learning.
+gist: Chapelle's framework draws on SLA theory and also considers learners, authenticity, impact and practical resources. An inspection can identify opportunities for meaningful language use and attention to form. Observing learners and assessing outcomes can show whether those opportunities are taken up. Other perspectives may draw attention to additional questions about collaboration, agency or inclusion.
 refs: chapelle2001 | chapelle2009 | colpaert2006
-- Which of the six criteria would a sociocultural account add to, or argue with?
+- For one criterion, distinguish evidence you can collect by inspecting the material from evidence that requires learners to use it.
 
-## Two of today's references disagree about their own year
+## Distinguish online publication dates from issue dates
 kind: idea
-claim: Golonka et al. and Macaro et al. each carry two defensible publication years.
-gist: Both appeared online a year or two before they appeared in an issue, so the publisher's record says 2012 and 2011 while most reading lists say 2014 and 2012. Neither is a mistake. It is a reminder that a citation is a record of an object with a history, and that "check the year" means check against the DOI.
-refs: golonka2014 | macaro2012
+claim: Cite the publication version consistently, and check more than the first date displayed on a website.
+gist: Macaro et al. appeared online in 2011 and in a 2012 journal issue; Golonka et al. appeared online in 2012 and in a 2014 issue. Burston's MALL meta-analysis appeared online in 2014 and in a 2015 issue. This reference list uses the issue years with the final volume, issue and page ranges. DOI records can omit fields, so compare them with the article or book itself when details conflict.
+refs: macaro2012 | golonka2014 | burston2015

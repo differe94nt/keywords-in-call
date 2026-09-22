@@ -12,7 +12,7 @@ seminar/
       02-groupwork.md     the three tools and the four group questions
       03-assignment.md    the evaluation criteria
       04-map.md           the semester map
-      refs.md             every citation, pulled from its DOI
+      refs.md             core and further readings, with publication links
   content/
     01-answers.md         Step 1 text + the discussion prompts
     02-keywords.md        Step 2 — one block per keyword card

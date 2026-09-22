@@ -4,13 +4,12 @@
 two graded-reader platforms, two AI writing helpers, two pronunciation trainers. They must be close
 enough that choosing between them is a real decision a teacher could face.
 
-Evaluate both against the criteria below, then present the **comparison**, not two reviews in a row.
+Choose comparable tasks inside each material and evaluate them against the criteria below. The first six adapt Chapelle’s task-evaluation framework; the seventh is a course extension. Present a **comparison** showing the evidence for each judgement.
 Your presentation should end with a recommendation and the condition attached to it: *for these
 learners, at this level, for this purpose*.
 
 **Bring:** 8 minutes, any format. One slide or one page listing both materials with version, platform,
-date you tested, and what access costs. A material without those details cannot be evaluated by
-anyone else.
+date you tested, and what access costs. Include the task or lesson you inspected so someone else can repeat your evaluation. For generated material, also record the prompt, relevant settings, outputs and number of trials.
 
 <!--
 HOW TO EDIT
@@ -22,48 +21,48 @@ HOW TO EDIT
 ## Language learning potential
 kind: criterion
 from: chapelle2001
-ask: Does the material create opportunities for attention to language form, not only for exposure and activity?
-evidence: Point at a specific screen or task. "The app is engaging" is not evidence; "the task forces a choice between two forms and gives feedback on it" is.
+ask: Does the task offer useful opportunities to notice and work on language form while learning or using the language?
+evidence: Show a task and its feedback, such as a writing activity that helps learners notice a recurring form. Explain the intended learning process. Inspecting an opportunity for learning does not demonstrate that learning occurred.
 
 ## Learner fit
 kind: criterion
 from: chapelle2001
-ask: Is the difficulty and the assumed background right for the learners you have in mind?
-evidence: Name the learners — age, level, L1, setting. A material only fits somebody; say who.
+ask: Can the intended learners engage with the language and complete the task with appropriate support?
+evidence: Specify age, proficiency, language background, goals and setting. Compare the task’s language demands, instructions and available support with those characteristics.
 
 ## Meaning focus
 kind: criterion
 from: chapelle2001
-ask: Is the learner's attention on what the language means, or only on the form and the score?
-evidence: Describe what the learner is thinking about while doing the task. Points, streaks and badges are the classic case of attention going somewhere else.
+ask: Does completing the activity require learners to understand or communicate a message?
+evidence: Describe the message learners must interpret or convey, such as understanding directions to choose a route. Points and badges alone do not establish or rule out meaning focus. Distinguish your prediction about attention from observations of actual learners.
 
 ## Authenticity
 kind: criterion
-from: gilmore2007
-ask: How close is the task to something the learner would do with the language outside this material?
-evidence: Define what you mean by authentic before you rate it — text source, task purpose, audience, or all three. Groups routinely use the word to mean four different things.
+from: chapelle2001 | gilmore2007
+ask: How does the activity relate to language uses that matter to these learners outside the exercise?
+evidence: Define the dimension you are evaluating: text source, purpose, audience or task. For example, compare writing a message to arrange a meeting with completing isolated sentences. A real-world text does not automatically make every task built around it authentic.
 
 ## Positive impact
 kind: criterion
 from: chapelle2001
-ask: What does using this material do to the learner and the classroom beyond the language itself — study habits, motivation, what learners believe counts as learning?
-evidence: Impact includes the bad kind. A material that trains learners to expect instant correctness has an impact.
+ask: What beneficial or adverse effects might the activity have on learners and teachers beyond the immediate language task?
+evidence: Consider motivation, confidence, learning habits, autonomy and teacher workload. Separate effects you observed from those you predict, and identify what longer-term evidence would be needed.
 
 ## Practicality
 kind: criterion
 from: chapelle2001
-ask: Can it actually be used in your setting — devices, network, cost, class size, preparation time?
-evidence: Give real numbers: price per learner per year, minutes of teacher setup, whether it works on a phone with no account.
+ask: Are the resources needed to use the activity available in the intended teaching setting?
+evidence: Record device and network requirements, account requirements, access costs, preparation time and class-size constraints. Give the date and access tier you checked.
 
 ## Data, privacy and access
 kind: criterion
 from: ortega2017
-ask: What does the material collect, who owns the learner's writing, and who is excluded by the price or the device it needs?
-evidence: Find the actual policy page and quote one line. We return to this in Week 14, so keep what you find.
+ask: What happens to learner data, and which learners can access and use the resource? This course extension combines access and equity questions with a separate review of data policies.
+evidence: Ortega informs the access and equity questions. For data collection, retention, reuse and rights to submitted writing, consult the resource’s current policy and terms directly; cite the relevant sections and access date. Include accessibility and cost barriers. Mark information you cannot establish as unknown.
 
 ## What good comparison looks like
 kind: note
-- Rate both materials on every criterion, then say which criterion decided your recommendation. A comparison with no decisive criterion is a description.
+- Apply every criterion to both materials and explain the trade-offs behind your recommendation. More than one criterion may determine your choice; a justified tie is acceptable.
 - Where the two materials are equivalent, say so quickly and move on. The interesting part is where they diverge.
 - Disagreement inside the group is worth reporting. If two of you rated authenticity differently, that tells us the criterion needs a sharper definition.
-- Do not evaluate a material you have not used. Fifteen minutes inside the material beats an hour of reading its website.
+- Try both materials yourself. A short trial can support judgements about usability and task design; claims about retention or learning gains require learner data collected over an appropriate period.

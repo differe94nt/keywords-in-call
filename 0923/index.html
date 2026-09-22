@@ -175,15 +175,15 @@ footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem
     <div class="intro" id="intro1"></div>
 
     <div class="vizwrap">
-      <div class="vizhead"><h3>Sixty years, cut two ways</h3></div>
-      <p class="viznote">The same period, periodised by two different arguments. Top band: Warschauer and Healey, cutting by what the machine is asked to do. Bottom band: Bax, cutting by how far the technology has disappeared into ordinary practice. Click a marker to jump to it.</p>
+      <div class="vizhead"><h3>Two frameworks for understanding CALL history</h3></div>
+      <p class="viznote">Top: Warschauer and Healey's broad phases, extended to the present as a framework for discussion. Bottom: Restricted and Open CALL as described by Bax in 2003. Boundaries are approximate. Integrated CALL is Bax's goal of normalisation, with no universal start date; it is not a dated band. Click a publication marker to read its summary.</p>
       <div id="timeline"></div>
     </div>
 
-    <h3 style="font-size:1.3rem;margin:1.6rem 0 .6rem">The moments</h3>
+    <h3 style="font-size:1.3rem;margin:1.6rem 0 .6rem">Key developments and what they contribute</h3>
     <div id="moments"></div>
 
-    <h3 style="font-size:1.3rem;margin:1.8rem 0 .6rem">Three things to take into Phase 2</h3>
+    <h3 style="font-size:1.3rem;margin:1.8rem 0 .6rem">Questions to take into Phase 2</h3>
     <div id="ideas"></div>
 
     <hr class="rule">
@@ -200,7 +200,7 @@ footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem
     <div class="head"><div class="kicker">PHASE 2 · GROUP PRESENTATIONS</div><h2>Four groups, four questions</h2></div>
     <div class="intro" id="intro2"></div>
     <h3 style="font-size:1.2rem;margin:1.4rem 0 .2rem">The three required tools</h3>
-    <p class="viznote">Every group uses all three, and reports what each one produced — including where it failed.</p>
+    <p class="viznote">Every group uses all three and reports what each produced, what the source checks supported, and any limitations or errors found.</p>
     <div class="tools" id="tools"></div>
     <h3 style="font-size:1.2rem;margin:1.6rem 0 .6rem">The questions</h3>
     <div id="groups"></div>
@@ -218,7 +218,7 @@ footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem
   </section>
 
   <section class="phase" id="phase-4">
-    <div class="head"><div class="kicker">PHASE 4 · SOURCES</div><h2>Everything cited today</h2></div>
+    <div class="head"><div class="kicker">PHASE 4 · SOURCES</div><h2>Core readings and further references</h2></div>
     <div class="intro" id="intro4"></div>
     <div class="chiprow" style="margin:1rem 0">
       <input id="refSearch" placeholder="filter by author, year or title" style="border:1px solid var(--line-2);border-radius:999px;padding:.35rem .8rem;font-size:.85rem;background:var(--paper);color:var(--fg);min-width:260px">
@@ -230,7 +230,7 @@ footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem
 </main>
 
 <footer class="wrap">
-  <span id="footWho"></span> · Every reference on this page was taken from the publisher's record through its DOI.
+  <span id="footWho"></span> · References link to publication records; check the source passages when evaluating a claim.
   Text lives in <code>content/*.md</code>; nothing you tick here leaves your browser.
 </footer>
 
@@ -526,7 +526,7 @@ function renderGroups(){
     return '<div class="group"><h3>'+esc(g.title)+"</h3>"+
       '<p class="q">'+mdInline(g.fields.question||"")+"</p>"+
       (g.fields.why?'<p class="why">'+mdInline(g.fields.why)+"</p>":"")+
-      (lead?'<div class="lead"><strong>Lead paper — everyone reads this one:</strong> '+mdInline(lead.apa)+
+      (lead?'<div class="lead"><strong>Lead reading — everyone reads this one:</strong> '+mdInline(lead.apa)+
         (lead.doi?' <a href="https://doi.org/'+lead.doi+'" target="_blank" rel="noopener">DOI ↗</a>':"")+"</div>":"")+
       "<h5>The set</h5><div class='chiprow'>"+citeChips(g.fields.refs)+"</div>"+
       (g.fields.watch?'<div class="watch">'+mdInline(g.fields.watch)+"</div>":"")+

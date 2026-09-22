@@ -15,6 +15,7 @@
      ════════════════════════════════════════════════════════════ -->
 <script>
 const CONFIG = {
+  instructor: "王伯雅 Po-Ya Angela Wang",
   courseTitle: "英語數位教材與教學",
   sessionTitle: "Keywords, AI summaries, and checking the citations",
 
@@ -34,7 +35,10 @@ const CONFIG = {
   formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdZXD0hp_wVVYjsVOxTgB8sf6i5AV-ro2iWUvzW0ZrYA-cD_Q/viewform",
 
   refreshSeconds: 60,      // how often to re-read the sheet
-  autoRefresh: true
+  autoRefresh: true,
+
+  // other pages of this course, shown in the header
+  otherWeeks: [["Week 3 · Digital material evaluation","0923/"]]
 };
 </script>
 
@@ -76,6 +80,7 @@ header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1
 .top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.55rem 0}
 .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem}
 .brand span{display:block;font-family:var(--sans);font-size:.74rem;color:var(--fg-soft);font-weight:400}
+#weekLinks{display:flex;gap:.4rem;flex-wrap:wrap}
 .top-actions{margin-left:auto;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
 .steps{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.4rem}
 .step-btn{display:flex;gap:.5rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
@@ -706,6 +711,7 @@ link: https://www.zotero.org
     <div class="top-in">
       <div class="brand" id="brand"></div>
       <div class="top-actions">
+        <span id="weekLinks"></span>
         <a class="btn ghost sm" id="formLink" href="#" target="_blank" rel="noopener">The form</a>
         <button class="btn ghost sm" id="themeBtn">Dark</button>
       </div>
@@ -933,7 +939,8 @@ const S={cards:[],topics:[],checks:[],flags:[],tools:[],prompts:[],intros:{},
   cmpPick:[],cmpTouched:false,toolType:"all",claimedOnly:false,timer:null,loaded:false};
 
 /* ══════════════ boot ══════════════ */
-$("#brand").innerHTML=esc(CONFIG.courseTitle)+"<span>"+esc(CONFIG.sessionTitle)+"</span>";
+$("#brand").innerHTML=esc(CONFIG.instructor)+"<span>"+esc(CONFIG.courseTitle)+" · "+esc(CONFIG.sessionTitle)+"</span>";
+$("#weekLinks").innerHTML=(CONFIG.otherWeeks||[]).map(([t,u])=>'<a class="btn ghost sm" href="'+u+'">'+esc(t)+"</a>").join("");
 $("#formLink").href=CONFIG.formUrl||"#";
 $("#secTxt").textContent=CONFIG.refreshSeconds;
 $("#autoBox").checked=!!CONFIG.autoRefresh;

@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAEFD0">
+<title>Digital material evaluation — 09/23</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ════════ SETTINGS ════════ -->
+<script>
+const CONFIG = {
+  instructor: "王伯雅 Po-Ya Angela Wang",
+  courseTitle: "英語數位教材與教學",
+  weekTitle: "Week 3 · Digital material evaluation",
+  date: "09/23",
+  otherWeeks: [["Week 2 · Keywords in CALL","../"]]
+};
+</script>
+
+<style>
+:root{
+  --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
+  --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
+  --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77;
+  --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
+  --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
+  --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
+  --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD;
+  --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+h4{font-family:var(--sans);font-weight:600;margin:0;font-size:.95rem}
+p{margin:0 0 .75em}
+a{color:var(--green);text-underline-offset:2px}
+button,input,select{font:inherit;color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--tint);padding:.1em .35em;border-radius:5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.muted{color:var(--fg-soft)} .small{font-size:.83rem}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 0}
+.who{font-family:var(--serif);font-size:1.02rem;font-weight:600}
+.who span{display:block;font-family:var(--sans);font-size:.74rem;color:var(--fg-soft);font-weight:400}
+.top-actions{margin-left:auto;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+.phases{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.4rem}
+.ph{display:flex;gap:.5rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
+.ph b{font-family:var(--mono);font-size:.74rem;color:var(--burnt)}
+.ph:hover{background:var(--tint);color:var(--fg)}
+.ph[aria-current="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .ph[aria-current="true"]{background:var(--green);color:#16200E}
+.ph[aria-current="true"] b{color:var(--gold)}
+
+.btn{background:var(--ink);color:var(--cream);border:0;border-radius:999px;padding:.4rem .9rem;font-size:.84rem;cursor:pointer;text-decoration:none;display:inline-block}
+html[data-theme="dark"] .btn{background:var(--green);color:#16200E}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line-2)}
+.btn.ghost:hover{background:var(--tint)}
+.btn.sm{padding:.2rem .6rem;font-size:.76rem}
+.chip{display:inline-block;border:1px solid var(--line-2);background:none;color:var(--fg);border-radius:999px;padding:.14rem .55rem;font-size:.75rem;cursor:pointer;text-decoration:none}
+.chip:hover{background:var(--tint)}
+.chiprow{display:flex;flex-wrap:wrap;gap:.35rem}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
+hr.rule{border:0;height:1px;background:var(--line);margin:1.8rem 0}
+
+main{padding:1.6rem 0 4rem}
+.phase{display:none}.phase.on{display:block}
+.head .kicker{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em}
+.head h2{font-size:clamp(1.5rem,3.4vw,2.1rem);margin:.15rem 0 .5rem}
+.intro{max-width:70ch}
+.intro h2{font-size:1.2rem;margin:1.2rem 0 .4rem}
+.intro ul{margin:.2rem 0 .8rem;padding-left:1.1rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+
+/* citations */
+.cite{display:inline-block;font-size:.78rem;font-family:var(--sans);border:1px solid var(--line);border-radius:999px;padding:.04rem .5rem;text-decoration:none;color:var(--fg-soft);background:var(--paper)}
+.cite:hover{border-color:var(--green);color:var(--green)}
+.refitem{padding:.6rem 0;border-bottom:1px solid var(--line);display:flex;gap:.8rem;align-items:baseline}
+.refitem:last-child{border-bottom:0}
+.refitem .n{font-family:var(--mono);font-size:.7rem;color:var(--fg-soft);flex:none;width:2.2rem}
+.refitem .body{flex:1}
+.refitem .apa{font-size:.92rem}
+.refitem .links{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.3rem}
+.refitem .links a{font-size:.7rem;border:1px solid var(--line);border-radius:999px;padding:.05rem .45rem;color:var(--fg-soft);text-decoration:none}
+.refitem .links a:hover{border-color:var(--green);color:var(--green)}
+.refitem.hit{background:var(--gold-soft);border-radius:8px}
+
+/* timeline */
+.vizwrap{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem;margin:1rem 0}
+.vizwrap svg{display:block;width:100%;height:auto}
+.vizhead{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.2rem}
+.vizhead h3{font-size:1.25rem}
+.viznote{font-size:.85rem;color:var(--fg-soft);max-width:70ch;margin-bottom:.6rem}
+.tl-era{cursor:pointer}
+.tl-era:hover rect{opacity:.95}
+.tl-moment{cursor:pointer}
+.tl-moment:hover circle{r:7}
+
+/* moments + ideas */
+.moment{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;margin-bottom:.6rem;display:grid;grid-template-columns:4.2rem 1fr;gap:.9rem}
+.moment.hit{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,194,74,.3)}
+.moment .yr{font-family:var(--mono);font-size:1.02rem;color:var(--burnt)}
+.moment h4{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin-bottom:.2rem}
+.moment p{font-size:.92rem;margin:0 0 .4rem}
+.idea{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.7rem}
+.idea h4{font-family:var(--serif);font-size:1.12rem;margin-bottom:.25rem}
+.idea .claim{font-size:.95rem;color:var(--burnt);margin-bottom:.4rem}
+.idea ul{margin:.5rem 0 0;padding-left:1.1rem}
+.idea li{font-size:.9rem;margin-bottom:.25rem}
+
+/* map */
+.node{cursor:pointer}
+.node:hover rect{stroke-width:2.5}
+#mapDetail{margin-top:.8rem;min-height:3.4rem}
+
+/* group work */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem;margin:1rem 0 1.6rem}
+.tool{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;padding:.9rem 1rem}
+.tool h4{font-family:var(--serif);font-size:1.05rem;margin-bottom:.35rem}
+.tool dt{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);margin-top:.5rem}
+.tool dd{margin:.1rem 0 0;font-size:.88rem}
+.group{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:.9rem}
+.group h3{font-size:1.2rem;margin-bottom:.3rem}
+.group .q{font-size:1rem;margin:.3rem 0 .6rem}
+.group .why{font-size:.9rem;color:var(--fg-soft)}
+.group .watch{font-size:.88rem;border-left:3px solid var(--burnt);padding-left:.7rem;margin:.7rem 0;color:var(--fg-soft)}
+.group h5{font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);margin:.9rem 0 .3rem}
+.group ul{margin:.2rem 0;padding-left:1.1rem}
+.group li{font-size:.92rem;margin-bottom:.25rem}
+.lead{font-size:.88rem;background:var(--green-soft);border-radius:8px;padding:.5rem .7rem;margin:.6rem 0}
+
+/* criteria */
+.crit{display:flex;gap:.75rem;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;margin-bottom:.6rem;align-items:flex-start}
+.crit input{margin-top:.35rem;width:1.05rem;height:1.05rem;accent-color:var(--green);flex:none}
+.crit.done{background:var(--green-soft);border-color:var(--green)}
+.crit h4{font-size:1rem;margin-bottom:.15rem}
+.crit .ask{font-size:.9rem}
+.crit .ev{font-size:.85rem;color:var(--fg-soft);margin-top:.3rem}
+.progress{font-size:.86rem;color:var(--green);margin:.6rem 0 1.4rem}
+.banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1.2rem;font-size:.88rem}
+footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+@media (max-width:820px){ .moment{grid-template-columns:1fr} .moment .yr{margin-bottom:-.4rem} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<script type="text/markdown" id="md1">
+# Phase 1 · Where CALL came from, and why the history is an argument
+
+Two people can look at the same sixty years of CALL and cut them into different periods. Warschauer
+and Healey cut by **what the machine was asked to do**; Bax cuts by **how far the technology has
+disappeared into ordinary teaching**. Neither is wrong. Which one you adopt decides what counts as
+progress — and, next hour, what counts as a good digital material.
+
+Click any point on the timeline to jump to it. Every claim below carries its source.
+
+<!--
+HOW TO EDIT
+  ## Title
+  kind:   era | moment | idea
+  era    → scheme, from, to, gist
+  moment → year, what
+  idea   → claim, gist
+  refs:  ids from refs.md, separated by |
+  plain "- " bullets are shown as detail under the item
+-->
+
+## Behaviouristic CALL
+kind: era
+scheme: Warschauer & Healey (1998)
+from: 1960
+to: 1979
+gist: Drill and practice on mainframes. The computer is a tutor that never tires, repetition is the mechanism, and the underlying theory of language is structural.
+refs: warschauer1998 | hart1994
+
+## Communicative CALL
+kind: era
+scheme: Warschauer & Healey (1998)
+from: 1980
+to: 1989
+gist: Microcomputers arrive and the question shifts from drilling forms to creating something to talk about. The computer becomes a stimulus and a tool rather than a tutor.
+refs: warschauer1998 | ahmad1985
+
+## Integrative CALL
+kind: era
+scheme: Warschauer & Healey (1998)
+from: 1990
+to: 2026
+gist: Multimedia and the network fold the skills back together. Technology stops being an activity in itself and becomes the place where reading, writing, listening and talking happen at once.
+refs: warschauer1998 | warschauerkern2000 | kern2006
+
+## Restricted CALL
+kind: era
+scheme: Bax (2003)
+from: 1960
+to: 1985
+gist: Narrow software, narrow teacher role, narrow feedback. Bax's point is that the limit was never only the hardware — the pedagogy was restricted too.
+refs: bax2003
+
+## Open CALL
+kind: era
+scheme: Bax (2003)
+from: 1985
+to: 2003
+gist: More open software, more open feedback, more open interaction — and still, in Bax's diagnosis, technology sitting in a special room at a special time.
+refs: bax2003 | chambers2006
+
+## Integrated CALL
+kind: era
+scheme: Bax (2003)
+from: 2003
+to: 2026
+gist: The goal rather than a description: technology as unremarkable as a pen or a book. Bax called this normalisation and argued in 2003 that we had not got there. The date it begins is exactly what is arguable.
+refs: bax2003 | bax2011 | chambers2006
+
+## PLATO begins at Illinois
+kind: moment
+year: 1960
+what: One of the first large computer-based education systems, and the site of sustained foreign-language work for three decades. Worth knowing because it shows that the field's questions are older than the personal computer.
+refs: hart1994
+
+## Communicative CALL argues with itself
+kind: moment
+year: 1985
+what: Book-length treatments set out what a computer might do for a language classroom beyond drilling. The field acquires a literature it can disagree with.
+refs: ahmad1985
+
+## Garrett's agenda-setting review
+kind: moment
+year: 1991
+what: Warns that "the use of the computer does not constitute a method" — the machine is a medium through which any pedagogy, good or bad, can be delivered. Almost every later review restates this.
+refs: garrett1991
+
+## CALL gets its conceptual map
+kind: moment
+year: 1997
+what: Levy's book separates the tutor role from the tool role, giving the field a vocabulary for what a program is *for*. The journal *Language Learning & Technology* launches the same year, open access from the start.
+refs: levy1997
+
+## The three-phase history is written
+kind: moment
+year: 1998
+what: Warschauer and Healey lay out behaviouristic, communicative and integrative CALL. This is the periodisation most textbooks still repeat — which is why it is worth questioning.
+refs: warschauer1998
+
+## Criteria for judging CALL tasks
+kind: moment
+year: 2001
+what: Chapelle derives six criteria for CALL task appropriateness from SLA theory — language learning potential, learner fit, meaning focus, authenticity, positive impact, practicality. You will use these in Phase 2.
+refs: chapelle2001 | salaberry2001
+
+## Normalisation
+kind: moment
+year: 2003
+what: Bax reframes the goal: success is technology becoming invisible, like the pen or the book, not technology being visibly impressive. Followed in 2006 by a study of what normalisation actually requires in a real classroom.
+refs: bax2003 | chambers2006
+
+## The Modern Language Journal takes stock
+kind: moment
+year: 2009
+what: Four papers in one year revisit the relationship between CALL and SLA: what technology is actually used for, what theory it answers to, and what learners do with it outside class.
+refs: garrett2009 | chapelle2009 | levy2009 | thorne2009
+
+## The syntheses arrive
+kind: moment
+year: 2013
+what: Meta-analysis and systematic review replace single-study advocacy. The headline finding across them is modest and conditional, not "technology works".
+refs: grgurovic2013 | macaro2012 | golonka2014
+
+## Technology in language use, not just teaching
+kind: moment
+year: 2016
+what: The centenary review argues the field's real object is how technology changes language use itself, with teaching and learning following. A second-order synthesis in the same year asks how good the evidence base actually is.
+refs: chun2016 | plonsky2016 | blake2016
+
+## Whose CALL, for whom?
+kind: moment
+year: 2017
+what: Ortega turns the equity question on the field: who gets the technology, in which languages, and which multilingual realities the research keeps leaving out.
+refs: ortega2017
+
+## Generative models enter the classroom
+kind: moment
+year: 2022
+what: Public large language models arrive mid-semester for most teachers. The dialogue-based CALL literature that preceded them studied rule-based systems, so part of the evidence base transfers and part does not.
+refs: bibauw2019 | kohnke2023 | godwinjones2023
+
+## Periodisation is a claim, not a fact
+kind: idea
+claim: The two schemes on the timeline disagree about where we are now — and the disagreement is substantive.
+gist: Warschauer and Healey would say we have been in the integrative phase since the 1990s. Bax would say integration is not a phase we entered but a standard we have not met. Ask which claim your own teaching context supports.
+refs: warschauer1998 | bax2003
+- Test it: in your last observed lesson, was the technology remarkable to the students, or unremarkable?
+- If it was remarkable, was that because it was new, or because it was badly integrated?
+
+## The medium is not the method
+kind: idea
+claim: "Does CALL work?" is unanswerable, because the comparison has no clean control.
+gist: Garrett said it in 1991 and the syntheses keep confirming it: what varies between a CALL and a non-CALL class is never only the computer. The answerable question names a condition — which learners, which task, how long, measured how.
+refs: garrett1991 | grgurovic2013 | macaro2012
+- Rewrite one "does it work" question into a "under what conditions" question before you leave today.
+
+## Criteria have to come from somewhere
+kind: idea
+claim: An evaluation checklist is a theory of learning in disguise.
+gist: Chapelle's six criteria are derived from interactionist SLA: they ask about input, interaction and focus on form because that is where the theory says learning happens. Adopt a different theory and you would ask different questions. This is the bridge into Phase 2 — the checklist you use tomorrow carries assumptions you should be able to name.
+refs: chapelle2001 | chapelle2009 | colpaert2006
+- Which of the six criteria would a sociocultural account add to, or argue with?
+
+## Two of today's references disagree about their own year
+kind: idea
+claim: Golonka et al. and Macaro et al. each carry two defensible publication years.
+gist: Both appeared online a year or two before they appeared in an issue, so the publisher's record says 2012 and 2011 while most reading lists say 2014 and 2012. Neither is a mistake. It is a reminder that a citation is a record of an object with a history, and that "check the year" means check against the DOI.
+refs: golonka2014 | macaro2012
+
+</script>
+<script type="text/markdown" id="md2">
+# Phase 2 · Four groups, four questions about evaluation
+
+Each group gets one question and four papers, with one marked as the **lead paper** that everyone in
+the group reads properly. The other three are for the tools to work on.
+
+You have three required tools and eight minutes to present. The tools are not decoration: each one
+has to produce something you show us, and one of them has to be caught getting something wrong.
+
+**Timing** — 45 minutes to prepare, then 8 minutes per group with 2 minutes of questions.
+
+<!--
+HOW TO EDIT
+  ## Group n · title      kind: group
+     question / why / lead / refs / watch, then "- " bullets = what they hand in
+  ## Tool …               kind: tool
+     tool / must / report
+-->
+
+## Tool 1 · Research Rabbit or Connected Papers
+kind: tool
+tool: Pick one. Seed it with your lead paper.
+must: Build the map around your lead paper and look at what sits next to it.
+report: Show the map. Name one paper it surfaced that is **not** on your reading list, and say in one sentence whether it belongs there. Then say what the map cannot tell you — it measures similarity and co-citation, not quality or agreement.
+
+## Tool 2 · Perplexity, or another chatbot you name
+kind: tool
+tool: Name the tool and the date you used it. "AI said" is not a source.
+must: Ask it two specific questions about your lead paper — what the participants were, what was measured, what the effect was, what the authors say they cannot conclude.
+report: Show one answer it got right and one it got wrong, could not support, or hedged into uselessness. Point at the page in the PDF that settles it. Every group is expected to find at least one of each.
+
+## Tool 3 · NotebookLM
+kind: tool
+tool: Upload all four of your papers as sources.
+must: Generate a synthesis of about 150 words with its inline citations switched on.
+report: Show the synthesis, then trace one sentence of it back to the page it came from, on screen. Say whether the four papers actually agree — and if NotebookLM made them sound like they agree, say that.
+
+## Group 1 · Do evaluation checklists predict learning?
+kind: group
+question: Evaluation frameworks tell us a material is good. Does anything show that materials scoring well on them teach better?
+why: You will apply a checklist in this week's assignment, so you should be able to say where its authority comes from. This is also the most direct route to a midterm research question — the gap between "rated highly" and "learned more" is genuinely open.
+lead: hubbard1988
+refs: hubbard1988 | chapelle2001 | colpaert2006 | leakey2011
+watch: Hubbard's framework and Chapelle's criteria are built on different foundations. Hubbard starts from Richards and Rodgers' approach–design–procedure; Chapelle derives hers from interactionist SLA. Ask what each one would miss.
+- The claim your group will defend, in one falsifiable sentence.
+- One criterion you would add to Chapelle's six for materials made after 2022, and why.
+- One thing a checklist cannot see.
+
+## Group 2 · What a Duolingo study can and cannot tell you
+kind: group
+question: App studies are the most-cited evidence about digital materials and the least controlled. What can this literature actually support?
+why: Apps are what your classmates and students will reach for first, and what they will most often be asked to evaluate. The Duolingo case study is unusually honest about its own limits, which makes it a good model for your midterm methods section.
+lead: loewen2019
+refs: loewen2019 | heil2016 | rosellaguilar2017 | burston2014
+watch: Note how many participants finished, how long the study ran, and what the outcome measure actually was. Then compare that with how the app's own marketing describes the same evidence.
+- The claim your group will defend, in one falsifiable sentence.
+- The comparison condition in your lead study, named exactly.
+- One design change that would make the finding stronger, and what it would cost.
+
+## Group 3 · When the material writes itself
+kind: group
+question: If a chatbot generates the text, the task and the feedback, what exactly are we evaluating — the tool, the prompt, or the teacher behind it?
+why: This follows directly from last week's assignment, and it is where the field has the least settled evidence. It also sets up Week 14 on ethics and academic integrity. Notice that the pre-2022 dialogue-based literature studied rule-based systems, so part of it transfers and part does not.
+lead: bibauw2019
+refs: bibauw2019 | kohnke2023 | godwinjones2023 | warschauer2006
+watch: Automated writing evaluation has been studied for twenty years and reached careful conclusions about feedback and revision. Ask how much of that applies to a general-purpose model that was never built for learners.
+- The claim your group will defend, in one falsifiable sentence.
+- One finding from the pre-2022 literature you think still holds, with your reason.
+- One evaluation criterion that only makes sense for generated material.
+
+## Group 4 · Authentic, multimodal, and still hard to judge
+kind: group
+question: "Authentic" and "multimodal" are the two most common selling points of digital material. What do they mean once you have to measure them?
+why: This connects Week 5 on reading and Week 7 on multimodal input back to evaluation, and authenticity is the criterion students most often assert and least often define. The captioning meta-analysis gives you a rare case where the evidence is strong enough to argue with.
+lead: gilmore2007
+refs: gilmore2007 | monteroperez2013 | tomlinson2012 | winke2010
+watch: Captions support comprehension more clearly than they support listening development. Keep those two outcomes apart when you report the meta-analysis.
+- The claim your group will defend, in one falsifiable sentence.
+- A workable definition of "authentic" that a colleague could apply to two materials and agree with you.
+- One case where more modes made learning worse, with the condition attached.
+
+</script>
+<script type="text/markdown" id="md3">
+# Phase 3 · Assignment — two materials, side by side
+
+**In your group, choose two digital materials that claim to do the same job** — two vocabulary apps,
+two graded-reader platforms, two AI writing helpers, two pronunciation trainers. They must be close
+enough that choosing between them is a real decision a teacher could face.
+
+Evaluate both against the criteria below, then present the **comparison**, not two reviews in a row.
+Your presentation should end with a recommendation and the condition attached to it: *for these
+learners, at this level, for this purpose*.
+
+**Bring:** 8 minutes, any format. One slide or one page listing both materials with version, platform,
+date you tested, and what access costs. A material without those details cannot be evaluated by
+anyone else.
+
+<!--
+HOW TO EDIT
+  ## Criterion name        kind: criterion
+     from / ask / evidence
+  ## Anything else         kind: note
+-->
+
+## Language learning potential
+kind: criterion
+from: chapelle2001
+ask: Does the material create opportunities for attention to language form, not only for exposure and activity?
+evidence: Point at a specific screen or task. "The app is engaging" is not evidence; "the task forces a choice between two forms and gives feedback on it" is.
+
+## Learner fit
+kind: criterion
+from: chapelle2001
+ask: Is the difficulty and the assumed background right for the learners you have in mind?
+evidence: Name the learners — age, level, L1, setting. A material only fits somebody; say who.
+
+## Meaning focus
+kind: criterion
+from: chapelle2001
+ask: Is the learner's attention on what the language means, or only on the form and the score?
+evidence: Describe what the learner is thinking about while doing the task. Points, streaks and badges are the classic case of attention going somewhere else.
+
+## Authenticity
+kind: criterion
+from: gilmore2007
+ask: How close is the task to something the learner would do with the language outside this material?
+evidence: Define what you mean by authentic before you rate it — text source, task purpose, audience, or all three. Groups routinely use the word to mean four different things.
+
+## Positive impact
+kind: criterion
+from: chapelle2001
+ask: What does using this material do to the learner and the classroom beyond the language itself — study habits, motivation, what learners believe counts as learning?
+evidence: Impact includes the bad kind. A material that trains learners to expect instant correctness has an impact.
+
+## Practicality
+kind: criterion
+from: chapelle2001
+ask: Can it actually be used in your setting — devices, network, cost, class size, preparation time?
+evidence: Give real numbers: price per learner per year, minutes of teacher setup, whether it works on a phone with no account.
+
+## Data, privacy and access
+kind: criterion
+from: ortega2017
+ask: What does the material collect, who owns the learner's writing, and who is excluded by the price or the device it needs?
+evidence: Find the actual policy page and quote one line. We return to this in Week 14, so keep what you find.
+
+## What good comparison looks like
+kind: note
+- Rate both materials on every criterion, then say which criterion decided your recommendation. A comparison with no decisive criterion is a description.
+- Where the two materials are equivalent, say so quickly and move on. The interesting part is where they diverge.
+- Disagreement inside the group is worth reporting. If two of you rated authenticity differently, that tells us the criterion needs a sharper definition.
+- Do not evaluate a material you have not used. Fifteen minutes inside the material beats an hour of reading its website.
+
+</script>
+<script type="text/markdown" id="md4">
+# How the semester connects
+
+Today is week 3. The lines are not the order of the syllabus — they are what depends on what. Hover
+a week to isolate its ties; click it to read the note. Two questions to hold while you look at it:
+where does your midterm research question sit, and which line has nobody standing on it yet?
+
+<!--
+HOW TO EDIT
+  ## W3 · Title      week / date / note / links (other week numbers) / refs
+  Set  now: yes  on the week being taught.
+-->
+
+## W1 · What counts as evidence in CALL
+week: 1
+date: 09/09
+note: The standard everything else is held to. If we cannot say what would count as evidence for a claim, the rest of the semester is opinion.
+links: 2 | 9
+refs: garrett1991
+
+## W2 · CALL/TELL theory and its history
+week: 2
+date: 09/16
+note: Where the field's vocabulary came from, and why two historians of CALL periodise it differently. Your keyword searches last week were the raw material for this.
+links: 3 | 9
+refs: warschauer1998 | bax2003 | chun2016
+
+## W3 · Digital material evaluation
+week: 3
+date: 09/23
+now: yes
+note: Theory turned into criteria you can apply to a real material. Every criterion you use today came from a claim about how languages are learned.
+links: 5 | 6 | 7 | 13 | 14
+refs: chapelle2001 | hubbard1988 | rosellaguilar2017
+
+## W4 · Learner characteristics and differentiation
+week: 4
+date: 09/30
+note: Who the material has to fit. Chapelle's learner-fit criterion is empty until you can describe a learner precisely — which is what learner corpora let you do.
+links: 5 | 6 | 12
+refs: chapelle2001 | granger2003
+
+## W5 · Reading instruction
+week: 5
+date: 10/07
+note: The first skill area where evaluation criteria meet a specific literature — text difficulty, glossing, incidental vocabulary.
+links: 7
+refs: gilmore2007
+
+## W6 · Writing instruction
+week: 6
+date: 10/14
+note: Where automated feedback lives, and where the AI question becomes concrete: what does the tool judge, and does revision become learning?
+links: 13
+refs: warschauer2006 | kohnke2023
+
+## W7 · Listening, speaking, pronunciation, multimodal input
+week: 7
+date: 10/21
+note: Captions, video and dual coding. The strongest experimental evidence in the whole field sits here, which makes it a good place to learn what strong evidence looks like.
+links: 10
+refs: monteroperez2013 | winke2010
+
+## W8 · Conference week
+week: 8
+date: 10/28
+note: Time to build the midterm. Use it to test your research question against a database, not to write prose.
+links: 9
+
+## W9 · Midterm — research question and literature review
+week: 9
+date: 11/04
+note: The semester's hinge. Everything before it supplies a question; everything after it supplies methods and evidence.
+links: 11
+refs: plonsky2016
+
+## W10 · CMC and online interaction
+week: 10
+date: 11/11
+note: Learning through other people with a machine in between. The interaction claims made here are the ones material evaluation usually assumes.
+links: 12
+refs: chun2016
+
+## W11 · Research symposium
+week: 11
+date: 11/18
+note: Your question in front of an audience that can break it. Better here than in the final.
+links: 15
+
+## W12 · Task-based language teaching
+week: 12
+date: 11/25
+note: The task is the unit that links pedagogy to evaluation — Chapelle's criteria are criteria for tasks, not for apps.
+links: 13
+refs: chapelle2001
+
+## W13 · Digital assessment and test design
+week: 13
+date: 12/02
+note: What happens when the material also judges the learner. Validity arguments here are the same shape as evaluation arguments in week 3.
+links: 14
+refs: chapellevoss2016
+
+## W14 · Ethics, privacy, copyright, academic integrity
+week: 14
+date: 12/09
+note: The criterion this course adds to Chapelle's six. Start collecting privacy policies in week 3 and you will not be starting from nothing.
+links: 15
+refs: ortega2017
+
+## W15 · Final presentations I
+week: 15
+date: 12/16
+note: Product design or research. Both are arguments that need evidence.
+links: 16
+
+## W16 · Final presentations II
+week: 16
+date: 12/23
+note: The portfolio should show the path from a keyword in week 2 to a defended claim here.
+
+</script>
+<script type="text/markdown" id="mdr">
+# Reference list
+
+Every entry below was pulled from the publisher's own record through its DOI, not typed from
+memory. Follow any DOI to check it. Books have no DOI, so they carry search links instead.
+
+<!-- id on the ## line is what other files cite with `refs:`. -->
+
+## warschauer1998
+apa: Warschauer, M., & Healey, D. (1998). Computers and language learning: an overview. Language Teaching, 31(2), 57–71.
+doi: 10.1017/s0261444800012970
+
+## bax2003
+apa: Bax, S. (2003). CALL—past, present and future. System, 31(1), 13–28.
+doi: 10.1016/s0346-251x(02)00071-4
+
+## chambers2006
+apa: Chambers, A., & Bax, S. (2006). Making CALL work: Towards normalisation. System, 34(4), 465–479.
+doi: 10.1016/j.system.2006.08.001
+
+## kern2006
+apa: Kern, R. (2006). Perspectives on Technology in Learning and Teaching Languages. TESOL Quarterly, 40(1), 183.
+doi: 10.2307/40264516
+
+## garrett1991
+apa: Garrett, N. (1991). Technology in the Service of Language Learning: Trends and Issues. The Modern Language Journal, 75(1), 74–101.
+doi: 10.2307/329836
+
+## garrett2009
+apa: Garrett, N. (2009). Computer‐Assisted Language Learning Trends and Issues Revisited: Integrating Innovation. The Modern Language Journal, 93(s1), 719–740.
+doi: 10.1111/j.1540-4781.2009.00969.x
+
+## salaberry2001
+apa: Salaberry, M. R. (2001). The Use of Technology for Second Language Learning and Teaching: A Retrospective. The Modern Language Journal, 85(1), 39–56.
+doi: 10.1111/0026-7902.00096
+
+## chapelle2009
+apa: Chapelle, C. A. (2009). The Relationship Between Second Language Acquisition Theory and Computer‐Assisted Language Learning. The Modern Language Journal, 93(s1), 741–753.
+doi: 10.1111/j.1540-4781.2009.00970.x
+
+## levy2009
+apa: Levy, M. (2009). Technologies in Use for Second Language Learning. The Modern Language Journal, 93(s1), 769–782.
+doi: 10.1111/j.1540-4781.2009.00972.x
+
+## thorne2009
+apa: Thorne, S. L., BLACK, R. W., & Sykes, J. M. (2009). Second Language Use, Socialization, and Learning in Internet Interest Communities and Online Gaming. The Modern Language Journal, 93(s1), 802–821.
+doi: 10.1111/j.1540-4781.2009.00974.x
+
+## chun2016
+apa: Chun, D., Kern, R., & Smith, B. (2016). Technology in Language Use, Language Teaching, and Language Learning. The Modern Language Journal, 100(S1), 64–80.
+doi: 10.1111/modl.12302
+
+## ortega2017
+apa: Ortega, L. (2017). New CALL-SLA Research Interfaces for the 21st Century: Towards Equitable Multilingualism. CALICO Journal, 34(3), 285–316.
+doi: 10.1558/cj.33855
+
+## grgurovic2013
+apa: Grgurović, M., Chapelle, C. A., & Shelley, M. C. (2013). A meta-analysis of effectiveness studies on computer technology-supported language learning. ReCALL, 25(2), 165–198.
+doi: 10.1017/s0958344013000013
+
+## plonsky2016
+apa: Plonsky, L., & Ziegler, N. (2016). The CALL-SLA interface: Insights from a second-order synthesis. Language Learning & Technology, 20(2), 17–37.
+doi: 10.64152/10125/44459
+
+## golonka2014
+apa: Golonka, E. M., Bowles, A. R., Frank, V. M., Richardson, D. L., & Freynik, S. (2012). Technologies for foreign language learning: a review of technology types and their effectiveness. Computer Assisted Language Learning, 27(1), 70–105.
+doi: 10.1080/09588221.2012.700315
+
+## macaro2012
+apa: Macaro, E., Handley, Z., & Walter, C. (2011). A systematic review of CALL in English as a second language: Focus on primary and secondary education. Language Teaching, 45(1), 1–43.
+doi: 10.1017/s0261444811000395
+
+## hubbard2008
+apa: Hubbard, P. (2008). CALL and the Future of Language Teacher Education. CALICO Journal, 25(2), 175–188.
+doi: 10.1558/cj.v25i2.175-188
+
+## bax2011
+apa: Bax, S. (2011). Normalisation Revisited. International Journal of Computer-Assisted Language Learning and Teaching, 1(2), 1–15.
+doi: 10.4018/ijcallt.2011040101
+
+## kessler2018
+apa: Kessler, G. (2018). Technology and the future of language teaching. Foreign Language Annals, 51(1), 205–218.
+doi: 10.1111/flan.12318
+
+## godwinjones2023
+apa: Godwin-Jones, R. (2023). Emerging spaces for language learning: AI bots, ambient intelligence, and the metaverse. Language Learning & Technology, 27(2), 6–27.
+doi: 10.64152/10125/73501
+
+## kohnke2023
+apa: Kohnke, L., Moorhouse, B. L., & Zou, D. (2023). ChatGPT for Language Teaching and Learning. RELC Journal, 54(2), 537–550.
+doi: 10.1177/00336882231162868
+
+## bibauw2019
+apa: Bibauw, S., François, T., & Desmet, P. (2019). Discussing with a computer to practice a foreign language: research synthesis and conceptual framework of dialogue-based CALL. Computer Assisted Language Learning, 32(8), 827–877.
+doi: 10.1080/09588221.2018.1535508
+
+## stockwell2007
+apa: Stockwell, G. (2007). <i>A review of technology choice for teaching language skills and areas in the CALL literature</i>. ReCALL, 19(2), 105–120.
+doi: 10.1017/s0958344007000225
+
+## burston2015
+apa: Burston, J. (2014). Twenty years of MALL project implementation: A meta-analysis of learning outcomes. ReCALL, 27(1), 4–20.
+doi: 10.1017/s0958344014000159
+
+## blake2016
+apa: Blake, R. (2016). Technology and the four skills. Language Learning & Technology, 20(2), 129–142.
+doi: 10.64152/10125/44465
+
+## hubbard1988
+apa: Hubbard, P. (1988). An Integrated Framework for CALL Courseware Evaluation. CALICO Journal, 6(2), 51–72.
+doi: 10.1558/cj.v6i2.51-72
+
+## rosellaguilar2017
+apa: Rosell-Aguilar, F. (2017). State of the App: A Taxonomy and Framework for Evaluating Language Learning Mobile Applications. CALICO Journal, 34(2), 243–258.
+doi: 10.1558/cj.27623
+
+## heil2016
+apa: Heil, C. R., Wu, J. S., Lee, J. J., & Schmidt, T. (2016). A Review of Mobile Language Learning Applications: Trends, Challenges, and Opportunities. The EuroCALL Review, 24(2), 32.
+doi: 10.4995/eurocall.2016.6402
+
+## loewen2019
+apa: Loewen, S., Crowther, D., Isbell, D. R., Kim, K. M., Maloney, J., Miller, Z. F., & Rawal, H. (2019). Mobile-assisted language learning: A Duolingo case study. ReCALL, 31(3), 293–311.
+doi: 10.1017/s0958344019000065
+
+## tomlinson2012
+apa: Tomlinson, B. (2012). Materials development for language learning and teaching. Language Teaching, 45(2), 143–179.
+doi: 10.1017/s0261444811000528
+
+## gilmore2007
+apa: Gilmore, A. (2007). Authentic materials and authenticity in foreign language learning. Language Teaching, 40(2), 97–118.
+doi: 10.1017/s0261444807004144
+
+## chapelle2001
+apa: Chapelle, C. A. (2001). Computer Applications in Second Language Acquisition.
+doi: 10.1017/cbo9781139524681
+
+## reinders2016framework
+apa: (Ed.). (2016). Supporting Language Learning on the Move: An Evaluative Framework for Mobile Language Learning Resources. SLA Research and Materials Development for Language Learning, 235–247.
+doi: 10.4324/9781315749082-29
+
+## godwinjones2011
+apa: Godwin-Jones, R. (2011). Mobile apps for language learning. Language Learning & Technology, 15(2), 2–11.
+doi: 10.64152/10125/44244
+
+## nielsen1992
+apa: Nielsen, J. (1992). Finding usability problems through heuristic evaluation. Proceedings of the SIGCHI Conference on Human Factors in Computing Systems - CHI ’92, 373–380.
+doi: 10.1145/142750.142834
+
+## burston2014
+apa: Burston, J. (2014). The Reality of MALL: Still on the Fringes. CALICO Journal, 31(1), 103–125.
+doi: 10.11139/cj.31.1.103-125
+
+## colpaert2006
+apa: Colpaert, J. (2006). Pedagogy-driven Design for Online Language Teaching and Learning. CALICO Journal, 23(3), 477–497.
+doi: 10.1558/cj.v23i3.477-497
+
+## stockwell2010
+apa: Stockwell, G. (2010). Using mobile phones for vocabulary activities: Examining the effect of platform. Language Learning & Technology, 14(2), 95–110.
+doi: 10.64152/10125/44216
+
+## monteroperez2013
+apa: Montero Perez, M., Van Den Noortgate, W., & Desmet, P. (2013). Captioned video for L2 listening and vocabulary learning: A meta-analysis. System, 41(3), 720–739.
+doi: 10.1016/j.system.2013.07.013
+
+## warschauer2006
+apa: Warschauer, M., & Ware, P. (2006). Automated writing evaluation: defining the classroom research agenda. Language Teaching Research, 10(2), 157–180.
+doi: 10.1191/1362168806lr190oa
+
+## winke2010
+apa: Winke, P., Gass, S., & Sydorenko, T. (2010). The effects of captioning videos used for foreign language listening activities. Language Learning & Technology, 14(1), 65–86.
+doi: 10.64152/10125/44203
+
+## chapellevoss2016
+apa: Chapelle, C. A., & Voss, E. (2016). 20 years of technology and language assessment in Language Learning &amp; Technology. Language Learning & Technology, 20(2), 116–128.
+doi: 10.64152/10125/44464
+
+## kukulska2008
+apa: Kukulska-Hulme, A., & Shield, L. (2008). An overview of mobile assisted language learning: From content delivery to supported collaboration and interaction. ReCALL, 20(3), 271–289.
+doi: 10.1017/s0958344008000335
+
+## hart1994
+apa: Hart, R. S. (1994). The Illinois PLATO Foreign Languages Project. CALICO Journal, 12(4), 15–37.
+doi: 10.1558/cj.v12i4.15-37
+
+## chapelle2007
+apa: Chapelle, C. A. (2007). TECHNOLOGY AND SECOND LANGUAGE ACQUISITION. Annual Review of Applied Linguistics, 27, 98–114.
+doi: 10.1017/s0267190508070050
+
+## reinderswhite2016
+apa: Reinders, H., & White, C. (2016). 20 years of autonomy and technology: How far have we come and where to next? Language Learning & Technology, 20(2), 143–154.
+doi: 10.64152/10125/44466
+
+## granger2003
+apa: Granger, S. (2003). The International Corpus of Learner English: A New Resource for Foreign Language Learning and Teaching and Second Language Acquisition Research. TESOL Quarterly, 37(3), 538.
+doi: 10.2307/3588404
+
+## ishikawa2013
+apa: Ishikawa, S. (2013). The ICNALE and sophisticated contrastive interlanguage analysis of Asian learners of English. *Learner Corpus Studies in Asia and the World*.
+doi: 10.24546/81006678
+
+## alexopoulou2017
+apa: Alexopoulou, T., Michel, M., Murakami, A., & Meurers, D. (2017). Task Effects on Linguistic Complexity and Accuracy: A Large‐Scale Learner Corpus Analysis Employing Natural Language Processing Techniques. Language Learning, 67(S1), 180–208.
+doi: 10.1111/lang.12232
+
+## levy1997
+apa: Levy, M. (1997). *CALL: Context and conceptualisation*. Oxford University Press.
+
+## warschauerkern2000
+apa: Warschauer, M., & Kern, R. (Eds.). (2000). *Network-based language teaching: Concepts and practice*. Cambridge University Press.
+
+## ahmad1985
+apa: Ahmad, K., Corbett, G., Rogers, M., & Sussex, R. (1985). *Computers, language learning and language teaching*. Cambridge University Press.
+
+## leakey2011
+apa: Leakey, J. (2011). *Evaluating computer-assisted language learning: An integrated approach to effectiveness research in CALL*. Peter Lang.
+
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="who" id="who"></div>
+      <div class="top-actions" id="weekLinks"></div>
+    </div>
+    <nav class="phases" id="phaseNav" aria-label="Phases"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="loadWarn"></div>
+
+  <section class="phase on" id="phase-1">
+    <div class="head"><div class="kicker">PHASE 1 · LECTURE</div><h2>Where CALL came from</h2></div>
+    <div class="intro" id="intro1"></div>
+
+    <div class="vizwrap">
+      <div class="vizhead"><h3>Sixty years, cut two ways</h3></div>
+      <p class="viznote">The same period, periodised by two different arguments. Top band: Warschauer and Healey, cutting by what the machine is asked to do. Bottom band: Bax, cutting by how far the technology has disappeared into ordinary practice. Click a marker to jump to it.</p>
+      <div id="timeline"></div>
+    </div>
+
+    <h3 style="font-size:1.3rem;margin:1.6rem 0 .6rem">The moments</h3>
+    <div id="moments"></div>
+
+    <h3 style="font-size:1.3rem;margin:1.8rem 0 .6rem">Three things to take into Phase 2</h3>
+    <div id="ideas"></div>
+
+    <hr class="rule">
+    <div class="vizhead"><h3>How the semester connects</h3></div>
+    <div id="mapIntro" class="viznote"></div>
+    <div class="vizwrap">
+      <div id="map"></div>
+      <div id="mapDetail" class="small muted">Click any week to read what it depends on.</div>
+    </div>
+    <div class="pager"><span></span><button class="btn ghost" data-go="2">Next · Group work →</button></div>
+  </section>
+
+  <section class="phase" id="phase-2">
+    <div class="head"><div class="kicker">PHASE 2 · GROUP PRESENTATIONS</div><h2>Four groups, four questions</h2></div>
+    <div class="intro" id="intro2"></div>
+    <h3 style="font-size:1.2rem;margin:1.4rem 0 .2rem">The three required tools</h3>
+    <p class="viznote">Every group uses all three, and reports what each one produced — including where it failed.</p>
+    <div class="tools" id="tools"></div>
+    <h3 style="font-size:1.2rem;margin:1.6rem 0 .6rem">The questions</h3>
+    <div id="groups"></div>
+    <div class="pager"><button class="btn ghost" data-go="1">← Back</button><button class="btn ghost" data-go="3">Next · Assignment →</button></div>
+  </section>
+
+  <section class="phase" id="phase-3">
+    <div class="head"><div class="kicker">PHASE 3 · ASSIGNMENT</div><h2>Two materials, side by side</h2></div>
+    <div class="intro" id="intro3"></div>
+    <h3 style="font-size:1.2rem;margin:1.4rem 0 .6rem">The criteria</h3>
+    <div id="criteria"></div>
+    <div class="progress" id="progress"></div>
+    <div id="notes"></div>
+    <div class="pager"><button class="btn ghost" data-go="2">← Back</button><button class="btn ghost" data-go="4">Next · References →</button></div>
+  </section>
+
+  <section class="phase" id="phase-4">
+    <div class="head"><div class="kicker">PHASE 4 · SOURCES</div><h2>Everything cited today</h2></div>
+    <div class="intro" id="intro4"></div>
+    <div class="chiprow" style="margin:1rem 0">
+      <input id="refSearch" placeholder="filter by author, year or title" style="border:1px solid var(--line-2);border-radius:999px;padding:.35rem .8rem;font-size:.85rem;background:var(--paper);color:var(--fg);min-width:260px">
+      <span class="small muted" id="refCount"></span>
+    </div>
+    <div id="refs"></div>
+    <div class="pager"><button class="btn ghost" data-go="3">← Back</button><button class="btn ghost" data-go="1">Back to the lecture ↑</button></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span id="footWho"></span> · Every reference on this page was taken from the publisher's record through its DOI.
+  Text lives in <code>content/*.md</code>; nothing you tick here leaves your browser.
+</footer>
+
+<script>
+/* ══════ helpers ══════ */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const enc=encodeURIComponent;
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const cssv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+function mdInline(s){
+  let t=esc(s);
+  t=t.replace(/`([^`]+)`/g,(m,a)=>"<code>"+a+"</code>");
+  t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  t=t.replace(/\*([^*\n]+)\*/g,"<em>$1</em>");
+  return t;
+}
+function mdToHtml(md){
+  if(!md) return "";
+  const lines=String(md).replace(/\r\n?/g,"\n").split("\n");
+  let out="",list=null,para=[];
+  const fp=()=>{if(para.length){out+="<p>"+mdInline(para.join(" "))+"</p>";para=[]}};
+  const cl=()=>{if(list){out+="</"+list+">";list=null}};
+  for(const line of lines){
+    if(!line.trim()){fp();cl();continue}
+    let m;
+    if((m=line.match(/^(#{1,6})\s+(.*)$/))){fp();cl();const n=Math.min(m[1].length+1,6);out+="<h"+n+">"+mdInline(m[2])+"</h"+n+">";continue}
+    if(/^(-{3,})\s*$/.test(line)){fp();cl();out+='<hr class="rule">';continue}
+    if((m=line.match(/^\s*[-*]\s+(.*)$/))){fp();if(list!=="ul"){cl();out+="<ul>";list="ul"}out+="<li>"+mdInline(m[1])+"</li>";continue}
+    if((m=line.match(/^\s*\d+[.)]\s+(.*)$/))){fp();if(list!=="ol"){cl();out+="<ol>";list="ol"}out+="<li>"+mdInline(m[1])+"</li>";continue}
+    para.push(line.trim());
+  }
+  fp();cl();return out;
+}
+function parseDoc(md){
+  const clean=String(md).replace(/<!--[\s\S]*?-->/g,"").replace(/\r\n?/g,"\n");
+  const parts=clean.split(/^##\s+/m);
+  const head=parts.shift()||"";
+  const intro=head.replace(/^#\s+.*$/m,"").trim();
+  const items=parts.map(block=>{
+    const nl=block.indexOf("\n");
+    const title=(nl<0?block:block.slice(0,nl)).trim();
+    const rest=nl<0?"":block.slice(nl+1);
+    const fields={},bullets=[],body=[];let cur=null;
+    for(const line of rest.split("\n")){
+      const f=line.match(/^([a-z][a-z0-9_]*):[ \t]*(.*)$/);
+      if(f){const k=f[1],v=f[2].trim();if(v){fields[k]=v;cur=null}else{fields[k]=[];cur=k}continue}
+      const b=line.match(/^\s*[-*]\s+(.*)$/);
+      if(b){if(cur&&Array.isArray(fields[cur]))fields[cur].push(b[1].trim());else bullets.push(b[1].trim());continue}
+      if(!line.trim()){cur=null;body.push(line);continue}
+      cur=null;body.push(line);
+    }
+    return {title,fields,bullets,body:body.join("\n").trim()};
+  });
+  return {intro,items};
+}
+const listOf=v=>Array.isArray(v)?v:(v?String(v).split("|").map(s=>s.trim()).filter(Boolean):[]);
+
+/* ══════ references ══════ */
+const REFS={};
+function shortCite(apa){
+  const m=String(apa).match(/^(.+?)\s*\((\d{4})/);
+  if(!m) return String(apa).slice(0,28);
+  const a=m[1], year=m[2];
+  const first=a.split(",")[0].trim();
+  const n=Math.max(1,Math.round(((a.match(/,/g)||[]).length+1)/2));
+  if(n>=3) return first+" et al. ("+year+")";
+  if(n===2){const second=(a.split("&")[1]||"").trim().split(",")[0].trim();return first+" & "+second+" ("+year+")";}
+  return first+" ("+year+")";
+}
+function lookups(q){
+  return [["Scholar","https://scholar.google.com/scholar?q="+enc(q)],
+          ["Crossref","https://search.crossref.org/search/works?q="+enc(q)+"&from_ui=yes"],
+          ["OpenAlex","https://openalex.org/works?page=1&filter=default.search%3A"+enc(q)],
+          ["Semantic Scholar","https://www.semanticscholar.org/search?q="+enc(q)]];
+}
+function citeChips(ids){
+  return listOf(ids).map(id=>{
+    const r=REFS[id];
+    if(!r) return '<span class="cite">'+esc(id)+"</span>";
+    const href=r.doi?("https://doi.org/"+r.doi):("#ref-"+id);
+    const ext=r.doi?' target="_blank" rel="noopener"':' data-ref="'+id+'"';
+    return '<a class="cite" href="'+href+'"'+ext+' title="'+esc(r.apa)+'">'+esc(r.short)+"</a>";
+  }).join(" ");
+}
+function renderRefs(filter){
+  const ids=Object.keys(REFS).sort((a,b)=>REFS[a].apa.localeCompare(REFS[b].apa));
+  const f=(filter||"").toLowerCase().trim();
+  const shown=ids.filter(id=>!f||REFS[id].apa.toLowerCase().includes(f));
+  $("#refCount").textContent=shown.length+" of "+ids.length+" shown";
+  $("#refs").innerHTML=shown.map((id,i)=>{
+    const r=REFS[id], q=r.apa.replace(/\*/g,"").replace(/\s+/g," ").slice(0,160);
+    const links=(r.doi?[["DOI ↗","https://doi.org/"+r.doi]]:[]).concat(lookups(q));
+    return '<div class="refitem" id="ref-'+id+'"><span class="n">'+(i+1)+'</span><div class="body">'+
+      '<div class="apa">'+mdInline(r.apa)+"</div>"+
+      '<div class="links">'+links.map(([n,u])=>'<a href="'+u+'" target="_blank" rel="noopener">'+n+"</a>").join("")+"</div></div></div>";
+  }).join("")||'<p class="muted">Nothing matches.</p>';
+}
+
+/* shared state — declared before anything that reads it */
+const S={eras:[],moments:[],ideas:[],tools:[],groups:[],criteria:[],notes:[],weeks:[],loaded:false};
+
+/* ══════ nav ══════ */
+const PHASES=[["1","Lecture"],["2","Group work"],["3","Assignment"],["4","References"]];
+$("#phaseNav").innerHTML=PHASES.map(([n,t],i)=>'<button class="ph" data-go="'+n+'" aria-current="'+(i===0)+'"><b>'+n+"</b>"+t+"</button>").join("");
+function go(n){
+  $$(".phase").forEach(s=>s.classList.toggle("on",s.id==="phase-"+n));
+  $$(".ph").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===String(n))));
+  history.replaceState(null,"","#phase-"+n);
+  window.scrollTo({top:0});
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]"); if(b){go(b.dataset.go);return;}
+  const r=e.target.closest("[data-ref]");
+  if(r){e.preventDefault();go(4);const el=$("#ref-"+r.dataset.ref);
+    if(el){el.classList.add("hit");el.scrollIntoView({block:"center"});setTimeout(()=>el.classList.remove("hit"),2600);}}
+});
+$("#who").innerHTML=esc(CONFIG.instructor)+"<span>"+esc(CONFIG.courseTitle)+" · "+esc(CONFIG.weekTitle)+"</span>";
+$("#footWho").textContent=CONFIG.instructor+" · "+CONFIG.courseTitle;
+$("#weekLinks").innerHTML=CONFIG.otherWeeks.map(([t,u])=>'<a class="btn ghost sm" href="'+u+'">'+esc(t)+"</a>").join("")
+  +'<button class="btn ghost sm" id="themeBtn">Dark</button>';
+function applyTheme(t){document.documentElement.dataset.theme=t;$("#themeBtn").textContent=t==="dark"?"Light":"Dark";store.set("w3-theme",t);
+  if(S.loaded){drawTimeline();drawMap();}}
+applyTheme(store.get("w3-theme","light"));
+$("#themeBtn").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+/* ══════ state + load ══════ */
+const FILES={1:"content/01-lecture.md",2:"content/02-groupwork.md",3:"content/03-assignment.md",4:"content/04-map.md",r:"content/refs.md"};
+
+async function load(){
+  const t={};
+  await Promise.all(Object.entries(FILES).map(async([k,p])=>{
+    const inline=document.getElementById("md"+k);
+    if(inline){t[k]=inline.textContent;return}
+    try{const r=await fetch(p,{cache:"no-store"});if(!r.ok)throw 0;t[k]=await r.text()}catch(e){t[k]=null}
+  }));
+  if(Object.values(t).every(x=>x===null)){
+    $("#loadWarn").innerHTML='<div class="banner"><strong>The content files did not load.</strong> This page reads <code>content/*.md</code>, which a browser blocks when the file is opened from disk. Serve the folder — <code>python3 -m http.server 8000</code> — or open it from its web address.</div>';
+    return;
+  }
+  parseDoc(t.r||"").items.forEach(it=>{
+    REFS[it.title]={apa:it.fields.apa||"",doi:it.fields.doi||"",short:shortCite(it.fields.apa||"")};
+  });
+  const d1=parseDoc(t[1]||"");
+  $("#intro1").innerHTML=mdToHtml(d1.intro);
+  S.eras=d1.items.filter(i=>i.fields.kind==="era");
+  S.moments=d1.items.filter(i=>i.fields.kind==="moment").sort((a,b)=>(+a.fields.year)-(+b.fields.year));
+  S.ideas=d1.items.filter(i=>i.fields.kind==="idea");
+  const d2=parseDoc(t[2]||"");
+  $("#intro2").innerHTML=mdToHtml(d2.intro);
+  S.tools=d2.items.filter(i=>i.fields.kind==="tool");
+  S.groups=d2.items.filter(i=>i.fields.kind==="group");
+  const d3=parseDoc(t[3]||"");
+  $("#intro3").innerHTML=mdToHtml(d3.intro);
+  S.criteria=d3.items.filter(i=>i.fields.kind==="criterion");
+  S.notes=d3.items.filter(i=>i.fields.kind==="note");
+  const d4=parseDoc(t[4]||"");
+  $("#mapIntro").innerHTML=mdToHtml(d4.intro);
+  S.weeks=d4.items.map(i=>({...i,week:+i.fields.week}));
+  $("#intro4").innerHTML=mdToHtml(parseDoc(t.r||"").intro);
+  S.loaded=true;
+  drawTimeline(); renderMoments(); renderIdeas(); drawMap();
+  renderTools(); renderGroups(); renderCriteria(); renderRefs("");
+}
+
+/* ══════ timeline ══════ */
+function drawTimeline(){
+  if(!S.eras.length) return;
+  const W=1000,H=250,L=56,R=26;
+  const Y0=1960, Y1=Math.max(2026,...S.moments.map(m=>+m.fields.year));
+  const X=y=>L+(y-Y0)/(Y1-Y0)*(W-L-R);
+  const line=cssv('--line-2'), fg=cssv('--fg'), soft=cssv('--fg-soft'),
+        green=cssv('--green'), gold=cssv('--gold'), burnt=cssv('--burnt'), paper=cssv('--paper');
+  const schemes=[...new Set(S.eras.map(e=>e.fields.scheme))];
+  const bands=schemes.map((sc,si)=>{
+    const y=34+si*62, eras=S.eras.filter(e=>e.fields.scheme===sc);
+    const cols=si===0?[green,gold,burnt]:[burnt,green,gold];
+    const rects=eras.map((e,i)=>{
+      const x0=X(+e.fields.from), x1=X(+e.fields.to), w=Math.max(6,x1-x0);
+      return '<g class="tl-era" data-era="'+esc(e.title)+'"><title>'+esc(e.title)+" — "+esc(e.fields.gist||"")+'</title>'+
+        '<rect x="'+x0.toFixed(1)+'" y="'+y+'" width="'+w.toFixed(1)+'" height="30" rx="6" fill="'+cols[i%cols.length]+'" opacity="'+(0.28+0.13*i)+'" stroke="'+line+'"/>'+
+        '<text x="'+(x0+8).toFixed(1)+'" y="'+(y+19)+'" font-family="IBM Plex Sans,sans-serif" font-size="12.5" fill="'+fg+'">'+esc(e.title)+"</text></g>";
+    }).join("");
+    return '<text x="0" y="'+(y-6)+'" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="'+soft+'">'+esc(sc)+"</text>"+rects;
+  }).join("");
+  let ticks="";
+  for(let y=1960;y<=Y1;y+=10){
+    ticks+='<line x1="'+X(y)+'" y1="162" x2="'+X(y)+'" y2="168" stroke="'+line+'"/>'+
+      '<text x="'+X(y)+'" y="182" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="'+soft+'">'+y+"</text>";
+  }
+  const dots=S.moments.map((m,i)=>{
+    const x=X(+m.fields.year), up=i%2===0, y=up?206:232;
+    return '<g class="tl-moment" data-year="'+m.fields.year+'" role="button" tabindex="0"><title>'+esc(m.fields.year+" — "+m.title)+'</title>'+
+      '<line x1="'+x.toFixed(1)+'" y1="168" x2="'+x.toFixed(1)+'" y2="'+(y-7)+'" stroke="'+line+'"/>'+
+      '<circle cx="'+x.toFixed(1)+'" cy="'+y+'" r="5.5" fill="'+gold+'" stroke="'+green+'" stroke-width="2"/>'+
+      '<text x="'+(x+9).toFixed(1)+'" y="'+(y+4)+'" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="'+soft+'">'+esc(m.fields.year)+"</text></g>";
+  }).join("");
+  $("#timeline").innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Timeline of CALL periodisations and key publications">'+
+    '<rect x="0" y="0" width="'+W+'" height="'+H+'" fill="'+paper+'"/>'+
+    bands+'<line x1="'+L+'" y1="165" x2="'+(W-R)+'" y2="165" stroke="'+line+'"/>'+ticks+dots+"</svg>";
+  $("#timeline").addEventListener("click",e=>{
+    const g=e.target.closest(".tl-moment"); if(!g) return;
+    const el=$('.moment[data-year="'+g.dataset.year+'"]');
+    if(el){$$(".moment").forEach(m=>m.classList.remove("hit"));el.classList.add("hit");el.scrollIntoView({block:"center"});}
+  });
+}
+function renderMoments(){
+  $("#moments").innerHTML=S.moments.map(m=>
+    '<div class="moment" data-year="'+esc(m.fields.year)+'"><div class="yr">'+esc(m.fields.year)+"</div><div>"+
+    "<h4>"+esc(m.title)+"</h4><p>"+mdInline(m.fields.what||"")+"</p>"+
+    '<div class="chiprow">'+citeChips(m.fields.refs)+"</div></div></div>").join("");
+}
+function renderIdeas(){
+  $("#ideas").innerHTML=S.ideas.map(i=>
+    '<div class="idea"><h4>'+esc(i.title)+"</h4>"+
+    (i.fields.claim?'<div class="claim">'+mdInline(i.fields.claim)+"</div>":"")+
+    (i.fields.gist?"<p>"+mdInline(i.fields.gist)+"</p>":"")+
+    (i.bullets.length?"<ul>"+i.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
+    '<div class="chiprow" style="margin-top:.6rem">'+citeChips(i.fields.refs)+"</div></div>").join("");
+}
+
+/* ══════ semester map ══════ */
+function drawMap(){
+  if(!S.weeks.length) return;
+  const COLS=4, CW=242, CH=112, PADX=14, PADY=16, W=COLS*CW+PADX*2, ROWS=Math.ceil(S.weeks.length/COLS);
+  const H=ROWS*CH+PADY*2;
+  const line=cssv('--line-2'), fg=cssv('--fg'), soft=cssv('--fg-soft'), green=cssv('--green'),
+        gold=cssv('--gold'), paper=cssv('--paper'), bg=cssv('--bg');
+  const pos={};
+  S.weeks.forEach((w,i)=>{
+    const row=Math.floor(i/COLS); let col=i%COLS;
+    if(row%2===1) col=COLS-1-col;                 /* snake: chronology stays adjacent */
+    pos[w.week]={x:PADX+col*CW+18, y:PADY+row*CH+14, w:CW-40, h:70};
+  });
+  const edges=[];
+  S.weeks.forEach(w=>listOf(w.fields.links).forEach(l=>{
+    const a=pos[w.week], b=pos[+l]; if(!a||!b) return;
+    const ax=a.x+a.w/2, ay=a.y+a.h/2, bx=b.x+b.w/2, by=b.y+b.h/2;
+    const mx=(ax+bx)/2, my=(ay+by)/2+(Math.abs(ax-bx)>CW?26:0);
+    edges.push('<path class="edge" data-a="'+w.week+'" data-b="'+l+'" d="M'+ax.toFixed(1)+" "+ay.toFixed(1)+" Q"+mx.toFixed(1)+" "+my.toFixed(1)+" "+bx.toFixed(1)+" "+by.toFixed(1)+'" fill="none" stroke="'+line+'" stroke-width="1.4" opacity=".75"/>');
+  }));
+  const nodes=S.weeks.map(w=>{
+    const p=pos[w.week], now=String(w.fields.now||"")==="yes";
+    const title=w.title.replace(/^W\d+\s*·\s*/,"");
+    const words=title.split(" "); const lines=[]; let cur="";
+    words.forEach(x=>{ if((cur+" "+x).trim().length>24){lines.push(cur.trim());cur=x} else cur+=" "+x; });
+    if(cur.trim()) lines.push(cur.trim());
+    const show=lines.slice(0,3);
+    return '<g class="node" data-week="'+w.week+'" role="button" tabindex="0"><title>'+esc(w.title)+'</title>'+
+      '<rect x="'+p.x+'" y="'+p.y+'" width="'+p.w+'" height="'+p.h+'" rx="10" fill="'+(now?gold:paper)+'" stroke="'+(now?green:line)+'" stroke-width="'+(now?2.5:1.2)+'"/>'+
+      '<text x="'+(p.x+10)+'" y="'+(p.y+18)+'" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="'+(now?"#2E3A1F":soft)+'">W'+w.week+"  "+esc(w.fields.date||"")+"</text>"+
+      show.map((ln,i)=>'<text x="'+(p.x+10)+'" y="'+(p.y+36+i*15)+'" font-family="IBM Plex Sans,sans-serif" font-size="12" fill="'+(now?"#2E3A1F":fg)+'">'+esc(ln)+"</text>").join("")+
+      "</g>";
+  }).join("");
+  $("#map").innerHTML='<svg id="mapSvg" viewBox="0 0 '+W+" "+H+'" role="img" aria-label="Map of how the weeks of the semester depend on each other">'+
+    '<rect x="0" y="0" width="'+W+'" height="'+H+'" fill="'+bg+'" opacity="0"/>'+edges.join("")+nodes+"</svg>";
+  const svg=$("#mapSvg");
+  svg.addEventListener("mouseover",e=>{
+    const n=e.target.closest(".node"); if(!n) return;
+    const id=n.dataset.week;
+    $$(".edge",svg).forEach(p=>{
+      const on=p.dataset.a===id||p.dataset.b===id;
+      p.setAttribute("stroke",on?green:line); p.setAttribute("stroke-width",on?"2.6":"1.4"); p.setAttribute("opacity",on?"1":".25");
+    });
+  });
+  svg.addEventListener("mouseout",()=>$$(".edge",svg).forEach(p=>{p.setAttribute("stroke",line);p.setAttribute("stroke-width","1.4");p.setAttribute("opacity",".75")}));
+  svg.addEventListener("click",e=>{
+    const n=e.target.closest(".node"); if(!n) return;
+    const w=S.weeks.find(x=>String(x.week)===n.dataset.week); if(!w) return;
+    const to=listOf(w.fields.links).map(l=>{const t=S.weeks.find(x=>String(x.week)===String(l));return t?"W"+t.week:null}).filter(Boolean);
+    $("#mapDetail").innerHTML='<div class="card"><h4>'+esc(w.title)+' <span class="muted small">'+esc(w.fields.date||"")+"</span></h4>"+
+      "<p style='margin:.4rem 0 .3rem'>"+mdInline(w.fields.note||"")+"</p>"+
+      (to.length?'<p class="small muted" style="margin:0">Feeds into '+to.join(", ")+"</p>":"")+
+      '<div class="chiprow" style="margin-top:.5rem">'+citeChips(w.fields.refs)+"</div></div>";
+  });
+}
+
+/* ══════ phase 2 + 3 ══════ */
+function renderTools(){
+  $("#tools").innerHTML=S.tools.map(t=>
+    '<div class="tool"><h4>'+esc(t.title)+"</h4><dl>"+
+    (t.fields.tool?"<dt>Which</dt><dd>"+mdInline(t.fields.tool)+"</dd>":"")+
+    (t.fields.must?"<dt>Do</dt><dd>"+mdInline(t.fields.must)+"</dd>":"")+
+    (t.fields.report?"<dt>Report</dt><dd>"+mdInline(t.fields.report)+"</dd>":"")+
+    "</dl></div>").join("");
+}
+function renderGroups(){
+  $("#groups").innerHTML=S.groups.map(g=>{
+    const lead=REFS[g.fields.lead];
+    return '<div class="group"><h3>'+esc(g.title)+"</h3>"+
+      '<p class="q">'+mdInline(g.fields.question||"")+"</p>"+
+      (g.fields.why?'<p class="why">'+mdInline(g.fields.why)+"</p>":"")+
+      (lead?'<div class="lead"><strong>Lead paper — everyone reads this one:</strong> '+mdInline(lead.apa)+
+        (lead.doi?' <a href="https://doi.org/'+lead.doi+'" target="_blank" rel="noopener">DOI ↗</a>':"")+"</div>":"")+
+      "<h5>The set</h5><div class='chiprow'>"+citeChips(g.fields.refs)+"</div>"+
+      (g.fields.watch?'<div class="watch">'+mdInline(g.fields.watch)+"</div>":"")+
+      (g.bullets.length?"<h5>Hand in</h5><ul>"+g.bullets.map(b=>"<li>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
+      "</div>";
+  }).join("");
+}
+function renderCriteria(){
+  const state=store.get("w3-crit",{});
+  $("#criteria").innerHTML=S.criteria.map((c,i)=>
+    '<label class="crit'+(state[i]?" done":"")+'"><input type="checkbox" data-crit="'+i+'"'+(state[i]?" checked":"")+">"+
+    "<span><h4>"+esc(c.title)+"</h4>"+
+    (c.fields.ask?'<div class="ask">'+mdInline(c.fields.ask)+"</div>":"")+
+    (c.fields.evidence?'<div class="ev"><strong>Evidence:</strong> '+mdInline(c.fields.evidence)+"</div>":"")+
+    (c.fields.from?'<div class="chiprow" style="margin-top:.4rem">'+citeChips(c.fields.from)+"</div>":"")+
+    "</span></label>").join("");
+  $("#notes").innerHTML=S.notes.map(n=>
+    '<div class="card" style="margin-top:1rem"><h4>'+esc(n.title)+"</h4>"+
+    (n.bullets.length?"<ul style='margin:.5rem 0 0;padding-left:1.1rem'>"+n.bullets.map(b=>"<li style='font-size:.92rem;margin-bottom:.3rem'>"+mdInline(b)+"</li>").join("")+"</ul>":"")+
+    mdToHtml(n.body)+"</div>").join("");
+  paintProgress();
+}
+function paintProgress(){
+  const n=$$("#criteria input:checked").length, t=S.criteria.length;
+  $("#progress").textContent=t?(n===t?"All "+t+" applied to both materials. Now name the criterion that decided it.":n+" of "+t+" applied"):"";
+}
+$("#criteria").addEventListener("change",e=>{
+  const b=e.target.closest("[data-crit]"); if(!b) return;
+  b.closest(".crit").classList.toggle("done",b.checked);
+  const st=store.get("w3-crit",{}); st[b.dataset.crit]=b.checked; store.set("w3-crit",st);
+  paintProgress();
+});
+$("#refSearch").addEventListener("input",e=>renderRefs(e.target.value));
+
+/* ══════ go ══════ */
+(async function(){
+  await load();
+  const h=(location.hash.match(/^#phase-([1-4])$/)||[])[1];
+  if(h) go(h);
+})();
+</script>
+</body>
+</html>

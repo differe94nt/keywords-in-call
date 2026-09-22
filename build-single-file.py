@@ -13,20 +13,22 @@ load; that is Google's rule, not this page's.
 import pathlib, re, sys
 
 here = pathlib.Path(__file__).resolve().parent
+if len(sys.argv) > 1:                 # e.g. python3 build-single-file.py 0923
+    here = (here / sys.argv[1]).resolve()
 html = (here / "index.html").read_text(encoding="utf-8")
-files = {
-    "1": "content/01-answers.md",
-    "2": "content/02-keywords.md",
-    "3": "content/03-compare.md",
-    "4": "content/04-verify.md",
-    "5": "content/05-tools.md",
-}
+# content/<nn>-name.md  ->  script id "md<nn>";  content/refs.md -> "mdr"
+def key_for(name):
+    m = re.match(r"^0*(\d+)[-_]", name)
+    return m.group(1) if m else name[0]
+
+sources = sorted((here / "content").glob("*.md"))
+if not sources:
+    sys.exit(f"no markdown found in {here / 'content'}")
+files = {key_for(p.name): p.relative_to(here).as_posix() for p in sources}
 
 blocks = []
-for key, rel in files.items():
+for key, rel in sorted(files.items()):
     path = here / rel
-    if not path.exists():
-        sys.exit(f"missing {rel}")
     text = path.read_text(encoding="utf-8").replace("</script", "<\\/script")
     blocks.append(f'<script type="text/markdown" id="md{key}">\n{text}\n</script>')
 
@@ -37,7 +39,7 @@ anchor = "<body>"          # the blocks must sit before the script that reads th
 if anchor not in html:
     sys.exit("could not find <body> in index.html — was it edited?")
 out = html.replace(anchor, anchor + "\n" + "\n".join(blocks), 1)
-target = here / "seminar-standalone.html"
+target = here / (here.name + "-standalone.html" if here.name != "seminar" else "seminar-standalone.html")
 target.write_text(out, encoding="utf-8")
 kb = target.stat().st_size / 1024
 print(f"wrote {target.name} ({kb:.0f} KB) with {len(blocks)} sections inlined")

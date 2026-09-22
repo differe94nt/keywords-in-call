@@ -1,8 +1,18 @@
 # Seminar page — how to run and edit it
 
+Each week is a folder with its own `index.html` and `content/`. The root is week 2.
+
 ```
 seminar/
-  index.html              the page (settings at the top, nothing else to touch)
+  index.html              week 2 — keywords, AI summaries, checking citations
+  0923/                   week 3 — digital material evaluation
+    index.html
+    content/
+      01-lecture.md       CALL/TELL history: eras, moments, ideas
+      02-groupwork.md     the three tools and the four group questions
+      03-assignment.md    the evaluation criteria
+      04-map.md           the semester map
+      refs.md             every citation, pulled from its DOI
   content/
     01-answers.md         Step 1 text + the discussion prompts
     02-keywords.md        Step 2 — one block per keyword card
@@ -10,9 +20,12 @@ seminar/
     04-verify.md          Step 4 — the seven checks + red flags
     05-tools.md           Step 5 — the AI tools
   serve.command           double-click to preview on this Mac
-  build-single-file.py    optional: squash everything into one .html
+  build-single-file.py    optional: squash a week into one .html
   seminar-standalone.html the result of that (regenerate after edits)
 ```
+
+`python3 build-single-file.py` builds the root week; `python3 build-single-file.py 0923` builds
+that folder.
 
 Publish the **folder** normally. Use the standalone file only where a folder is awkward —
 an LMS page, an email attachment. Rebuild it after editing any `.md`:

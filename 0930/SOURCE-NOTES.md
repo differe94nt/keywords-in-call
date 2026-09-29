@@ -46,3 +46,11 @@ Official pages were checked for Say What You See, Gemini Guided Learning/Canvas,
 - Helper synthetic checks: writing-class filter, unique text-ID counts, Unicode/multiline preservation, missing learner, invalid/LFS header and refusal to overwrite an existing file or the source.
 
 The page and sources were prepared locally; this task did not publish or push the site.
+
+## Classroom/homework separation revision
+
+At the instructor’s request, all links to the two Drive folders and their Google Docs were removed from the 09/30 student-facing content, including the sources section and standalone page. The profile-story PDF itself was retrieved and read; its three complete learner stories now appear in flip cards. Reverse sides contain open design questions, not the instructor’s completed plans.
+
+Classroom work now uses the profile stories and learned theories to create one lesson plan. Corpus selection and needs analysis are homework; students can alternatively analyze one speaker in an appropriate public video. Cambridge English’s B1 Preliminary preparation page confirms the Kenza/Mohammed video and examiner comments; IELTS’s official score-resources page supplies speaking clips, transcripts and comments. Embedded playback on student devices remains untested. The guide requires timestamped evidence, checked transcription and a bounded performance analysis.
+
+Flip-card keyboard activation, active-face focus/inert state, mobile layout and absence of Drive/Docs links are checked in both page versions. Printing exposes both card faces and restores their prior accessibility state afterward. Existing worksheet local autosave is preserved and its explanatory text corrected.

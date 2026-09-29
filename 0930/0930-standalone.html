@@ -17,15 +17,27 @@ html[data-theme="dark"]{--bg:#17241e;--paper:#203128;--ink:#f3f0e1;--muted:#bdca
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 .print-copy{display:none}
 @media print{.print-copy{display:block;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.85rem;margin:.6rem 0}textarea{display:none!important}.top,.pager,.filterbar,.controls,.download-actions,.skip,footer,.prompt button{display:none!important}.phase{display:block!important;break-before:page}.phase:first-of-type{break-before:auto}.wrap{width:100%}.hero{display:block}.route{margin-top:1rem}body{background:white;color:black;font-size:11pt}.card,details{break-inside:avoid}.corpus[hidden]{display:block!important}.grid,.grid.three,.workflow{grid-template-columns:1fr 1fr}a{color:inherit}.prompt textarea{height:250px}.worksheet textarea{height:160px}}
+
+/* In-class profile cards: both faces participate in sizing; only the active face is focusable. */
+.profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1rem 0 1.5rem}
+.profile-card{min-width:0;perspective:1400px}
+.profile-turn{display:grid;transform-style:preserve-3d;transition:transform .45s ease}
+.profile-card.flipped .profile-turn{transform:rotateY(180deg)}
+.profile-face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:18px;padding:1.2rem;display:flex;flex-direction:column;min-width:0}
+.profile-back{transform:rotateY(180deg);background:var(--soft);border-top-color:var(--green)}
+.profile-face h3{font-size:1.7rem;margin-bottom:.3rem}.profile-subtitle{color:var(--muted);font-size:.88rem;min-height:2.7em}.profile-face p,.profile-face li{font-size:.9rem}.profile-face ul{padding-left:1.2rem;margin:0 0 1rem}.profile-face li{margin-bottom:.8rem}.flip-action{align-self:flex-start;margin-top:auto}.profile-story{margin-bottom:.7rem}
+@media(max-width:1000px){.profile-grid{grid-template-columns:1fr}.profile-subtitle{min-height:0}.profile-face{padding:1.25rem}}
+@media(prefers-reduced-motion:reduce){.profile-turn{transition:none}}
+@media print{.profile-grid{display:block}.profile-card{perspective:none;break-inside:avoid;margin-bottom:1rem}.profile-turn,.profile-card.flipped .profile-turn{display:block;transform:none}.profile-face,.profile-back{transform:none;backface-visibility:visible;display:block}.flip-action{display:none}}
 </style>
 </head>
 <body>
 <script type="text/markdown" id="md1">
 # Know the learner before choosing the tool
 
-**Learner analysis** gathers evidence about what a learner can do, what they need to do, and the conditions that affect participation. **Differentiation** uses that evidence to adjust support, challenge, pace or task conditions while keeping the intended learning outcome clear. These are working definitions for this lesson, drawing on the [course handout](https://docs.google.com/document/d/1DQ5asdF6zp761tlNek-3ffc-UeGw7BIvnxqFwhC925w/edit) and [CAST’s UDL framework](https://udlguidelines.cast.org/).
+**Learner analysis** gathers evidence about what a learner can do, what they need to do, and the conditions that affect participation. **Differentiation** uses that evidence to adjust support, challenge, pace or task conditions while keeping the intended learning outcome clear. These are working definitions for this lesson, informed by [CAST’s UDL framework](https://udlguidelines.cast.org/).
 
-A corpus gives you a **partial, task-specific performance profile**. It does not give you the whole person. Start with strengths; distinguish evidence, interpretation and what you still need to ask.
+**In class:** read one of the three learner stories, then use the theories to design a lesson for that learner. **For homework:** analyze one learner’s corpus samples or an appropriate public speaking video. In both tasks, start with strengths and distinguish evidence, interpretation and what you still need to ask.
 
 ## What can the learner already do?
 kind: lens
@@ -62,13 +74,13 @@ source: [Krashen (1982), Principles and practice in second language acquisition,
 kind: theory
 text: Scaffolding helps a learner manage a task they cannot yet complete independently. The ZPD and scaffolding are related concepts with different origins; Wood, Bruner and Ross introduced the scaffolding metaphor in their tutoring study.
 action: Model once, offer a frame, then remove support when performance warrants it. Restore help if needed; fading is not an automatic countdown.
-source: [Wood, Bruner & Ross (1976), pp. 89–100](https://doi.org/10.1111/j.1469-7610.1976.tb00381.x) · [Course theory review](https://docs.google.com/document/d/1dwaIbj1AqpIuPJ0lkOfD3r-GowcDiXZzPYy5xRmP5qk/edit)
+source: [Wood, Bruner & Ross (1976), pp. 89–100](https://doi.org/10.1111/j.1469-7610.1976.tb00381.x)
 
 ## Output, feedback and revision
 kind: theory
 text: Swain and Lapkin show how producing language can make learners notice a problem and reconsider their wording. Output can support learning; requiring a revision does not guarantee that learning occurred.
 action: Give a partner information they need to act on. After a clarification question, revise the message and explain the change.
-source: [Swain & Lapkin (1995), pp. 371–391](https://doi.org/10.1093/applin/16.3.371) · [Course output handout](https://docs.google.com/document/d/1lA89_45rhxVnmhQF-asi1LfS6L_U2UebU0qxuQfGaog/edit)
+source: [Swain & Lapkin (1995), pp. 371–391](https://doi.org/10.1093/applin/16.3.371)
 
 ## Design for variability
 kind: theory
@@ -76,37 +88,11 @@ text: UDL offers multiple means of engagement, representation, and action and ex
 action: Provide a choice of topic, readable materials and accessible response tools. Preserve the skill being assessed when offering alternatives.
 source: [CAST (2024), UDL Guidelines 3.0](https://udlguidelines.cast.org/)
 
-## Ivy · Rehearsal before public speaking
-kind: case
-text: In the course story, Ivy understands podcasts, wants to study abroad, reports speaking anxiety and finds long phone-screen reading uncomfortable. Those details are supplied by the story; they cannot be inferred from corpus grammar errors.
-action: Offer a large-print image and private rehearsal, then a paired description with connector prompts. Fade prompts after a successful attempt; ask the listener to identify the image.
-check: Can the listener recover the intended details from a new, less-supported description?
-
-## Ken · Audience and paraphrase
-kind: case
-text: The course story describes strong topic knowledge and difficulty paraphrasing for a professional audience. A preference for fast interactive work is a reported preference, not a cognitive diagnosis.
-action: Model how the same message changes for two audiences. Have Ken create two captions, explain the register choices and revise after peer feedback.
-check: Do the versions preserve the message while using appropriate wording for each audience? Shared necessary terms are not automatically plagiarism.
-
-## Mei · Smaller steps, accessible materials
-kind: case
-text: The course story reports limited vocabulary, slow decoding, test anxiety and unreliable Wi-Fi. Treat these as scenario facts for planning, not assumptions about learners with the same L1.
-action: Use a printed image, a small word bank and a sequence from labels to sentences to a linked description. Keep practice low stakes; reduce support according to performance.
-check: Can Mei describe a new image using the selected words and link ideas without the full frame?
-
-## Use the materials from our shared folders
-kind: resource
-text: These are course teaching materials, not published empirical studies. Compare the base lesson with the profile-specific plan: which change has a stated reason, and which still needs evidence?
-- [Folder 1: learner analysis, worksheets, stories and lesson plans](https://drive.google.com/drive/folders/1O6d27HdoDafslVlQii1DiM3AKUCe8Rrr)
-- [Student worksheet](https://docs.google.com/document/d/1-VRLAbTZPXAnRkVDWjbT0iUi0xf28E9e0boVpmLPZfo/edit) · [Learner stories](https://docs.google.com/document/d/1dPMzs0wYNWZ1O1m1UVxu4zpHlechy8_Yv21WGRLoTqc/edit)
-- [Base Say What You See plan](https://docs.google.com/document/d/1qdoLUQwrCqzILDzMnrdT99FpTROkBwUYwXwHe1DnWuY/edit) · [Profile-specific plan](https://docs.google.com/document/d/1ULOZ88ogvFx162chk0PVsCAW7xwGQpSwhfBjoenyVnc/edit)
-- [Folder 2: theory review, output handout and information-gap materials](https://drive.google.com/drive/folders/1VVvuenAn4hO_7LL3CnnhnNG6j9aUD5jT)
-
 </script>
 <script type="text/markdown" id="md2">
-# Find one learner, then build a defensible profile
+# Homework route A · Corpus evidence
 
-**Choose one corpus, not the whole list.** PELIC is the default for English writing; NICT JLE is the small-download alternative for spoken-language transcripts. Arrange registrations before class for other routes. If a dataset provides only one script or interview, use two passages from different parts and describe the narrower evidence base.
+**Use this guide if you choose the corpus route for homework. Choose one corpus, not the whole list.** PELIC is the default for English writing; NICT JLE is the small-download alternative for spoken-language transcripts. Arrange registration before starting an account-based route. If a dataset provides only one script or interview, use two passages from different parts and describe the narrower evidence base.
 
 **Access checked 29 September 2026.** Public, free of charge and licence-free are different claims. The cards distinguish a verified download from a documented access procedure. No authenticated applications were completed. Keep restricted corpus data within the access conditions; use your own analytic summaries in AI prompts unless the terms permit uploading the text.
 
@@ -133,7 +119,7 @@ source: [Official page, sample, tag list, licence and download](https://alaginrc
 ## ICNALE · English across Asian contexts
 kind: corpus
 status: register
-badge: Register before class
+badge: Register before starting your analysis
 access: Free access is conditional: registration supplies the password for downloaded archives. The public query interface lacks learner attributes and is not kept current. Registration and archive extraction were not tested.
 profile: Written Essays provides two topics per participant, with proficiency bands and a background sheet. Use module + region + participant ID together; the two topics are not automatically longitudinal evidence.
 route: Register through Download → obtain the password → download Written Essays v2.6 and the Participant Background Survey Sheet. Select an individual file, then match its region/participant ID to the sheet and its second topic. The documented filename pattern includes module, region, task, ID and proficiency (for example `WE_CHN_PTJ0_001_B1_1`). Taiwan is among the represented contexts.
@@ -156,8 +142,8 @@ status: advance
 badge: Academic application and approval
 access: Current instructions require academic affiliation, university email authenticated with Google, and administrator approval before Drive access. The landing page and user agreement were checked; approval and data download were not tested.
 profile: Large-scale English writing across course levels, potentially multiple texts per learner. The approved release’s documentation must establish its learner ID, task and date fields before selection.
-route: Apply before class. Once approved, use the documented cleaned XLSX or XML release; filter one learner and compare tasks while retaining level and timing. Do not rely on old tutorials describing a different interface.
-caution: Not a dependable next-day access route. The agreement permits brief credited teaching extracts with a non-responsibility declaration, but broader sharing requires consent. See the agreement before distributing files.
+route: Apply before starting your analysis. Once approved, use the documented cleaned XLSX or XML release; filter one learner and compare tasks while retaining level and timing. Do not rely on old tutorials describing a different interface.
+caution: Not a dependable immediate access route. The agreement permits brief credited teaching extracts with a non-responsibility declaration, but broader sharing requires consent. See the agreement before distributing files.
 source: [Current access procedure](https://ef-lab.mmll.cam.ac.uk/EFCAMDAT.html) · [User agreement, §§2.1–2.3](https://ef-lab.mmll.cam.ac.uk/assets/pdf/EFCamDat-User-Agreement-2023.pdf)
 
 ## MERLIN · German, Italian and Czech
@@ -167,7 +153,7 @@ badge: Open licence · browser check needed
 access: CC BY-SA 4.0. The platform and access instructions were reachable; the linked repository returned an anti-bot page and ANNIS only an application shell in this check. Student-browser download/query remains unverified.
 profile: CEFR-rated written texts with error annotations and target hypotheses. This is not English learner data. Metadata describe the author and task; repeated longitudinal learner IDs were not verified.
 route: Try the platform’s TXT download or ANNIS → select a language in Corpus List → document icon → Full text → metadata. Distinguish the original text from target hypotheses and the test level from the separately rerated level.
-caution: Use for a non-English project or a multilingual rating demonstration. Have a working text ready before class; a single text supports a performance profile, not a complete learner trajectory.
+caution: Use for a non-English project or a multilingual rating demonstration. Have a working text ready before starting your analysis; a single text supports a performance profile, not a complete learner trajectory.
 source: [Platform and instructions](https://www.merlin-platform.eu/) · [Corpus metadata](https://www.merlin-platform.eu/C_mcorpus.php) · [Repository](https://clarin.eurac.edu/repository/xmlui/handle/20.500.12124/59)
 
 ## CLC–FCE · English exam writing
@@ -184,7 +170,7 @@ source: [Current dataset and licence](https://researchdatasets.cambridge.org/dat
 kind: corpus
 status: advance
 badge: Not an immediate open-data route
-access: ICLE’s official notice says its planned 15 September 2026 free release is delayed; a 100-text trial is linked. LINDSEI’s official distribution is a CD-ROM/handbook order. Do not promise free full access for this class.
+access: ICLE’s official notice says its planned 15 September 2026 free release is delayed; a 100-text trial is linked. LINDSEI’s official distribution is a CD-ROM/handbook order. Do not promise free full access for this assignment.
 profile: ICLE contains English learner essays; LINDSEI contains English learner interviews. Use the sample/participant documentation supplied with the version you can access.
 route: Check institutional access or the ICLE trial before selecting a learner. For LINDSEI, ensure the licensed data and software are usable on your computer; its CD-ROM does not include the sound recordings.
 caution: Use as advance-access alternatives. If access is unresolved, select PELIC or NICT JLE for this assignment.
@@ -236,7 +222,7 @@ text: A corpus is the evidence; software helps inspect it. For a few passages, a
 <script type="text/markdown" id="md3">
 # Turn evidence into a learning activity
 
-**Choose the learning action first; choose one tool second.** A more advanced tool is useful when it provides something your learner needs: contingent hints, an information gap, source-linked practice, accessible input or feedback on a revision. A polished output is not evidence of learning.
+**Use this toolkit for your in-class profile-based lesson plan. Choose the learning action first; choose one tool second.** A more advanced tool is useful when it provides something your learner needs: contingent hints, an information gap, source-linked practice, accessible input or feedback on a revision. A polished output is not evidence of learning.
 
 The activities below are teaching proposals. Vendor documentation confirms features, not effectiveness for your selected learner. Account permissions, usage limits and school policies can affect availability; keep a paper or ordinary-chat version ready.
 
@@ -245,7 +231,7 @@ kind: demo
 text: The Google Arts & Culture experiment asks users to describe generated images and compares a new generated image with the target. Its visual-match threshold is a game score, not a measure of English proficiency. The landing page and description were checked; completing the embedded game was not tested.
 source: [Open Say What You See](https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw?hl=en) · [Google’s description](https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw?hl=en)
 - **Model · 2 minutes:** Describe a teacher-selected image aloud: name the objects, add a relationship, then give a justified inference. Identify which wording makes the message precise.
-- **Information gap · 4 minutes:** Informant sees the target; guesser sees three alternatives. Describe without showing the target. The guesser asks one clarification question and chooses an image. This adapts the roles in our second Drive folder.
+- **Information gap · 4 minutes:** Informant sees the target; guesser sees three alternatives. Describe without showing the target. The guesser asks one clarification question and chooses an image. Use these roles to create a genuine need to communicate.
 - **Differentiate · 3 minutes:** Offer a word bank or frame where evidence supports it. For greater challenge, change the audience or require a more precise relationship. The goal stays clear communication.
 - **Revise and check · 3 minutes:** Improve one ambiguous sentence, explain why, then describe a new image with less help. Record listener success and the target language feature separately from the game score.
 - **Fallback:** Use teacher-owned or permitted images on paper or slides. A partner can supply the feedback; an AI account is not necessary for the information gap.
@@ -293,20 +279,20 @@ source: [Google’s June 2026 announcement](https://blog.google/innovation-and-a
 ## Google Forms + Docs · a practical baseline
 kind: tool
 label: Transparent feedback / low complexity
-text: Use a teacher-written Forms quiz for a short check and Docs comments for revision. A teacher-managed form needs account setup; student sign-in depends on its settings. Do not assume the historical forms in Drive are the submission destination for this week.
+text: Use a teacher-written Forms quiz for a short check and Docs comments for revision. A teacher-managed form needs account setup; student sign-in depends on its settings. Use the usual course submission channel for this week’s work.
 action: Make three items tied to the learning goal, explain each answer and ask for one new sentence in Docs or on paper. Compare this workflow with the advanced tool: what additional learner action does the AI version make possible?
 limit: A form score describes the items attempted. Use a new item and, if studying retention later, a delayed check. Test form access in a signed-out browser before class.
 source: [Create quizzes in Google Forms](https://support.google.com/docs/answer/7032287?hl=en)
 
 ## Prompt 1 · Audit the evidence before designing
 kind: prompt
-purpose: Use your own de-identified analytic notes; include corpus text only where its terms permit.
-prompt: Act as a cautious language-teaching assistant. I will provide a corpus name, anonymous learner/script ID, task context and my observations. Separate your response into (1) observed evidence, (2) plausible interpretation with uncertainty, and (3) unknown information to ask the learner. Cite my sample/line IDs for each observation. Identify one strength and at most two instructional priorities. Do not invent quotations, scores, goals, anxiety, disability, learning styles or CEFR levels. Do not attribute errors to L1 without supporting evidence. If my notes do not support a conclusion, say so. Here are my notes: [paste permitted notes].
+purpose: In class, use details from your selected learner story. For homework, substitute your own notes with source references or timestamps.
+prompt: Act as a cautious language-teaching assistant. I will provide either an in-class learner story or my own notes about corpus/video evidence. Identify which kind of source I supplied. Separate your response into (1) observed evidence, (2) plausible interpretation with uncertainty, and (3) unknown information to ask the learner. For a story, cite the specific scenario detail; for performance evidence, cite my sample/line IDs or timestamps. Identify one strength and at most two instructional priorities. Do not invent quotations, scores, goals, anxiety, disability, learning styles or CEFR levels. Do not attribute errors to L1 without supporting evidence. If my notes do not support a conclusion, say so. Here are my notes: [paste permitted notes].
 
 ## Prompt 2 · Design support that can fade
 kind: prompt
 purpose: Works in ordinary ChatGPT, Gemini or Claude chat; special paid features are not required.
-prompt: Design a 12-minute language activity for this provisional learner profile: [profile]. Observed priority: [evidence + sample IDs]. Learning goal: [observable goal]. Context and constraints: [confirmed facts; label assumptions]. Use [chosen tool, or paper]. Give a brief model, guided practice with one targeted scaffold, feedback requiring learner revision, and a new less-supported transfer task. State exactly when to reduce or restore support. Keep the same core learning goal across versions. Provide learner-facing instructions, teacher notes, an answer key where appropriate and a three-item success checklist. Explain the mechanism using one relevant learning concept; do not invent citations or claim guaranteed learning. Include a low-bandwidth alternative. Label all examples you create as synthetic.
+prompt: Design a 12-minute language activity for this provisional learner profile: [profile]. Priority: [supporting story details, or sample IDs/timestamps]. Learning goal: [observable goal]. Context and constraints: [confirmed facts; label assumptions]. Use [chosen tool, or paper]. Give a brief model, guided practice with one targeted scaffold, feedback requiring learner revision, and a new less-supported transfer task. State exactly when to reduce or restore support. Keep the same core learning goal across versions. Provide learner-facing instructions, teacher notes, an answer key where appropriate and a three-item success checklist. Explain the mechanism using one relevant learning concept; do not invent citations or claim guaranteed learning. Include a low-bandwidth alternative. Label all examples you create as synthetic.
 
 ## Prompt 3 · Build an interactive activity
 kind: prompt
@@ -320,44 +306,134 @@ prompt: Audit the following activity against this learner evidence and goal: [pa
 
 </script>
 <script type="text/markdown" id="md4">
-# One learner. One justified design.
+# Homework · Analyze a learner’s needs
 
-**In your group, choose one anonymous learner from a corpus you can access.** Build a provisional profile and design a short sequence of learning activities for that learner. The sequence needs guided practice and a less-supported task, not a full course. You are proposing instruction from existing evidence; you are not expected to contact the corpus participant or run a learner experiment this week.
+**Choose one evidence route: a learner corpus, or an appropriate public speaking video.** Focus on one learner/speaker and build a provisional needs analysis from their actual language use. This is separate from the in-class lesson plan for Ivy, Ken or Mei; those scenarios do not count as homework data.
 
-**Submit two pages or three slides, plus a small evidence appendix where the corpus terms permit. Prepare a 4-minute explanation.** Use the same group arrangement as last week. No paid AI tool is required.
+**Submit two pages or three slides, plus a small evidence appendix where permitted. Prepare a 4-minute explanation.** Use the same groups as in class. The main work is the analysis; finish with one justified teaching response. You do not need to contact the speaker, diagnose them or conduct a new learner experiment.
 
-## 1 · Evidence and learner profile
+## 1 · Select and document the evidence
 kind: deliverable
-text: Record corpus/version, anonymous learner or script ID, source URL and access date. Use two short samples from that learner where possible; two parts of one interview/script are acceptable if explicitly identified. State task, level/date metadata and sample limits.
-- Name one strength and two possible learning priorities, with sample/line IDs and concise evidence.
-- For one priority, show a transparent count with a denominator or a documented qualitative comparison. Include successful uses as well as difficulties.
-- Separate observed facts, interpretations and unknowns. Label any assumed goal or classroom setting. Do not infer personality, learning style or disability from corpus language.
+text: Corpus route: record corpus/version, anonymous learner or script ID, task and two short samples where available. Video route: select one speaker and two clearly timestamped segments of around 30–60 seconds each, with enough connected speech to analyze. Two parts of one recording are acceptable; state that limitation.
+- Give the source URL, title, access date and task context. Use a neutral label such as Speaker A in your analysis; keep the source link so the evidence is retrievable.
+- Include short permitted excerpts, or your own analytic notes with file/line IDs or start–end timestamps. For video, prepare a brief transcript of the relevant turns and check it against the audio.
+- State what information is missing and whether speech may be rehearsed, edited or constrained by an exam task. Do not mix the interviewer’s or partner’s words with the selected learner’s data.
 
-## 2 · Learning activities and rationale
+## 2 · Build the needs analysis
 kind: deliverable
-text: Design a 10–15-minute sequence for one of the priorities: a model, supported practice, feedback/revision and a new less-supported task. Explain how your second priority will be monitored or reserved for later.
-- State an observable goal and cite one relevant theory/framework or course handout. Explain its connection to the activity rather than listing several theory names.
-- Provide actual learner-facing instructions and a small usable example, not just “use AI to practise.” Name the tool and what the learner does with it.
-- Specify the scaffold, when it fades, a low-bandwidth alternative and a three-item success checklist aligned with the goal.
+text: Identify one strength and two possible priorities. For each, connect an observation to its evidence and explain why it matters for a stated task or a clearly labelled assumed learning goal.
+- Support one priority with a transparent count and denominator, or a documented comparison across the two samples. Include successful uses, not just errors.
+- Separate observed performance, interpretation and unknown background. A short clip cannot establish general proficiency, anxiety, motivation, disability or a fixed learning style.
+- Use published examiner comments only after writing your own observations. Identify whether the comments support or complicate your interpretation. Report any official score as source information, not a score your group has independently validated.
 
-## 3 · Check the design
+## 3 · Propose a teaching response
 kind: deliverable
-text: Walk through the activity as a group. If you use AI, keep the prompt, tool/model label where shown, date and one output excerpt you checked; show one correction or explain why no correction was needed.
-- Check a correct answer, a likely learner difficulty and the independent transfer item. A peer walkthrough checks the material, not whether the corpus learner has improved.
-- End with one limitation and a future evaluation question. A later final project could compare support conditions, examine feedback uptake or use a delayed transfer task.
-- Follow corpus sharing terms. Where quotations are restricted, submit your own analysis and retrievable file/line references instead of copied corpus text. Do not publish or upload restricted scripts by default.
+text: Choose one priority and propose one short learning activity, with a scaffold and a new less-supported check. Explain the link between the evidence, one relevant theory/framework and your design. A full lesson plan or working AI application is not required for this homework.
+- Include a learner-facing instruction and a small usable example. Explain what the learner would practise and what you would look for on the new task.
+- If AI helped, record the tool/date, prompt and one suggestion you checked or revised. You can complete the assignment without AI.
+- End with one limitation and one question for further evidence. This could become a final-project needs analysis, materials redesign or evaluation study.
+
+## Route B1 · Cambridge English speaking examples
+kind: video
+text: The official B1 Preliminary preparation page supplies the Kenza and Mohammed speaking video and downloadable examiner comments. Choose one candidate, not both. This is useful for observing a described task and interaction with an examiner or partner.
+action: Open the preparation page’s “Speaking test video with examiner comments (B1 Preliminary)” section, or the linked official YouTube video. Select two segments from the same candidate; record the task part and timestamps. Analyze before reading the comments.
+limit: The exam’s target level does not establish that every speaker or every skill is at that level. The official page and video listing were verified; playback on your device still needs checking. If YouTube is unavailable, use another accessible route.
+source: [Official video and examiner-comment page](https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/preparation/) · [Kenza and Mohammed: official YouTube video](https://www.youtube.com/watch?v=wv_nEUnhFFE)
+
+## Route B2 · IELTS speaking samples
+kind: video
+text: The official IELTS score-resources page has speaking clips with transcripts and examiner commentary. Choose one named speaker and one task; you can analyze two passages from that clip rather than finding two different videos.
+action: Open the Speaking section. Listen to your selected speaker, mark two segments and check the relevant transcript lines against the audio. Write observations before consulting the examiner comments. Use the task and published score only as supplied context.
+limit: The public page, transcripts and commentary were verified; embedded playback was not tested. A transcript supports language-content analysis, but claims about pronunciation, pauses or timing require listening to the recording.
+source: [IELTS speaking clips, transcripts and examiner comments](https://ielts.org/organisations/ielts-for-organisations/understanding-ielts-scoring/resources-for-setting-your-ielts-scores)
+
+## Can I choose another YouTube clip?
+kind: video_guide
+text: Yes, if it provides enough contextualized language from one identifiable speaker for a cautious performance analysis. Prefer an educational interview or a speaker’s own language-learning practice with a stated L2 context. Official speaking examples above are easier to justify than a random entertainment clip.
+- Check that you can hear the selected speaker clearly and distinguish their turns. Avoid dubbed, heavily edited or fully scripted performances when your claim concerns spontaneous language use.
+- Do not infer someone’s L1, nationality or learner status from appearance or accent. If the source does not establish a language-learning context, choose another source or discuss a narrowly defined performance-analysis goal with the teacher.
+- Record the URL, channel/title, task and exact start–end times. Link to the original; do not re-upload the clip or copy a full transcript into the submission.
+- Automatic captions can omit, repair or invent words. Check each relevant line by listening; mark uncertain words as unclear. If no usable audio is available, choose another clip or use the corpus route.
+
+## How to analyze a clip
+kind: video_guide
+text: Use the same evidence → interpretation → need sequence as for a corpus, adding timestamps and audio checks.
+- **Listen for meaning first:** identify what the speaker is trying to do and one thing they accomplish successfully.
+- **Select and transcribe:** choose two 30–60-second segments; transcribe only the selected learner’s relevant turns. Keep useful repetition, self-correction and pauses; use [unclear] rather than guessing.
+- **Choose two features:** for example, reference clarity, organization of an answer, word choice, a recurring grammatical form, or how the speaker responds to a clarification request. Avoid trying to diagnose everything.
+- **Check the pattern:** compare successful and difficult instances. For grammar, count relevant opportunities; for interaction, cite the sequence and response. Do not equate every pause or self-correction with a deficit. If you count pauses, define the threshold and measure from the audio.
+- **State a bounded need:** “In these two answers, Speaker A could benefit from …” Explain what more you would need to know before planning ongoing instruction. Judge pronunciation by communicative clarity in context, not resemblance to a preferred accent.
 
 ## What a strong submission demonstrates
 kind: rubric
 text: Four equally weighted criteria, scored 0–2 each (8 points). 0 = missing or unsupported; 1 = partly justified; 2 = explicit and traceable.
-- **Evidence:** the same learner is identifiable through anonymous IDs, task context and examples; counting or qualitative analysis is transparent.
-- **Profile:** strengths and priorities follow from evidence; unknowns and assumptions are visible.
-- **Design:** the learner goal, theory, scaffold and digital affordance fit together; usable learner instructions are supplied.
-- **Evaluation:** the independent check measures the stated goal; AI output is reviewed where used and claims stay within the evidence.
+- **Evidence:** the same learner/speaker is traceable through source references, task context and file/line IDs or timestamps; transcription and counts are checked.
+- **Analysis:** strengths and priorities follow from examples; successful instances, unknowns and assumptions are visible.
+- **Teaching response:** one priority, learning goal, theory and feasible activity fit together.
+- **Limits and evaluation:** the new task measures the stated goal; the proposal does not claim the learner has improved or generalize beyond the samples.
 
-## Connection to last week and the final project
+## Keep the two tasks distinct
 kind: note
-text: Last week you compared materials. This week you justify who a material is for and how it should change. Reuse a tool from your group’s Chapelle, app, AI-writing or multimodal comparison if it fits the learner evidence. Save this profile, task and evaluation question as a possible foundation for your final project.
+text: In class, use the supplied profile cards to design a learner-based lesson plan. For homework, find language-performance evidence from a corpus or suitable video and analyze the needs of one learner. The short teaching response connects your analysis to design; it can grow into the final project later.
+
+</script>
+<script type="text/markdown" id="md5">
+# Read the learner. Design the lesson.
+
+**In-class group task:** choose Ivy, Ken or Mei. Read the whole story before turning the card. Use the questions on the reverse to agree on one priority, then design a 10–15-minute lesson using the theories we have learned. More than one group may choose the same learner and compare their decisions.
+
+These are the instructor’s **teaching scenarios from the profile PDF**. Treat the supplied background and self-reports as scenario information. Do not add a diagnosis or invent an assessment result. The reverse sides provide questions to discuss; your group supplies the lesson plan.
+
+## Ivy
+kind: profile
+subtitle: The reluctant speaker with big plans
+story_a: Ivy is a 19-year-old English major in her second year. She grew up in Taichung speaking Mandarin at home and learned English from Grade 3. She breezes through podcasts and YouTube interviews and can summarize the main ideas for classmates, but when it’s her turn to speak in seminars, her voice drops. She often pauses to translate in her head first.
+story_b: Ivy wants to apply for a semester abroad next year. She follows student vlogs from the UK and has a Pinterest board of “must-visit bookshops.” To save for the trip, she works 12 hours/week at a café. She loves visual study aids (color-coded slides, infographics), and keeps a vocabulary notebook where she underlines connectors like however and on the other hand. Tests make her hands cold; she usually finishes writing tasks but leaves speaking tasks for last.
+story_c: Her eyesight is fine but she sometimes gets headaches reading long PDFs on a phone screen; she prefers printed handouts or slides with larger fonts.
+- Which existing strengths could help Ivy reach her study-abroad goal? Point to details in the story.
+- Which single language-performance goal would you choose for this lesson, and why?
+- Which theory explains the support you propose? What would Ivy actually do at each step?
+- How will your plan account for her time and access preferences while preserving the target skill?
+- What new, less-supported task would show whether your support helped?
+
+## Ken
+kind: profile
+subtitle: The tech helper who writes like a researcher
+story_a: Ken is 21 and double-majoring in English and Computer Science. At home his parents speak Cantonese; at university he uses Mandarin and English daily. He reads fast—especially tech blogs and API docs—and he can explain complex ideas clearly to peers. In group projects he likes to be the “tool person,” setting up shared folders and formatting documents.
+story_b: Ken’s goal is an internship at a multinational company. He wants to sound more professional and less “Reddit casual.” He enjoys interactive tasks (pair coding, live polls) and short videos over long readings. When he writes, he cites sources correctly but struggles to paraphrase; his summaries sometimes feel like stitched quotes.
+story_c: He has no medical issues but admits he gets impatient when activities move slowly. He’s happy to mentor classmates on tech, as long as the expectations are clear.
+- Which strength can your plan build on, and which need matters most for Ken’s internship goal?
+- What language product would make the learning goal observable?
+- Which theory explains how your activity should help, beyond simply choosing a technology topic?
+- How will you provide enough challenge while ensuring Ken works on his own learning need?
+- What evidence would distinguish an attractive finished product from independent control of the target skill?
+
+## Mei
+kind: profile
+subtitle: The returning learner rebuilding confidence
+story_a: Mei is 23 and recently returned to university after one year of full-time work in a bakery. She speaks Vietnamese at home and uses Mandarin in class. She’s careful and diligent: she arrives early, takes neat notes, and asks for extra practice.
+story_b: Her reading is A2–B1; she looks up many words and sometimes loses the thread of a paragraph. She smiles during pair work but prefers short turns and clear sentence frames to start. Her dream is to pass the B1 certificate by the end of the year so she can apply for a tourism program.
+story_c: Mei reports test anxiety (“My mind goes blank during quizzes”). She also says she learns best when teachers chunk tasks and provide examples first. She has an older laptop and spotty Wi-Fi at home, so large video files are hard to stream.
+- What does the story establish about Mei’s strengths, goal and participation conditions?
+- Which one need is manageable in a short lesson? What would success look like?
+- Which theory supports your sequence of learning activities, and how does it explain the support?
+- How will the same learning goal remain achievable with her available technology?
+- When would you reduce or restore support, and how would you check performance on new content?
+
+## Make one learner-based lesson plan
+kind: workshop
+text: Spend about 20 minutes: read and identify evidence (5), choose a goal and theory (5), then draft the activity sequence and check (10). Use the Digital design phase for tool ideas after you have chosen the learning goal.
+- **Learner and evidence:** name the profile and cite two details that justify your chosen priority.
+- **Goal and theory:** state one observable goal and explain one or two relevant concepts. Name the learning mechanism, not just the theorist.
+- **Lesson sequence:** outline a model/input stage, learner practice, feedback or revision, and a new less-supported task. Include actual learner instructions and one example.
+- **Differentiation and check:** identify the support, when it changes, an access alternative and two or three success indicators.
+
+## Share and challenge the design
+kind: workshop
+text: Hand in one slide or one page for the in-class task. Explain your plan to another group in two minutes; give them one minute to identify an unsupported assumption or an activity that does not serve the goal. Revise one part before submitting.
+- Use the chain: **profile detail → learning need → theory → activity decision → evidence of success**.
+- If you use AI, first write your own priority and goal; check that its proposed activities follow the learner story. Keep the revision you make.
+- Keep this scenario-based plan separate from homework: the homework learner comes from a corpus or an appropriate public speaking example, not these cards.
 
 </script>
 <script type="text/markdown" id="mdr">
@@ -374,12 +450,15 @@ kind: reference
 - Wood, D., Bruner, J. S., & Ross, G. (1976). The role of tutoring in problem solving. *Journal of Child Psychology and Psychiatry, 17*(2), 89–100. [DOI](https://doi.org/10.1111/j.1469-7610.1976.tb00381.x).
 - Chapelle, C. A. (2001). *Computer applications in second language acquisition: Foundations for teaching, testing and research*. Cambridge University Press. [DOI](https://doi.org/10.1017/CBO9781139524681). Revisit last week’s learner-fit and task-evaluation criteria.
 
-## Our course materials
+## In-class learner profiles
 kind: reference
-text: The two shared folders contain teaching handouts, illustrative learner stories, worksheets and example plans. The lesson adapts their profile-to-design structure and the informant/guesser information gap. The empty-text Informant document was not used as substantive evidence; the output handout provides the activity roles.
-- [Folder 1 · Learner analysis and differentiated plans](https://drive.google.com/drive/folders/1O6d27HdoDafslVlQii1DiM3AKUCe8Rrr)
-- [Folder 2 · Learning theory and learning activities](https://drive.google.com/drive/folders/1VVvuenAn4hO_7LL3CnnhnNG6j9aUD5jT)
-- [Learning Theory Review](https://docs.google.com/document/d/1dwaIbj1AqpIuPJ0lkOfD3r-GowcDiXZzPYy5xRmP5qk/edit) · [Swain’s Comprehensible Output handout](https://docs.google.com/document/d/1lA89_45rhxVnmhQF-asi1LfS6L_U2UebU0qxuQfGaog/edit)
+text: Ivy, Ken and Mei are instructional scenarios reproduced from the instructor’s learner-profile PDF. Read them on the Profile workshop page. The reverse of each card contains design questions, not a completed lesson plan. The workshop uses scenario facts; homework requires independently selected language-performance evidence.
+
+## Public speaking examples for homework
+kind: reference
+text: The official pages provide speaking examples and assessment commentary. Analyze the selected speaker first, then compare your observations with the commentary. A reported test score describes the published assessment context, not a new diagnosis by your group.
+- [Cambridge English: B1 Preliminary speaking video and examiner comments](https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/preparation/)
+- [IELTS: speaking videos, transcripts and examiner comments](https://ielts.org/organisations/ielts-for-organisations/understanding-ielts-scoring/resources-for-setting-your-ielts-scores)
 
 ## Corpus documentation
 kind: reference
@@ -387,7 +466,7 @@ text: Use the corpus cards’ direct links for access, licences, naming conventi
 - **Download tested:** NICT JLE v4.1 ZIP opened and original/annotated file structure inspected; PELIC compiled CSV header and initial rows inspected through a small byte-range request.
 - **Procedure verified, account access untested:** ICNALE, SLABank, EFCAMDAT and CLC–FCE.
 - **Additional access limitation:** MERLIN repository returned an anti-bot response in the checking tool; Guangwai–Lancaster’s interactive query access was not verified; ICLE’s official free-release notice reports a delay.
-- Corpus licences differ. This public lesson does not redistribute learner transcripts or supplied archive files. The worked example is synthetic; it cannot replace the corpus learner required for the assignment.
+- Corpus licences differ. This public lesson does not redistribute learner transcripts or supplied archive files. The worked example is synthetic; it cannot replace the actual corpus or video evidence required for the homework.
 
 ## Digital tool documentation
 kind: reference
@@ -405,38 +484,40 @@ text: Product pages describe capabilities and availability, not independent evid
 <main class="wrap" id="main" tabindex="-1">
 <div id="loadStatus" role="status">Loading the lesson…</div>
 <section class="phase active" id="step-1" aria-labelledby="title1">
-<div class="hero"><div><div class="eyebrow">01 / Learner analysis</div><h1 id="title1" tabindex="-1">A learner.<br>A reason.<br>A better activity.</h1><p>Use language evidence to decide what to support, what to challenge, and what to check next.</p><a href="#step-2" class="btn">Start the corpus lab →</a></div><aside class="route" aria-label="Lesson pathway"><ol><li><div><strong>Notice the evidence</strong><span>What can this learner already do?</span></div></li><li><div><strong>Choose a priority</strong><span>What can we justify from these samples?</span></div></li><li><div><strong>Design a response</strong><span>How will support help, then fade?</span></div></li><li><div><strong>Check independent use</strong><span>What can the learner do on a new task?</span></div></li></ol></aside></div>
-<div class="timing" aria-label="Suggested class pacing"><span>10 min · learner analysis</span><span>20 min · corpus lab</span><span>15 min · demo and design</span><span>5 min · assignment briefing</span></div>
+<div class="hero"><div><div class="eyebrow">01 / Learner analysis</div><h1 id="title1" tabindex="-1">A learner.<br>A reason.<br>A better activity.</h1><p>Use language evidence to decide what to support, what to challenge, and what to check next.</p><a href="#step-2" class="btn">Meet the learner profiles →</a></div><aside class="route" aria-label="Lesson pathway"><ol><li><div><strong>Notice the evidence</strong><span>What can this learner already do?</span></div></li><li><div><strong>Choose a priority</strong><span>What can we justify from these samples?</span></div></li><li><div><strong>Design a response</strong><span>How will support help, then fade?</span></div></li><li><div><strong>Check independent use</strong><span>What can the learner do on a new task?</span></div></li></ol></aside></div>
+<div class="timing" aria-label="Suggested class pacing"><span>10 min · learner analysis</span><span>20 min · profile workshop</span><span>15 min · demo and peer review</span><span>5 min · assignment briefing</span></div>
 <div class="intro" id="intro1"></div><div class="grid" id="lenses"></div>
 <div class="sectionhead"><h2>Evidence, interpretation, unknown</h2><p>Keep these separate in every profile.</p></div>
 <div class="evidence-grid"><div><strong>Observed</strong><p>“The supplied sample has four past-tense mismatches in eight relevant contexts.”</p><span class="small">Traceable to text and a counting rule.</span></div><div><strong>Interpretation</strong><p>“Past-time reference may be a useful teaching priority for this task.”</p><span class="small">A provisional decision to check.</span></div><div><strong>Unknown</strong><p>“The learner is anxious and prefers visual instruction.”</p><span class="small">Cannot be established from that count.</span></div></div>
 <div class="sectionhead"><h2>Four ideas to guide design</h2><p>Choose one mechanism you can explain.</p></div><div class="grid" id="theories"></div>
-<details style="margin-top:1.5rem"><summary>Apply the ideas to our three learner stories</summary><p class="small">Illustrative course scenarios, not corpus-derived diagnoses. The assignment uses a corpus learner instead.</p><div class="grid three" id="cases"></div></details><div id="resources1"></div>
-<div class="pager"><span></span><a class="btn" href="#step-2">Next · Corpus lab →</a></div></section>
-<section class="phase" id="step-2" aria-labelledby="title2"><div class="eyebrow">02 / Corpus lab</div><h1 id="title2" tabindex="-1">From a text to a profile.</h1><div class="intro" id="intro2"></div>
+<div class="callout"><strong>Next: use a profile, not a tool list.</strong><p>Read one learner story in the workshop. Explain which details justify your goal, theory and lesson decisions. Corpus and video analysis belong to homework.</p></div>
+<div class="pager"><span></span><a class="btn" href="#step-2">Next · Profile workshop →</a></div></section>
+<section class="phase" id="step-2" aria-labelledby="title2"><div class="eyebrow">02 / In-class profile workshop</div><h1 id="title2" tabindex="-1">Meet your learner.</h1><div class="intro" id="intro5"></div>
+<div class="sectionhead"><h2>Choose one profile</h2><p>Read the story. Turn the card for design questions.</p></div><div class="profile-grid" id="profiles"></div><div id="workshopTask"></div><div class="pager"><a class="btn secondary" href="#step-1">← Learner analysis</a><a class="btn" href="#step-3">Next · Digital design →</a></div></section>
+<section class="phase" id="step-3" aria-labelledby="title3"><div class="eyebrow">03 / Digital design</div><h1 id="title3" tabindex="-1">The tool follows the need.</h1><div class="intro" id="intro3"></div><div id="demo"></div>
+<div class="sectionhead"><h2>Same goal. Different support.</h2><p>An original mini-demo you can use without an account.</p></div><div class="card demo-panel"><svg class="scene" viewBox="0 0 400 240" role="img" aria-labelledby="sceneTitle sceneDesc"><title id="sceneTitle">A picture for a spatial description</title><desc id="sceneDesc">An orange circle is above two blue squares. A small green triangle is between the squares.</desc><circle cx="200" cy="60" r="32" fill="#c77a32"/><rect x="70" y="130" width="75" height="75" rx="5" fill="#497e9d"/><rect x="255" y="130" width="75" height="75" rx="5" fill="#497e9d"/><path d="M200 145 L225 192 L175 192 Z" fill="#4e7457"/></svg><div><strong>Goal: help a partner reproduce the spatial arrangement.</strong><div class="controls" role="group" aria-label="Choose the amount of support"><button class="pill" data-support="full" aria-pressed="true">Full frame</button><button class="pill" data-support="cues" aria-pressed="false">Word cues</button><button class="pill" data-support="independent" aria-pressed="false">Independent</button></div><div id="supportText" aria-live="polite"></div><p class="small">For an information gap, show the picture only to the describer. Change the arrangement for the independent task. The text alternative supports accessibility; use a different accessible task if spatial vision itself creates a barrier.</p></div></div>
+<div class="sectionhead"><h2>A purposeful digital toolkit</h2><p>Choose one. Test the learner action it enables.</p></div><div class="grid" id="tools"></div><div class="sectionhead"><h2>Prompts you can adapt</h2><p>Keep evidence and assumptions explicit.</p></div><div id="prompts"></div><div class="pager"><a class="btn secondary" href="#step-2">← Profile workshop</a><a class="btn" href="#step-4">Next · Homework →</a></div></section>
+<section class="phase" id="step-4" aria-labelledby="title4"><div class="eyebrow">04 / Homework</div><h1 id="title4" tabindex="-1">Make the design traceable.</h1><div class="intro" id="intro4"></div><div class="callout"><strong>Two evidence routes, one assignment</strong><p><strong>A · Corpus:</strong> one learner, two short samples where available.<br><strong>B · Speaking video:</strong> one speaker, two timestamped segments.<br>Both routes lead to a needs analysis and one short teaching response.</p></div><div class="grid three" id="deliverables"></div>
+<div class="sectionhead"><h2>Choose your evidence source</h2><p>Use one route; you do not need to try every resource.</p></div><details id="corpusGuide"><summary>Route A · Corpus access and analysis guide</summary><div class="intro" id="intro2"></div>
 <div class="callout"><strong>Start here</strong><p>English writing → <strong>PELIC</strong> if you can handle the download.<br>Small download / interview language → <strong>NICT JLE</strong>.<br>Already registered → ICNALE or a named SLABank subcorpus.</p></div>
 <div class="sectionhead"><h2>Which corpus can I use?</h2><p>Open a card for the actual route and limits.</p></div>
 <div class="filterbar"><label for="accessFilter">Access route</label><select id="accessFilter"><option value="all">All resources</option><option value="ready">Public download</option><option value="register">Register first</option><option value="advance">Arrange access ahead</option><option value="check">Browser / language check needed</option></select><span class="small" id="corpusCount" role="status"></span></div><div id="corpora"></div>
 <div class="sectionhead"><h2>The six-step analysis</h2><p>Close reading comes before statistics.</p></div><div class="workflow" id="workflow"></div>
-<details><summary>PELIC practical help: a large CSV without a complicated setup</summary><p>Download the official compiled CSV before class. Excel can filter <code>anon_id</code> and <code>class_id</code>. If importing the complete file is slow, use this optional Python 3 helper to make a small personal analysis copy; no extra package is needed.</p><p><a href="downloads/extract_pelic.py" download>Download extract_pelic.py</a> · <a href="https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv" target="_blank" rel="noopener">Official CSV</a></p><pre>python3 extract_pelic.py PELIC_compiled.csv --list
+<details><summary>PELIC practical help: a large CSV without a complicated setup</summary><p>Download the official compiled CSV before starting your analysis. Excel can filter <code>anon_id</code> and <code>class_id</code>. If importing the complete file is slow, use this optional Python 3 helper to make a small personal analysis copy; no extra package is needed.</p><p><a href="downloads/extract_pelic.py" download>Download extract_pelic.py</a> · <a href="https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv" target="_blank" rel="noopener">Official CSV</a></p><pre>python3 extract_pelic.py PELIC_compiled.csv --list
 python3 extract_pelic.py PELIC_compiled.csv --learner YOUR_ID --output learner.csv</pre><p class="small">Replace YOUR_ID with an ID from the list. The helper defaults to writing classes, preserves the text and retains task/version metadata. It does not select the “best” learner or analyze their ability. Open learner.csv in a spreadsheet and choose two comparable samples. Look up prompts in question.csv. If Python is unfamiliar, use NICT JLE’s plain-text route.</p></details>
-<details open><summary>Worked example · from an observation to a design choice</summary><p class="small">Synthetic teaching example, not a real corpus record. Use a real accessible corpus learner for the assignment.</p><div class="sample"><strong>Sample A · an invented past narrative</strong><br>Yesterday I go to the market. I bought apples. Then I meet my friend. We talked for an hour.<br><br><strong>Sample B · a second invented narrative</strong><br>Last Saturday I visited my aunt. I buy a cake. Later I walked home. I watch a film.</div><div class="table-scroll" tabindex="0" role="region" aria-label="Worked evidence-to-design example"><table><caption>A narrow claim, with an explicit denominator</caption><thead><tr><th scope="col">Evidence</th><th scope="col">Interpretation</th><th scope="col">Design and check</th></tr></thead><tbody><tr><td>Eight finite verbs in explicitly past-time clauses. Four successful past forms: bought, talked, visited, walked. Four mismatches: go, meet, buy, watch.</td><td>Past marking is inconsistent in these samples (4/8 mismatches). The learner already sequences events and uses some past forms. Cause and spoken ability remain unknown.</td><td>Model a short past narrative → notice time cues → reconstruct events with a verb bank → retell a new event without the bank. Check past forms in required contexts and whether the listener understands the sequence.</td></tr></tbody></table></div><p class="small">This count is a classroom coding decision, not a standardized proficiency score. A new narrative with different content checks transfer more usefully than copying corrected sentences.</p></details><div id="resources2"></div><div class="pager"><a class="btn secondary" href="#step-1">← Learner analysis</a><a class="btn" href="#step-3">Next · Digital design →</a></div></section>
-<section class="phase" id="step-3" aria-labelledby="title3"><div class="eyebrow">03 / Digital design</div><h1 id="title3" tabindex="-1">The tool follows the need.</h1><div class="intro" id="intro3"></div><div id="demo"></div>
-<div class="sectionhead"><h2>Same goal. Different support.</h2><p>An original mini-demo you can use without an account.</p></div><div class="card demo-panel"><svg class="scene" viewBox="0 0 400 240" role="img" aria-labelledby="sceneTitle sceneDesc"><title id="sceneTitle">A picture for a spatial description</title><desc id="sceneDesc">An orange circle is above two blue squares. A small green triangle is between the squares.</desc><circle cx="200" cy="60" r="32" fill="#c77a32"/><rect x="70" y="130" width="75" height="75" rx="5" fill="#497e9d"/><rect x="255" y="130" width="75" height="75" rx="5" fill="#497e9d"/><path d="M200 145 L225 192 L175 192 Z" fill="#4e7457"/></svg><div><strong>Goal: help a partner reproduce the spatial arrangement.</strong><div class="controls" role="group" aria-label="Choose the amount of support"><button class="pill" data-support="full" aria-pressed="true">Full frame</button><button class="pill" data-support="cues" aria-pressed="false">Word cues</button><button class="pill" data-support="independent" aria-pressed="false">Independent</button></div><div id="supportText" aria-live="polite"></div><p class="small">For an information gap, show the picture only to the describer. Change the arrangement for the independent task. The text alternative supports accessibility; use a different accessible task if spatial vision itself creates a barrier.</p></div></div>
-<div class="sectionhead"><h2>A purposeful digital toolkit</h2><p>Choose one. Test the learner action it enables.</p></div><div class="grid" id="tools"></div><div class="sectionhead"><h2>Prompts you can adapt</h2><p>Keep evidence and assumptions explicit.</p></div><div id="prompts"></div><div class="pager"><a class="btn secondary" href="#step-2">← Corpus lab</a><a class="btn" href="#step-4">Next · Assignment →</a></div></section>
-<section class="phase" id="step-4" aria-labelledby="title4"><div class="eyebrow">04 / Assignment</div><h1 id="title4" tabindex="-1">Make the design traceable.</h1><div class="intro" id="intro4"></div><div class="grid three" id="deliverables"></div><div id="rubric"></div>
-<div class="sectionhead"><h2>Your profile and activity worksheet</h2><p>Draft here, then download or copy.</p></div><p class="small">Use anonymous IDs and your own notes. This form does not submit your work. Entries remain only while this page is open; download before leaving. Use the usual course submission channel for your finished work.</p>
+<details open><summary>Worked example · from an observation to a design choice</summary><p class="small">Synthetic teaching example, not a real corpus record. Use actual corpus or video evidence for the homework.</p><div class="sample"><strong>Sample A · an invented past narrative</strong><br>Yesterday I go to the market. I bought apples. Then I meet my friend. We talked for an hour.<br><br><strong>Sample B · a second invented narrative</strong><br>Last Saturday I visited my aunt. I buy a cake. Later I walked home. I watch a film.</div><div class="table-scroll" tabindex="0" role="region" aria-label="Worked evidence-to-design example"><table><caption>A narrow claim, with an explicit denominator</caption><thead><tr><th scope="col">Evidence</th><th scope="col">Interpretation</th><th scope="col">Design and check</th></tr></thead><tbody><tr><td>Eight finite verbs in explicitly past-time clauses. Four successful past forms: bought, talked, visited, walked. Four mismatches: go, meet, buy, watch.</td><td>Past marking is inconsistent in these samples (4/8 mismatches). The learner already sequences events and uses some past forms. Cause and spoken ability remain unknown.</td><td>Model a short past narrative → notice time cues → reconstruct events with a verb bank → retell a new event without the bank. Check past forms in required contexts and whether the listener understands the sequence.</td></tr></tbody></table></div><p class="small">This count is a classroom coding decision, not a standardized proficiency score. A new narrative with different content checks transfer more usefully than copying corrected sentences.</p></details><div id="resources2"></div></details><details id="videoGuide" open><summary>Route B · Public speaking videos and analysis guide</summary><div class="grid" id="videos"></div><div id="videoSteps"></div></details><div id="rubric"></div>
+<div class="sectionhead"><h2>Your homework analysis worksheet</h2><p>Draft here, then download or copy.</p></div><p class="small">Use anonymous IDs and your own notes. This form does not submit your work. Drafts autosave in this browser when local storage is available; download your finished work. Use the usual course submission channel for your finished work.</p>
 <form id="worksheet" class="worksheet">
-<label>Corpus and sample context<span>Source/version, URL, anonymous ID, sample IDs, tasks, dates/levels, access conditions.</span><textarea name="context"></textarea></label>
-<label>Observed evidence<span>Sample/line references; include a strength and a count with its denominator or a qualitative comparison.</span><textarea name="evidence"></textarea></label>
+<label>Source and sample context<span>Corpus/version or video title/channel, URL, learner/speaker label, task, file IDs or timestamps, access conditions.</span><textarea name="context"></textarea></label>
+<label>Observed evidence<span>Sample/line references or start–end timestamps; include a strength and a count with its denominator or a qualitative comparison.</span><textarea name="evidence"></textarea></label>
 <label>Strength and two priorities<span>Distinguish what you observed from your interpretation. Select one priority for this activity.</span><textarea name="priorities"></textarea></label>
-<label>Unknowns and assumptions<span>What cannot the corpus tell you? Which teaching context or goal are you assuming?</span><textarea name="unknowns"></textarea></label>
+<label>Unknowns and assumptions<span>What cannot the selected story or performance samples tell you? Which teaching context or goal are you assuming?</span><textarea name="unknowns"></textarea></label>
 <label>Learning goal and rationale<span>Observable action + new task + success criterion. Explain one theory/framework connection and cite it.</span><textarea name="goal"></textarea></label>
-<label>Activity and tool<span>Learner instructions, example, chosen tool and a low-bandwidth alternative.</span><textarea name="activity"></textarea></label>
+<label>Teaching response<span>One proposed activity, learner instruction and example; tool choice if useful.</span><textarea name="activity"></textarea></label>
 <label>Support and independent check<span>Scaffold, condition for fading/restoring it, new transfer task and three success indicators.</span><textarea name="assessment"></textarea></label>
-<label>Review and next question<span>Peer walkthrough; prompt/tool/date and checked output if AI is used; limitations and possible final-project question.</span><textarea name="review"></textarea></label>
+<label>Review and next question<span>Check that your teaching response fits the analysis; prompt/tool/date if AI is used; limitations and a possible final-project question.</span><textarea name="review"></textarea></label>
 </form><div class="download-actions"><button class="btn" id="downloadWorksheet">Download worksheet (.md)</button><button class="btn secondary" id="copyWorksheet">Copy worksheet</button><button class="btn secondary" id="printLesson">Print lesson</button></div><p id="worksheetStatus" class="small" role="status"></p><textarea id="copyFallback" hidden aria-label="Select and copy your worksheet" rows="12" style="width:100%"></textarea><div id="assignmentNotes"></div><div class="pager"><a class="btn secondary" href="#step-3">← Digital design</a><a class="btn" href="#step-5">Next · Sources →</a></div></section>
-<section class="phase" id="step-5" aria-labelledby="title5"><div class="eyebrow">05 / Sources</div><h1 id="title5" tabindex="-1">Follow the evidence.</h1><div class="intro" id="intror"></div><div class="refs" id="references"></div><div class="pager"><a class="btn secondary" href="#step-4">← Assignment</a><a class="btn" href="#step-1">Back to the lecture ↑</a></div></section>
+<section class="phase" id="step-5" aria-labelledby="title5"><div class="eyebrow">05 / Sources</div><h1 id="title5" tabindex="-1">Follow the evidence.</h1><div class="intro" id="intror"></div><div class="refs" id="references"></div><div class="pager"><a class="btn secondary" href="#step-4">← Homework</a><a class="btn" href="#step-1">Back to the lecture ↑</a></div></section>
 </main><footer><div class="wrap">09/30 · Learner differentiation · Access checked 29 September 2026. Save your worksheet before leaving the page.</div></footer>
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -445,9 +526,24 @@ function inline(s){return esc(s).replace(/`([^`]+)`/g,'<code>$1</code>').replace
 function paragraphs(s){return String(s||'').trim().split(/\n\s*\n/).filter(Boolean).map(p=>'<p>'+inline(p.replace(/\n/g,' '))+'</p>').join('');}
 function parse(md){const parts=md.replace(/<!--[\s\S]*?-->/g,'').replace(/\r/g,'').split(/^## /m);const intro=parts.shift().replace(/^# .*$/m,'').trim();return {intro,items:parts.map(b=>{const lines=b.trim().split('\n'),title=lines.shift(),f={},bullets=[];for(const l of lines){const m=l.match(/^([a-z_]+):\s*(.*)$/);if(m)f[m[1]]=m[2];else if(l.startsWith('- '))bullets.push(l.slice(2));}return {title,f,bullets};})};}
 function card(i,cls=''){return '<article class="card '+cls+'">'+(i.f.label?'<p class="label">'+esc(i.f.label)+'</p>':'')+'<h3>'+esc(i.title)+'</h3>'+['text','action','check','limit'].filter(k=>i.f[k]).map(k=>'<p class="'+(k==='action'?'action':'')+'">'+({action:'<strong>Design move:</strong> ',check:'<strong>Check:</strong> ',limit:'<strong>Check before use:</strong> '}[k]||'')+inline(i.f[k])+'</p>').join('')+(i.bullets.length?'<ul>'+i.bullets.map(b=>'<li>'+inline(b)+'</li>').join('')+'</ul>':'')+(i.f.source?'<p class="source">'+inline(i.f.source)+'</p>':'')+'</article>';}
-const names=['Learner analysis','Corpus lab','Digital design','Assignment','Sources'];
+
+function renderProfiles(items){
+  $('#profiles').innerHTML=items.map((i,n)=>'<article class="profile-card" aria-label="'+esc(i.title)+' learner profile"><div class="profile-turn">'+
+    '<div class="profile-face profile-front" id="profile-front-'+n+'"><div class="eyebrow">Learner story · 0'+(n+1)+'</div><h3>'+esc(i.title)+'</h3><p class="profile-subtitle">'+esc(i.f.subtitle)+'</p><div class="profile-story">'+['story_a','story_b','story_c'].map(k=>'<p>'+inline(i.f[k])+'</p>').join('')+'</div><button class="pill flip-action" data-flip="back" aria-controls="profile-back-'+n+'" aria-label="Turn '+esc(i.title)+' card to design questions">Turn card · design questions →</button></div>'+
+    '<div class="profile-face profile-back" id="profile-back-'+n+'" aria-hidden="true" inert><div class="eyebrow">Your design decisions</div><h3>Design for '+esc(i.title)+'</h3><p class="profile-subtitle">Use evidence from the story. Build your own plan.</p><ul>'+i.bullets.map(b=>'<li>'+inline(b)+'</li>').join('')+'</ul><p class="small">Explain the chain: profile detail → need → theory → activity → check.</p><button class="pill flip-action" data-flip="front" aria-controls="profile-front-'+n+'" aria-label="Turn '+esc(i.title)+' card back to learner story">← Back to the story</button></div></div></article>').join('');
+}
+$('#profiles').addEventListener('click',e=>{
+  const button=e.target.closest('[data-flip]');if(!button)return;
+  const card=button.closest('.profile-card'),back=button.dataset.flip==='back';
+  const frontFace=card.querySelector('.profile-front'),backFace=card.querySelector('.profile-back');
+  const active=back?backFace:frontFace,inactive=back?frontFace:backFace;
+  card.classList.toggle('flipped',back);active.inert=false;active.removeAttribute('aria-hidden');
+  active.querySelector('button').focus({preventScroll:true});inactive.inert=true;inactive.setAttribute('aria-hidden','true');
+});
+
+const names=['Learner analysis','Profile workshop','Digital design','Homework','Sources'];
 $('#nav').innerHTML=names.map((n,i)=>'<button class="navbtn" data-step="'+(i+1)+'"><b>0'+(i+1)+'</b>'+n+'</button>').join('');
-function go(n,focus=false){$$('.phase').forEach(p=>p.classList.toggle('active',p.id==='step-'+n));$$('.navbtn').forEach(b=>b.dataset.step===String(n)?b.setAttribute('aria-current','step'):b.removeAttribute('aria-current'));if(focus){$('#title'+n).focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}}
+function go(n,focus=false){$$('.phase').forEach(p=>p.classList.toggle('active',p.id==='step-'+n));$$('.navbtn').forEach(b=>b.dataset.step===String(n)?b.setAttribute('aria-current','step'):b.removeAttribute('aria-current'));if(focus){$('#title'+n).focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});/* a direct link such as #step-4 races the browser's own anchor scroll, so repeat on the next frame */requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}));}}
 $('#nav').addEventListener('click',e=>{const b=e.target.closest('[data-step]');if(b){if(location.hash==='#step-'+b.dataset.step)go(+b.dataset.step,true);else location.hash='step-'+b.dataset.step;}});
 function readHash(){if(location.hash==='#main'){$('#main').focus({preventScroll:true});return;}const m=location.hash.match(/^#step-([1-5])$/);go(m?+m[1]:1,true);}
 window.addEventListener('hashchange',readHash);
@@ -461,7 +557,7 @@ function filterCorpora(){const v=$('#accessFilter').value;let count=0;$$('.corpu
 $('#accessFilter').addEventListener('change',filterCorpora);
 async function copyText(text,status,field){try{if(!navigator.clipboard)throw Error('No clipboard');await navigator.clipboard.writeText(text);status.textContent='Copied.';}catch(e){field.hidden=false;field.value=text;field.focus();field.select();status.textContent='Automatic copy is unavailable. The text is selected; use your usual copy command.';}}
 $('#prompts').addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(b){const c=b.closest('.prompt');copyText(c.querySelector('textarea').value,c.querySelector('.copy-status'),c.querySelector('textarea'));}});
-function worksheetText(){const labels={context:'Corpus and sample context',evidence:'Observed evidence',priorities:'Strength and priorities',unknowns:'Unknowns and assumptions',goal:'Learning goal and rationale',activity:'Activity and tool',assessment:'Support and independent check',review:'Review and next question'};return '# 09/30 · Learner profile and activity plan\n\n'+Object.entries(labels).map(([k,v])=>'## '+v+'\n\n'+($('#worksheet [name="'+k+'"]').value.trim()||'[Complete this section]')).join('\n\n')+'\n';}
+function worksheetText(){const labels={context:'Source and sample context',evidence:'Observed evidence',priorities:'Strength and priorities',unknowns:'Unknowns and assumptions',goal:'Learning goal and rationale',activity:'Teaching response',assessment:'Support and independent check',review:'Review and next question'};return '# 09/30 · Homework learner needs analysis\n\n'+Object.entries(labels).map(([k,v])=>'## '+v+'\n\n'+($('#worksheet [name="'+k+'"]').value.trim()||'[Complete this section]')).join('\n\n')+'\n';}
 $('#downloadWorksheet').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([worksheetText()],{type:'text/markdown;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='0930-learner-profile-and-plan.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('#worksheetStatus').textContent='Worksheet download requested. Save the file for your submission.';});
 $('#copyWorksheet').addEventListener('click',()=>copyText(worksheetText(),$('#worksheetStatus'),$('#copyFallback')));
 $('#worksheet').addEventListener('submit',e=>e.preventDefault());
@@ -474,14 +570,16 @@ const WS_KEY='call-0930-worksheet';
 $('#worksheet').addEventListener('input',()=>{try{const o={};
   $$('#worksheet textarea').forEach(t=>{if(t.value.trim())o[t.name]=t.value;});
   localStorage.setItem(WS_KEY,JSON.stringify(o));}catch(e){}});
-let printStates=[];window.addEventListener('beforeprint',()=>{printStates=$$('details').map(d=>[d,d.open]);printStates.forEach(([d])=>d.open=true);$$('.print-copy').forEach(e=>e.remove());$$('.prompt textarea, #worksheet textarea').forEach(t=>{const p=document.createElement('div');p.className='print-copy';p.textContent=t.value||'____________________________';t.after(p);});});window.addEventListener('afterprint',()=>{printStates.forEach(([d,open])=>d.open=open);$$('.print-copy').forEach(e=>e.remove());});$('#printLesson').addEventListener('click',()=>window.print());
-const FILES={1:'content/01-learner.md',2:'content/02-corpus.md',3:'content/03-design.md',4:'content/04-assignment.md',r:'content/refs.md'};
+let printStates=null,printFaces=[];window.addEventListener('beforeprint',()=>{if(printStates)return;printStates=$$('details').map(d=>[d,d.open]);printStates.forEach(([d])=>d.open=true);printFaces=$$('.profile-face').map(f=>[f,f.inert,f.getAttribute('aria-hidden')]);printFaces.forEach(([f])=>{f.inert=false;f.removeAttribute('aria-hidden');});$$('.print-copy').forEach(e=>e.remove());$$('.prompt textarea, #worksheet textarea').forEach(t=>{const p=document.createElement('div');p.className='print-copy';p.textContent=t.value||'____________________________';t.after(p);});});window.addEventListener('afterprint',()=>{if(!printStates)return;printStates.forEach(([d,open])=>d.open=open);printFaces.forEach(([f,inert,hidden])=>{f.inert=inert;if(hidden===null)f.removeAttribute('aria-hidden');else f.setAttribute('aria-hidden',hidden);});printStates=null;printFaces=[];$$('.print-copy').forEach(e=>e.remove());});$('#printLesson').addEventListener('click',()=>window.print());
+const FILES={1:'content/01-learner.md',2:'content/02-corpus.md',3:'content/03-design.md',4:'content/04-assignment.md',5:'content/05-profiles.md',r:'content/refs.md'};
 let loaded=false;
 async function load(){try{const entries=await Promise.all(Object.entries(FILES).map(async([k,path])=>{const embedded=$('#md'+k);if(embedded)return [k,parse(embedded.textContent)];const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw Error('Could not load '+path);return [k,parse(await r.text())];}));const docs=Object.fromEntries(entries);for(const [k,d] of entries)$('#intro'+k).innerHTML=paragraphs(d.intro);
 const render=(key,kind,id,cls='')=>$('#'+id).innerHTML=docs[key].items.filter(i=>i.f.kind===kind).map(i=>card(i,cls)).join('');
-render('1','lens','lenses');render('1','theory','theories');render('1','case','cases');render('1','resource','resources1','resource');
+render('1','lens','lenses');render('1','theory','theories');renderProfiles(docs[5].items.filter(i=>i.f.kind==='profile'));render('5','workshop','workshopTask','resource');
 $('#corpora').innerHTML=docs[2].items.filter(i=>i.f.kind==='corpus').map(i=>'<details class="corpus" data-status="'+esc(i.f.status)+'"><summary>'+esc(i.title)+'<span><span class="badge">'+esc(i.f.badge)+'</span></span></summary>'+Object.entries({access:'Access checked',profile:'What you can profile',route:'Student route',caution:'Limits'}).map(([k,label])=>'<p class="row"><strong>'+label+':</strong> '+inline(i.f[k]||'')+'</p>').join('')+'<p class="source">'+inline(i.f.source)+'</p></details>').join('');filterCorpora();render('2','workflow','workflow');render('2','resource','resources2','resource');render('3','demo','demo');render('3','tool','tools');
-$('#prompts').innerHTML=docs[3].items.filter(i=>i.f.kind==='prompt').map((i,n)=>'<article class="card prompt"><header><h3>'+esc(i.title)+'</h3><button class="pill" data-copy="'+n+'">Copy</button></header><p class="small">'+inline(i.f.purpose)+'</p><label class="sr-only" for="prompt-'+n+'">'+esc(i.title)+'</label><textarea id="prompt-'+n+'" readonly>'+esc(i.f.prompt)+'</textarea><div class="copy-status" role="status"></div></article>').join('');render('4','deliverable','deliverables');render('4','rubric','rubric','resource');render('4','note','assignmentNotes','resource');$('#references').innerHTML=docs.r.items.map(i=>card(i)).join('');$('#loadStatus').textContent='';loaded=true;const m=location.hash.match(/^#step-([1-5])$/);go(m?+m[1]:1);
+$('#prompts').innerHTML=docs[3].items.filter(i=>i.f.kind==='prompt').map((i,n)=>'<article class="card prompt"><header><h3>'+esc(i.title)+'</h3><button class="pill" data-copy="'+n+'">Copy</button></header><p class="small">'+inline(i.f.purpose)+'</p><label class="sr-only" for="prompt-'+n+'">'+esc(i.title)+'</label><textarea id="prompt-'+n+'" readonly>'+esc(i.f.prompt)+'</textarea><div class="copy-status" role="status"></div></article>').join('');render('4','deliverable','deliverables');render('4','video','videos');render('4','video_guide','videoSteps','resource');render('4','rubric','rubric','resource');render('4','note','assignmentNotes','resource');$('#references').innerHTML=docs.r.items.map(i=>card(i)).join('');$('#loadStatus').textContent='';loaded=true;const m=location.hash.match(/^#step-([1-5])$/);go(m?+m[1]:1);
+/* content renders after the browser's fragment scroll, so a direct #step-N link lands mid-page */
+if(m){window.scrollTo({top:0,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}));}
 }catch(e){$('#loadStatus').className='error';$('#loadStatus').textContent='The lesson content could not load. Open the standalone page, or use the local preview server. '+e.message;}}
 load();
 </script>

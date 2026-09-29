@@ -1,6 +1,6 @@
 # Turn evidence into a learning activity
 
-**Choose the learning action first; choose one tool second.** A more advanced tool is useful when it provides something your learner needs: contingent hints, an information gap, source-linked practice, accessible input or feedback on a revision. A polished output is not evidence of learning.
+**Use this toolkit for your in-class profile-based lesson plan. Choose the learning action first; choose one tool second.** A more advanced tool is useful when it provides something your learner needs: contingent hints, an information gap, source-linked practice, accessible input or feedback on a revision. A polished output is not evidence of learning.
 
 The activities below are teaching proposals. Vendor documentation confirms features, not effectiveness for your selected learner. Account permissions, usage limits and school policies can affect availability; keep a paper or ordinary-chat version ready.
 
@@ -9,7 +9,7 @@ kind: demo
 text: The Google Arts & Culture experiment asks users to describe generated images and compares a new generated image with the target. Its visual-match threshold is a game score, not a measure of English proficiency. The landing page and description were checked; completing the embedded game was not tested.
 source: [Open Say What You See](https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw?hl=en) · [Google’s description](https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw?hl=en)
 - **Model · 2 minutes:** Describe a teacher-selected image aloud: name the objects, add a relationship, then give a justified inference. Identify which wording makes the message precise.
-- **Information gap · 4 minutes:** Informant sees the target; guesser sees three alternatives. Describe without showing the target. The guesser asks one clarification question and chooses an image. This adapts the roles in our second Drive folder.
+- **Information gap · 4 minutes:** Informant sees the target; guesser sees three alternatives. Describe without showing the target. The guesser asks one clarification question and chooses an image. Use these roles to create a genuine need to communicate.
 - **Differentiate · 3 minutes:** Offer a word bank or frame where evidence supports it. For greater challenge, change the audience or require a more precise relationship. The goal stays clear communication.
 - **Revise and check · 3 minutes:** Improve one ambiguous sentence, explain why, then describe a new image with less help. Record listener success and the target language feature separately from the game score.
 - **Fallback:** Use teacher-owned or permitted images on paper or slides. A partner can supply the feedback; an AI account is not necessary for the information gap.
@@ -57,20 +57,20 @@ source: [Google’s June 2026 announcement](https://blog.google/innovation-and-a
 ## Google Forms + Docs · a practical baseline
 kind: tool
 label: Transparent feedback / low complexity
-text: Use a teacher-written Forms quiz for a short check and Docs comments for revision. A teacher-managed form needs account setup; student sign-in depends on its settings. Do not assume the historical forms in Drive are the submission destination for this week.
+text: Use a teacher-written Forms quiz for a short check and Docs comments for revision. A teacher-managed form needs account setup; student sign-in depends on its settings. Use the usual course submission channel for this week’s work.
 action: Make three items tied to the learning goal, explain each answer and ask for one new sentence in Docs or on paper. Compare this workflow with the advanced tool: what additional learner action does the AI version make possible?
 limit: A form score describes the items attempted. Use a new item and, if studying retention later, a delayed check. Test form access in a signed-out browser before class.
 source: [Create quizzes in Google Forms](https://support.google.com/docs/answer/7032287?hl=en)
 
 ## Prompt 1 · Audit the evidence before designing
 kind: prompt
-purpose: Use your own de-identified analytic notes; include corpus text only where its terms permit.
-prompt: Act as a cautious language-teaching assistant. I will provide a corpus name, anonymous learner/script ID, task context and my observations. Separate your response into (1) observed evidence, (2) plausible interpretation with uncertainty, and (3) unknown information to ask the learner. Cite my sample/line IDs for each observation. Identify one strength and at most two instructional priorities. Do not invent quotations, scores, goals, anxiety, disability, learning styles or CEFR levels. Do not attribute errors to L1 without supporting evidence. If my notes do not support a conclusion, say so. Here are my notes: [paste permitted notes].
+purpose: In class, use details from your selected learner story. For homework, substitute your own notes with source references or timestamps.
+prompt: Act as a cautious language-teaching assistant. I will provide either an in-class learner story or my own notes about corpus/video evidence. Identify which kind of source I supplied. Separate your response into (1) observed evidence, (2) plausible interpretation with uncertainty, and (3) unknown information to ask the learner. For a story, cite the specific scenario detail; for performance evidence, cite my sample/line IDs or timestamps. Identify one strength and at most two instructional priorities. Do not invent quotations, scores, goals, anxiety, disability, learning styles or CEFR levels. Do not attribute errors to L1 without supporting evidence. If my notes do not support a conclusion, say so. Here are my notes: [paste permitted notes].
 
 ## Prompt 2 · Design support that can fade
 kind: prompt
 purpose: Works in ordinary ChatGPT, Gemini or Claude chat; special paid features are not required.
-prompt: Design a 12-minute language activity for this provisional learner profile: [profile]. Observed priority: [evidence + sample IDs]. Learning goal: [observable goal]. Context and constraints: [confirmed facts; label assumptions]. Use [chosen tool, or paper]. Give a brief model, guided practice with one targeted scaffold, feedback requiring learner revision, and a new less-supported transfer task. State exactly when to reduce or restore support. Keep the same core learning goal across versions. Provide learner-facing instructions, teacher notes, an answer key where appropriate and a three-item success checklist. Explain the mechanism using one relevant learning concept; do not invent citations or claim guaranteed learning. Include a low-bandwidth alternative. Label all examples you create as synthetic.
+prompt: Design a 12-minute language activity for this provisional learner profile: [profile]. Priority: [supporting story details, or sample IDs/timestamps]. Learning goal: [observable goal]. Context and constraints: [confirmed facts; label assumptions]. Use [chosen tool, or paper]. Give a brief model, guided practice with one targeted scaffold, feedback requiring learner revision, and a new less-supported transfer task. State exactly when to reduce or restore support. Keep the same core learning goal across versions. Provide learner-facing instructions, teacher notes, an answer key where appropriate and a three-item success checklist. Explain the mechanism using one relevant learning concept; do not invent citations or claim guaranteed learning. Include a low-bandwidth alternative. Label all examples you create as synthetic.
 
 ## Prompt 3 · Build an interactive activity
 kind: prompt

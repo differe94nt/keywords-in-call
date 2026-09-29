@@ -1,6 +1,6 @@
-# Find one learner, then build a defensible profile
+# Homework route A · Corpus evidence
 
-**Choose one corpus, not the whole list.** PELIC is the default for English writing; NICT JLE is the small-download alternative for spoken-language transcripts. Arrange registrations before class for other routes. If a dataset provides only one script or interview, use two passages from different parts and describe the narrower evidence base.
+**Use this guide if you choose the corpus route for homework. Choose one corpus, not the whole list.** PELIC is the default for English writing; NICT JLE is the small-download alternative for spoken-language transcripts. Arrange registration before starting an account-based route. If a dataset provides only one script or interview, use two passages from different parts and describe the narrower evidence base.
 
 **Access checked 29 September 2026.** Public, free of charge and licence-free are different claims. The cards distinguish a verified download from a documented access procedure. No authenticated applications were completed. Keep restricted corpus data within the access conditions; use your own analytic summaries in AI prompts unless the terms permit uploading the text.
 
@@ -27,7 +27,7 @@ source: [Official page, sample, tag list, licence and download](https://alaginrc
 ## ICNALE · English across Asian contexts
 kind: corpus
 status: register
-badge: Register before class
+badge: Register before starting your analysis
 access: Free access is conditional: registration supplies the password for downloaded archives. The public query interface lacks learner attributes and is not kept current. Registration and archive extraction were not tested.
 profile: Written Essays provides two topics per participant, with proficiency bands and a background sheet. Use module + region + participant ID together; the two topics are not automatically longitudinal evidence.
 route: Register through Download → obtain the password → download Written Essays v2.6 and the Participant Background Survey Sheet. Select an individual file, then match its region/participant ID to the sheet and its second topic. The documented filename pattern includes module, region, task, ID and proficiency (for example `WE_CHN_PTJ0_001_B1_1`). Taiwan is among the represented contexts.
@@ -50,8 +50,8 @@ status: advance
 badge: Academic application and approval
 access: Current instructions require academic affiliation, university email authenticated with Google, and administrator approval before Drive access. The landing page and user agreement were checked; approval and data download were not tested.
 profile: Large-scale English writing across course levels, potentially multiple texts per learner. The approved release’s documentation must establish its learner ID, task and date fields before selection.
-route: Apply before class. Once approved, use the documented cleaned XLSX or XML release; filter one learner and compare tasks while retaining level and timing. Do not rely on old tutorials describing a different interface.
-caution: Not a dependable next-day access route. The agreement permits brief credited teaching extracts with a non-responsibility declaration, but broader sharing requires consent. See the agreement before distributing files.
+route: Apply before starting your analysis. Once approved, use the documented cleaned XLSX or XML release; filter one learner and compare tasks while retaining level and timing. Do not rely on old tutorials describing a different interface.
+caution: Not a dependable immediate access route. The agreement permits brief credited teaching extracts with a non-responsibility declaration, but broader sharing requires consent. See the agreement before distributing files.
 source: [Current access procedure](https://ef-lab.mmll.cam.ac.uk/EFCAMDAT.html) · [User agreement, §§2.1–2.3](https://ef-lab.mmll.cam.ac.uk/assets/pdf/EFCamDat-User-Agreement-2023.pdf)
 
 ## MERLIN · German, Italian and Czech
@@ -61,7 +61,7 @@ badge: Open licence · browser check needed
 access: CC BY-SA 4.0. The platform and access instructions were reachable; the linked repository returned an anti-bot page and ANNIS only an application shell in this check. Student-browser download/query remains unverified.
 profile: CEFR-rated written texts with error annotations and target hypotheses. This is not English learner data. Metadata describe the author and task; repeated longitudinal learner IDs were not verified.
 route: Try the platform’s TXT download or ANNIS → select a language in Corpus List → document icon → Full text → metadata. Distinguish the original text from target hypotheses and the test level from the separately rerated level.
-caution: Use for a non-English project or a multilingual rating demonstration. Have a working text ready before class; a single text supports a performance profile, not a complete learner trajectory.
+caution: Use for a non-English project or a multilingual rating demonstration. Have a working text ready before starting your analysis; a single text supports a performance profile, not a complete learner trajectory.
 source: [Platform and instructions](https://www.merlin-platform.eu/) · [Corpus metadata](https://www.merlin-platform.eu/C_mcorpus.php) · [Repository](https://clarin.eurac.edu/repository/xmlui/handle/20.500.12124/59)
 
 ## CLC–FCE · English exam writing
@@ -78,7 +78,7 @@ source: [Current dataset and licence](https://researchdatasets.cambridge.org/dat
 kind: corpus
 status: advance
 badge: Not an immediate open-data route
-access: ICLE’s official notice says its planned 15 September 2026 free release is delayed; a 100-text trial is linked. LINDSEI’s official distribution is a CD-ROM/handbook order. Do not promise free full access for this class.
+access: ICLE’s official notice says its planned 15 September 2026 free release is delayed; a 100-text trial is linked. LINDSEI’s official distribution is a CD-ROM/handbook order. Do not promise free full access for this assignment.
 profile: ICLE contains English learner essays; LINDSEI contains English learner interviews. Use the sample/participant documentation supplied with the version you can access.
 route: Check institutional access or the ICLE trial before selecting a learner. For LINDSEI, ensure the licensed data and software are usable on your computer; its CD-ROM does not include the sound recordings.
 caution: Use as advance-access alternatives. If access is unresolved, select PELIC or NICT JLE for this assignment.

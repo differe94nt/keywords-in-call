@@ -11,12 +11,15 @@ kind: reference
 - Wood, D., Bruner, J. S., & Ross, G. (1976). The role of tutoring in problem solving. *Journal of Child Psychology and Psychiatry, 17*(2), 89–100. [DOI](https://doi.org/10.1111/j.1469-7610.1976.tb00381.x).
 - Chapelle, C. A. (2001). *Computer applications in second language acquisition: Foundations for teaching, testing and research*. Cambridge University Press. [DOI](https://doi.org/10.1017/CBO9781139524681). Revisit last week’s learner-fit and task-evaluation criteria.
 
-## Our course materials
+## In-class learner profiles
 kind: reference
-text: The two shared folders contain teaching handouts, illustrative learner stories, worksheets and example plans. The lesson adapts their profile-to-design structure and the informant/guesser information gap. The empty-text Informant document was not used as substantive evidence; the output handout provides the activity roles.
-- [Folder 1 · Learner analysis and differentiated plans](https://drive.google.com/drive/folders/1O6d27HdoDafslVlQii1DiM3AKUCe8Rrr)
-- [Folder 2 · Learning theory and learning activities](https://drive.google.com/drive/folders/1VVvuenAn4hO_7LL3CnnhnNG6j9aUD5jT)
-- [Learning Theory Review](https://docs.google.com/document/d/1dwaIbj1AqpIuPJ0lkOfD3r-GowcDiXZzPYy5xRmP5qk/edit) · [Swain’s Comprehensible Output handout](https://docs.google.com/document/d/1lA89_45rhxVnmhQF-asi1LfS6L_U2UebU0qxuQfGaog/edit)
+text: Ivy, Ken and Mei are instructional scenarios reproduced from the instructor’s learner-profile PDF. Read them on the Profile workshop page. The reverse of each card contains design questions, not a completed lesson plan. The workshop uses scenario facts; homework requires independently selected language-performance evidence.
+
+## Public speaking examples for homework
+kind: reference
+text: The official pages provide speaking examples and assessment commentary. Analyze the selected speaker first, then compare your observations with the commentary. A reported test score describes the published assessment context, not a new diagnosis by your group.
+- [Cambridge English: B1 Preliminary speaking video and examiner comments](https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/preparation/)
+- [IELTS: speaking videos, transcripts and examiner comments](https://ielts.org/organisations/ielts-for-organisations/understanding-ielts-scoring/resources-for-setting-your-ielts-scores)
 
 ## Corpus documentation
 kind: reference
@@ -24,7 +27,7 @@ text: Use the corpus cards’ direct links for access, licences, naming conventi
 - **Download tested:** NICT JLE v4.1 ZIP opened and original/annotated file structure inspected; PELIC compiled CSV header and initial rows inspected through a small byte-range request.
 - **Procedure verified, account access untested:** ICNALE, SLABank, EFCAMDAT and CLC–FCE.
 - **Additional access limitation:** MERLIN repository returned an anti-bot response in the checking tool; Guangwai–Lancaster’s interactive query access was not verified; ICLE’s official free-release notice reports a delay.
-- Corpus licences differ. This public lesson does not redistribute learner transcripts or supplied archive files. The worked example is synthetic; it cannot replace the corpus learner required for the assignment.
+- Corpus licences differ. This public lesson does not redistribute learner transcripts or supplied archive files. The worked example is synthetic; it cannot replace the actual corpus or video evidence required for the homework.
 
 ## Digital tool documentation
 kind: reference

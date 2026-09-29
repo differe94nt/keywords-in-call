@@ -13,6 +13,11 @@ seminar/
       03-assignment.md    four homework paths and a reference checklist
       04-map.md           the semester map
       refs.md             core and further readings, with publication links
+  0930/                   week 4 — learner analysis and differentiation
+    index.html            five phases, corpus filters, support demo, worksheet export
+    content/              learner analysis, corpus lab, digital design, assignment, sources
+    downloads/            optional local PELIC extractor (Python 3, no dependencies)
+    SOURCE-NOTES.md        access verification and editorial qualifications
   content/
     01-answers.md         Step 1 text + the discussion prompts
     02-keywords.md        Step 2 — one block per keyword card
@@ -26,6 +31,12 @@ seminar/
 
 `python3 build-single-file.py` builds the root week; `python3 build-single-file.py 0923` builds
 that folder.
+
+`python3 build-single-file.py 0930` builds the week 4 standalone page. Its teaching content,
+support demo, prompts and worksheet export work without a data connection; source links and
+external tools still require internet access. Keep `downloads/` beside it if you want the optional
+PELIC helper link to work when distributing the file. The worksheet stays in the current page;
+students should download it before leaving. It is not a submission form.
 
 Publish the **folder** normally. Use the standalone file only where a folder is awkward —
 an LMS page, an email attachment. Rebuild it after editing any `.md`:

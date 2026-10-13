@@ -14,11 +14,11 @@ HOW TO EDIT
 kind: section
 Dates follow the course syllabus. Anything marked *to be confirmed* will be announced in class.
 
-## Choose a track and form a group
+## Choose a track and find partners
 kind: milestone
 date: Week 6 · 10/14
 now: yes
-what: Pitch your idea in one minute, listen to others, and form a group around a shared learner group or a shared question. See **Pitch & form groups**.
+what: Pitch your idea in one minute, listen to others, and decide how you will work: teaching demos in groups formed around a shared learner group or question; research in a group or on your own. See **Pitch & form groups**.
 
 ## Preparation time for next week's submission
 kind: milestone
@@ -38,7 +38,7 @@ what: Present your proposal to the class. Expect questions about your learners, 
 ## Final presentations
 kind: milestone
 date: Weeks 15–16 · 12/16 and 12/23
-what: Research groups report results, including at least pilot results. Teaching demo groups teach a 20-minute demonstration.
+what: Research projects report results, including at least pilot results. Teaching demo groups teach a 20-minute demonstration.
 
 ## Submit the personal portfolio
 kind: milestone

@@ -2,7 +2,7 @@
 
 Gemini Notebook (until recently called **NotebookLM**) answers questions **only from the sources you give it**, and links each claim to the passage it came from. That makes it good at one part of a literature review — reading across several papers quickly — and useless at another: deciding which papers are worth reading. You still choose the sources, read them, and write the review.
 
-**Goal for conference week (10/28):** one notebook per project, five sources, a filled-in literature matrix, and a first idea of where your five sources agree and disagree.
+**Before the proposal deadline (11/04, 08:00):** aim for one notebook per project, five sources, a filled-in literature matrix, and a first idea of where your five sources agree and disagree. Week 8 (10/28) is preparation time — a good week to get this done.
 
 <!--
 HOW TO EDIT
@@ -66,9 +66,9 @@ kind: step
 do: Organise your review **by theme or by question, not one paragraph per paper**. For each theme: what the studies found, where they differ, and why that matters for your project.
 check: A good review ends with the gap your project addresses.
 
-## Share with your group
+## Share with your group, if you have one
 kind: step
-do: Share the notebook with your group members so everyone works from the same sources. Personal accounts can share a notebook with up to 50 people.
+do: If you work in a group, share the notebook so everyone works from the same sources. Personal accounts can share a notebook with up to 50 people.
 
 ## Prompts to copy
 kind: section

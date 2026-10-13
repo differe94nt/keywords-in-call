@@ -1,6 +1,6 @@
 # Research track
 
-Your research is about **language-teaching digital material design** or **AI in language teaching**. You ask a focused question, collect data from real participants, and report what you found — honestly, including what a small pilot cannot tell you.
+Your research is about **language-teaching digital material design** or **AI in language teaching**. You ask a focused question, collect data from real participants, and report what you found — honestly, including what a small pilot cannot tell you. You can do this in a group or on your own.
 
 <!--
 HOW TO EDIT

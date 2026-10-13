@@ -1,6 +1,6 @@
-# Pitch your idea, find your group
+# Pitch your idea, find partners
 
-Today you sell your idea in about one minute — an **elevator pitch** — and listen to others do the same. By the end of class, everyone has a track, a group and a working title.
+Today you sell your idea in about one minute — an **elevator pitch** — and listen to others do the same. By the end of class, everyone has a track and a working title. Teaching demos are done in groups; research can be done in a group or on your own.
 
 **Two circles.** Teaching-demo people sit together; research people sit together. If you are undecided, start in one circle and move after the first round.
 
@@ -29,11 +29,11 @@ time: About 15 minutes
 do: Pick two or three pitches that interest the circle. Listeners ask every question they can think of — use the question banks below. The speaker answers briefly or writes "don't know yet".
 check: A question you can't answer yet is useful: it tells you what to find out next.
 
-## Form groups
+## Form groups or confirm a solo project
 kind: step
 time: About 10 minutes
-do: Join people with a **shared learner group** (for example young learners) or a **shared question** (for example multimodal vocabulary). Agree on a working title and one next step.
-check: Before you leave, each group submits the exit ticket.
+do: **Teaching demo:** join people with a **shared learner group** (for example young learners) or a **shared question** (for example multimodal vocabulary). **Research:** join others with a shared question, or confirm that you will work on your own. Agree on a working title and one next step.
+check: Before you leave, every group and every individual researcher submits the exit ticket.
 
 ## Pitch frame · teaching demo
 kind: prompt
@@ -48,12 +48,12 @@ I am looking for partners who … (interest, skill, learner group).
 
 ## Pitch frame · research
 kind: prompt
-Sell the idea: your **research question**, your **method**, and **how it connects to this course**.
+Sell the idea: your **research question**, your **method**, and **how it fits the course focus**.
 ```text
 I want to find out whether / how … (research question, one sentence).
 The participants would be … and I can reach them through …
 I would collect … (test, questionnaire, interview, recordings) and analyse it by …
-This connects to the course because … (week, concept or reading).
+It fits the course focus because it is about … (digital material design / AI in language teaching).
 The part I am least sure about is …
 ```
 
@@ -89,9 +89,9 @@ kind: card
 
 ## Exit ticket
 kind: checklist
-Submit as a group before you leave.
+Submit before you leave — one per group, or one each if you work alone.
 - Track: research or teaching demo
-- Group members
+- Group members, or *individual project*
 - Working title
 - Target learners in one line
-- One question you must answer before conference week (10/28)
+- One question you must answer before the proposal deadline (11/04)

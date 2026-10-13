@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAEFD0">
+<title>Final project &amp; portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ════════ SETTINGS — the only block to edit; text lives in content/*.md ════════ -->
+<script>
+const CONFIG = {
+  instructor: "王伯雅 Po-Ya Angela Wang",
+  course: "英語數位教材與教學",
+  title: "Final project & portfolio",
+  kicker: "Course guide",
+  storeKey: "final-guide",
+  pages: [["1","Overview"],["2","Research track"],["3","Teaching demo track"],["4","Portfolio"],["5","Pitch & form groups"],["r","Sources"]],
+  links: [["09/16 · Keywords","../"],["09/23 · Evaluation","../0923/"],["09/30 · Learners","../0930/"],["AI materials studio","../ai-tools/"]]
+};
+</script>
+
+<style>
+:root{
+  --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
+  --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
+  --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77; --blue-soft:#DCE9EC;
+  --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
+  --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
+  --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
+  --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD; --blue-soft:#22343A;
+  --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+h4{font-family:var(--sans);font-weight:600;margin:0;font-size:1rem}
+p{margin:0 0 .75em}
+a{color:var(--green);text-underline-offset:2px;overflow-wrap:anywhere}
+button,input{font:inherit;color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--tint);padding:.1em .35em;border-radius:5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.muted{color:var(--fg-soft)} .small{font-size:.84rem}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 0}
+.who{font-family:var(--serif);font-size:1.02rem;font-weight:600}
+.who span{display:block;font-family:var(--sans);font-size:.75rem;color:var(--fg-soft);font-weight:400}
+.top-links{margin-left:auto;display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+.pill{background:none;border:1px solid var(--line-2);border-radius:999px;padding:.2rem .65rem;font-size:.76rem;color:var(--fg);text-decoration:none;cursor:pointer;display:inline-block}
+.pill:hover{background:var(--tint)}
+nav.phases{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.45rem}
+.ph{display:flex;gap:.45rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
+.ph b{font-family:var(--mono);font-size:.72rem;color:var(--burnt)}
+.ph:hover{background:var(--tint);color:var(--fg)}
+.ph[aria-current="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .ph[aria-current="true"]{background:var(--green);color:#16200E}
+.ph[aria-current="true"] b{color:var(--gold)}
+
+main{padding:1.6rem 0 4rem}
+.phase{display:none}.phase.on{display:block}
+.kicker{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em;text-transform:uppercase}
+.phase>h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:.15rem 0 .7rem}
+.intro{max-width:72ch}
+.intro ul,.intro ol{padding-left:1.2rem}
+h3.sec{font-size:1.3rem;margin:2rem 0 .3rem}
+.sec-body{max-width:72ch;color:var(--fg-soft);margin-bottom:.8rem}
+.sec-body .tblwrap{max-width:none;color:var(--fg)}
+.sec-body:has(.tblwrap){max-width:none}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:.9rem;margin:.8rem 0 1.2rem}
+.grid.wide{grid-template-columns:1fr}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;min-width:0}
+.card h4{font-family:var(--serif);font-size:1.12rem;margin-bottom:.35rem}
+.card .badge{display:inline-block;font-size:.7rem;border:1px solid var(--line-2);border-radius:999px;padding:.03rem .5rem;color:var(--fg-soft);margin-bottom:.4rem}
+.card p,.card li{font-size:.92rem}
+.card ul,.card ol{margin:.35rem 0 .2rem;padding-left:1.15rem}
+.card li{margin-bottom:.28rem}
+.field{margin:.35rem 0}
+.field .flabel{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);display:block;font-weight:600}
+.kind-tool{border-top:4px solid var(--blue)}
+.kind-issue{border-left:4px solid var(--burnt)}
+.kind-theory{border-top:4px solid var(--gold)}
+.kind-track{border-top:4px solid var(--green)}
+.kind-prompt{border-top:4px solid var(--blue)}
+.kind-questions{border-left:4px solid var(--green)}
+.kind-checklist{border-left:4px solid var(--gold)}
+.kind-note{background:var(--gold-soft);border-color:transparent}
+
+.steps{counter-reset:step;display:grid;gap:.7rem;margin:.8rem 0 1.2rem}
+.step{position:relative;padding-left:3.2rem}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:1rem;top:1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:.8rem;display:grid;place-items:center}
+html[data-theme="dark"] .step::before{background:var(--green);color:#16200E}
+
+.timeline{border-left:2px solid var(--gold);margin:.8rem 0 1.4rem .4rem;padding-left:1.2rem}
+.ms{position:relative;padding:.5rem 0 .8rem}
+.ms::before{content:"";position:absolute;left:-1.62rem;top:.95rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--gold);border:2px solid var(--green)}
+.ms.now::before{background:var(--green)}
+.ms .when{font-family:var(--mono);font-size:.8rem;color:var(--burnt)}
+.ms h4{font-family:var(--serif);font-size:1.08rem;margin:.1rem 0 .2rem}
+.ms p{font-size:.92rem;margin:0}
+
+label.chk{display:flex;gap:.55rem;align-items:flex-start;padding:.25rem 0;font-size:.92rem;cursor:pointer}
+label.chk input{margin-top:.3rem;width:1rem;height:1rem;accent-color:var(--green);flex:none}
+.qlist{margin:.4rem 0;padding-left:1.3rem}
+.qlist li{margin-bottom:.45rem;font-size:.93rem}
+
+pre{background:var(--ink);color:var(--cream);padding:.8rem .9rem;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:.78rem;line-height:1.55;margin:.5rem 0;position:relative}
+html[data-theme="dark"] pre{background:#141C0F}
+.copyrow{display:flex;gap:.4rem;align-items:center;margin-top:.3rem}
+.status{font-size:.76rem;color:var(--green)}
+
+.tblwrap{overflow-x:auto;margin:.6rem 0 1rem;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:.6rem .7rem;border-top:1px solid var(--line)}
+thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;border-top:0}
+
+.cite{display:inline-block;font-size:.76rem;border:1px solid var(--line);border-radius:999px;padding:.02rem .5rem;text-decoration:none;color:var(--fg-soft);background:var(--paper);margin:.15rem .15rem 0 0}
+.cite:hover{border-color:var(--green);color:var(--green)}
+.refitem{padding:.6rem 0;border-bottom:1px solid var(--line)}
+.refitem .links a{font-size:.72rem;margin-right:.5rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+@media print{header.top,.pager,.copyrow{display:none}.phase{display:block!important;break-before:page}pre{white-space:pre-wrap}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<script type="text/markdown" id="md1">
+# One project, two ways to do it
+
+Your final project can take one of two forms. **Research** asks a question about digital materials or AI in language teaching and answers it with data. **Teaching demo** designs a lesson for real learners and teaches 20 minutes of it to us. Both start from the same habits you have practised all semester: know the learner, read the literature, justify the design, check the evidence.
+
+Both tracks are group projects. The portfolio is individual.
+
+<!--
+HOW TO EDIT
+  ## Title      kind: milestone (date / what / now: yes) · track · checklist · section · card
+  "- " lines become bullets (or ticks, in a checklist).
+-->
+
+## The timeline
+kind: section
+Dates follow the course syllabus. Anything marked *to be confirmed* will be announced in class.
+
+## Choose a track and form a group
+kind: milestone
+date: Week 6 · 10/14
+now: yes
+what: Pitch your idea in one minute, listen to others, and form a group around a shared learner group or a shared question. See **Pitch & form groups**.
+
+## Narrow the scope and collect five sources
+kind: milestone
+date: Week 8 · 10/28 · conference week
+what: Meet the instructor with your group. Bring a working title, your target learners, and at least five sources organised in Gemini Notebook (see the AI materials studio).
+
+## Submit the proposal
+kind: milestone
+date: Week 9 · 11/04 · midterm
+what: Hand in the proposal for your track. The checklists are on the **Research track** and **Teaching demo track** pages.
+
+## Present the proposal and take questions
+kind: milestone
+date: Week 11 · 11/18 · symposium
+what: Present your proposal to the class. Expect questions about your learners, your sources and your method — use them to revise before you start.
+
+## Final presentations
+kind: milestone
+date: Weeks 15–16 · 12/16 and 12/23
+what: Research groups report results, including at least pilot results. Teaching demo groups teach a 20-minute demonstration.
+
+## Submit the personal portfolio
+kind: milestone
+date: End of semester · date to be confirmed
+what: An individual reflection on the whole semester, including the feedback you received from classmates. PPT or HTML.
+
+## Two tracks side by side
+kind: section
+
+| | Research | Teaching demo |
+|---|---|---|
+| **The question it answers** | What happens when learners use this material or tool? | How should this lesson be designed for these learners, and why? |
+| **Midterm proposal** | Literature review (5 sources) · at least 1 research question · method (quantitative or qualitative) | Literature review (5 sources) supporting your design · target learner analysis · 20-minute teaching plan · how you will integrate AI |
+| **Final presentation** | Literature review (5) · research question(s) · method · results and discussion (at least pilot results) | Target learner analysis · literature review (5) · teaching plan outline · 20-minute teaching demonstration |
+| **Where AI fits** | AI can be the *topic* (studying a tool) or a *helper* (organising literature, analysing data) — never the evidence | AI can build materials, run an activity, or support practice — you justify each use |
+| **You need** | Participants you can actually reach, an instrument, a way to analyse data | A real or clearly specified learner group, materials you have tested, a backup without internet |
+
+## Grading
+kind: card
+- Midterm presentation · 20%
+- Final presentation · 20%
+- Final portfolio · 20%
+- In-class discussion · 20% and weekly tasks · 20% continue as before.
+
+## Which track suits you?
+kind: questions
+- Do you want to *find something out* (research) or *make something work in a classroom* (teaching demo)?
+- Can you reach learners or participants before 12/16? Research needs data; a teaching demo needs a learner group you can describe precisely.
+- Which week this semester did you enjoy most — reading studies and comparing evidence, or designing activities for Ivy, Ken and Mei?
+- What would you like to show in your portfolio as your best piece of work?
+- Is there a tool or material you already use that you would like to test, or improve?
+
+## Topics from your individual meetings
+kind: card
+These are directions classmates are already exploring. Use them to find partners — the pitch session is where you meet.
+- Multimodal vocabulary teaching — images, sound and text together
+- Learners with hearing impairments — visual access, captions, sign-supported materials
+- Young learners (for example Grade 5) — game-based activities, age-appropriate tools
+- Learning games built with AI
+- Designing your own teaching tool with a language model
+
+</script>
+<script type="text/markdown" id="md2">
+# Research track
+
+Your research is about **language-teaching digital material design** or **AI in language teaching**. You ask a focused question, collect data from real participants, and report what you found — honestly, including what a small pilot cannot tell you.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: checklist | section | card | step | questions
+  checklist / questions: "- " lines become ticks / numbered questions
+  refs: ids from refs.md, separated by |
+-->
+
+## Midterm proposal · due 11/04
+kind: checklist
+Tick each item when your draft actually contains it.
+- **Topic** within digital material design or AI in language teaching, with your target learners named
+- **Literature review of 5 sources** — at least four peer-reviewed; organised by theme, not one paragraph per paper
+- **At least one research question**, specific enough that data could answer it
+- **Method:** quantitative *or* qualitative, with the reason for your choice
+- **Participants:** who, how many, how you will reach them, and their consent
+- **Instruments:** test, questionnaire, interview questions or task — attached as a draft
+- **Procedure and timeline** that finishes data collection before 12/16
+- **Analysis plan:** what you will count, compare or code
+- **References** in APA 7, each one checked against its DOI or database record
+
+## Final presentation · 12/16 or 12/23
+kind: checklist
+- **Literature review of 5 sources**, updated with anything you found during the project
+- **Research question(s)** — say if you revised them and why
+- **Method** as actually carried out, including what changed from the proposal
+- **Results** — at least pilot results, shown in a table or chart with the numbers behind it
+- **Discussion:** what the results suggest, what they cannot show, and the next study you would run
+- **How the project connects to this course** — which week's concepts it builds on
+
+## From topic to research question
+kind: section
+A topic names an area; a question names who, what and how you will know. Each pair below starts from a topic classmates are already exploring.
+
+## Multimodal vocabulary
+kind: card
+avoid: Does multimodal input help vocabulary learning?
+example: Do Grade 10 EFL learners recall more target words one week later after studying with picture-plus-audio flashcards than with text-only flashcards?
+why: The better version names the learners, the comparison, the outcome and the timing — so it tells you what data to collect.
+
+## Learners with hearing impairments
+kind: card
+avoid: How can AI help hearing-impaired students learn English?
+example: How do three Deaf or hard-of-hearing secondary learners describe their use of AI-generated captions and visual glossaries during a reading lesson, and what difficulties do they report?
+why: A qualitative question suits a small, specific group. It asks about their experience rather than assuming what helps. Plan consent and communication access (for example a sign-language interpreter) from the start.
+
+## AI-made learning games
+kind: card
+avoid: Are AI games good for learning?
+example: After two 15-minute sessions with a teacher-built vocabulary game, do Grade 5 learners score higher on a picture-matching test, and how do they rate their enjoyment?
+why: Measures learning and enjoyment separately — enjoyment alone is not evidence of learning. With learners under 18 you need school and parent or guardian consent, and the game must not send their data to an AI service.
+
+## Quantitative or qualitative?
+kind: section
+
+| | Quantitative | Qualitative |
+|---|---|---|
+| **Answers** | How much? Is there a difference? Is there a relationship? | How? Why? What is it like for these learners? |
+| **Typical data** | Test scores, questionnaire ratings, time on task, counts | Interviews, open-ended responses, observation notes, learner texts |
+| **Pilot size** | Small groups are fine for a pilot (for example 8–20), but treat any difference as preliminary | 3–8 participants can be enough if you talk to them in depth |
+| **You report** | Descriptive statistics, a test of difference, an effect size | Themes with quotations, and how you reached them |
+| **Common trap** | Calling a small pre–post gain "proof" without a comparison | Listing quotations without analysing them |
+
+## Analysing numbers: a short guide
+kind: section
+You do not need advanced statistics for a pilot. You need to describe your data honestly and choose a test that matches your design. Free tools: [JASP](https://jasp-stats.org/) and [jamovi](https://www.jamovi.org/) (point-and-click, free), or Google Sheets for descriptive statistics.
+
+## Describe first
+kind: step
+do: For every measure, report the number of participants (*n*), the mean and standard deviation, and the minimum and maximum. For Likert items, also report the median and how many people chose each option.
+check: Look at the raw numbers before any test. One participant scoring 0 because they missed the session changes everything in a small sample.
+
+## One group, before and after
+kind: step
+do: Use a **paired-samples t-test**. If the sample is very small or scores are clearly not normally distributed, use the **Wilcoxon signed-rank test** instead.
+check: Without a comparison group, a gain could come from practice, the second test being easier, or ordinary teaching. Say so in your discussion.
+
+## Two groups compared
+kind: step
+do: Use an **independent-samples t-test**, or the **Mann–Whitney U test** for small or skewed samples. Check the groups were similar before the treatment.
+check: If groups were not randomly assigned, report how they differed at the start.
+
+## Report an effect size
+kind: step
+do: Report Cohen's *d* alongside the test. For L2 research, Plonsky and Oswald suggest roughly 0.40 / 0.70 / 1.00 as small / medium / large for between-group comparisons, and 0.60 / 1.00 / 1.40 for within-group (pre–post) comparisons.
+check: An effect size tells you *how big*; the *p* value only tells you how surprising the result would be if there were no real difference. With a pilot sample, a large effect can still be non-significant — report both.
+refs: plonsky_oswald2014
+
+## Questionnaires with Likert items
+kind: step
+do: Report each item's distribution (how many chose 1–5). If several items measure one idea, average them into a scale score and check that they hang together (Cronbach's alpha in JASP or jamovi).
+check: Do not treat one item as a whole construct, and do not call agreement "learning" — it is perception.
+
+## Analysing words: thematic analysis
+kind: section
+For interviews and open-ended answers, follow the six phases of thematic analysis. Keep a table of codes with the quotations that support each one.
+refs: braun_clarke2006
+
+## Six phases
+kind: card
+- **Familiarise:** read every response twice; note first impressions
+- **Code:** label meaningful pieces of data (for example "captions too fast")
+- **Search for themes:** group codes into candidate themes
+- **Review themes:** check each theme against the data — does it hold?
+- **Define and name:** write one sentence saying what each theme is about
+- **Write up:** present each theme with two or three quotations and your interpretation
+refs: braun_clarke2006
+
+## Ethics and data
+kind: card
+- Get **informed consent** — and for learners under 18, permission from the school and a parent or guardian.
+- **Anonymise** names, schools and anything identifying before analysis or presentation.
+- **Do not paste participants' data into free AI tools.** Google's terms for its free AI Studio tier, for example, say human reviewers may read inputs and ask users not to submit personal information. See *Issues to think through* in the AI materials studio.
+- Store data in a private folder, and delete it when the project ends unless participants agreed otherwise.
+
+## Questions to test your design
+kind: questions
+- Could someone else repeat your study from your method section alone?
+- What result would make you change your mind about your research question?
+- How will you know a difference came from your material and not from something else?
+- Are your participants the learners your question is about?
+- What is the smallest version of this study you could finish before 12/16?
+
+</script>
+<script type="text/markdown" id="md3">
+# Teaching demo track
+
+You design a lesson for a specific group of learners, justify each design choice with the literature, and teach a **20-minute demonstration** to the class. Your classmates play the learners. The question you answer is not "is this activity fun?" but "why is this the right activity for *these* learners?"
+
+<!--
+HOW TO EDIT
+  ## Title   kind: checklist | section | card | step | theory | questions
+-->
+
+## Midterm proposal · due 11/04
+kind: checklist
+- **Literature review of 5 sources** that support your choice of teaching design — each one tied to a decision in your plan
+- **Target learner analysis:** age, level, language background, goals, needs and access (devices, internet, accessibility) — evidence first, then interpretation
+- **Teaching plan for a 20-minute demonstration:** goal, stages, timing, materials, what learners do at each stage
+- **AI integration plan:** which tool, for what purpose, who uses it (teacher or learners), how you will check its output, and the age and access conditions of the tool
+- **References** in APA 7, each one checked against its DOI or database record
+
+## Final presentation · 12/16 or 12/23
+kind: checklist
+- **Target learner analysis** — revised after the symposium
+- **Literature review of 5 sources** linked to your design decisions
+- **Teaching plan outline** handed to the class before you teach
+- **20-minute teaching demonstration**, on time, with a working backup if the internet fails
+- A short closing: one thing you would change after teaching it
+
+## Know your learners
+kind: section
+Use the four lenses from Week 4. Write what you **know** (evidence), what you **think** (interpretation), and what you **still need to ask**.
+
+## Readiness
+kind: card
+ask: What can the learners already do? Which words, structures and skills can you build on?
+example: Grade 5 learners can name classroom objects but not yet describe where things are.
+
+## Goals and context
+kind: card
+ask: What do they need English for, and in what setting will they use it?
+example: A semester-abroad goal makes seminar participation a real target, not just "speaking practice".
+
+## Access and participation
+kind: card
+ask: What helps or blocks participation — devices, Wi-Fi, time, vision, hearing, anxiety?
+example: Learners who are Deaf or hard of hearing need every key piece of audio available as text or sign, and a visual way to check understanding. Ask what they use; do not assume.
+
+## Choice and support
+kind: card
+ask: What choices and supports will you offer, and when will support be reduced?
+example: Offer a word bank in round one, then remove it for the final task.
+
+## A 20-minute plan
+kind: section
+Twenty minutes is short. Teach **one** learning goal well. A useful shape is below — change the timings to suit your goal, but keep a model, practice, and an independent check.
+
+| Time | Stage | Learners do | Your material or tool | Why (theory) |
+|---|---|---|---|---|
+| 0–3 | Hook and goal | See the goal in learner-friendly words | Image, short clip, question | Activating prior knowledge |
+| 3–8 | Model or input | Watch, listen or read a clear example | Multimodal input, captions | Multimedia learning; comprehensible input |
+| 8–14 | Guided practice | Try with support: frames, word bank, partner | Interactive activity, game, worksheet | Scaffolding |
+| 14–18 | Independent task | Use the language with less support, new content | Information-gap task, short production | Output and noticing |
+| 18–20 | Check and close | Show what they can do; reflect | Exit question, quick quiz | Evidence of learning |
+
+## Where AI fits — and where it doesn't
+kind: section
+Decide the learning action first, then ask whether AI makes it better. Name *who* uses the tool, because age rules differ: several tools are 18+ only, so with school-age learners AI usually belongs on the teacher's side.
+
+## Teacher-side AI
+kind: card
+what: You use AI to *prepare*: levelled texts, image sets, worksheets, quiz items, an interactive activity you have tested.
+check: Every item is checked by you before learners see it — facts, language level, answer keys, cultural fit.
+example: A teacher-built picture-vocabulary game exported as a file that runs without calling an AI service.
+
+## Learner-side AI
+kind: card
+what: Learners interact with AI during the lesson — a tutor, a feedback tool, a conversation partner.
+check: Is the tool allowed for this age group and school? What data does it collect? What do learners do if its answer is wrong?
+example: University learners revise a paragraph with AI feedback, then explain which suggestions they rejected and why.
+
+## Showcase AI
+kind: card
+what: AI helps you *present* the material — an interactive demo, a slide deck, a short video.
+check: The showcase should make the learning design clearer, not hide it behind effects.
+example: An interactive HTML page that shows each stage of the lesson with the actual materials embedded.
+
+## Theory you can build on
+kind: section
+You asked for more on **multimodality**. The word is used in three different traditions, and each one predicts something different for your design. Name the one you are using.
+
+## Multimedia learning and dual coding
+kind: theory
+what: People process words and pictures through partly separate channels. Well-chosen pictures plus words can build two connected memory traces instead of one.
+design: Pair each target word with an image that shows its meaning; put the label next to the image, not on a different screen; cut decorative pictures.
+refs: mayer2009 | clark_paivio1991
+
+## Cognitive load
+kind: theory
+what: Working memory is limited. Extra modes can help, but adding the same information twice (for example, on-screen text that repeats the narration word for word) or making learners hunt between sources can overload them.
+design: Add a mode only when it carries information the learner needs. For beginners, shorter text and slower audio may help more than more media.
+refs: sweller1988
+
+## Multimodality as meaning-making
+kind: theory
+what: In social semiotics, meaning is made with many modes — image, layout, colour, gesture, sound, writing — and each mode does some things better than others. Learners are designers of meaning, not only receivers.
+design: Ask learners to *make* a multimodal text (a captioned photo story, a labelled map) and explain why they chose each mode for each part of the message.
+refs: kress2010
+
+## Captions and subtitles
+kind: theory
+what: A meta-analysis found captioned video supports listening comprehension and vocabulary learning — and captions are also a matter of access for learners who are Deaf or hard of hearing.
+design: Choose the caption type on purpose (full captions, keyword captions, or none) and say why.
+refs: montero2013
+
+## Scaffolding
+kind: theory
+what: Support that lets a learner complete a task they could not yet do alone — and that is reduced as they succeed.
+design: Plan when each support (frame, word bank, model) is removed, and what you will do if a learner still needs it.
+refs: wood1976
+
+## Output and noticing
+kind: theory
+what: Producing language can make learners notice what they cannot yet say, which pushes them to reconsider their language.
+design: Build a moment where learners must produce language for someone who needs it, then revise after a clarification question.
+refs: swain_lapkin1995
+
+## Learner fit
+kind: theory
+what: A task is appropriate when its difficulty and assumptions suit the learners you have — one of six criteria for judging CALL tasks.
+design: Show in your plan how each material matches the learner analysis.
+refs: chapelle2001
+
+## Demo-day checklist
+kind: checklist
+- Rehearsed in full, timed, and under 20 minutes
+- Every link and file tested on the classroom computer or your own laptop
+- A backup that works with no internet: PDF, printed handout, or downloaded file
+- Text large enough to read from the back; video captioned
+- Classmates know who they are playing (age, level, situation)
+- One sentence ready on what you would change after teaching it
+
+## Questions to test your design
+kind: questions
+- Which detail in your learner analysis justifies your learning goal?
+- If you removed the AI tool, what would learners lose?
+- What will learners *say or write* during the lesson — and how much?
+- How will you know, by minute 20, that the goal was reached?
+- Which of your five sources would disagree with one of your choices?
+
+</script>
+<script type="text/markdown" id="md4">
+# Personal portfolio
+
+The portfolio is **individual**. It is your reflection on the whole semester: what you learned, what you tried, what happened when you tried it, and how feedback from classmates changed your thinking. It is not a summary of the course — it is evidence of *your* learning.
+
+**Format:** PowerPoint or HTML. If you choose HTML, the AI materials studio has a step-by-step guide to directing a language model to build a presentation page for you — we will practise it in class.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: checklist | questions | card | section | step
+  questions: each "- " line is one question; students can copy a set
+-->
+
+## What the portfolio must include
+kind: checklist
+- **A starting point:** what you believed about digital materials and AI in week 1
+- **Three artifacts** from the semester, each with a short note on what it shows about your learning (for example your AI-summary audit, your material comparison table, a learner profile and lesson plan, project materials)
+- **What you tried:** at least two tools or methods you used for the first time, and what happened
+- **Feedback you received** from classmates — quoted or paraphrased — and what you changed because of it
+- **Your final project:** your role, one decision you are proud of, one you would change
+- **An AI-use statement:** which tools you used for the portfolio itself, and how you checked their output
+- **Looking ahead:** one way this course will change how you teach or study
+
+## Guided questions
+kind: section
+You do not need to answer every question. Choose the ones that let you tell the most honest story of your semester. Each set has a copy button so you can paste it into your drafting document.
+
+## Where I started
+kind: questions
+- Before this course, what did "digital teaching material" mean to you? What did you think made one good?
+- What did you believe AI could and could not do for language learners?
+- Which keyword did you choose in week 2, and why that one?
+- What were you most unsure about at the beginning of the semester?
+
+## What I learned
+kind: questions
+- Which concept changed how you look at a material or an app — learner fit, authenticity, normalisation, scaffolding, multimodality? Explain the change with an example.
+- When you compared your own summary with an AI summary in week 2, what did you notice that you had not expected?
+- Which reading or source do you now cite most naturally, and what does it let you argue?
+- What is one claim you used to accept that you now ask for evidence before believing?
+- How would you explain the difference between "learners liked it" and "learners learned from it" to a colleague?
+
+## What I tried
+kind: questions
+- Which tools did you use for the first time this semester? For each, name one thing it did well and one thing that went wrong.
+- When did an AI tool give you something wrong or misleading? How did you find out, and what did you do?
+- Which activity or material did you design, and what happened when classmates used it?
+- What did you try that did not work — and what did you learn from it?
+- If you used Gemini Notebook for your literature review, how did it change the way you read sources?
+
+## Evidence of my learning
+kind: questions
+- Which three artifacts best show your growth? What does each one show that the others do not?
+- Put an early piece of work next to a later one. What exactly is different?
+- Where in your work can someone see you using a course concept, not just naming it?
+
+## Feedback I received
+kind: questions
+- What is the most useful piece of feedback a classmate gave you this semester? Quote it if you can.
+- Which feedback did you disagree with at first? Did you change your mind?
+- What did you change in your project or materials because of feedback? Show the before and after.
+- What feedback did *you* give that you think helped someone else?
+
+## Looking ahead
+kind: questions
+- What kind of teacher, designer or researcher do you want to become, and how did this course move you toward it?
+- Which learner group do you most want to design for next — and what would you need to learn first?
+- What is one rule you will follow when you use AI in your own teaching?
+- If you continued your final project for another semester, what would you do next?
+
+## Keep a progress log
+kind: card
+what: Three lines after each class or work session, kept in one document all semester. It makes the portfolio easy to write, because the evidence is already collected — and it helps you see your own progress week by week.
+example: **10/14** — Tried: elevator pitch for a multimodal vocabulary demo. Feedback: "Who are the learners exactly?" Next: write a one-paragraph learner profile before 10/28.
+- **Date and what I tried**
+- **What happened or what I noticed**
+- **What I will do next**
+
+## What a strong portfolio shows
+kind: card
+- **Depth:** explains *why* something changed, not only *that* it changed
+- **Evidence:** every claim about your learning points to an artifact, a quotation or a before–after comparison
+- **Feedback used:** shows a concrete change you made because of someone else's comment
+- **Course concepts:** uses ideas from the readings to explain your own experience
+- **Clear presentation:** readable, organised, accessible — captions for video, alt text for images, large enough text
+
+## Privacy and honesty
+kind: card
+- Ask before naming a classmate or quoting their feedback with their name; otherwise quote it anonymously.
+- Remove learner names and any identifying details from screenshots and data.
+- Say which parts an AI tool drafted. A reflection is only useful if it is yours.
+
+</script>
+<script type="text/markdown" id="md5">
+# Pitch your idea, find your group
+
+Today you sell your idea in about one minute — an **elevator pitch** — and listen to others do the same. By the end of class, everyone has a track, a group and a working title.
+
+**Two circles.** Teaching-demo people sit together; research people sit together. If you are undecided, start in one circle and move after the first round.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: step | card | questions | checklist | section | prompt
+  A fenced ``` block becomes copyable text.
+-->
+
+## How the session runs
+kind: section
+
+## Prepare your pitch
+kind: step
+time: 5 minutes, alone
+do: Fill in the pitch frame for your track below. Write it, then say it aloud once to yourself. Aim for 60–90 seconds.
+
+## Round 1 · pitch and listen
+kind: step
+time: About 20 minutes
+do: Each person pitches. Listeners write one question and one suggestion on a sticky note or in the chat, and hand it to the speaker.
+
+## Round 2 · ask as many questions as possible
+kind: step
+time: About 15 minutes
+do: Pick two or three pitches that interest the circle. Listeners ask every question they can think of — use the question banks below. The speaker answers briefly or writes "don't know yet".
+check: A question you can't answer yet is useful: it tells you what to find out next.
+
+## Form groups
+kind: step
+time: About 10 minutes
+do: Join people with a **shared learner group** (for example young learners) or a **shared question** (for example multimodal vocabulary). Agree on a working title and one next step.
+check: Before you leave, each group submits the exit ticket.
+
+## Pitch frame · teaching demo
+kind: prompt
+Answer three questions: **who** the learners are, **why** they need this lesson, and **how** AI may help.
+```text
+My learners are … (age, level, setting, one detail that matters).
+They need … because … (the gap or goal you noticed).
+In my 20-minute lesson they will … (what learners actually do).
+AI could help by … — and I will check it by …
+I am looking for partners who … (interest, skill, learner group).
+```
+
+## Pitch frame · research
+kind: prompt
+Sell the idea: your **research question**, your **method**, and **how it connects to this course**.
+```text
+I want to find out whether / how … (research question, one sentence).
+The participants would be … and I can reach them through …
+I would collect … (test, questionnaire, interview, recordings) and analyse it by …
+This connects to the course because … (week, concept or reading).
+The part I am least sure about is …
+```
+
+## Questions for teaching-demo pitches
+kind: questions
+- Who exactly are your learners? How old, what level, what setting?
+- Why do these learners need this — what did you notice, or what do they say?
+- What will learners *do* in the 20 minutes? How much will they speak or write?
+- Why use AI here? What would be lost without it?
+- Is the tool allowed for your learners' age, and who uses it — you or them?
+- How will you know the lesson worked?
+- What happens if the internet or the tool fails?
+- Which theory explains why your activity should help?
+
+## Questions for research pitches
+kind: questions
+- What is your research question in one sentence?
+- Who are the participants, how many, and can you really reach them before December?
+- What exactly will you measure, and with what instrument?
+- Quantitative or qualitative — and why that one?
+- What would count as an interesting result? What would count as a disappointing one?
+- How is this related to digital materials or AI in language teaching?
+- What is the smallest version of this study you could finish?
+- How will you get consent, especially if participants are under 18?
+- Which five sources will your literature review start from?
+
+## Giving useful feedback
+kind: card
+- **Be specific:** "Who are the Grade 5 learners — one class or several?" helps more than "Interesting idea!"
+- **One question, one suggestion:** ask about the biggest gap, then offer one thing to try.
+- **Feedback from people on the other track is valuable** — a teaching-demo person sees research ideas from the classroom, and a researcher asks for evidence.
+- Write it down, so the speaker can use it later — it belongs in their portfolio.
+
+## Exit ticket
+kind: checklist
+Submit as a group before you leave.
+- Track: research or teaching demo
+- Group members
+- Working title
+- Target learners in one line
+- One question you must answer before conference week (10/28)
+
+</script>
+<script type="text/markdown" id="mdr">
+# Sources
+
+Every scholarly reference below was checked against its publisher record through its DOI. Tool facts (names, limits, age rules) are on the AI materials studio, with links to each company's own help pages; products change, so check them again before you rely on them.
+
+<!-- id on the ## line is what other files cite with refs: -->
+
+## braun_clarke2006
+apa: Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. *Qualitative Research in Psychology, 3*(2), 77–101.
+doi: 10.1191/1478088706qp063oa
+
+## chapelle2001
+apa: Chapelle, C. A. (2001). *Computer applications in second language acquisition: Foundations for teaching, testing and research*. Cambridge University Press.
+doi: 10.1017/CBO9781139524681
+
+## clark_paivio1991
+apa: Clark, J. M., & Paivio, A. (1991). Dual coding theory and education. *Educational Psychology Review, 3*(3), 149–210.
+doi: 10.1007/BF01320076
+
+## kress2010
+apa: Kress, G. (2010). *Multimodality: A social semiotic approach to contemporary communication*. Routledge.
+doi: 10.4324/9780203970034
+
+## mayer2009
+apa: Mayer, R. E. (2009). *Multimedia learning* (2nd ed.). Cambridge University Press.
+doi: 10.1017/CBO9780511811678
+
+## montero2013
+apa: Montero Perez, M., Van Den Noortgate, W., & Desmet, P. (2013). Captioned video for L2 listening and vocabulary learning: A meta-analysis. *System, 41*(3), 720–739.
+doi: 10.1016/j.system.2013.07.013
+
+## plonsky_oswald2014
+apa: Plonsky, L., & Oswald, F. L. (2014). How big is "big"? Interpreting effect sizes in L2 research. *Language Learning, 64*(4), 878–912.
+doi: 10.1111/lang.12079
+
+## swain_lapkin1995
+apa: Swain, M., & Lapkin, S. (1995). Problems in output and the cognitive processes they generate: A step towards second language learning. *Applied Linguistics, 16*(3), 371–391.
+doi: 10.1093/applin/16.3.371
+
+## sweller1988
+apa: Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. *Cognitive Science, 12*(2), 257–285.
+doi: 10.1207/s15516709cog1202_4
+
+## wood1976
+apa: Wood, D., Bruner, J. S., & Ross, G. (1976). The role of tutoring in problem solving. *Journal of Child Psychology and Psychiatry, 17*(2), 89–100.
+doi: 10.1111/j.1469-7610.1976.tb00381.x
+
+</script>
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="who" id="who"></div>
+      <div class="top-links" id="topLinks"></div>
+    </div>
+    <nav class="phases" id="nav" aria-label="Sections"></nav>
+  </div>
+</header>
+<main class="wrap" id="main" tabindex="-1">
+  <div id="loadWarn"></div>
+  <div id="phases"></div>
+</main>
+<footer class="wrap" id="foot"></footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ── markdown ── */
+function inline(s){
+  let t=esc(s);
+  t=t.replace(/`([^`]+)`/g,(m,a)=>"<code>"+a+"</code>");
+  t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  t=t.replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+  return t;
+}
+function md(src){
+  if(!src) return "";
+  const L=String(src).replace(/\r\n?/g,"\n").split("\n");
+  let out="",list=null,para=[],code=null,table=false;
+  const fp=()=>{if(para.length){out+="<p>"+inline(para.join(" "))+"</p>";para=[]}};
+  const cl=()=>{if(list){out+="</"+list+">";list=null}};
+  const ct=()=>{if(table){out+="</tbody></table></div>";table=false}};
+  for(const line of L){
+    if(code!==null){ if(/^```/.test(line)){out+='<pre>'+esc(code)+'</pre><div class="copyrow"><button class="pill" data-copypre>Copy</button><span class="status"></span></div>';code=null} else code+=(code?"\n":"")+line; continue; }
+    if(/^```/.test(line)){fp();cl();ct();code="";continue}
+    if(/^\s*\|/.test(line)){
+      fp();cl();
+      if(/^[\s|:\-]+$/.test(line)) continue;
+      const cells=line.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c=>c.trim());
+      if(!table){out+='<div class="tblwrap"><table><thead><tr>'+cells.map(c=>"<th>"+inline(c)+"</th>").join("")+"</tr></thead><tbody>";table=true}
+      else out+="<tr>"+cells.map(c=>"<td>"+inline(c)+"</td>").join("")+"</tr>";
+      continue;
+    }
+    ct();
+    if(!line.trim()){fp();cl();continue}
+    let m;
+    if((m=line.match(/^(#{1,6})\s+(.*)$/))){fp();cl();const n=Math.min(m[1].length+2,6);out+="<h"+n+">"+inline(m[2])+"</h"+n+">";continue}
+    if((m=line.match(/^>\s?(.*)$/))){fp();cl();out+='<div class="card kind-note">'+inline(m[1])+"</div>";continue}
+    if((m=line.match(/^\s*[-*]\s+(.*)$/))){fp();if(list!=="ul"){cl();out+="<ul>";list="ul"}out+="<li>"+inline(m[1])+"</li>";continue}
+    if((m=line.match(/^\s*\d+[.)]\s+(.*)$/))){fp();if(list!=="ol"){cl();out+="<ol>";list="ol"}out+="<li>"+inline(m[1])+"</li>";continue}
+    para.push(line.trim());
+  }
+  fp();cl();ct();
+  if(code!==null) out+="<pre>"+esc(code)+"</pre>";
+  return out;
+}
+/* ## blocks with "key: value" fields; a field with no value collects the "- " lines below it */
+function parseDoc(src){
+  const clean=String(src).replace(/<!--[\s\S]*?-->/g,"").replace(/\r\n?/g,"\n");
+  const parts=clean.split(/^##\s+/m);
+  const head=parts.shift()||"";
+  const title=(head.match(/^#\s+(.*)$/m)||[])[1]||"";
+  const intro=head.replace(/^#\s+.*$/m,"").trim();
+  const items=parts.map(block=>{
+    const nl=block.indexOf("\n");
+    const t=(nl<0?block:block.slice(0,nl)).trim();
+    const rest=nl<0?"":block.slice(nl+1);
+    const f={},bullets=[],body=[];let cur=null,inCode=false;
+    for(const line of rest.split("\n")){
+      if(/^```/.test(line)){inCode=!inCode;body.push(line);cur=null;continue}
+      if(inCode){body.push(line);continue}
+      const m=line.match(/^([a-z][a-z0-9_]*):[ \t]*(.*)$/);
+      if(m){const k=m[1],v=m[2].trim();if(v){f[k]=v;cur=null}else{f[k]=[];cur=k}continue}
+      const b=line.match(/^\s*[-*]\s+(.*)$/);
+      if(b){ if(cur) f[cur].push(b[1].trim()); else bullets.push(b[1].trim()); continue; }
+      if(!line.trim()){cur=null;body.push(line);continue}
+      cur=null;body.push(line);
+    }
+    return {title:t,f,bullets,body:body.join("\n").trim()};
+  });
+  return {title,intro,items};
+}
+const list=v=>Array.isArray(v)?v:(v?String(v).split("|").map(s=>s.trim()).filter(Boolean):[]);
+
+/* ── references ── */
+const REFS={};
+function shortCite(apa){
+  const m=String(apa).match(/^(.+?)\s*\((\d{4})/); if(!m) return String(apa).slice(0,26);
+  const a=m[1],y=m[2],first=a.split(",")[0].trim();
+  const n=Math.max(1,Math.round(((a.match(/,/g)||[]).length+1)/2));
+  if(n>=3) return first+" et al. ("+y+")";
+  if(n===2) return first+" & "+((a.split("&")[1]||"").trim().split(",")[0].trim())+" ("+y+")";
+  return first+" ("+y+")";
+}
+function chips(ids){
+  return list(ids).map(id=>{const r=REFS[id];
+    if(!r) return '<span class="cite">'+esc(id)+"</span>";
+    const href=r.doi?"https://doi.org/"+r.doi:(r.url||"#ref-"+id);
+    return '<a class="cite" href="'+href+'" target="_blank" rel="noopener" title="'+esc(r.apa.replace(/\*/g,""))+'">'+esc(r.short)+"</a>";
+  }).join("");
+}
+
+/* ── items ── */
+const LABELS={who:"Who",when:"When",what:"What",why:"Why it matters",how:"How",best:"Best for",start:"How to start",limit:"Watch out",access:"Access and age",do:"Do this",check:"Check",tip:"Tip",theory:"Theory",design:"Design decision",ask:"Ask",example:"Example",avoid:"Avoid",evidence:"Evidence",output:"You leave with",time:"Time"};
+const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id"]);
+function fieldsHtml(f){
+  return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
+    const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
+    const html=Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v);
+    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+html+"</div>";
+  }).join("");
+}
+let checkIndex=0;
+function itemHtml(it,ctx){
+  const k=it.f.kind||"card";
+  if(k==="section") return '<h3 class="sec">'+esc(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
+  if(k==="milestone"){
+    return '<div class="ms'+(it.f.now==="yes"?" now":"")+'"><div class="when">'+esc(it.f.date||"")+"</div><h4>"+esc(it.title)+"</h4>"+(it.f.what?"<p>"+inline(it.f.what)+"</p>":"")+md(it.body)+"</div>";
+  }
+  let inner="";
+  if(it.f.badge) inner+='<span class="badge">'+esc(it.f.badge)+"</span>";
+  inner+="<h4>"+esc(it.title)+"</h4>";
+  inner+=md(it.body);            /* lead text first, then labelled fields, then the list */
+  inner+=fieldsHtml(it.f);
+  if(k==="checklist"){
+    const st=store.get(CONFIG.storeKey+"-chk",{});
+    inner+=it.bullets.map(b=>{const id="c"+(checkIndex++);return '<label class="chk"><input type="checkbox" data-chk="'+id+'"'+(st[id]?" checked":"")+"><span>"+inline(b)+"</span></label>"}).join("");
+  }else if(k==="questions"){
+    inner+='<ol class="qlist">'+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ol>";
+    inner+='<div class="copyrow"><button class="pill" data-copyq>Copy these questions</button><span class="status"></span></div>';
+  }else if(it.bullets.length){
+    inner+="<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>";
+  }
+  if(it.f.link) inner+='<p style="margin:.6rem 0 0">'+inline(it.f.link)+"</p>";
+  if(it.f.refs) inner+='<div style="margin-top:.5rem">'+chips(it.f.refs)+"</div>";
+  return '<article class="card kind-'+k+(k==="step"?" step":"")+'">'+inner+"</article>";
+}
+function renderItems(items){
+  let out="",group=null,buf=[];
+  const flush=()=>{ if(!buf.length) return;
+    const k=group, cls=k==="step"?"steps":k==="milestone"?"timeline":"grid"+(["prompt","wide"].includes(k)?" wide":"");
+    out+='<div class="'+cls+'">'+buf.join("")+"</div>"; buf=[]; };
+  for(const it of items){
+    const k=it.f.kind||"card";
+    if(k==="section"){flush();group=null;out+=itemHtml(it);continue}
+    const g=(it.f.wide==="yes"||k==="prompt")?"wide":(k==="step"||k==="milestone"?k:"grid");
+    if(g!==group){flush();group=g}
+    buf.push(itemHtml(it));
+  }
+  flush(); return out;
+}
+
+/* ── page ── */
+$("#who").innerHTML=esc(CONFIG.instructor)+"<span>"+esc(CONFIG.course)+" · "+esc(CONFIG.title)+"</span>";
+$("#topLinks").innerHTML=CONFIG.links.map(([t,u])=>'<a class="pill" href="'+u+'">'+esc(t)+"</a>").join("")+'<button class="pill" id="theme">Dark</button>';
+$("#foot").textContent=CONFIG.instructor+" · "+CONFIG.course+" · Text lives in content/*.md. Ticks and copied text stay in your browser.";
+$("#nav").innerHTML=CONFIG.pages.map(([k,t],i)=>'<button class="ph" data-go="'+k+'" aria-current="'+(i===0)+'"><b>'+(k==="r"?"·":"0"+k)+"</b>"+esc(t)+"</button>").join("");
+function applyTheme(t){document.documentElement.dataset.theme=t;$("#theme").textContent=t==="dark"?"Light":"Dark";store.set("course-theme",t)}
+applyTheme(store.get("course-theme","light"));
+$("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+function go(k,scroll){
+  $$(".phase").forEach(p=>p.classList.toggle("on",p.id==="p-"+k));
+  $$(".ph").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===String(k))));
+  if(scroll!==false){ window.scrollTo({top:0,behavior:"instant"}); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"instant"})); }
+}
+function fromHash(){const m=location.hash.match(/^#p-([0-9r]+)$/);return m&&CONFIG.pages.some(p=>p[0]===m[1])?m[1]:CONFIG.pages[0][0]}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]");
+  if(b){const k=b.dataset.go; if(location.hash==="#p-"+k) go(k); else location.hash="p-"+k; return;}
+  const cp=e.target.closest("[data-copypre],[data-copyq]");
+  if(cp){
+    const text=cp.hasAttribute("data-copypre")?cp.closest(".copyrow").previousElementSibling.textContent
+      :[...cp.closest(".card").querySelectorAll(".qlist li")].map((li,i)=>(i+1)+". "+li.textContent).join("\n");
+    const st=cp.nextElementSibling;
+    (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>st.textContent="Copied.")
+      .catch(()=>{st.textContent="Select the text and copy it manually."});
+  }
+});
+window.addEventListener("hashchange",()=>go(fromHash()));
+document.addEventListener("change",e=>{
+  const c=e.target.closest("[data-chk]"); if(!c) return;
+  const st=store.get(CONFIG.storeKey+"-chk",{}); st[c.dataset.chk]=c.checked; store.set(CONFIG.storeKey+"-chk",st);
+});
+
+async function load(){
+  const texts={};
+  await Promise.all(CONFIG.pages.map(async([k])=>{
+    const emb=document.getElementById("md"+k); if(emb){texts[k]=emb.textContent;return}
+    try{
+      const path=k==="r"?"content/refs.md":window.CONTENT_FILES[k];
+      const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw 0; texts[k]=await r.text();
+    }catch(e){texts[k]=null}
+  }));
+  if(Object.values(texts).every(t=>t==null)){
+    $("#loadWarn").innerHTML='<div class="banner"><strong>The content did not load.</strong> Browsers block <code>content/*.md</code> when this file is opened from disk. Use the web address, the standalone file, or run <code>python3 -m http.server</code> in this folder.</div>';
+    return;
+  }
+  const refsDoc=parseDoc(texts.r||"");
+  refsDoc.items.forEach(it=>{ if(it.f.apa) REFS[it.title]={apa:it.f.apa,doi:it.f.doi||"",url:it.f.url||"",short:shortCite(it.f.apa)}; });
+  $("#phases").innerHTML=CONFIG.pages.map(([k,label],i)=>{
+    const d=parseDoc(texts[k]||"");
+    let body;
+    if(k==="r"){
+      const refs=d.items.filter(x=>x.f.apa).sort((a,b)=>a.f.apa.localeCompare(b.f.apa));
+      body=md(d.intro)+renderItems(d.items.filter(x=>!x.f.apa))+(refs.length?'<h3 class="sec">References</h3>'+refs.map(x=>
+        '<div class="refitem" id="ref-'+esc(x.title)+'">'+inline(x.f.apa)+'<div class="links">'+
+        (x.f.doi?'<a href="https://doi.org/'+esc(x.f.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':"")+
+        (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
+        '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
+    }else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
+    return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
+      '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
+      (next?'<button class="pill" data-go="'+next[0]+'">'+esc(next[1])+" →</button>":"<span></span>")+"</div></section>";
+  }).join("");
+  go(fromHash(), !!location.hash);
+}
+</script>
+<script>
+/* file names per page key — keep in step with content/ */
+window.CONTENT_FILES={
+  "1":"content/01-overview.md",
+  "2":"content/02-research.md",
+  "3":"content/03-teaching.md",
+  "4":"content/04-portfolio.md",
+  "5":"content/05-pitch.md"
+};
+load();
+</script>
+</body>
+</html>

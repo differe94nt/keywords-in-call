@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAEFD0">
+<title>Final project &amp; portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ════════ SETTINGS — the only block to edit; text lives in content/*.md ════════ -->
+<script>
+const CONFIG = {
+  instructor: "王伯雅 Po-Ya Angela Wang",
+  course: "英語數位教材與教學",
+  title: "Final project & portfolio",
+  kicker: "Course guide",
+  storeKey: "final-guide",
+  pages: [["1","Overview"],["2","Research track"],["3","Teaching demo track"],["4","Portfolio"],["5","Pitch & form groups"],["r","Sources"]],
+  links: [["09/16 · Keywords","../"],["09/23 · Evaluation","../0923/"],["09/30 · Learners","../0930/"],["AI materials studio","../ai-tools/"]]
+};
+</script>
+
+<style>
+:root{
+  --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
+  --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
+  --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77; --blue-soft:#DCE9EC;
+  --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
+  --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
+  --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
+  --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD; --blue-soft:#22343A;
+  --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+h4{font-family:var(--sans);font-weight:600;margin:0;font-size:1rem}
+p{margin:0 0 .75em}
+a{color:var(--green);text-underline-offset:2px;overflow-wrap:anywhere}
+button,input{font:inherit;color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--tint);padding:.1em .35em;border-radius:5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.muted{color:var(--fg-soft)} .small{font-size:.84rem}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 0}
+.who{font-family:var(--serif);font-size:1.02rem;font-weight:600}
+.who span{display:block;font-family:var(--sans);font-size:.75rem;color:var(--fg-soft);font-weight:400}
+.top-links{margin-left:auto;display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+.pill{background:none;border:1px solid var(--line-2);border-radius:999px;padding:.2rem .65rem;font-size:.76rem;color:var(--fg);text-decoration:none;cursor:pointer;display:inline-block}
+.pill:hover{background:var(--tint)}
+nav.phases{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.45rem}
+.ph{display:flex;gap:.45rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
+.ph b{font-family:var(--mono);font-size:.72rem;color:var(--burnt)}
+.ph:hover{background:var(--tint);color:var(--fg)}
+.ph[aria-current="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .ph[aria-current="true"]{background:var(--green);color:#16200E}
+.ph[aria-current="true"] b{color:var(--gold)}
+
+main{padding:1.6rem 0 4rem}
+.phase{display:none}.phase.on{display:block}
+.kicker{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em;text-transform:uppercase}
+.phase>h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:.15rem 0 .7rem}
+.intro{max-width:72ch}
+.intro ul,.intro ol{padding-left:1.2rem}
+h3.sec{font-size:1.3rem;margin:2rem 0 .3rem}
+.sec-body{max-width:72ch;color:var(--fg-soft);margin-bottom:.8rem}
+.sec-body .tblwrap{max-width:none;color:var(--fg)}
+.sec-body:has(.tblwrap){max-width:none}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:.9rem;margin:.8rem 0 1.2rem}
+.grid.wide{grid-template-columns:1fr}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;min-width:0}
+.card h4{font-family:var(--serif);font-size:1.12rem;margin-bottom:.35rem}
+.card .badge{display:inline-block;font-size:.7rem;border:1px solid var(--line-2);border-radius:999px;padding:.03rem .5rem;color:var(--fg-soft);margin-bottom:.4rem}
+.card p,.card li{font-size:.92rem}
+.card ul,.card ol{margin:.35rem 0 .2rem;padding-left:1.15rem}
+.card li{margin-bottom:.28rem}
+.field{margin:.35rem 0}
+.field .flabel{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);display:block;font-weight:600}
+.kind-tool{border-top:4px solid var(--blue)}
+.kind-issue{border-left:4px solid var(--burnt)}
+.kind-theory{border-top:4px solid var(--gold)}
+.kind-track{border-top:4px solid var(--green)}
+.kind-prompt{border-top:4px solid var(--blue)}
+.kind-questions{border-left:4px solid var(--green)}
+.kind-checklist{border-left:4px solid var(--gold)}
+.kind-note{background:var(--gold-soft);border-color:transparent}
+
+.steps{counter-reset:step;display:grid;gap:.7rem;margin:.8rem 0 1.2rem}
+.step{position:relative;padding-left:3.2rem}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:1rem;top:1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:.8rem;display:grid;place-items:center}
+html[data-theme="dark"] .step::before{background:var(--green);color:#16200E}
+
+.timeline{border-left:2px solid var(--gold);margin:.8rem 0 1.4rem .4rem;padding-left:1.2rem}
+.ms{position:relative;padding:.5rem 0 .8rem}
+.ms::before{content:"";position:absolute;left:-1.62rem;top:.95rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--gold);border:2px solid var(--green)}
+.ms.now::before{background:var(--green)}
+.ms .when{font-family:var(--mono);font-size:.8rem;color:var(--burnt)}
+.ms h4{font-family:var(--serif);font-size:1.08rem;margin:.1rem 0 .2rem}
+.ms p{font-size:.92rem;margin:0}
+
+label.chk{display:flex;gap:.55rem;align-items:flex-start;padding:.25rem 0;font-size:.92rem;cursor:pointer}
+label.chk input{margin-top:.3rem;width:1rem;height:1rem;accent-color:var(--green);flex:none}
+.qlist{margin:.4rem 0;padding-left:1.3rem}
+.qlist li{margin-bottom:.45rem;font-size:.93rem}
+
+pre{background:var(--ink);color:var(--cream);padding:.8rem .9rem;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:.78rem;line-height:1.55;margin:.5rem 0;position:relative}
+html[data-theme="dark"] pre{background:#141C0F}
+.copyrow{display:flex;gap:.4rem;align-items:center;margin-top:.3rem}
+.status{font-size:.76rem;color:var(--green)}
+
+.tblwrap{overflow-x:auto;margin:.6rem 0 1rem;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:.6rem .7rem;border-top:1px solid var(--line)}
+thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;border-top:0}
+
+.cite{display:inline-block;font-size:.76rem;border:1px solid var(--line);border-radius:999px;padding:.02rem .5rem;text-decoration:none;color:var(--fg-soft);background:var(--paper);margin:.15rem .15rem 0 0}
+.cite:hover{border-color:var(--green);color:var(--green)}
+.refitem{padding:.6rem 0;border-bottom:1px solid var(--line)}
+.refitem .links a{font-size:.72rem;margin-right:.5rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+@media print{header.top,.pager,.copyrow{display:none}.phase{display:block!important;break-before:page}pre{white-space:pre-wrap}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="who" id="who"></div>
+      <div class="top-links" id="topLinks"></div>
+    </div>
+    <nav class="phases" id="nav" aria-label="Sections"></nav>
+  </div>
+</header>
+<main class="wrap" id="main" tabindex="-1">
+  <div id="loadWarn"></div>
+  <div id="phases"></div>
+</main>
+<footer class="wrap" id="foot"></footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ── markdown ── */
+function inline(s){
+  let t=esc(s);
+  t=t.replace(/`([^`]+)`/g,(m,a)=>"<code>"+a+"</code>");
+  t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  t=t.replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+  return t;
+}
+function md(src){
+  if(!src) return "";
+  const L=String(src).replace(/\r\n?/g,"\n").split("\n");
+  let out="",list=null,para=[],code=null,table=false;
+  const fp=()=>{if(para.length){out+="<p>"+inline(para.join(" "))+"</p>";para=[]}};
+  const cl=()=>{if(list){out+="</"+list+">";list=null}};
+  const ct=()=>{if(table){out+="</tbody></table></div>";table=false}};
+  for(const line of L){
+    if(code!==null){ if(/^```/.test(line)){out+='<pre>'+esc(code)+'</pre><div class="copyrow"><button class="pill" data-copypre>Copy</button><span class="status"></span></div>';code=null} else code+=(code?"\n":"")+line; continue; }
+    if(/^```/.test(line)){fp();cl();ct();code="";continue}
+    if(/^\s*\|/.test(line)){
+      fp();cl();
+      if(/^[\s|:\-]+$/.test(line)) continue;
+      const cells=line.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c=>c.trim());
+      if(!table){out+='<div class="tblwrap"><table><thead><tr>'+cells.map(c=>"<th>"+inline(c)+"</th>").join("")+"</tr></thead><tbody>";table=true}
+      else out+="<tr>"+cells.map(c=>"<td>"+inline(c)+"</td>").join("")+"</tr>";
+      continue;
+    }
+    ct();
+    if(!line.trim()){fp();cl();continue}
+    let m;
+    if((m=line.match(/^(#{1,6})\s+(.*)$/))){fp();cl();const n=Math.min(m[1].length+2,6);out+="<h"+n+">"+inline(m[2])+"</h"+n+">";continue}
+    if((m=line.match(/^>\s?(.*)$/))){fp();cl();out+='<div class="card kind-note">'+inline(m[1])+"</div>";continue}
+    if((m=line.match(/^\s*[-*]\s+(.*)$/))){fp();if(list!=="ul"){cl();out+="<ul>";list="ul"}out+="<li>"+inline(m[1])+"</li>";continue}
+    if((m=line.match(/^\s*\d+[.)]\s+(.*)$/))){fp();if(list!=="ol"){cl();out+="<ol>";list="ol"}out+="<li>"+inline(m[1])+"</li>";continue}
+    para.push(line.trim());
+  }
+  fp();cl();ct();
+  if(code!==null) out+="<pre>"+esc(code)+"</pre>";
+  return out;
+}
+/* ## blocks with "key: value" fields; a field with no value collects the "- " lines below it */
+function parseDoc(src){
+  const clean=String(src).replace(/<!--[\s\S]*?-->/g,"").replace(/\r\n?/g,"\n");
+  const parts=clean.split(/^##\s+/m);
+  const head=parts.shift()||"";
+  const title=(head.match(/^#\s+(.*)$/m)||[])[1]||"";
+  const intro=head.replace(/^#\s+.*$/m,"").trim();
+  const items=parts.map(block=>{
+    const nl=block.indexOf("\n");
+    const t=(nl<0?block:block.slice(0,nl)).trim();
+    const rest=nl<0?"":block.slice(nl+1);
+    const f={},bullets=[],body=[];let cur=null,inCode=false;
+    for(const line of rest.split("\n")){
+      if(/^```/.test(line)){inCode=!inCode;body.push(line);cur=null;continue}
+      if(inCode){body.push(line);continue}
+      const m=line.match(/^([a-z][a-z0-9_]*):[ \t]*(.*)$/);
+      if(m){const k=m[1],v=m[2].trim();if(v){f[k]=v;cur=null}else{f[k]=[];cur=k}continue}
+      const b=line.match(/^\s*[-*]\s+(.*)$/);
+      if(b){ if(cur) f[cur].push(b[1].trim()); else bullets.push(b[1].trim()); continue; }
+      if(!line.trim()){cur=null;body.push(line);continue}
+      cur=null;body.push(line);
+    }
+    return {title:t,f,bullets,body:body.join("\n").trim()};
+  });
+  return {title,intro,items};
+}
+const list=v=>Array.isArray(v)?v:(v?String(v).split("|").map(s=>s.trim()).filter(Boolean):[]);
+
+/* ── references ── */
+const REFS={};
+function shortCite(apa){
+  const m=String(apa).match(/^(.+?)\s*\((\d{4})/); if(!m) return String(apa).slice(0,26);
+  const a=m[1],y=m[2],first=a.split(",")[0].trim();
+  const n=Math.max(1,Math.round(((a.match(/,/g)||[]).length+1)/2));
+  if(n>=3) return first+" et al. ("+y+")";
+  if(n===2) return first+" & "+((a.split("&")[1]||"").trim().split(",")[0].trim())+" ("+y+")";
+  return first+" ("+y+")";
+}
+function chips(ids){
+  return list(ids).map(id=>{const r=REFS[id];
+    if(!r) return '<span class="cite">'+esc(id)+"</span>";
+    const href=r.doi?"https://doi.org/"+r.doi:(r.url||"#ref-"+id);
+    return '<a class="cite" href="'+href+'" target="_blank" rel="noopener" title="'+esc(r.apa.replace(/\*/g,""))+'">'+esc(r.short)+"</a>";
+  }).join("");
+}
+
+/* ── items ── */
+const LABELS={who:"Who",when:"When",what:"What",why:"Why it matters",how:"How",best:"Best for",start:"How to start",limit:"Watch out",access:"Access and age",do:"Do this",check:"Check",tip:"Tip",theory:"Theory",design:"Design decision",ask:"Ask",example:"Example",avoid:"Avoid",evidence:"Evidence",output:"You leave with",time:"Time"};
+const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id"]);
+function fieldsHtml(f){
+  return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
+    const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
+    const html=Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v);
+    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+html+"</div>";
+  }).join("");
+}
+let checkIndex=0;
+function itemHtml(it,ctx){
+  const k=it.f.kind||"card";
+  if(k==="section") return '<h3 class="sec">'+esc(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
+  if(k==="milestone"){
+    return '<div class="ms'+(it.f.now==="yes"?" now":"")+'"><div class="when">'+esc(it.f.date||"")+"</div><h4>"+esc(it.title)+"</h4>"+(it.f.what?"<p>"+inline(it.f.what)+"</p>":"")+md(it.body)+"</div>";
+  }
+  let inner="";
+  if(it.f.badge) inner+='<span class="badge">'+esc(it.f.badge)+"</span>";
+  inner+="<h4>"+esc(it.title)+"</h4>";
+  inner+=md(it.body);            /* lead text first, then labelled fields, then the list */
+  inner+=fieldsHtml(it.f);
+  if(k==="checklist"){
+    const st=store.get(CONFIG.storeKey+"-chk",{});
+    inner+=it.bullets.map(b=>{const id="c"+(checkIndex++);return '<label class="chk"><input type="checkbox" data-chk="'+id+'"'+(st[id]?" checked":"")+"><span>"+inline(b)+"</span></label>"}).join("");
+  }else if(k==="questions"){
+    inner+='<ol class="qlist">'+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ol>";
+    inner+='<div class="copyrow"><button class="pill" data-copyq>Copy these questions</button><span class="status"></span></div>';
+  }else if(it.bullets.length){
+    inner+="<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>";
+  }
+  if(it.f.link) inner+='<p style="margin:.6rem 0 0">'+inline(it.f.link)+"</p>";
+  if(it.f.refs) inner+='<div style="margin-top:.5rem">'+chips(it.f.refs)+"</div>";
+  return '<article class="card kind-'+k+(k==="step"?" step":"")+'">'+inner+"</article>";
+}
+function renderItems(items){
+  let out="",group=null,buf=[];
+  const flush=()=>{ if(!buf.length) return;
+    const k=group, cls=k==="step"?"steps":k==="milestone"?"timeline":"grid"+(["prompt","wide"].includes(k)?" wide":"");
+    out+='<div class="'+cls+'">'+buf.join("")+"</div>"; buf=[]; };
+  for(const it of items){
+    const k=it.f.kind||"card";
+    if(k==="section"){flush();group=null;out+=itemHtml(it);continue}
+    const g=(it.f.wide==="yes"||k==="prompt")?"wide":(k==="step"||k==="milestone"?k:"grid");
+    if(g!==group){flush();group=g}
+    buf.push(itemHtml(it));
+  }
+  flush(); return out;
+}
+
+/* ── page ── */
+$("#who").innerHTML=esc(CONFIG.instructor)+"<span>"+esc(CONFIG.course)+" · "+esc(CONFIG.title)+"</span>";
+$("#topLinks").innerHTML=CONFIG.links.map(([t,u])=>'<a class="pill" href="'+u+'">'+esc(t)+"</a>").join("")+'<button class="pill" id="theme">Dark</button>';
+$("#foot").textContent=CONFIG.instructor+" · "+CONFIG.course+" · Text lives in content/*.md. Ticks and copied text stay in your browser.";
+$("#nav").innerHTML=CONFIG.pages.map(([k,t],i)=>'<button class="ph" data-go="'+k+'" aria-current="'+(i===0)+'"><b>'+(k==="r"?"·":"0"+k)+"</b>"+esc(t)+"</button>").join("");
+function applyTheme(t){document.documentElement.dataset.theme=t;$("#theme").textContent=t==="dark"?"Light":"Dark";store.set("course-theme",t)}
+applyTheme(store.get("course-theme","light"));
+$("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+function go(k,scroll){
+  $$(".phase").forEach(p=>p.classList.toggle("on",p.id==="p-"+k));
+  $$(".ph").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===String(k))));
+  if(scroll!==false){ window.scrollTo({top:0,behavior:"instant"}); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"instant"})); }
+}
+function fromHash(){const m=location.hash.match(/^#p-([0-9r]+)$/);return m&&CONFIG.pages.some(p=>p[0]===m[1])?m[1]:CONFIG.pages[0][0]}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]");
+  if(b){const k=b.dataset.go; if(location.hash==="#p-"+k) go(k); else location.hash="p-"+k; return;}
+  const cp=e.target.closest("[data-copypre],[data-copyq]");
+  if(cp){
+    const text=cp.hasAttribute("data-copypre")?cp.closest(".copyrow").previousElementSibling.textContent
+      :[...cp.closest(".card").querySelectorAll(".qlist li")].map((li,i)=>(i+1)+". "+li.textContent).join("\n");
+    const st=cp.nextElementSibling;
+    (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>st.textContent="Copied.")
+      .catch(()=>{st.textContent="Select the text and copy it manually."});
+  }
+});
+window.addEventListener("hashchange",()=>go(fromHash()));
+document.addEventListener("change",e=>{
+  const c=e.target.closest("[data-chk]"); if(!c) return;
+  const st=store.get(CONFIG.storeKey+"-chk",{}); st[c.dataset.chk]=c.checked; store.set(CONFIG.storeKey+"-chk",st);
+});
+
+async function load(){
+  const texts={};
+  await Promise.all(CONFIG.pages.map(async([k])=>{
+    const emb=document.getElementById("md"+k); if(emb){texts[k]=emb.textContent;return}
+    try{
+      const path=k==="r"?"content/refs.md":window.CONTENT_FILES[k];
+      const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw 0; texts[k]=await r.text();
+    }catch(e){texts[k]=null}
+  }));
+  if(Object.values(texts).every(t=>t==null)){
+    $("#loadWarn").innerHTML='<div class="banner"><strong>The content did not load.</strong> Browsers block <code>content/*.md</code> when this file is opened from disk. Use the web address, the standalone file, or run <code>python3 -m http.server</code> in this folder.</div>';
+    return;
+  }
+  const refsDoc=parseDoc(texts.r||"");
+  refsDoc.items.forEach(it=>{ if(it.f.apa) REFS[it.title]={apa:it.f.apa,doi:it.f.doi||"",url:it.f.url||"",short:shortCite(it.f.apa)}; });
+  $("#phases").innerHTML=CONFIG.pages.map(([k,label],i)=>{
+    const d=parseDoc(texts[k]||"");
+    let body;
+    if(k==="r"){
+      const refs=d.items.filter(x=>x.f.apa).sort((a,b)=>a.f.apa.localeCompare(b.f.apa));
+      body=md(d.intro)+renderItems(d.items.filter(x=>!x.f.apa))+(refs.length?'<h3 class="sec">References</h3>'+refs.map(x=>
+        '<div class="refitem" id="ref-'+esc(x.title)+'">'+inline(x.f.apa)+'<div class="links">'+
+        (x.f.doi?'<a href="https://doi.org/'+esc(x.f.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':"")+
+        (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
+        '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
+    }else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
+    return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
+      '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
+      (next?'<button class="pill" data-go="'+next[0]+'">'+esc(next[1])+" →</button>":"<span></span>")+"</div></section>";
+  }).join("");
+  go(fromHash(), !!location.hash);
+}
+</script>
+<script>
+/* file names per page key — keep in step with content/ */
+window.CONTENT_FILES={
+  "1":"content/01-overview.md",
+  "2":"content/02-research.md",
+  "3":"content/03-teaching.md",
+  "4":"content/04-portfolio.md",
+  "5":"content/05-pitch.md"
+};
+load();
+</script>
+</body>
+</html>

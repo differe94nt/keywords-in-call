@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAEFD0">
+<title>AI materials studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ════════ SETTINGS — the only block to edit; text lives in content/*.md ════════ -->
+<script>
+const CONFIG = {
+  instructor: "王伯雅 Po-Ya Angela Wang",
+  course: "英語數位教材與教學",
+  title: "AI materials studio",
+  kicker: "AI materials studio",
+  storeKey: "ai-studio",
+  pages: [["1","Choose by task"],["2","Tools"],["3","Gemini Notebook manual"],["4","Build with an LLM"],["5","Issues to think through"],["r","Sources"]],
+  links: [["09/16 · Keywords","../"],["09/23 · Evaluation","../0923/"],["09/30 · Learners","../0930/"],["Final project & portfolio","../final/"]]
+};
+</script>
+
+<style>
+:root{
+  --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
+  --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
+  --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77; --blue-soft:#DCE9EC;
+  --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
+  --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
+  --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
+  --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD; --blue-soft:#22343A;
+  --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+h4{font-family:var(--sans);font-weight:600;margin:0;font-size:1rem}
+p{margin:0 0 .75em}
+a{color:var(--green);text-underline-offset:2px;overflow-wrap:anywhere}
+button,input{font:inherit;color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--tint);padding:.1em .35em;border-radius:5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.muted{color:var(--fg-soft)} .small{font-size:.84rem}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 0}
+.who{font-family:var(--serif);font-size:1.02rem;font-weight:600}
+.who span{display:block;font-family:var(--sans);font-size:.75rem;color:var(--fg-soft);font-weight:400}
+.top-links{margin-left:auto;display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+.pill{background:none;border:1px solid var(--line-2);border-radius:999px;padding:.2rem .65rem;font-size:.76rem;color:var(--fg);text-decoration:none;cursor:pointer;display:inline-block}
+.pill:hover{background:var(--tint)}
+nav.phases{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.45rem}
+.ph{display:flex;gap:.45rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
+.ph b{font-family:var(--mono);font-size:.72rem;color:var(--burnt)}
+.ph:hover{background:var(--tint);color:var(--fg)}
+.ph[aria-current="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .ph[aria-current="true"]{background:var(--green);color:#16200E}
+.ph[aria-current="true"] b{color:var(--gold)}
+
+main{padding:1.6rem 0 4rem}
+.phase{display:none}.phase.on{display:block}
+.kicker{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em;text-transform:uppercase}
+.phase>h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:.15rem 0 .7rem}
+.intro{max-width:72ch}
+.intro ul,.intro ol{padding-left:1.2rem}
+h3.sec{font-size:1.3rem;margin:2rem 0 .3rem}
+.sec-body{max-width:72ch;color:var(--fg-soft);margin-bottom:.8rem}
+.sec-body .tblwrap{max-width:none;color:var(--fg)}
+.sec-body:has(.tblwrap){max-width:none}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:.9rem;margin:.8rem 0 1.2rem}
+.grid.wide{grid-template-columns:1fr}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;min-width:0}
+.card h4{font-family:var(--serif);font-size:1.12rem;margin-bottom:.35rem}
+.card .badge{display:inline-block;font-size:.7rem;border:1px solid var(--line-2);border-radius:999px;padding:.03rem .5rem;color:var(--fg-soft);margin-bottom:.4rem}
+.card p,.card li{font-size:.92rem}
+.card ul,.card ol{margin:.35rem 0 .2rem;padding-left:1.15rem}
+.card li{margin-bottom:.28rem}
+.field{margin:.35rem 0}
+.field .flabel{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);display:block;font-weight:600}
+.kind-tool{border-top:4px solid var(--blue)}
+.kind-issue{border-left:4px solid var(--burnt)}
+.kind-theory{border-top:4px solid var(--gold)}
+.kind-track{border-top:4px solid var(--green)}
+.kind-prompt{border-top:4px solid var(--blue)}
+.kind-questions{border-left:4px solid var(--green)}
+.kind-checklist{border-left:4px solid var(--gold)}
+.kind-note{background:var(--gold-soft);border-color:transparent}
+
+.steps{counter-reset:step;display:grid;gap:.7rem;margin:.8rem 0 1.2rem}
+.step{position:relative;padding-left:3.2rem}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:1rem;top:1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:.8rem;display:grid;place-items:center}
+html[data-theme="dark"] .step::before{background:var(--green);color:#16200E}
+
+.timeline{border-left:2px solid var(--gold);margin:.8rem 0 1.4rem .4rem;padding-left:1.2rem}
+.ms{position:relative;padding:.5rem 0 .8rem}
+.ms::before{content:"";position:absolute;left:-1.62rem;top:.95rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--gold);border:2px solid var(--green)}
+.ms.now::before{background:var(--green)}
+.ms .when{font-family:var(--mono);font-size:.8rem;color:var(--burnt)}
+.ms h4{font-family:var(--serif);font-size:1.08rem;margin:.1rem 0 .2rem}
+.ms p{font-size:.92rem;margin:0}
+
+label.chk{display:flex;gap:.55rem;align-items:flex-start;padding:.25rem 0;font-size:.92rem;cursor:pointer}
+label.chk input{margin-top:.3rem;width:1rem;height:1rem;accent-color:var(--green);flex:none}
+.qlist{margin:.4rem 0;padding-left:1.3rem}
+.qlist li{margin-bottom:.45rem;font-size:.93rem}
+
+pre{background:var(--ink);color:var(--cream);padding:.8rem .9rem;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:.78rem;line-height:1.55;margin:.5rem 0;position:relative}
+html[data-theme="dark"] pre{background:#141C0F}
+.copyrow{display:flex;gap:.4rem;align-items:center;margin-top:.3rem}
+.status{font-size:.76rem;color:var(--green)}
+
+.tblwrap{overflow-x:auto;margin:.6rem 0 1rem;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:.6rem .7rem;border-top:1px solid var(--line)}
+thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;border-top:0}
+
+.cite{display:inline-block;font-size:.76rem;border:1px solid var(--line);border-radius:999px;padding:.02rem .5rem;text-decoration:none;color:var(--fg-soft);background:var(--paper);margin:.15rem .15rem 0 0}
+.cite:hover{border-color:var(--green);color:var(--green)}
+.refitem{padding:.6rem 0;border-bottom:1px solid var(--line)}
+.refitem .links a{font-size:.72rem;margin-right:.5rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+@media print{header.top,.pager,.copyrow{display:none}.phase{display:block!important;break-before:page}pre{white-space:pre-wrap}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<script type="text/markdown" id="md1">
+# Start from the job, not the tool
+
+This studio collects the AI tools you can use to **build** teaching materials, **show** them to an audience, and **organise** the literature behind them. Every tool fact here links to the company's own help page, checked in October 2026 — products change quickly, so check again before you depend on one.
+
+**One rule from Week 4 still applies:** decide what learners need to *do*, then choose the tool. A polished output is not evidence of learning.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: section | card | questions
+-->
+
+## What do you need to do?
+kind: section
+
+| I want to… | Try first | Also possible | Page |
+|---|---|---|---|
+| Organise and compare my five sources | Gemini Notebook | — | Gemini Notebook manual |
+| Draft a handout or worksheet | A Gem with your instructions, then Canvas | Claude, ChatGPT | Build with an LLM |
+| Make an interactive activity or a learning game | Gemini Canvas | Claude Artifacts · Google AI Studio (Build) | Build with an LLM |
+| Show my materials to the class in an engaging way | An interactive HTML page built with Canvas or Claude | Gamma · Canva | Build with an LLM |
+| Make a quick quiz for live class interaction | Kahoot! AI question generator | Gemini Notebook quizzes · Google Forms | Tools |
+| Turn my sources into study material for myself | Gemini Notebook: mind map, report, flashcards | — | Gemini Notebook manual |
+| Build my portfolio as an HTML presentation | Canvas or Claude, using the portfolio prompt | — | Build with an LLM |
+
+## Four habits for every tool
+kind: card
+- **Specify before you generate.** Learners, level, goal, theory, length, format — the more precise the request, the less you fix later.
+- **Test like a learner.** Try a wrong answer, an empty answer and a slow connection before anyone else sees it.
+- **Check every fact and answer key.** Generated material can be fluent and wrong.
+- **Keep a record.** Save the prompt, the tool, the date and what you changed — it belongs in your portfolio and your proposal.
+
+## Ideas from your individual meetings
+kind: card
+Questions classmates raised, and where this studio answers them.
+- *How do I organise my literature?* → **Gemini Notebook manual**
+- *Which concrete tools can I use, and can I design my own tool with a language model?* → **Tools** and **Build with an LLM**
+- *How can I present my teaching material more interactively?* → the interactive presentation prompt in **Build with an LLM**
+- *Can I create a game with AI?* → the learning-game prompt — and the age rules in **Issues**
+- *How do I plan for learners with hearing impairments or for young learners?* → **Issues to think through**
+
+## Questions before you choose
+kind: questions
+- Who will use the tool — you while preparing, or learners during the lesson?
+- How old are those users, and is the tool allowed for them?
+- What does the tool do that a printed handout or a partner could not?
+- What will you do if it is unavailable on the day?
+- Where does the data go — your learners' writing, voices or names?
+
+</script>
+<script type="text/markdown" id="md2">
+# The tools
+
+Each card says what the tool is good for, how to start, what to watch for, and its **age and access rules** — which matter as soon as your learners are under 18. Facts were checked on the companies' help pages in October 2026.
+
+<!--
+HOW TO EDIT
+  ## Tool name   kind: tool · badge / best / start / limit / access / link
+-->
+
+## For reading and organising sources
+kind: section
+
+## Gemini Notebook (formerly NotebookLM)
+kind: tool
+badge: Sources → answers with citations
+best: Organising a literature review. It answers only from the sources you add, and every claim links back to the passage it came from.
+start: Open notebook.google.com → **Create new notebook** → **Add sources**. The old notebooklm.google.com address now redirects here. Full walkthrough on the **Gemini Notebook manual** page.
+limit: It cannot judge whether a source is good, and it only knows what you uploaded. YouTube adds only the transcript; web pages add only their text; paywalled pages are not supported.
+access: The free plan allows 100 notebooks and 50 sources per notebook. Your university account may have it switched off — try a personal Google account if so.
+link: [Open Gemini Notebook](https://notebook.google.com/) · [Plans and limits](https://support.google.com/gemininotebook/answer/16213268?hl=en)
+
+## For building materials
+kind: section
+
+## Gems in Gemini
+kind: tool
+badge: A reusable assistant with your rules
+best: Making the same kind of material again and again — "a worksheet designer for A2 learners that always adds an answer key" — without retyping your instructions.
+start: gemini.google.com → **Gems** → **New Gem** → give it a name and instructions → optionally add files under **Knowledge** (you can add a Gemini Notebook) → **Save**.
+limit: Instructions shape the output; they do not guarantee it. Check every result.
+access: Personal accounts: 13 or over (or the age required in your country).
+link: [Gems help](https://support.google.com/gemini/answer/15146780?hl=en)
+
+## Gemini Canvas
+kind: tool
+badge: Documents, slides, web apps, quizzes
+best: Turning a lesson idea into something you can open and use — a worksheet, an interactive web page, a simple game, a quiz, an infographic — then editing it directly or by asking for changes.
+start: gemini.google.com → under the text box choose **Canvas** → describe what you want. Use **Share & export** to share a link or export to Google Docs or Slides.
+limit: Shared links open on gemini.google.com, not in the Gemini mobile app. Test every interactive element yourself.
+access: You must be 18 or over to add AI features to an app made in Canvas.
+link: [Canvas help](https://support.google.com/gemini/answer/16047321?hl=en)
+
+## Claude Artifacts
+kind: tool
+badge: Interactive pages next to the chat
+best: Self-contained interactive pages — a practice activity, a game, a presentation of your materials, your portfolio — that you can test right away and then save as an HTML file.
+start: claude.ai → describe the activity and ask for it as an interactive artifact. The prompts on **Build with an LLM** work well here.
+limit: Generated code and answer keys need testing. Ask for a version that makes no AI calls and collects no data if learners will use it.
+access: Claude accounts are 18+ only, so this is a teacher-side tool for school-age learners.
+link: [Artifacts help](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them) · [Age requirement](https://support.claude.com/en/articles/13117299-minimum-age-requirement-access-restriction)
+
+## Google AI Studio · Build mode
+kind: tool
+badge: Prompt → working web app
+best: Building your own small teaching tool from a description, then changing it by chatting or by pointing at the part of the screen you want changed (annotation mode).
+start: aistudio.google.com → **Build** → describe the app. It creates a full web app you can preview and deploy.
+limit: The free tier's terms say human reviewers may read what you submit and that you should not submit personal information. Do not paste learner data.
+access: **18+ only, and the terms forbid using it in an app "directed towards or likely to be accessed by" anyone under 18.** An app that calls Gemini live cannot be given to school-age learners. Workspace for Education users under 18 are blocked.
+link: [Build mode docs](https://ai.google.dev/gemini-api/docs/aistudio-build-mode) · [Gemini API terms](https://ai.google.dev/gemini-api/terms)
+
+## ChatGPT
+kind: tool
+badge: General assistant · Study mode
+best: Drafting and revising materials, generating example texts at a set level, and — with Study mode — tutoring-style practice that asks before it tells.
+start: chatgpt.com → describe the material using the prompts on **Build with an LLM**.
+limit: Can still give direct answers or make mistakes in Study mode. Check output before use.
+access: 13 or over; users under 18 need a parent or guardian's permission.
+link: [Age guidance](https://help.openai.com/en/articles/8313401-is-chatgpt-safe-for-all-ages) · [Study mode](https://help.openai.com/en/articles/11780217-using-study-mode-in-chatgpt)
+
+## For showing materials and live interaction
+kind: section
+
+## Gamma
+kind: tool
+badge: AI slide decks
+best: A first draft of a presentation from a prompt, an outline, or an uploaded document — quick for showing a lesson plan or project proposal.
+start: gamma.app → create a presentation from text or a file → edit the result.
+limit: Generated decks tend to look alike and can add claims you did not make. Free-plan limits apply; check the current plan before relying on it.
+access: Check the terms for your account type.
+link: [Gamma presentations](https://gamma.app/products/presentations)
+
+## Canva
+kind: tool
+badge: AI presentations and visual design
+best: Visual handouts, posters and slides, with AI that drafts slides from a prompt.
+start: canva.com → create a presentation with Canva AI → describe the topic.
+limit: Free AI uses are limited. Check image licences before reusing images outside Canva.
+access: Check the terms for your account type.
+link: [Create a presentation with Canva AI](https://www.canva.com/help/using-magic-presentations/)
+
+## Kahoot! AI question generator
+kind: tool
+badge: Live quiz games
+best: A quick, energetic check of understanding in class. It can generate questions from a topic, a PDF or a web page.
+start: Create a kahoot → use the AI question generator → edit every question and answer.
+limit: Generated questions often test recall only. Rewrite at least some to test the learning goal. Some AI features may need a paid plan.
+access: Players join with a PIN and do not need accounts.
+link: [Generate a kahoot with AI](https://support.kahoot.com/hc/en-us/articles/40803785990675-How-to-generate-a-kahoot-with-AI)
+
+## A plain baseline
+kind: card
+Not every lesson needs AI. A Google Form, a printed handout or a partner activity is often the better choice — especially with young learners or unreliable internet. In your proposal, explain what the AI tool adds over this baseline.
+
+</script>
+<script type="text/markdown" id="md3">
+# Gemini Notebook for your literature review
+
+Gemini Notebook (until recently called **NotebookLM**) answers questions **only from the sources you give it**, and links each claim to the passage it came from. That makes it good at one part of a literature review — reading across several papers quickly — and useless at another: deciding which papers are worth reading. You still choose the sources, read them, and write the review.
+
+**Goal for conference week (10/28):** one notebook per project, five sources, a filled-in literature matrix, and a first idea of where your five sources agree and disagree.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: step (do / check / tip) · prompt (fenced ``` block) · card · section
+-->
+
+## Before you start
+kind: card
+- **Account:** open notebook.google.com with a Google account. If your university account does not show it, your school may have switched it off — use a personal account and do not upload anything confidential.
+- **One notebook per project.** Name it with your working title.
+- **Write your question first** — one sentence. Everything you ask the notebook will be measured against it.
+- **Limits on the free plan:** 50 sources per notebook; each source up to 500,000 words or 200 MB.
+
+## The workflow
+kind: section
+
+## Find candidate sources yourself first
+kind: step
+do: Search Google Scholar, ERIC or your library database with the keywords from Week 2. Save the PDFs of the most relevant studies. Prefer peer-reviewed journal articles and recent reviews.
+tip: Inside the notebook, **Add sources** also has a search box: choose **Web** or **Drive** for a fast search, or use **Deep Research**, which browses many websites and compiles a report. Treat what it finds as *leads* — check that each one is a real, peer-reviewed study before you keep it.
+check: Can you name the journal and year of every source? If not, it is not ready to cite.
+
+## Create the notebook and add sources
+kind: step
+do: notebook.google.com → **Create new notebook** → **Add sources**. Upload the PDFs. Rename each source **Author (Year) short title** so citations are readable.
+tip: Supported sources include PDF, Word, Google Docs and Slides, web pages, public YouTube videos with captions, audio files and pasted text. Google Drive files stay synced as you edit them.
+check: Open each source in the left panel and make sure the full text loaded — not just a cover page or abstract.
+
+## Read the core paper yourself
+kind: step
+do: Read the abstract, the research questions, the method and the conclusion of at least your most important source *before* asking the notebook about it.
+check: You can only spot a wrong answer if you know roughly what the right one is.
+
+## Set how the chat answers
+kind: step
+do: In the **Chat** panel select **Configure Chat**. Choose **Custom** and paste the role prompt below, or **Learning Guide** if you want it to explain methods step by step instead of answering directly. You can also set the response length.
+
+## Extract one source at a time
+kind: step
+do: In the sources panel, tick **only one source**. Ask the extraction prompt. Repeat for each source.
+check: Click each numbered citation — it jumps to the passage. Hover to see the quotation. Is the claim really in that passage?
+tip: Select **Save to note** on a good answer. Saved notes keep their tables and citations.
+
+## Compare across sources
+kind: step
+do: Tick all your sources. Ask the matrix prompt, then the agreements-and-disagreements prompt. Save both to notes.
+check: The notebook tends to make papers sound as if they agree. Look for differences in learners, tasks and measures that it smoothed over.
+
+## Check every citation you will use
+kind: step
+do: For each claim you plan to put in your review, open the citation and classify it: **supported**, **partly supported**, or **not supported**. Keep only supported claims, with page numbers.
+check: Never cite Gemini Notebook. Cite the original paper, at the page you checked.
+
+## Use the Studio panel to review — not to replace reading
+kind: step
+do: **Mind Map** shows the themes across your sources as a branching diagram. **Reports** produce a briefing document or study guide. **Flashcards** and **Quizzes** test your own understanding. **Audio Overview** turns the sources into a spoken discussion you can listen to.
+check: These are summaries of summaries. Use them to see the shape of the field; check anything you will rely on against the source.
+
+## Write the review yourself
+kind: step
+do: Organise your review **by theme or by question, not one paragraph per paper**. For each theme: what the studies found, where they differ, and why that matters for your project.
+check: A good review ends with the gap your project addresses.
+
+## Share with your group
+kind: step
+do: Share the notebook with your group members so everyone works from the same sources. Personal accounts can share a notebook with up to 50 people.
+
+## Prompts to copy
+kind: section
+Replace the parts in [square brackets].
+
+## Role for Configure Chat
+kind: prompt
+```text
+You are a careful research assistant helping a graduate student write a literature review in applied linguistics on [your topic]. Answer only from the selected sources. For every claim, cite the source. If the sources do not say something, say "the sources do not say". Do not combine findings from different studies into one claim unless you name each study.
+```
+
+## Extract one study
+kind: prompt
+```text
+For the selected source only, give:
+1. Full reference as printed in the paper (authors, year, title, journal, volume, pages)
+2. Research question(s) or aim
+3. Participants: number, age, proficiency, first language, setting
+4. Design and method (quantitative / qualitative / mixed; instruments; duration)
+5. The digital material or AI tool studied, and how learners used it
+6. Main findings, with the numbers the authors report
+7. Limitations the authors themselves mention
+Quote the key sentence for findings 6 and 7.
+```
+
+## Build a literature matrix
+kind: prompt
+```text
+Make a table with one row per source and these columns: Author (Year) | Learners and setting | Material or tool | Method | Outcome measured | Main finding | Limitation. Keep each cell under 20 words. If a source does not report something, write "not reported".
+```
+
+## Agreements, disagreements, gaps
+kind: prompt
+```text
+Across the selected sources:
+1. Where do the findings agree? Name the studies.
+2. Where do they disagree or differ? Explain whether the difference could come from different learners, tasks, tools or measures.
+3. What do none of the sources study? List three gaps.
+Do not smooth over differences.
+```
+
+## Test my research question
+kind: prompt
+```text
+My research question is: [your question]. Based only on the selected sources:
+1. Which sources are most relevant to it, and why?
+2. Has any source already answered it? If so, how is my question different?
+3. Which method in these sources could I adapt for my study?
+```
+
+## Explain a method I do not understand
+kind: prompt
+```text
+In [Author (Year)], explain the [statistical test / coding procedure / instrument] the authors used, in plain language, as if to a teacher with no statistics background. Then explain what the reported result means and what it does not mean. Cite the passage.
+```
+
+## What Gemini Notebook cannot do
+kind: card
+- It cannot tell you whether a source is peer-reviewed, influential or methodologically sound.
+- It only knows your sources. Ask about something they do not cover and it should say so — check that it does.
+- From YouTube it imports only the transcript; from a web page only the text — no images, no embedded video.
+- Paywalled web pages cannot be added. Download the PDF through the library instead.
+- Its summaries can merge two studies' findings into one sentence. Always check citations before you reuse a claim.
+
+## Your literature matrix
+kind: card
+Copy this table into your proposal and fill one row per source.
+
+| Author (Year) | Learners & setting | Material / tool | Method | Outcome | Main finding | Limitation | Why it matters for my project |
+|---|---|---|---|---|---|---|---|
+| | | | | | | | |
+
+</script>
+<script type="text/markdown" id="md4">
+# Build with a language model
+
+A language model builds what you describe — so the quality of the material depends mostly on the quality of your **specification**. These prompts work in Gemini Canvas, Claude, ChatGPT and Google AI Studio. Each one asks for the things teachers usually forget: the learner, the goal, the answer key, accessibility, and no data collection.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: step · prompt (fenced ``` block) · card · section
+-->
+
+## Five steps for any material
+kind: section
+
+## Specify
+kind: step
+do: Write down the learners (age, level, first language, setting), one learning goal, the theory behind the activity, the length, and the format. Use your learner analysis — the more precise it is, the better the first draft.
+
+## Generate a first draft
+kind: step
+do: Paste the matching prompt below with your details filled in. Ask for one material at a time.
+
+## Test it like a learner
+kind: step
+do: Use it yourself: give a correct answer, a wrong answer and no answer; try it on a phone; try it with the sound off.
+check: Is every answer key correct? Is the language at the right level? Does anything depend on audio alone?
+
+## Revise
+kind: step
+do: Ask for specific changes ("make the sentences shorter", "add a hint before showing the answer", "larger buttons"). In Google AI Studio you can use annotation mode — point at part of the screen and describe the change.
+tip: Keep each version. The before-and-after is good evidence for your portfolio.
+
+## Show and share
+kind: step
+do: Share a link (Canvas **Share & export**, a published artifact, or a deployed AI Studio app), or download the HTML file. For class, put the link in a QR code and bring a PDF or screenshot backup.
+
+## Prompts to copy
+kind: section
+Replace everything in [square brackets]. Delete lines that do not apply.
+
+## Worksheet or handout
+kind: prompt
+```text
+Create a printable worksheet for [age, level, e.g. Grade 5 A1 / university B1] learners of English in [setting, e.g. Taiwan].
+Learning goal: by the end, learners can [observable goal].
+Theory: design it using [e.g. scaffolding — support that is gradually removed].
+Structure: a short model example → 3 guided items with a word bank → 3 items without the word bank → 1 short personal task.
+Use only vocabulary at [level]; keep instructions under 15 words each.
+Add a separate answer key for the teacher.
+Format for A4, large readable font, no decorative images.
+List any assumptions you made about the learners.
+```
+
+## Multimodal vocabulary set
+kind: prompt
+```text
+Create a set of [8] vocabulary cards for [learners] on the topic [topic].
+For each word give: the word, part of speech, a simple definition at [level], one example sentence about the learners' everyday life, a description of a picture that shows the meaning clearly, and a one-line caption for that picture.
+Follow multimedia learning principles: the picture must show the meaning, not decorate; put the word next to its picture; no extra text that repeats the audio word for word.
+Make sure every piece of information is available visually, so the set works for learners who are Deaf or hard of hearing.
+Then suggest one short activity where learners use the words to describe something to a partner.
+```
+
+## Interactive practice activity or learning game
+kind: prompt
+```text
+Build a self-contained interactive HTML learning game for [learners, age, level].
+Learning goal: [observable goal]. Content: use ONLY these items, written by me: [paste your items and correct answers].
+Game: [e.g. match each picture description to the word / drag words to complete sentences / choose the correct response in a short dialogue].
+Requirements:
+- Learners try first; feedback comes after each answer and explains why.
+- An optional hint button before the answer is shown.
+- A final round with new items and no hints, so I can check independent use.
+- Score shown at the end; no timer pressure unless I ask.
+- Large text, high contrast, works with keyboard only, does not rely on colour or sound alone.
+- No external libraries, no AI calls, no tracking, and no collection or storage of learner data.
+- A printable version of the items and answer key.
+After building, list how you tested correct, wrong and empty answers.
+```
+
+## Show your teaching materials interactively
+kind: prompt
+```text
+Build a single-page interactive presentation (one HTML file) that showcases my teaching design to classmates.
+Sections, one screen each, navigable with arrow keys and buttons:
+1. Title: [lesson title], my name, target learners
+2. The learners: [3–4 key facts from my learner analysis]
+3. The learning goal and the theory behind it: [goal]; [theory with author and year]
+4. The lesson stages with timing: [paste my 20-minute plan]
+5. The materials: embed or link [my worksheet / game / images] so the audience can try them
+6. How AI was used and how I checked it: [details]
+7. What I would change after testing: [details]
+Keep text short on each screen; use large fonts, alt text for every image, and no external services.
+Add a printable handout version of the whole presentation at the end.
+```
+
+## Your portfolio as an HTML presentation
+kind: prompt
+```text
+Build my end-of-semester learning portfolio as one self-contained HTML file with slide-style sections navigated by arrow keys, buttons, and a contents menu.
+Sections:
+1. Cover: name, course "英語數位教材與教學", semester
+2. Where I started: [my answers]
+3. What I learned — three concepts, each with an example from my work: [notes]
+4. What I tried — tools and methods, what worked and what did not: [notes]
+5. Three artifacts, each with an image and a caption explaining what it shows: [file names and captions]
+6. Feedback I received and what I changed: [quotes, anonymised]
+7. My final project: role, best decision, one change: [notes]
+8. AI-use statement: [which tools, for what, how I checked]
+9. Looking ahead: [notes]
+Design: calm colours, large readable text, alt text for every image, works on a phone, prints one section per page.
+Do not invent anything I did not provide — leave a clearly marked placeholder instead.
+No external libraries, no tracking.
+```
+
+## Test and improve what was built
+kind: prompt
+```text
+Review the material you just built as a strict teacher and as a learner at [level]:
+1. Check every answer and answer key; list any errors.
+2. List any words or structures above [level].
+3. Check accessibility: keyboard use, text size, contrast, anything that relies on sound or colour alone.
+4. Check the learning goal: does each task actually practise [goal]?
+Then fix the three most important problems and show me what you changed.
+```
+
+## About Google AI Studio's Build mode
+kind: card
+- Build mode turns a description into a full web app you can preview, refine by chat or by pointing at the screen, and deploy.
+- **It is a tool for adults.** The terms require you to be 18 or over and do not allow apps "directed towards or likely to be accessed by" anyone under 18. For school-age learners, ask for a version with **no AI calls**, download it, and use that.
+- On the free tier, human reviewers may read what you submit. Do not include learner names, writing or recordings.
+link: [Build mode documentation](https://ai.google.dev/gemini-api/docs/aistudio-build-mode) · [Gemini API terms](https://ai.google.dev/gemini-api/terms)
+
+## Showing materials in class
+kind: card
+- **Link + QR code** so classmates can open the material on their phones.
+- **A backup that needs no internet:** the downloaded HTML file, a PDF, or screenshots.
+- **Let the audience try it.** Two minutes of classmates using your game says more than five slides about it.
+- **Show the before and after** of one revision — it makes your design thinking visible.
+
+</script>
+<script type="text/markdown" id="md5">
+# Issues to think through
+
+Every tool on this site raises the same handful of questions. Answer them in your proposal — reviewers and examiners will ask.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: issue · why / do  ·  section · card
+-->
+
+## Age rules, side by side
+kind: section
+Who is allowed to use each tool matters as soon as your learners are under 18 — for example a Grade 5 class. Checked on each company's help or terms page in October 2026; rules differ by country and change, so check again.
+
+| Tool | Who may use it | What it means for school-age learners |
+|---|---|---|
+| Google AI Studio · Gemini API | 18 or over; not in apps directed towards or likely to be accessed by under-18s | Teacher-side only; give learners a version with no AI calls |
+| Claude | 18 or over | Teacher-side only |
+| Gemini Canvas | 18 or over to add AI features to an app | Teacher builds; learners may use a non-AI result |
+| ChatGPT | 13 or over; under 18 with parent or guardian permission | Not for primary-school learners |
+| Gems in Gemini | 13 or over on personal accounts | Not for primary-school learners |
+| Gemini Notebook | Above the age of consent in your country for paid plans; school accounts depend on the school's settings | Check with the school before learners use it |
+| Kahoot! as a player | Joins with a game PIN, no account | Usually fine for live class games; you still choose the questions |
+
+## The issues
+kind: section
+
+## Accuracy
+kind: issue
+why: Generated texts, answer keys and summaries can be fluent and wrong — including invented citations, as you saw in Week 2.
+do: Check every fact and every answer key yourself. Cite only sources you have opened. Keep a record of what you corrected.
+
+## Learner data and privacy
+kind: issue
+why: Free tiers may use what you submit to improve products, and Google's free AI Studio terms say human reviewers may read inputs and ask users not to submit personal information.
+do: Never paste learners' names, writing, voice recordings or test results into a free AI tool. Anonymise first, or analyse by hand. For research, say in your consent form where data goes.
+
+## Age and consent
+kind: issue
+why: Several tools are 18+ only, and some terms forbid using them in anything likely to reach children.
+do: With under-18 learners, keep AI on the teacher's side or use a version that makes no AI calls. For research with minors, get school and parent or guardian consent.
+
+## Accessibility
+kind: issue
+why: Interactive material can shut learners out — audio without captions, colour-only feedback, tiny buttons, timers.
+do: Captions or transcripts for all audio and video; text alternatives for images; keyboard operation; no colour-only signals. For Deaf or hard-of-hearing learners, make every piece of information visual and ask them what they actually use — do not assume. The UDL guidelines are a good checklist.
+link: [UDL Guidelines](https://udlguidelines.cast.org/)
+
+## Copyright and licences
+kind: issue
+why: Uploading a textbook chapter, a paywalled article or a corpus with a no-redistribution licence to a public tool may break its terms. Generated images can resemble existing work.
+do: Upload only material you have the right to use. Link to sources instead of copying them into shared materials. Credit images and say which ones were generated.
+
+## Access and reliability
+kind: issue
+why: Accounts may be blocked on school networks, free limits run out, links break, Wi-Fi fails during the demonstration.
+do: Test on the actual device and account you will use. Always bring a version that needs no internet.
+
+## Over-reliance
+kind: issue
+why: If the tool does the thinking, learners — and you — practise less. A finished-looking product can hide that nobody learned anything.
+do: Design tasks where learners must produce language themselves, and check what they can do without the tool at the end.
+
+## Honesty about AI use
+kind: issue
+why: Your readers need to know which parts are yours. AI detectors are not a dependable check — one study found they frequently misclassified essays by non-native English writers as AI-generated — so transparency matters more than detection.
+do: Include an AI-use statement in your proposal, presentation and portfolio: which tools, for what, and how you checked the output.
+refs: liang2023
+
+## A short AI-use statement
+kind: prompt
+Adapt this for your proposal or portfolio.
+```text
+AI use: I used [tool] on [date] to [purpose, e.g. draft the vocabulary worksheet / extract study details from my five sources]. I checked [what, e.g. every answer key and every citation against the original paper] and changed [what]. The design decisions, the analysis and the final text are my own.
+```
+
+</script>
+<script type="text/markdown" id="mdr">
+# Sources
+
+Tool facts on this site come from each company's own help pages and terms, checked in October 2026. Products and rules change; the links below let you check the current version.
+
+<!-- ## id + apa/doi = a reference; other ## blocks render as cards -->
+
+## Gemini Notebook
+kind: card
+- [Gemini Notebook](https://notebook.google.com/)
+- [Add or discover sources](https://support.google.com/gemininotebook/answer/16215270?hl=en)
+- [Use chat](https://support.google.com/gemininotebook/answer/16179559?hl=en)
+- [Plans and limits](https://support.google.com/gemininotebook/answer/16213268?hl=en)
+- [Audio Overview](https://support.google.com/gemininotebook/answer/16212820?hl=en) · [Mind Maps](https://support.google.com/gemininotebook/answer/16212283?hl=en)
+
+## Gemini and Google AI Studio
+kind: card
+- [Gems](https://support.google.com/gemini/answer/15146780?hl=en)
+- [Canvas](https://support.google.com/gemini/answer/16047321?hl=en)
+- [AI Studio Build mode](https://ai.google.dev/gemini-api/docs/aistudio-build-mode)
+- [Gemini API terms (age and data use)](https://ai.google.dev/gemini-api/terms)
+- [Gemini for children and teens](https://support.google.com/gemini/answer/16109150?hl=en)
+
+## Other tools
+kind: card
+- [Claude Artifacts](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them) · [Claude age requirement](https://support.claude.com/en/articles/13117299-minimum-age-requirement-access-restriction)
+- [ChatGPT age guidance](https://help.openai.com/en/articles/8313401-is-chatgpt-safe-for-all-ages) · [Study mode](https://help.openai.com/en/articles/11780217-using-study-mode-in-chatgpt)
+- [Gamma presentations](https://gamma.app/products/presentations)
+- [Canva AI presentations](https://www.canva.com/help/using-magic-presentations/)
+- [Kahoot! AI question generator](https://support.kahoot.com/hc/en-us/articles/40803785990675-How-to-generate-a-kahoot-with-AI)
+
+## Accessibility
+kind: card
+- [CAST Universal Design for Learning Guidelines 3.0](https://udlguidelines.cast.org/)
+
+## liang2023
+apa: Liang, W., Yuksekgonul, M., Mao, Y., Wu, E., & Zou, J. (2023). GPT detectors are biased against non-native English writers. *Patterns, 4*(7), 100779.
+doi: 10.1016/j.patter.2023.100779
+
+</script>
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="who" id="who"></div>
+      <div class="top-links" id="topLinks"></div>
+    </div>
+    <nav class="phases" id="nav" aria-label="Sections"></nav>
+  </div>
+</header>
+<main class="wrap" id="main" tabindex="-1">
+  <div id="loadWarn"></div>
+  <div id="phases"></div>
+</main>
+<footer class="wrap" id="foot"></footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ── markdown ── */
+function inline(s){
+  let t=esc(s);
+  t=t.replace(/`([^`]+)`/g,(m,a)=>"<code>"+a+"</code>");
+  t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  t=t.replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+  return t;
+}
+function md(src){
+  if(!src) return "";
+  const L=String(src).replace(/\r\n?/g,"\n").split("\n");
+  let out="",list=null,para=[],code=null,table=false;
+  const fp=()=>{if(para.length){out+="<p>"+inline(para.join(" "))+"</p>";para=[]}};
+  const cl=()=>{if(list){out+="</"+list+">";list=null}};
+  const ct=()=>{if(table){out+="</tbody></table></div>";table=false}};
+  for(const line of L){
+    if(code!==null){ if(/^```/.test(line)){out+='<pre>'+esc(code)+'</pre><div class="copyrow"><button class="pill" data-copypre>Copy</button><span class="status"></span></div>';code=null} else code+=(code?"\n":"")+line; continue; }
+    if(/^```/.test(line)){fp();cl();ct();code="";continue}
+    if(/^\s*\|/.test(line)){
+      fp();cl();
+      if(/^[\s|:\-]+$/.test(line)) continue;
+      const cells=line.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c=>c.trim());
+      if(!table){out+='<div class="tblwrap"><table><thead><tr>'+cells.map(c=>"<th>"+inline(c)+"</th>").join("")+"</tr></thead><tbody>";table=true}
+      else out+="<tr>"+cells.map(c=>"<td>"+inline(c)+"</td>").join("")+"</tr>";
+      continue;
+    }
+    ct();
+    if(!line.trim()){fp();cl();continue}
+    let m;
+    if((m=line.match(/^(#{1,6})\s+(.*)$/))){fp();cl();const n=Math.min(m[1].length+2,6);out+="<h"+n+">"+inline(m[2])+"</h"+n+">";continue}
+    if((m=line.match(/^>\s?(.*)$/))){fp();cl();out+='<div class="card kind-note">'+inline(m[1])+"</div>";continue}
+    if((m=line.match(/^\s*[-*]\s+(.*)$/))){fp();if(list!=="ul"){cl();out+="<ul>";list="ul"}out+="<li>"+inline(m[1])+"</li>";continue}
+    if((m=line.match(/^\s*\d+[.)]\s+(.*)$/))){fp();if(list!=="ol"){cl();out+="<ol>";list="ol"}out+="<li>"+inline(m[1])+"</li>";continue}
+    para.push(line.trim());
+  }
+  fp();cl();ct();
+  if(code!==null) out+="<pre>"+esc(code)+"</pre>";
+  return out;
+}
+/* ## blocks with "key: value" fields; a field with no value collects the "- " lines below it */
+function parseDoc(src){
+  const clean=String(src).replace(/<!--[\s\S]*?-->/g,"").replace(/\r\n?/g,"\n");
+  const parts=clean.split(/^##\s+/m);
+  const head=parts.shift()||"";
+  const title=(head.match(/^#\s+(.*)$/m)||[])[1]||"";
+  const intro=head.replace(/^#\s+.*$/m,"").trim();
+  const items=parts.map(block=>{
+    const nl=block.indexOf("\n");
+    const t=(nl<0?block:block.slice(0,nl)).trim();
+    const rest=nl<0?"":block.slice(nl+1);
+    const f={},bullets=[],body=[];let cur=null,inCode=false;
+    for(const line of rest.split("\n")){
+      if(/^```/.test(line)){inCode=!inCode;body.push(line);cur=null;continue}
+      if(inCode){body.push(line);continue}
+      const m=line.match(/^([a-z][a-z0-9_]*):[ \t]*(.*)$/);
+      if(m){const k=m[1],v=m[2].trim();if(v){f[k]=v;cur=null}else{f[k]=[];cur=k}continue}
+      const b=line.match(/^\s*[-*]\s+(.*)$/);
+      if(b){ if(cur) f[cur].push(b[1].trim()); else bullets.push(b[1].trim()); continue; }
+      if(!line.trim()){cur=null;body.push(line);continue}
+      cur=null;body.push(line);
+    }
+    return {title:t,f,bullets,body:body.join("\n").trim()};
+  });
+  return {title,intro,items};
+}
+const list=v=>Array.isArray(v)?v:(v?String(v).split("|").map(s=>s.trim()).filter(Boolean):[]);
+
+/* ── references ── */
+const REFS={};
+function shortCite(apa){
+  const m=String(apa).match(/^(.+?)\s*\((\d{4})/); if(!m) return String(apa).slice(0,26);
+  const a=m[1],y=m[2],first=a.split(",")[0].trim();
+  const n=Math.max(1,Math.round(((a.match(/,/g)||[]).length+1)/2));
+  if(n>=3) return first+" et al. ("+y+")";
+  if(n===2) return first+" & "+((a.split("&")[1]||"").trim().split(",")[0].trim())+" ("+y+")";
+  return first+" ("+y+")";
+}
+function chips(ids){
+  return list(ids).map(id=>{const r=REFS[id];
+    if(!r) return '<span class="cite">'+esc(id)+"</span>";
+    const href=r.doi?"https://doi.org/"+r.doi:(r.url||"#ref-"+id);
+    return '<a class="cite" href="'+href+'" target="_blank" rel="noopener" title="'+esc(r.apa.replace(/\*/g,""))+'">'+esc(r.short)+"</a>";
+  }).join("");
+}
+
+/* ── items ── */
+const LABELS={who:"Who",when:"When",what:"What",why:"Why it matters",how:"How",best:"Best for",start:"How to start",limit:"Watch out",access:"Access and age",do:"Do this",check:"Check",tip:"Tip",theory:"Theory",design:"Design decision",ask:"Ask",example:"Example",avoid:"Avoid",evidence:"Evidence",output:"You leave with",time:"Time"};
+const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id"]);
+function fieldsHtml(f){
+  return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
+    const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
+    const html=Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v);
+    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+html+"</div>";
+  }).join("");
+}
+let checkIndex=0;
+function itemHtml(it,ctx){
+  const k=it.f.kind||"card";
+  if(k==="section") return '<h3 class="sec">'+esc(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
+  if(k==="milestone"){
+    return '<div class="ms'+(it.f.now==="yes"?" now":"")+'"><div class="when">'+esc(it.f.date||"")+"</div><h4>"+esc(it.title)+"</h4>"+(it.f.what?"<p>"+inline(it.f.what)+"</p>":"")+md(it.body)+"</div>";
+  }
+  let inner="";
+  if(it.f.badge) inner+='<span class="badge">'+esc(it.f.badge)+"</span>";
+  inner+="<h4>"+esc(it.title)+"</h4>";
+  inner+=md(it.body);            /* lead text first, then labelled fields, then the list */
+  inner+=fieldsHtml(it.f);
+  if(k==="checklist"){
+    const st=store.get(CONFIG.storeKey+"-chk",{});
+    inner+=it.bullets.map(b=>{const id="c"+(checkIndex++);return '<label class="chk"><input type="checkbox" data-chk="'+id+'"'+(st[id]?" checked":"")+"><span>"+inline(b)+"</span></label>"}).join("");
+  }else if(k==="questions"){
+    inner+='<ol class="qlist">'+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ol>";
+    inner+='<div class="copyrow"><button class="pill" data-copyq>Copy these questions</button><span class="status"></span></div>';
+  }else if(it.bullets.length){
+    inner+="<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>";
+  }
+  if(it.f.link) inner+='<p style="margin:.6rem 0 0">'+inline(it.f.link)+"</p>";
+  if(it.f.refs) inner+='<div style="margin-top:.5rem">'+chips(it.f.refs)+"</div>";
+  return '<article class="card kind-'+k+(k==="step"?" step":"")+'">'+inner+"</article>";
+}
+function renderItems(items){
+  let out="",group=null,buf=[];
+  const flush=()=>{ if(!buf.length) return;
+    const k=group, cls=k==="step"?"steps":k==="milestone"?"timeline":"grid"+(["prompt","wide"].includes(k)?" wide":"");
+    out+='<div class="'+cls+'">'+buf.join("")+"</div>"; buf=[]; };
+  for(const it of items){
+    const k=it.f.kind||"card";
+    if(k==="section"){flush();group=null;out+=itemHtml(it);continue}
+    const g=(it.f.wide==="yes"||k==="prompt")?"wide":(k==="step"||k==="milestone"?k:"grid");
+    if(g!==group){flush();group=g}
+    buf.push(itemHtml(it));
+  }
+  flush(); return out;
+}
+
+/* ── page ── */
+$("#who").innerHTML=esc(CONFIG.instructor)+"<span>"+esc(CONFIG.course)+" · "+esc(CONFIG.title)+"</span>";
+$("#topLinks").innerHTML=CONFIG.links.map(([t,u])=>'<a class="pill" href="'+u+'">'+esc(t)+"</a>").join("")+'<button class="pill" id="theme">Dark</button>';
+$("#foot").textContent=CONFIG.instructor+" · "+CONFIG.course+" · Text lives in content/*.md. Ticks and copied text stay in your browser.";
+$("#nav").innerHTML=CONFIG.pages.map(([k,t],i)=>'<button class="ph" data-go="'+k+'" aria-current="'+(i===0)+'"><b>'+(k==="r"?"·":"0"+k)+"</b>"+esc(t)+"</button>").join("");
+function applyTheme(t){document.documentElement.dataset.theme=t;$("#theme").textContent=t==="dark"?"Light":"Dark";store.set("course-theme",t)}
+applyTheme(store.get("course-theme","light"));
+$("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+function go(k,scroll){
+  $$(".phase").forEach(p=>p.classList.toggle("on",p.id==="p-"+k));
+  $$(".ph").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===String(k))));
+  if(scroll!==false){ window.scrollTo({top:0,behavior:"instant"}); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"instant"})); }
+}
+function fromHash(){const m=location.hash.match(/^#p-([0-9r]+)$/);return m&&CONFIG.pages.some(p=>p[0]===m[1])?m[1]:CONFIG.pages[0][0]}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]");
+  if(b){const k=b.dataset.go; if(location.hash==="#p-"+k) go(k); else location.hash="p-"+k; return;}
+  const cp=e.target.closest("[data-copypre],[data-copyq]");
+  if(cp){
+    const text=cp.hasAttribute("data-copypre")?cp.closest(".copyrow").previousElementSibling.textContent
+      :[...cp.closest(".card").querySelectorAll(".qlist li")].map((li,i)=>(i+1)+". "+li.textContent).join("\n");
+    const st=cp.nextElementSibling;
+    (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>st.textContent="Copied.")
+      .catch(()=>{st.textContent="Select the text and copy it manually."});
+  }
+});
+window.addEventListener("hashchange",()=>go(fromHash()));
+document.addEventListener("change",e=>{
+  const c=e.target.closest("[data-chk]"); if(!c) return;
+  const st=store.get(CONFIG.storeKey+"-chk",{}); st[c.dataset.chk]=c.checked; store.set(CONFIG.storeKey+"-chk",st);
+});
+
+async function load(){
+  const texts={};
+  await Promise.all(CONFIG.pages.map(async([k])=>{
+    const emb=document.getElementById("md"+k); if(emb){texts[k]=emb.textContent;return}
+    try{
+      const path=k==="r"?"content/refs.md":window.CONTENT_FILES[k];
+      const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw 0; texts[k]=await r.text();
+    }catch(e){texts[k]=null}
+  }));
+  if(Object.values(texts).every(t=>t==null)){
+    $("#loadWarn").innerHTML='<div class="banner"><strong>The content did not load.</strong> Browsers block <code>content/*.md</code> when this file is opened from disk. Use the web address, the standalone file, or run <code>python3 -m http.server</code> in this folder.</div>';
+    return;
+  }
+  const refsDoc=parseDoc(texts.r||"");
+  refsDoc.items.forEach(it=>{ if(it.f.apa) REFS[it.title]={apa:it.f.apa,doi:it.f.doi||"",url:it.f.url||"",short:shortCite(it.f.apa)}; });
+  $("#phases").innerHTML=CONFIG.pages.map(([k,label],i)=>{
+    const d=parseDoc(texts[k]||"");
+    let body;
+    if(k==="r"){
+      const refs=d.items.filter(x=>x.f.apa).sort((a,b)=>a.f.apa.localeCompare(b.f.apa));
+      body=md(d.intro)+renderItems(d.items.filter(x=>!x.f.apa))+(refs.length?'<h3 class="sec">References</h3>'+refs.map(x=>
+        '<div class="refitem" id="ref-'+esc(x.title)+'">'+inline(x.f.apa)+'<div class="links">'+
+        (x.f.doi?'<a href="https://doi.org/'+esc(x.f.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':"")+
+        (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
+        '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
+    }else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
+    return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
+      '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
+      (next?'<button class="pill" data-go="'+next[0]+'">'+esc(next[1])+" →</button>":"<span></span>")+"</div></section>";
+  }).join("");
+  go(fromHash(), !!location.hash);
+}
+</script>
+<script>
+/* file names per page key — keep in step with content/ */
+window.CONTENT_FILES={
+  "1":"content/01-choose.md",
+  "2":"content/02-tools.md",
+  "3":"content/03-notebook.md",
+  "4":"content/04-build.md",
+  "5":"content/05-issues.md"
+};
+load();
+</script>
+</body>
+</html>

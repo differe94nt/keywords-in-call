@@ -13,7 +13,7 @@ HOW TO EDIT
 kind: checklist
 Tick each item when your draft actually contains it.
 - **Topic** within digital material design or AI in language teaching, with your target learners named
-- **Literature review of 5 sources** — at least four peer-reviewed; organised by theme, not one paragraph per paper
+- **Literature review of 5 sources** — organised by theme, not one paragraph per paper
 - **At least one research question**, specific enough that data could answer it
 - **Method:** quantitative *or* qualitative, with the reason for your choice
 - **Participants:** who, how many, how you will reach them, and their consent
@@ -29,7 +29,6 @@ kind: checklist
 - **Method** as actually carried out, including what changed from the proposal
 - **Results** — at least pilot results, shown in a table or chart with the numbers behind it
 - **Discussion:** what the results suggest, what they cannot show, and the next study you would run
-- **How the project connects to this course** — which week's concepts it builds on
 
 ## From topic to research question
 kind: section

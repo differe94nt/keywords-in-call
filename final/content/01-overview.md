@@ -2,7 +2,7 @@
 
 Your final project can take one of two forms. **Research** asks a question about digital materials or AI in language teaching and answers it with data. **Teaching demo** designs a lesson for real learners and teaches 20 minutes of it to us. Both start from the same habits you have practised all semester: know the learner, read the literature, justify the design, check the evidence.
 
-Both tracks are group projects. The portfolio is individual.
+The portfolio is individual.
 
 <!--
 HOW TO EDIT
@@ -20,10 +20,10 @@ date: Week 6 · 10/14
 now: yes
 what: Pitch your idea in one minute, listen to others, and form a group around a shared learner group or a shared question. See **Pitch & form groups**.
 
-## Narrow the scope and collect five sources
+## Preparation time for next week's submission
 kind: milestone
 date: Week 8 · 10/28 · conference week
-what: Meet the instructor with your group. Bring a working title, your target learners, and at least five sources organised in Gemini Notebook (see the AI materials studio).
+what: Deadline: 11/04 08:00
 
 ## Submit the proposal
 kind: milestone
@@ -67,8 +67,6 @@ kind: card
 kind: questions
 - Do you want to *find something out* (research) or *make something work in a classroom* (teaching demo)?
 - Can you reach learners or participants before 12/16? Research needs data; a teaching demo needs a learner group you can describe precisely.
-- Which week this semester did you enjoy most — reading studies and comparing evidence, or designing activities for Ivy, Ken and Mei?
-- What would you like to show in your portfolio as your best piece of work?
 - Is there a tool or material you already use that you would like to test, or improve?
 
 ## Topics from your individual meetings

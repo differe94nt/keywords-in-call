@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAEFD0">
+<title>Learner language: people vs AI · 10/21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ════════ SETTINGS — the only block to edit; text lives in content/*.md ════════ -->
+<script>
+const CONFIG = {
+  instructor: "王伯雅 Po-Ya Angela Wang",
+  course: "英語數位教材與教學",
+  title: "Week 7 · 10/21 · Learner language: people vs AI",
+  kicker: "10/21 · Learner language",
+  storeKey: "w7-1021",
+  pages: [["1","Today"],["2","The learner data"],["3","Group analysis"],["4","Ask the AI"],["5","Compare"],["r","Sources"]],
+  links: [["09/23 · Evaluation","../0923/"],["09/30 · Learners","../0930/"],["Final project","../final/"],["AI studio","../ai-tools/"]]
+};
+</script>
+
+<style>
+:root{
+  --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
+  --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
+  --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77; --blue-soft:#DCE9EC;
+  --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
+  --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
+  --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
+  --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD; --blue-soft:#22343A;
+  --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+h4{font-family:var(--sans);font-weight:600;margin:0;font-size:1rem}
+p{margin:0 0 .75em}
+a{color:var(--green);text-underline-offset:2px;overflow-wrap:anywhere}
+button,input{font:inherit;color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--tint);padding:.1em .35em;border-radius:5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.muted{color:var(--fg-soft)} .small{font-size:.84rem}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 0}
+.who{font-family:var(--serif);font-size:1.02rem;font-weight:600}
+.who span{display:block;font-family:var(--sans);font-size:.75rem;color:var(--fg-soft);font-weight:400}
+.top-links{margin-left:auto;display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+.pill{background:none;border:1px solid var(--line-2);border-radius:999px;padding:.2rem .65rem;font-size:.76rem;color:var(--fg);text-decoration:none;cursor:pointer;display:inline-block}
+.pill:hover{background:var(--tint)}
+nav.phases{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.45rem}
+.ph{display:flex;gap:.45rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
+.ph b{font-family:var(--mono);font-size:.72rem;color:var(--burnt)}
+.ph:hover{background:var(--tint);color:var(--fg)}
+.ph[aria-current="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .ph[aria-current="true"]{background:var(--green);color:#16200E}
+.ph[aria-current="true"] b{color:var(--gold)}
+
+main{padding:1.6rem 0 4rem}
+.phase{display:none}.phase.on{display:block}
+.kicker{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em;text-transform:uppercase}
+.phase>h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:.15rem 0 .7rem}
+.intro{max-width:72ch}
+.intro ul,.intro ol{padding-left:1.2rem}
+h3.sec{font-size:1.3rem;margin:2rem 0 .3rem}
+.sec-body{max-width:72ch;color:var(--fg-soft);margin-bottom:.8rem}
+.sec-body .tblwrap{max-width:none;color:var(--fg)}
+.sec-body:has(.tblwrap){max-width:none}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:.9rem;margin:.8rem 0 1.2rem}
+.grid.wide{grid-template-columns:1fr}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;min-width:0}
+.card h4{font-family:var(--serif);font-size:1.12rem;margin-bottom:.35rem}
+.card .badge{display:inline-block;font-size:.7rem;border:1px solid var(--line-2);border-radius:999px;padding:.03rem .5rem;color:var(--fg-soft);margin-bottom:.4rem}
+.card p,.card li{font-size:.92rem}
+.card ul,.card ol{margin:.35rem 0 .2rem;padding-left:1.15rem}
+.card li{margin-bottom:.28rem}
+.field{margin:.35rem 0}
+.field .flabel{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);display:block;font-weight:600}
+.kind-tool{border-top:4px solid var(--blue)}
+.kind-issue{border-left:4px solid var(--burnt)}
+.kind-theory{border-top:4px solid var(--gold)}
+.kind-track{border-top:4px solid var(--green)}
+.kind-prompt{border-top:4px solid var(--blue)}
+.kind-questions{border-left:4px solid var(--green)}
+.kind-checklist{border-left:4px solid var(--gold)}
+.kind-note{background:var(--gold-soft);border-color:transparent}
+.kind-sample{border-top:4px solid var(--green)}
+.kind-reveal{border-left:4px solid var(--burnt)}
+.kind-reveal summary{cursor:pointer;list-style:none}
+.kind-reveal summary::-webkit-details-marker{display:none}
+.kind-reveal summary h4::after{content:"  ▸ click to reveal";font-family:var(--sans);font-size:.75rem;color:var(--burnt);font-weight:500}
+.kind-reveal[open] summary h4::after{content:"  ▾"}
+pre.sample{counter-reset:ln;background:var(--paper);color:var(--fg);border:1px solid var(--line);font-size:.86rem;line-height:1.7}
+pre.sample .ln{display:block;position:relative;padding-left:2.7em}
+pre.sample .ln::before{counter-increment:ln;content:counter(ln);position:absolute;left:0;width:2em;text-align:right;color:var(--burnt);font-size:.72rem}
+pre.sample .ln.muted-line{color:var(--fg-soft);opacity:.75}
+pre.sample .ln:empty::before,pre.sample .ln.blank::before{content:"";counter-increment:none}
+
+.steps{counter-reset:step;display:grid;gap:.7rem;margin:.8rem 0 1.2rem}
+.step{position:relative;padding-left:3.2rem}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:1rem;top:1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:.8rem;display:grid;place-items:center}
+html[data-theme="dark"] .step::before{background:var(--green);color:#16200E}
+
+.timeline{border-left:2px solid var(--gold);margin:.8rem 0 1.4rem .4rem;padding-left:1.2rem}
+.ms{position:relative;padding:.5rem 0 .8rem}
+.ms::before{content:"";position:absolute;left:-1.62rem;top:.95rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--gold);border:2px solid var(--green)}
+.ms.now::before{background:var(--green)}
+.ms .when{font-family:var(--mono);font-size:.8rem;color:var(--burnt)}
+.ms h4{font-family:var(--serif);font-size:1.08rem;margin:.1rem 0 .2rem}
+.ms p{font-size:.92rem;margin:0}
+
+label.chk{display:flex;gap:.55rem;align-items:flex-start;padding:.25rem 0;font-size:.92rem;cursor:pointer}
+label.chk input{margin-top:.3rem;width:1rem;height:1rem;accent-color:var(--green);flex:none}
+.qlist{margin:.4rem 0;padding-left:1.3rem}
+.qlist li{margin-bottom:.45rem;font-size:.93rem}
+
+pre{background:var(--ink);color:var(--cream);padding:.8rem .9rem;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:.78rem;line-height:1.55;margin:.5rem 0;position:relative}
+html[data-theme="dark"] pre{background:#141C0F}
+.copyrow{display:flex;gap:.4rem;align-items:center;margin-top:.3rem}
+.status{font-size:.76rem;color:var(--green)}
+
+.tblwrap{overflow-x:auto;margin:.6rem 0 1rem;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:.6rem .7rem;border-top:1px solid var(--line)}
+thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;border-top:0}
+
+.cite{display:inline-block;font-size:.76rem;border:1px solid var(--line);border-radius:999px;padding:.02rem .5rem;text-decoration:none;color:var(--fg-soft);background:var(--paper);margin:.15rem .15rem 0 0}
+.cite:hover{border-color:var(--green);color:var(--green)}
+.refitem{padding:.6rem 0;border-bottom:1px solid var(--line)}
+.refitem .links a{font-size:.72rem;margin-right:.5rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+@media print{header.top,.pager,.copyrow{display:none}.phase{display:block!important;break-before:page}pre{white-space:pre-wrap}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<script type="text/markdown" id="md1">
+# Learner language: people vs AI
+
+Today you analyse two real learners — one writing, one speaking — the way a teacher would: find the errors, decide which matter most, and propose how to teach them. Then you give the same task to AI tools and compare. The question is not "who finds more errors?" but **"whose analysis would help this learner more — and why?"**
+
+<!--
+HOW TO EDIT
+  ## Title   kind: milestone (date = time slot) · section · card · step
+-->
+
+## The plan for today
+kind: section
+About three hours. Work in groups of 3–4 and keep one shared document for your notes.
+
+## Error analysis in a nutshell
+kind: milestone
+date: 0:00–0:15
+what: What counts as an error, why errors are useful, and the five steps you will follow.
+
+## Group analysis — writing and speaking
+kind: milestone
+date: 0:15–1:05
+what: Analyse both samples **without AI**. Identify, describe, explain and prioritise the errors; note what each learner does well.
+
+## Your teaching proposal
+kind: milestone
+date: 1:05–1:25
+what: Choose one priority per learner and propose a short teaching response.
+
+## Break
+kind: milestone
+date: 1:25–1:35
+
+## Ask the AI
+kind: milestone
+date: 1:35–2:15
+what: Run the same tasks in **Gemini first**, then in **Claude or ChatGPT**, with the free versions and the prompts provided. Finally, ask an AI to turn its teaching plan into an HTML web page.
+
+## Compare and report
+kind: milestone
+date: 2:15–2:55
+what: Compare your analysis, the two AI analyses and — for the speaking sample — the corpus annotators' own error tags. Report three findings to the class.
+
+## Wrap-up
+kind: milestone
+date: 2:55–3:00
+what: What would you trust AI to do for your future students' errors — and what would you never hand over?
+
+## Error analysis in a nutshell
+kind: section
+Corder's argument still frames this work: learners' errors are evidence of the system they are building, so they tell the teacher where the learner is, not only what went wrong.
+refs: corder1967
+
+## Error or mistake?
+kind: card
+An **error** comes from what the learner does not yet know — it tends to recur. A **mistake** is a slip the learner could correct if it were pointed out — it is often inconsistent. Look for evidence: does the same form appear correctly elsewhere in the sample? Did the learner correct herself?
+refs: corder1967
+
+## The five steps
+kind: card
+- **Identify:** mark each place where the learner's language differs from what the context needs.
+- **Describe:** say what kind of difference it is — grammar, word choice, spelling, punctuation, organisation, task requirement.
+- **Explain:** suggest *why* it might happen — but say "might". You cannot prove a cause from one text.
+- **Evaluate:** which errors block meaning (global) and which do not (local)? Which recur?
+- **Prioritise and teach:** pick what to work on first, and why.
+
+## Look beyond the sentence
+kind: card
+Teachers often catch what tools miss: Did the learner do **what the task asked**? Is the text **organised** for its genre? In speaking, did she **get her message across**, ask for help, or repair her own speech? Fillers and self-corrections are part of normal speech — not errors to correct.
+
+## Start with strengths
+kind: card
+Before listing problems, write down two things each learner does well. A teaching plan built only on errors usually aims at the wrong target — and real teachers have to give feedback a learner can bear to read.
+
+</script>
+<script type="text/markdown" id="md2">
+# Two real learners
+
+Both samples come from **public, anonymised learner corpora whose licences allow them to be shared** — which is why we can show them here and paste them into AI tools. Do **not** do this with your own students' work unless they have agreed.
+
+Read the task each learner was given before you read what they produced. An error is only an error relative to what the learner was trying to do.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: sample — fields, then a ```sample block (line-numbered, copyable)
+  The writing text must stay exactly as in PELIC (licence: no derivatives).
+-->
+
+## Sample A · Writing
+kind: sample
+badge: Problem/solution essay · first draft
+who: A learner whose first language is Chinese, in an upper-intermediate class (PELIC level 4; the corpus maps this to CEFR B1+/B2) in an intensive English program at the University of Pittsburgh, fall 2008. The class level is where she studied — not a diagnosis of this text.
+what: The assignment, as given to the class: *"Write the first draft of your problem/solution essay and submit it here. Use the essay plan on p.135 of your textbook to help you. Remember: each solution should have its own paragraph. Don't forget to include either one quotation OR one paraphrased sentence from an outside source."*
+note: 131 words. Reproduced exactly, including spacing and punctuation. Line numbers are added for reference and are not copied.
+```sample
+ Problem about sleep
+ We know sleep is most improtant for us.it will effects us in the whole day.As the news TV reported that 90percent person don't have a good sleep when they go to bed.and it also very difficult to enter the dream easilly.There are some solution I suggest you do.it will be a litter bit better for your sleep.
+ firstly,you should take a warm shower when you perparaed to go to bed.warm water will make you more relax.Then will easily alseep.Secondly,most of professor advise us read some novels before when go to bed.when you read so time.You eye will fell tired then you will sleep.lastly, You also can listen some light music to help you for sleep.
+There are some opinion about the sleep problem.Wish have a benifit for you..^.^
+```
+Source: PELIC, answer 22009, learner bf9 (Juffs, Han & Naismith, 2020). Licensed CC BY-NC-ND 4.0 — shown unchanged for non-commercial teaching.
+refs: pelic2020
+
+## Sample B · Speaking
+kind: sample
+badge: Oral interview · picture description and follow-up
+who: A Japanese adult learner of English, 51 at the time of the interview (2001), with one month's experience abroad. Rated **level 4 of 9** on the ACTFL-ALC Standard Speaking Test (SST).
+what: Stage 2 of a face-to-face speaking test. The learner describes a picture of a neighbourhood on a sunny Sunday morning, then answers follow-up questions about where she lives and whether she prefers the city or the countryside. The picture itself is not part of the public corpus.
+note: About 140 words from the learner. One line per speaking turn.
+```sample
+Interviewer: Now, I'm going to show you a picture. (.) (hm). (er) please describe this picture to me.
+(The interviewee is looking at the picture.)
+Learner: Yes. (err). (.) It's Sunday morning. (uum) (um) (..) (um). (.) It's sunny day, and (er) people in this town (.) were very relaxed. Th- (err) (.) {the} a girl {ski} is s- skipping in front of house. The boys are playing ball. The man is jogging on the street. And (err) {the housewives} two of housewives are chatting on the street. (uum). The cat is sleeping on the- {on the} on a roof of a car. And (uum) they feel comfortab- comfortable very much on sunny Sunday. (.)
+Interviewer: O K.
+Learner: [laughter]
+Interviewer: O K. Thank you very much. All right.
+Interviewer: So you said you live in Shimokitazawa.
+Learner: Yes.
+Interviewer: {Is your h} is your neighborhood similar to this picture?
+Learner: (uum) (uum). Shimokitazawa is very small town. And {many} there are (er) many {pe} (er) shops.
+Interviewer: (err).
+Learner: Yeah. So it isn't like the you know… [laughing].
+Interviewer: (uhu) I see. So, (er) which do you like better, living in a city or living in a countryside like this?
+Learner: (uum) (um). I like- I like to live in city
+Interviewer: (mh-hmm).
+Learner: more than live in countryside.
+Interviewer: (uhu).
+Learner: Because (uum) city {has (uum) much} st- stimulate
+Interviewer: (uhu).
+Learner: me.
+Interviewer: (uhu).
+Learner: And there are many information
+Interviewer: (uhu).
+Learner: to get me.
+Interviewer: (mh-hmm). What kind of information [inaudible] city?
+Learner: [laughter] (uum). (uh) cul- culture and politics, {or} and so on- so on. But, (uum) sometimes {I wa} I'd like to live countryside.
+Interviewer: (uhu).
+Learner: But sometimes. [laughter]
+Interviewer: [laughter] O K [laughing]. All right. Thank you very much, [name].
+```
+**How to read the transcript:** `(um)` filler or filled pause · `(.)` short pause, `(..)` longer pause · `word-` repeated or broken-off fragment · `{the}` the learner started this, then corrected herself and said what follows · `[laughter]` non-verbal sound · `…` unfinished sentence · `[name]` anonymised name.
+
+Source: NICT JLE Corpus v4.1, file00823.txt, stage 2 (Izumi, Uchimoto & Isahara, 2004). Adapted: the corpus mark-up is rewritten in simpler notation. Licensed CC BY-SA 3.0; this adaptation is shared under the same licence.
+refs: izumi2004
+
+## What these samples can and cannot tell you
+kind: card
+- **Two samples, one moment each.** You see what each learner did on one task, on one day — not everything she can do.
+- **Speech is not writing.** Fillers, repetitions and self-corrections are normal in speaking. They are not errors to "correct" — though they can tell you where she was working hard.
+- **This is a transcript, not a recording.** You cannot judge pronunciation or speed from it.
+- **Start with what each learner does well** before listing what goes wrong.
+
+</script>
+<script type="text/markdown" id="md3">
+# Group analysis — before any AI
+
+Do this part **without AI**, so you have your own analysis to compare against later. Split the work if you like — two people on writing, two on speaking — but agree the priorities together.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: step · card · checklist · questions · section
+-->
+
+## The analysis, step by step
+kind: section
+Use line numbers from **The learner data** page so everyone can find what you are talking about.
+
+## Read for meaning first
+kind: step
+do: Read each sample once without marking anything. What was the learner trying to say? Did she get the message across?
+check: Write one sentence per learner: *"She manages to … ."*
+
+## Mark strengths
+kind: step
+do: Note at least two things each learner does well — vocabulary, structure, organisation, getting her point across, repairing her own speech.
+
+## Identify and describe errors
+kind: step
+do: Fill in the analysis table below. One row per error. Use your own category names if ours do not fit.
+check: For the speaking sample, do **not** count fillers, repetitions or self-corrections as errors. If she corrected herself successfully, that is evidence of knowledge.
+
+## Look for patterns
+kind: step
+do: Group the rows. Which errors recur? Which block meaning? Which concern the task itself rather than the language?
+tip: For the writing sample, re-read the assignment. Did the learner do the two things it explicitly asked for?
+
+## Choose priorities
+kind: step
+do: Pick **one priority per learner** for the next lesson, and say why it comes first — frequency, effect on meaning, task demands, or how ready she seems to learn it.
+
+## Your analysis table
+kind: card
+Copy this table into your group document.
+
+| Line | What the learner wrote or said | Possible correction | Category | Global or local? | Recurs? |
+|---|---|---|---|---|---|
+| e.g. A2 | *it will effects us* | it will affect us / it affects us | verb form | local | check other lines |
+
+## Categories you might use
+kind: card
+- **Grammar:** articles, verb tense or form, subject–verb agreement, plurals, word order, missing subject
+- **Vocabulary:** word choice, word form (*relax / relaxed*), collocation, prepositions
+- **Mechanics (writing):** spelling, capital letters, punctuation, spacing
+- **Discourse and genre:** paragraphing, linking ideas, register, how the text is organised
+- **Task fulfilment:** did the learner do what the task asked?
+- **Interaction (speaking):** answering the question, keeping the conversation going, clarity of the message
+
+## Your teaching proposal
+kind: section
+For each learner, propose a short teaching response to your top priority. Keep it to what you could do in about 15 minutes of class time plus feedback.
+
+## Proposal frame
+kind: card
+- **Learner and priority:** which learner, which error pattern, which lines show it
+- **Goal:** what the learner will be able to do afterwards — observable
+- **Activity:** what the learner does, step by step (model → practice → use)
+- **Feedback:** what kind of feedback you will give, and when (see the two cards below)
+- **Check:** how you will know it worked — on new content, not the same sentences
+- **Theory:** one concept from the course that explains your choice (noticing, scaffolding, output…)
+
+## Feedback on writing
+kind: card
+Ellis's typology separates *how* written feedback is given. Choose on purpose:
+- **Direct:** you give the correct form.
+- **Indirect:** you show where an error is, but the learner corrects it.
+- **Metalinguistic:** a code or a short rule (*"art" = article missing*).
+- **Focused or unfocused:** correct one error type, or everything.
+refs: ellis2009
+
+## Feedback on speaking
+kind: card
+Lyster and Ranta classified teachers' oral corrective feedback in classrooms, and found that some types led to more learner *uptake* — learners repairing their own speech — than others:
+- **Recast:** you repeat the utterance correctly.
+- **Explicit correction:** you say it was wrong and give the right form.
+- **Elicitation, clarification request, metalinguistic clue, repetition:** you prompt the learner to correct herself.
+refs: lyster_ranta1997
+
+## Before you move on
+kind: checklist
+- Strengths noted for both learners
+- Analysis table filled for both samples, with line numbers
+- One priority per learner, with a reason
+- One teaching proposal per learner, using the proposal frame
+- Saved somewhere you can compare with the AI later
+
+</script>
+<script type="text/markdown" id="md4">
+# Ask the AI — same task, two tools
+
+Now give the AI the work you just did. Use the **free versions**: **Gemini first**, then **Claude or ChatGPT**. Send exactly the same prompts to both, so the comparison is fair.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: step · prompt (fenced ``` block) · card · checklist
+-->
+
+## Ground rules
+kind: card
+- **Finish your own analysis first.** If you read the AI's answer first, you will start agreeing with it.
+- **A new chat for each sample**, so the writing and speaking analyses do not mix.
+- **Same prompt, both tools.** Do not improve the prompt for the second tool — that changes the comparison.
+- **Save everything:** tool, the model name the screen shows, the date, your prompt, and the full answer. Paste them into your group document.
+- **Free plans have limits.** One person in the group runs each tool, and avoid asking it to "try again" over and over.
+- These two samples come from openly licensed, anonymised corpora, so pasting them is allowed. **Never paste your own students' work** into a free AI tool without their agreement.
+
+## The order
+kind: section
+
+## Gemini
+kind: step
+do: Open gemini.google.com with your Google account. Start a new chat. Send Prompt 1 for the writing sample. In a new chat, send Prompt 1 for the speaking sample. Then send Prompt 2 in each chat.
+
+## Claude or ChatGPT
+kind: step
+do: Choose one: claude.ai or chatgpt.com. Repeat exactly what you did in Gemini — same prompts, same order, new chats.
+
+## The web page
+kind: step
+do: Choose the teaching plan your group thinks is stronger, go back to that tool, and send Prompt 3. It asks the AI to turn its own plan into an interactive HTML page.
+check: Open the page and use it as the learner would — give a right answer, a wrong answer and no answer.
+
+## How to see the HTML page
+kind: card
+- **Gemini:** choose **Canvas** below the text box before sending Prompt 3, then open **Preview**. If you see no preview, ask for "one single HTML file" and use the ChatGPT method below.
+- **Claude:** in **Settings → Capabilities**, turn on **Cloud code execution and file creation**. The page then appears as an artifact beside the chat.
+- **ChatGPT (or any tool without a preview):** copy the whole code block → paste it into a plain-text editor (Notepad, or TextEdit set to plain text) → save it as `lesson.html` → open the file in Chrome.
+
+## The prompts
+kind: section
+Use the **Copy** buttons on **The learner data** page to copy each sample exactly. Replace the parts in [square brackets].
+
+## Prompt 1 · Writing analysis
+kind: prompt
+```text
+You are an experienced EFL writing teacher. Analyse the learner text below.
+
+About the learner: first language Chinese; upper-intermediate English class (about CEFR B1+/B2) in a university intensive English program.
+The assignment she was given: "Write the first draft of your problem/solution essay and submit it here. Use the essay plan on p.135 of your textbook to help you. Remember: each solution should have its own paragraph. Don't forget to include either one quotation OR one paraphrased sentence from an outside source."
+
+Learner text (line numbers in my copy start at 1 with the title "Problem about sleep"):
+[PASTE SAMPLE A HERE]
+
+Please give:
+1. Two or three things the learner does well.
+2. A table of errors with columns: line number | what she wrote | a possible correction | category | global or local (does it block meaning?) | short explanation.
+3. Patterns: which errors recur?
+4. Task fulfilment: did she do what the assignment asked? Be specific.
+5. The two most important priorities for her next lesson, with reasons.
+6. Anything you are unsure about.
+Do not rewrite the whole text.
+```
+
+## Prompt 1 · Speaking analysis
+kind: prompt
+```text
+You are an experienced EFL speaking teacher. Analyse the learner's speech in the interview transcript below.
+
+About the learner: Japanese adult learner, rated level 4 of 9 on the ACTFL-ALC Standard Speaking Test. Task: describe a picture of a neighbourhood on a sunny Sunday morning, then answer follow-up questions. The picture is not available.
+
+Transcript notation: (um) = filler; (.) and (..) = pauses; word- = repeated or broken-off fragment; {the} = the learner started this, then corrected herself and said what follows; [laughter] = non-verbal sound; … = unfinished sentence. Analyse only the lines starting "Learner:". Lines are numbered from 1 in my copy.
+
+[PASTE SAMPLE B HERE]
+
+Please give:
+1. Two or three things the learner does well as a speaker.
+2. A table of errors with columns: line number | what she said | a possible correction | category | global or local | short explanation.
+3. Patterns: which errors recur?
+4. The two most important priorities for her next lesson, with reasons.
+5. Anything you are unsure about.
+This is spoken language: do not treat fillers, pauses, repetitions or self-corrections as errors. You only have a transcript, so make no claims about pronunciation.
+```
+
+## Prompt 2 · Teaching plan
+kind: prompt
+Send this in the same chat, after Prompt 1.
+```text
+Based on your analysis, choose ONE priority for this learner and design a 15-minute teaching response for a small class of similar learners.
+Include:
+1. The goal — what the learner will be able to do afterwards.
+2. The activity, step by step: a short model or explanation, guided practice, then a task where she uses the language more freely.
+3. The type of feedback you will give and why (for example recast, elicitation, direct or indirect correction).
+4. How you will check, with new content, whether it worked.
+5. One learning theory or research finding that supports your design. Name the author and year only if you are sure the source exists; otherwise describe the idea without a citation.
+```
+
+## Prompt 3 · Turn the plan into a web page
+kind: prompt
+Send this in the chat whose teaching plan your group chose.
+```text
+Turn your teaching plan into a single, self-contained interactive HTML page that the learner can use on her own.
+The page should include:
+1. A short title and the learning goal in learner-friendly English.
+2. A mini-lesson: a clear explanation with 2–3 new example sentences (not her original sentences).
+3. Practice items (5–8) with immediate feedback that explains why an answer is right or wrong, and an optional hint before the answer.
+4. A final task with new content and no hints.
+5. A short "For the teacher" section at the bottom with the answer key.
+Requirements: one HTML file; no external libraries, images or links; no AI features; no collection or storage of learner data; large readable text; works with keyboard only; does not rely on colour alone.
+After the code, list the steps you used to check that every answer key is correct.
+```
+
+## Optional · Ask the AI to audit itself
+kind: prompt
+```text
+Look back at your error table. Which of your identified "errors" could be acceptable English in this context? Which of your explanations about why she made the error are guesses? Which important problem might you have missed? Answer honestly and briefly.
+```
+
+## Record as you go
+kind: card
+Copy this table into your group document and fill one row per tool.
+
+| | Gemini | Claude or ChatGPT |
+|---|---|---|
+| Model name shown on screen, date | | |
+| Errors it found that we missed | | |
+| Things it called errors that are not | | |
+| Did it notice the task requirements (writing)? | | |
+| Did it treat fillers or self-corrections as errors (speaking)? | | |
+| Its priorities | | |
+| Quality of its teaching plan | | |
+| Did the HTML page work? Any wrong answer keys? | | |
+
+</script>
+<script type="text/markdown" id="md5">
+# Compare: your group, two AIs — and the corpus annotators
+
+You now have up to four analyses of the same learner language: yours, Gemini's, Claude's or ChatGPT's, and — for the speaking sample — the error tags the corpus team added. None of them is automatically right. Compare them as evidence.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: questions · reveal (click to open) · card · checklist
+-->
+
+## Compare the error analyses
+kind: questions
+- Which errors did **everyone** find? Which did **only one** of you find?
+- Did either AI call something an error that is actually acceptable English here?
+- **Writing:** did the AIs notice that the assignment asked for one paragraph per solution and a quotation or paraphrase from an outside source?
+- **Speaking:** did the AIs treat fillers, repetitions or self-corrections as errors, or make claims about pronunciation they could not hear?
+- Did anyone explain an error by the learner's first language? What evidence was there?
+- Whose categories were most useful for teaching — not just the most detailed?
+
+## Compare the priorities and teaching plans
+kind: questions
+- Did the two AIs choose the same priorities as you? If not, whose reason is better?
+- Is each teaching plan written for *this* learner, or would it fit any learner?
+- Is the feedback type chosen on purpose, with a reason?
+- Does each plan check learning with **new** content?
+- Did the AI cite a theory or study? **Check that the source exists** — as you did in Week 2.
+
+## Test the HTML page
+kind: questions
+- Does it work? Try a right answer, a wrong answer and no answer.
+- Are all the answer keys correct?
+- Does it practise the priority the plan chose — or something easier to build?
+- Could this learner use it on her own? What would you change before giving it to a student?
+
+## The corpus annotators' tags · speaking
+kind: reveal
+Open this **only after** your group and the two AIs have finished. The NICT JLE team tagged 20 errors in this part of the interview. Line numbers match Sample B.
+
+| Line | What she said | Annotators' correction | Error type |
+|---|---|---|---|
+| B3 | It's sunny day | It's **a** sunny day | article |
+| B3 | people in this town were very relaxed | … **are** very relaxed | verb tense |
+| B3 | in front of house | in front of **a** house | article |
+| B3 | The boys are playing ball | … playing **with a** ball | preposition, article |
+| B3 | two of housewives | **two housewives** | noun phrase |
+| B3 | they feel comfortable very much | they feel **very comfortable** | adverb choice and position |
+| B10 | Shimokitazawa is very small town | … is **a** very small town | article |
+| B14 | I like to live in city | … in **a** city | article |
+| B16 | more than live in countryside | more than **to live** in **a** countryside | verb form, article |
+| B18 | city … stimulate me | **a** city **stimulates** me | article, subject–verb agreement |
+| B22 | there are many information | there **is much** information | agreement, quantifier |
+| B24 | (many information) to get me | … **for me to get** | word order, preposition |
+| B26 | I'd like to live countryside | … live **in a** countryside | preposition, article |
+
+**Discuss before you accept it:** eight of the twenty tags are articles. The annotators wrote *a countryside* where most speakers would say *the countryside*, and left *on a roof of a car* and *on sunny Sunday* untagged. Expert annotation is careful — and it is still one reading.
+refs: izumi2004
+
+## Points worth checking · writing
+kind: reveal
+There is no official annotation for Sample A. These are points a teacher would check — a starting point for discussion, not an answer key.
+- **Task fulfilment:** all three solutions sit in one paragraph (A3), although the assignment asked for one paragraph per solution. "As the news TV reported…" (A2) gestures at a source without naming one, so the outside-source requirement is not really met.
+- **Sentence boundaries and capitals:** sentences often begin without a capital letter after a full stop (A2, A3), and there is often no space after punctuation.
+- **Spelling:** *improtant, easilly, perparaed, alseep, benifit, litter* (for *little*), *fell* (for *feel*).
+- **Verb forms and patterns:** *it will effects us*; *advise us read*; *listen some light music*; *help you for sleep*; *make you more relax*.
+- **Missing subjects and fragments:** *Then will easily alseep*; *when you read so time*.
+- **Number and quantity:** *90percent person*; *some solution*; *some opinion*.
+- **Register:** the closing emoticon *^.^* is informal for an essay.
+- **Strengths:** a clear problem–solution structure with sequencing words (*firstly, secondly, lastly*), three sensible solutions, and a reason given for each.
+
+## Report to the class
+kind: card
+Prepare **one slide or one page** for a 3-minute report:
+- **Three similarities** between your analysis and the AI analyses
+- **Three differences** that matter for teaching
+- **One decision:** *"We would use AI for … , but not for … ."*
+
+## Before you leave
+kind: checklist
+- Our analysis, both AI analyses and the HTML page are saved in the group document
+- We compared them with the questions above
+- One-slide report ready
+- Each of us has one sentence for the portfolio: what this comparison taught me about AI and learner language
+
+</script>
+<script type="text/markdown" id="mdr">
+# Sources
+
+The two learner samples come from openly licensed, anonymised corpora; their licences are stated below. Every scholarly reference was checked against its publisher or registry record.
+
+<!-- ## id + apa/doi (or url) = a reference; other ## blocks render as cards -->
+
+## Learner data and licences
+kind: card
+- **Sample A** — PELIC, answer 22009 (learner bf9). [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/): shown unchanged, for non-commercial teaching, with attribution. [PELIC repository](https://github.com/ELI-Data-Mining-Group/PELIC-dataset)
+- **Sample B** — NICT JLE Corpus v4.1, file00823.txt, stage 2. [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/): adapted (mark-up rewritten in simpler notation); the adaptation is shared under the same licence. [NICT JLE Corpus](https://alaginrc.nict.go.jp/nict_jle/index_E.html)
+- The error tags shown on the **Compare** page are the NICT JLE team's own annotation of the same file (LearnerErrortagged/E_file00823.txt).
+
+## AI tools used today
+kind: card
+- [Gemini](https://gemini.google.com/) · [Canvas help](https://support.google.com/gemini/answer/16047321?hl=en)
+- [Claude](https://claude.ai/) · [Artifacts help](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them)
+- [ChatGPT](https://chatgpt.com/)
+
+## corder1967
+apa: Corder, S. P. (1967). The significance of learner's errors. *IRAL — International Review of Applied Linguistics in Language Teaching, 5*(1–4), 161–170.
+doi: 10.1515/iral.1967.5.1-4.161
+
+## ellis2009
+apa: Ellis, R. (2009). A typology of written corrective feedback types. *ELT Journal, 63*(2), 97–107.
+doi: 10.1093/elt/ccn023
+
+## izumi2004
+apa: Izumi, E., Uchimoto, K., & Isahara, H. (2004). The NICT JLE Corpus: Exploiting the language learners' speech database for research and education. *International Journal of the Computer, the Internet and Management, 12*(2), 119–125.
+url: https://alaginrc.nict.go.jp/nict_jle/index_E.html
+
+## lyster_ranta1997
+apa: Lyster, R., & Ranta, L. (1997). Corrective feedback and learner uptake: Negotiation of form in communicative classrooms. *Studies in Second Language Acquisition, 19*(1), 37–66.
+doi: 10.1017/S0272263197001034
+
+## pelic2020
+apa: Juffs, A., Han, N.-R., & Naismith, B. (2020). *The University of Pittsburgh English Language Institute Corpus (PELIC)* (Version 1.0) [Data set]. Zenodo.
+doi: 10.5281/zenodo.3991977
+
+</script>
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="who" id="who"></div>
+      <div class="top-links" id="topLinks"></div>
+    </div>
+    <nav class="phases" id="nav" aria-label="Sections"></nav>
+  </div>
+</header>
+<main class="wrap" id="main" tabindex="-1">
+  <div id="loadWarn"></div>
+  <div id="phases"></div>
+</main>
+<footer class="wrap" id="foot"></footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ── markdown ── */
+function inline(s){
+  let t=esc(s);
+  t=t.replace(/`([^`]+)`/g,(m,a)=>"<code>"+a+"</code>");
+  t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  t=t.replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+  return t;
+}
+function md(src){
+  if(!src) return "";
+  const L=String(src).replace(/\r\n?/g,"\n").split("\n");
+  let out="",list=null,para=[],code=null,table=false,lang="",started=false;
+  const fp=()=>{if(para.length){out+="<p>"+inline(para.join(" "))+"</p>";para=[]}};
+  const cl=()=>{if(list){out+="</"+list+">";list=null}};
+  const ct=()=>{if(table){out+="</tbody></table></div>";table=false}};
+  for(const line of L){
+    if(code!==null){ if(/^```/.test(line)){
+        const pre=lang==="sample"
+          ? '<pre class="sample">'+code.split("\n").map((l,i,a)=>'<span class="ln'+(l.trim()?'':' blank')+(/^(Interviewer:|\()/.test(l)?' muted-line':'')+'">'+esc(l)+(i<a.length-1?"\n":"")+"</span>").join("")+"</pre>"
+          : "<pre>"+esc(code)+"</pre>";
+        out+=pre+'<div class="copyrow"><button class="pill" data-copypre>Copy</button><span class="status"></span></div>';code=null
+      } else code+=(code===""&&!started?"":"\n")+line, started=true; continue; }
+    if(/^```/.test(line)){fp();cl();ct();code="";started=false;lang=line.slice(3).trim();continue}
+    if(/^\s*\|/.test(line)){
+      fp();cl();
+      if(/^[\s|:\-]+$/.test(line)) continue;
+      const cells=line.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c=>c.trim());
+      if(!table){out+='<div class="tblwrap"><table><thead><tr>'+cells.map(c=>"<th>"+inline(c)+"</th>").join("")+"</tr></thead><tbody>";table=true}
+      else out+="<tr>"+cells.map(c=>"<td>"+inline(c)+"</td>").join("")+"</tr>";
+      continue;
+    }
+    ct();
+    if(!line.trim()){fp();cl();continue}
+    let m;
+    if((m=line.match(/^(#{1,6})\s+(.*)$/))){fp();cl();const n=Math.min(m[1].length+2,6);out+="<h"+n+">"+inline(m[2])+"</h"+n+">";continue}
+    if((m=line.match(/^>\s?(.*)$/))){fp();cl();out+='<div class="card kind-note">'+inline(m[1])+"</div>";continue}
+    if((m=line.match(/^\s*[-*]\s+(.*)$/))){fp();if(list!=="ul"){cl();out+="<ul>";list="ul"}out+="<li>"+inline(m[1])+"</li>";continue}
+    if((m=line.match(/^\s*\d+[.)]\s+(.*)$/))){fp();if(list!=="ol"){cl();out+="<ol>";list="ol"}out+="<li>"+inline(m[1])+"</li>";continue}
+    para.push(line.trim());
+  }
+  fp();cl();ct();
+  if(code!==null) out+="<pre>"+esc(code)+"</pre>";
+  return out;
+}
+/* ## blocks with "key: value" fields; a field with no value collects the "- " lines below it */
+function parseDoc(src){
+  const clean=String(src).replace(/<!--[\s\S]*?-->/g,"").replace(/\r\n?/g,"\n");
+  const parts=clean.split(/^##\s+/m);
+  const head=parts.shift()||"";
+  const title=(head.match(/^#\s+(.*)$/m)||[])[1]||"";
+  const intro=head.replace(/^#\s+.*$/m,"").trim();
+  const items=parts.map(block=>{
+    const nl=block.indexOf("\n");
+    const t=(nl<0?block:block.slice(0,nl)).trim();
+    const rest=nl<0?"":block.slice(nl+1);
+    const f={},bullets=[],body=[];let cur=null,inCode=false;
+    for(const line of rest.split("\n")){
+      if(/^```/.test(line)){inCode=!inCode;body.push(line);cur=null;continue}
+      if(inCode){body.push(line);continue}
+      const m=line.match(/^([a-z][a-z0-9_]*):[ \t]*(.*)$/);
+      if(m){const k=m[1],v=m[2].trim();if(v){f[k]=v;cur=null}else{f[k]=[];cur=k}continue}
+      const b=line.match(/^\s*[-*]\s+(.*)$/);
+      if(b){ if(cur) f[cur].push(b[1].trim()); else bullets.push(b[1].trim()); continue; }
+      if(!line.trim()){cur=null;body.push(line);continue}
+      cur=null;body.push(line);
+    }
+    return {title:t,f,bullets,body:body.join("\n").trim()};
+  });
+  return {title,intro,items};
+}
+const list=v=>Array.isArray(v)?v:(v?String(v).split("|").map(s=>s.trim()).filter(Boolean):[]);
+
+/* ── references ── */
+const REFS={};
+function shortCite(apa){
+  const m=String(apa).match(/^(.+?)\s*\((\d{4})/); if(!m) return String(apa).slice(0,26);
+  const a=m[1],y=m[2],first=a.split(",")[0].trim();
+  const n=Math.max(1,Math.round(((a.match(/,/g)||[]).length+1)/2));
+  if(n>=3) return first+" et al. ("+y+")";
+  if(n===2) return first+" & "+((a.split("&")[1]||"").trim().split(",")[0].trim())+" ("+y+")";
+  return first+" ("+y+")";
+}
+function chips(ids){
+  return list(ids).map(id=>{const r=REFS[id];
+    if(!r) return '<span class="cite">'+esc(id)+"</span>";
+    const href=r.doi?"https://doi.org/"+r.doi:(r.url||"#ref-"+id);
+    return '<a class="cite" href="'+href+'" target="_blank" rel="noopener" title="'+esc(r.apa.replace(/\*/g,""))+'">'+esc(r.short)+"</a>";
+  }).join("");
+}
+
+/* ── items ── */
+const LABELS={who:"The learner",when:"When",what:"The task",why:"Why it matters",how:"How",best:"Best for",start:"How to start",limit:"Watch out",access:"Access and age",do:"Do this",check:"Check",tip:"Tip",theory:"Theory",design:"Design decision",ask:"Ask",example:"Example",avoid:"Avoid",evidence:"Evidence",output:"You leave with",time:"Time",note:"Note",feedback:"Feedback type"};
+const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id"]);
+function fieldsHtml(f){
+  return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
+    const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
+    const html=Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v);
+    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+html+"</div>";
+  }).join("");
+}
+let checkIndex=0;
+function itemHtml(it,ctx){
+  const k=it.f.kind||"card";
+  if(k==="section") return '<h3 class="sec">'+esc(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
+  if(k==="reveal"){
+    return '<details class="card kind-reveal"><summary><h4>'+esc(it.title)+"</h4></summary>"+md(it.body)+fieldsHtml(it.f)+
+      (it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+
+      (it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</details>";
+  }
+  if(k==="milestone"){
+    return '<div class="ms'+(it.f.now==="yes"?" now":"")+'"><div class="when">'+esc(it.f.date||"")+"</div><h4>"+esc(it.title)+"</h4>"+(it.f.what?"<p>"+inline(it.f.what)+"</p>":"")+md(it.body)+"</div>";
+  }
+  let inner="";
+  if(it.f.badge) inner+='<span class="badge">'+esc(it.f.badge)+"</span>";
+  inner+="<h4>"+esc(it.title)+"</h4>";
+  /* lead text first, then labelled fields — except samples, where the context comes before the text */
+  if(k==="sample"){ inner+=fieldsHtml(it.f)+md(it.body); } else { inner+=md(it.body); inner+=fieldsHtml(it.f); }
+  if(k==="checklist"){
+    const st=store.get(CONFIG.storeKey+"-chk",{});
+    inner+=it.bullets.map(b=>{const id="c"+(checkIndex++);return '<label class="chk"><input type="checkbox" data-chk="'+id+'"'+(st[id]?" checked":"")+"><span>"+inline(b)+"</span></label>"}).join("");
+  }else if(k==="questions"){
+    inner+='<ol class="qlist">'+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ol>";
+    inner+='<div class="copyrow"><button class="pill" data-copyq>Copy these questions</button><span class="status"></span></div>';
+  }else if(it.bullets.length){
+    inner+="<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>";
+  }
+  if(it.f.link) inner+='<p style="margin:.6rem 0 0">'+inline(it.f.link)+"</p>";
+  if(it.f.refs) inner+='<div style="margin-top:.5rem">'+chips(it.f.refs)+"</div>";
+  return '<article class="card kind-'+k+(k==="step"?" step":"")+'">'+inner+"</article>";
+}
+function renderItems(items){
+  let out="",group=null,buf=[];
+  const flush=()=>{ if(!buf.length) return;
+    const k=group, cls=k==="step"?"steps":k==="milestone"?"timeline":"grid"+(["prompt","wide"].includes(k)?" wide":"");
+    out+='<div class="'+cls+'">'+buf.join("")+"</div>"; buf=[]; };
+  for(const it of items){
+    const k=it.f.kind||"card";
+    if(k==="section"){flush();group=null;out+=itemHtml(it);continue}
+    const g=(it.f.wide==="yes"||k==="prompt"||k==="sample"||k==="reveal")?"wide":(k==="step"||k==="milestone"?k:"grid");
+    if(g!==group){flush();group=g}
+    buf.push(itemHtml(it));
+  }
+  flush(); return out;
+}
+
+/* ── page ── */
+$("#who").innerHTML=esc(CONFIG.instructor)+"<span>"+esc(CONFIG.course)+" · "+esc(CONFIG.title)+"</span>";
+$("#topLinks").innerHTML=CONFIG.links.map(([t,u])=>'<a class="pill" href="'+u+'">'+esc(t)+"</a>").join("")+'<button class="pill" id="theme">Dark</button>';
+$("#foot").textContent=CONFIG.instructor+" · "+CONFIG.course+" · Text lives in content/*.md. Ticks and copied text stay in your browser.";
+$("#nav").innerHTML=CONFIG.pages.map(([k,t],i)=>'<button class="ph" data-go="'+k+'" aria-current="'+(i===0)+'"><b>'+(k==="r"?"·":"0"+k)+"</b>"+esc(t)+"</button>").join("");
+function applyTheme(t){document.documentElement.dataset.theme=t;$("#theme").textContent=t==="dark"?"Light":"Dark";store.set("course-theme",t)}
+applyTheme(store.get("course-theme","light"));
+$("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+function go(k,scroll){
+  $$(".phase").forEach(p=>p.classList.toggle("on",p.id==="p-"+k));
+  $$(".ph").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===String(k))));
+  if(scroll!==false){ window.scrollTo({top:0,behavior:"instant"}); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"instant"})); }
+}
+function fromHash(){const m=location.hash.match(/^#p-([0-9r]+)$/);return m&&CONFIG.pages.some(p=>p[0]===m[1])?m[1]:CONFIG.pages[0][0]}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]");
+  if(b){const k=b.dataset.go; if(location.hash==="#p-"+k) go(k); else location.hash="p-"+k; return;}
+  const cp=e.target.closest("[data-copypre],[data-copyq]");
+  if(cp){
+    const text=cp.hasAttribute("data-copypre")?cp.closest(".copyrow").previousElementSibling.textContent
+      :[...cp.closest(".card").querySelectorAll(".qlist li")].map((li,i)=>(i+1)+". "+li.textContent).join("\n");
+    const st=cp.nextElementSibling;
+    (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>st.textContent="Copied.")
+      .catch(()=>{st.textContent="Select the text and copy it manually."});
+  }
+});
+window.addEventListener("hashchange",()=>go(fromHash()));
+document.addEventListener("change",e=>{
+  const c=e.target.closest("[data-chk]"); if(!c) return;
+  const st=store.get(CONFIG.storeKey+"-chk",{}); st[c.dataset.chk]=c.checked; store.set(CONFIG.storeKey+"-chk",st);
+});
+
+async function load(){
+  const texts={};
+  await Promise.all(CONFIG.pages.map(async([k])=>{
+    const emb=document.getElementById("md"+k); if(emb){texts[k]=emb.textContent;return}
+    try{
+      const path=k==="r"?"content/refs.md":window.CONTENT_FILES[k];
+      const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw 0; texts[k]=await r.text();
+    }catch(e){texts[k]=null}
+  }));
+  if(Object.values(texts).every(t=>t==null)){
+    $("#loadWarn").innerHTML='<div class="banner"><strong>The content did not load.</strong> Browsers block <code>content/*.md</code> when this file is opened from disk. Use the web address, the standalone file, or run <code>python3 -m http.server</code> in this folder.</div>';
+    return;
+  }
+  const refsDoc=parseDoc(texts.r||"");
+  refsDoc.items.forEach(it=>{ if(it.f.apa) REFS[it.title]={apa:it.f.apa,doi:it.f.doi||"",url:it.f.url||"",short:shortCite(it.f.apa)}; });
+  $("#phases").innerHTML=CONFIG.pages.map(([k,label],i)=>{
+    const d=parseDoc(texts[k]||"");
+    let body;
+    if(k==="r"){
+      const refs=d.items.filter(x=>x.f.apa).sort((a,b)=>a.f.apa.localeCompare(b.f.apa));
+      body=md(d.intro)+renderItems(d.items.filter(x=>!x.f.apa))+(refs.length?'<h3 class="sec">References</h3>'+refs.map(x=>
+        '<div class="refitem" id="ref-'+esc(x.title)+'">'+inline(x.f.apa)+'<div class="links">'+
+        (x.f.doi?'<a href="https://doi.org/'+esc(x.f.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':"")+
+        (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
+        '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
+    }else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
+    return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
+      '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
+      (next?'<button class="pill" data-go="'+next[0]+'">'+esc(next[1])+" →</button>":"<span></span>")+"</div></section>";
+  }).join("");
+  go(fromHash(), !!location.hash);
+}
+</script>
+<script>
+/* file names per page key — keep in step with content/ */
+window.CONTENT_FILES={
+  "1":"content/01-today.md",
+  "2":"content/02-data.md",
+  "3":"content/03-analyse.md",
+  "4":"content/04-ai.md",
+  "5":"content/05-compare.md"
+};
+load();
+</script>
+</body>
+</html>

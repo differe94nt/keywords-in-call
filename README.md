@@ -14,6 +14,7 @@ seminar/
       04-map.md           the semester map
       refs.md             core and further readings, with publication links
   0930/                   week 4 — learner analysis and differentiation
+  1021/                   week 7 — learner language: group vs AI error analysis
   final/                  final project and portfolio guide (both tracks, pitch session)
   ai-tools/               AI materials studio: tools, Gemini Notebook manual, prompts, issues
     index.html            five phases, profile flip cards, homework source guides, worksheet export

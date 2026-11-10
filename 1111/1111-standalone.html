@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAEFD0">
+<title>Four skills, one activity · 11/11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ════════ SETTINGS — the only block to edit; text lives in content/*.md ════════ -->
+<script>
+const CONFIG = {
+  instructor: "王伯雅 Po-Ya Angela Wang",
+  course: "英語數位教材與教學",
+  title: "Week 10 · 11/11 · Four skills, one activity",
+  kicker: "11/11 · Four skills",
+  storeKey: "w10-1111",
+  pages: [["1","Start"],["2","Listening"],["3","Speaking"],["4","Reading"],["5","Writing"],["6","Build with AI"],["7","Present & reflect"],["r","Sources"]],
+  links: [["10/21 · Learner language","../1021/"],["Final project","../final/"],["AI studio","../ai-tools/"]]
+};
+</script>
+
+<style>
+:root{
+  --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
+  --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
+  --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77; --blue-soft:#DCE9EC;
+  --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
+  --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
+  --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
+  --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD; --blue-soft:#22343A;
+  --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+h4{font-family:var(--sans);font-weight:600;margin:0;font-size:1rem}
+p{margin:0 0 .75em}
+a{color:var(--green);text-underline-offset:2px;overflow-wrap:anywhere}
+button,input{font:inherit;color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--tint);padding:.1em .35em;border-radius:5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.muted{color:var(--fg-soft)} .small{font-size:.84rem}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 0}
+.who{font-family:var(--serif);font-size:1.02rem;font-weight:600}
+.who span{display:block;font-family:var(--sans);font-size:.75rem;color:var(--fg-soft);font-weight:400}
+.top-links{margin-left:auto;display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+.pill{background:none;border:1px solid var(--line-2);border-radius:999px;padding:.2rem .65rem;font-size:.76rem;color:var(--fg);text-decoration:none;cursor:pointer;display:inline-block}
+.pill:hover{background:var(--tint)}
+nav.phases{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.45rem}
+.ph{display:flex;gap:.45rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
+.ph b{font-family:var(--mono);font-size:.72rem;color:var(--burnt)}
+.ph:hover{background:var(--tint);color:var(--fg)}
+.ph[aria-current="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .ph[aria-current="true"]{background:var(--green);color:#16200E}
+.ph[aria-current="true"] b{color:var(--gold)}
+
+main{padding:1.6rem 0 4rem}
+.phase{display:none}.phase.on{display:block}
+.kicker{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em;text-transform:uppercase}
+.phase>h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:.15rem 0 .7rem}
+.intro{max-width:72ch}
+.intro ul,.intro ol{padding-left:1.2rem}
+h3.sec{font-size:1.3rem;margin:2rem 0 .3rem}
+.sec-body{max-width:72ch;color:var(--fg-soft);margin-bottom:.8rem}
+.sec-body .tblwrap{max-width:none;color:var(--fg)}
+.sec-body:has(.tblwrap){max-width:none}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:.9rem;margin:.8rem 0 1.2rem}
+.grid.wide{grid-template-columns:1fr}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;min-width:0}
+.card h4{font-family:var(--serif);font-size:1.12rem;margin-bottom:.35rem}
+.card .badge{display:inline-block;font-size:.7rem;border:1px solid var(--line-2);border-radius:999px;padding:.03rem .5rem;color:var(--fg-soft);margin-bottom:.4rem}
+.card p,.card li{font-size:.92rem}
+.card ul,.card ol{margin:.35rem 0 .2rem;padding-left:1.15rem}
+.card li{margin-bottom:.28rem}
+.field{margin:.35rem 0}
+.field .flabel{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);display:block;font-weight:600}
+.kind-tool{border-top:4px solid var(--blue)}
+.kind-issue{border-left:4px solid var(--burnt)}
+.kind-theory{border-top:4px solid var(--gold)}
+.kind-track{border-top:4px solid var(--green)}
+.kind-prompt{border-top:4px solid var(--blue)}
+.kind-questions{border-left:4px solid var(--green)}
+.kind-checklist{border-left:4px solid var(--gold)}
+.kind-note{background:var(--gold-soft);border-color:transparent}
+.kind-sample{border-top:4px solid var(--green)}
+.kind-paper{border-top:4px solid var(--blue)}
+.grid:has(.kind-paper),.grid:has(.kind-activity){grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+.kind-activity{border-top:4px solid var(--gold)}
+.badge.b-classic{background:var(--blue-soft);border-color:var(--blue);color:var(--blue);font-weight:600}
+.badge.b-recent{background:var(--green-soft);border-color:var(--green);color:var(--green);font-weight:600}
+.kind-reveal{border-left:4px solid var(--burnt)}
+.kind-reveal summary{cursor:pointer;list-style:none}
+.kind-reveal summary::-webkit-details-marker{display:none}
+.kind-reveal summary h4::after{content:"  ▸ click to reveal";font-family:var(--sans);font-size:.75rem;color:var(--burnt);font-weight:500}
+.kind-reveal[open] summary h4::after{content:"  ▾"}
+pre.sample{counter-reset:ln;background:var(--paper);color:var(--fg);border:1px solid var(--line);font-size:.86rem;line-height:1.7}
+pre.sample .ln{display:block;position:relative;padding-left:2.7em}
+pre.sample .ln::before{counter-increment:ln;content:counter(ln);position:absolute;left:0;width:2em;text-align:right;color:var(--burnt);font-size:.72rem}
+pre.sample .ln.muted-line{color:var(--fg-soft);opacity:.75}
+pre.sample .ln:empty::before,pre.sample .ln.blank::before{content:"";counter-increment:none}
+
+.steps{counter-reset:step;display:grid;gap:.7rem;margin:.8rem 0 1.2rem}
+.step{position:relative;padding-left:3.2rem}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:1rem;top:1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:.8rem;display:grid;place-items:center}
+html[data-theme="dark"] .step::before{background:var(--green);color:#16200E}
+
+.timeline{border-left:2px solid var(--gold);margin:.8rem 0 1.4rem .4rem;padding-left:1.2rem}
+.ms{position:relative;padding:.5rem 0 .8rem}
+.ms::before{content:"";position:absolute;left:-1.62rem;top:.95rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--gold);border:2px solid var(--green)}
+.ms.now::before{background:var(--green)}
+.ms .when{font-family:var(--mono);font-size:.8rem;color:var(--burnt)}
+.ms h4{font-family:var(--serif);font-size:1.08rem;margin:.1rem 0 .2rem}
+.ms p{font-size:.92rem;margin:0}
+
+label.chk{display:flex;gap:.55rem;align-items:flex-start;padding:.25rem 0;font-size:.92rem;cursor:pointer}
+label.chk input{margin-top:.3rem;width:1rem;height:1rem;accent-color:var(--green);flex:none}
+.qlist{margin:.4rem 0;padding-left:1.3rem}
+.qlist li{margin-bottom:.45rem;font-size:.93rem}
+
+pre{background:var(--ink);color:var(--cream);padding:.8rem .9rem;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:.78rem;line-height:1.55;margin:.5rem 0;position:relative}
+html[data-theme="dark"] pre{background:#141C0F}
+.copyrow{display:flex;gap:.4rem;align-items:center;margin-top:.3rem}
+.status{font-size:.76rem;color:var(--green)}
+
+.tblwrap{overflow-x:auto;margin:.6rem 0 1rem;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:.6rem .7rem;border-top:1px solid var(--line)}
+thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;border-top:0}
+
+.cite{display:inline-block;font-size:.76rem;border:1px solid var(--line);border-radius:999px;padding:.02rem .5rem;text-decoration:none;color:var(--fg-soft);background:var(--paper);margin:.15rem .15rem 0 0}
+.cite:hover{border-color:var(--green);color:var(--green)}
+.refitem{padding:.6rem 0;border-bottom:1px solid var(--line)}
+.refitem .links a{font-size:.72rem;margin-right:.5rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+@media print{header.top,.pager,.copyrow{display:none}.phase{display:block!important;break-before:page}pre{white-space:pre-wrap}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<script type="text/markdown" id="md1">
+# Four skills, one activity
+
+Today each group designs **one teaching activity for one skill** — listening, speaking, reading or writing — builds it with AI, and teaches it to the class. The order matters: you **think first**, then **read** what research and classroom practice suggest, then **build**, then **present and reflect**. It is the same order as your portfolio, so today's work can go straight into it.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: milestone (date = time slot) · section · card · step · prompt
+-->
+
+## Today, step by step
+kind: section
+About three hours. Groups of 3–4.
+
+## Choose a skill
+kind: milestone
+date: 0:00–0:15
+what: Each group chooses **one skill**. If two groups choose the same skill, choose different learners.
+
+## Think first — your draft activity
+kind: milestone
+date: 0:15–0:35
+what: **Before reading anything**, sketch your own activity using the draft frame below. This is your *starting point* — keep it, even if you change everything later.
+
+## Read for your skill
+kind: milestone
+date: 0:35–1:05
+what: Read your skill's page: two classic studies, two recent ones, and three activity ideas. Skim the other three skills — good ideas travel.
+
+## Revise your draft
+kind: milestone
+date: 1:05–1:15
+what: What will you keep, change or drop because of what you read? Name the study behind each change.
+
+## Break
+kind: milestone
+date: 1:15–1:25
+
+## Build it with AI
+kind: milestone
+date: 1:25–2:10
+what: Guide an AI — **Gemini first, then Claude or ChatGPT** if you need it — to build your activity. Test it, fix it, save each version.
+
+## Present
+kind: milestone
+date: 2:10–2:50
+what: About **7 minutes per group plus 3 minutes of questions**. Your classmates are your learners for the demonstration.
+
+## Reflect
+kind: milestone
+date: 2:50–3:00
+what: Answer the reflection questions. They follow the sections of your portfolio.
+
+## Your draft activity · version 0
+kind: prompt
+Copy this into your group document and fill it in **now, without reading the skill pages**. Short answers are fine.
+```text
+Skill: listening / speaking / reading / writing
+Our learners: (age, level, setting, one detail that matters)
+Learning goal: by the end, learners can …
+What learners actually do, step by step:
+1.
+2.
+3.
+Where AI could help (preparing the material? during the activity?):
+How we will know it worked:
+What we are least sure about:
+```
+
+## Why think first?
+kind: card
+If you read the research first, your activity will look like the studies. If you think first, you can see **what the research changes** in your own thinking — and that change is exactly what your portfolio asks you to show under *Where I started* and *What I learned*.
+
+## How the four skill pages work
+kind: card
+- **Classic studies** (badge in blue) are older papers the field still builds on.
+- **Recent studies** (badge in green) are from 2024–2026 and mostly involve AI.
+- Each study card says *what they did*, *what they found*, and *what it means for your activity*.
+- Each page ends with **three activity ideas** and the mistakes to avoid.
+- Every reference was checked against its publisher record; click a citation to open it.
+
+</script>
+<script type="text/markdown" id="md2">
+# Listening
+
+Listening happens in real time: learners cannot re-read, and a word they know in writing can disappear in fast connected speech. Research points to two levers you can design for — **how learners manage their listening** and **what support the input gives them** — and recent work asks what AI can add to both.
+
+<!--
+HOW TO EDIT
+  ## Title  kind: paper (badge "Classic · year" or "Recent · year"; did / found / means; refs)
+            kind: activity (do / role / check; refs) · card · questions · section
+-->
+
+## What research says
+kind: section
+
+## Teaching learners *how* to listen
+kind: paper
+badge: Classic · 2010
+did: Over a semester, 106 learners in six French-as-a-second-language classes listened to the same texts the same number of times. The experimental group (59) was guided through the processes of successful listening — predicting and planning, monitoring, evaluating, problem solving. The control group (47) was not.
+found: The guided group outperformed the control group on the final comprehension measure, and the **less skilled listeners gained the most**. Learners' awareness of their own listening processes grew over the semester.
+means: Playing the audio more often is not the same as teaching listening. Build in prediction, partner comparison and reflection between listens.
+refs: vandergrift2010
+
+## Captioned video
+kind: paper
+badge: Classic · 2013
+did: A meta-analysis of 18 studies on L2 video with L2 captions: 15 studies measured listening comprehension, 10 measured vocabulary learning.
+found: Captions had a **large effect** on both listening comprehension and vocabulary learning. The type of test used changed how large the listening effect looked; learners' proficiency level did not.
+means: Captions are worth using — but decide what you are testing. A comprehension test on the content is not the same as a test of listening without support.
+refs: montero2013
+
+## A chatbot for decoding practice
+kind: paper
+badge: Recent · 2024
+did: A flipped course for *decoding* — recognising words in connected speech — worked better than a conventional course but overloaded the teacher. The team built a chatbot as a 24/7 practice partner and compared a fully online chatbot course (46 students) with the flipped course (43).
+found: Both groups did **equally well on the decoding test**, and the chatbot group showed **stronger behavioural and emotional engagement**.
+means: AI can take over repetitive practice and feedback that would otherwise fall on the teacher — the learning outcome was the same, the workload was not.
+refs: huang2024
+
+## Does AI make listening and speaking better?
+kind: paper
+badge: Recent · 2025
+did: A review of how AI — spoken dialogue systems, intelligent personal assistants and generative AI — can support teaching, learning and assessing L2 listening and speaking.
+found: AI can refine existing practice and offer new solutions, but also brings drawbacks; the authors set out practical considerations for teachers and directions for research.
+means: Start from an existing good practice and ask what AI improves. Name one drawback you will manage. *(Also useful for speaking groups.)*
+refs: goh2025
+
+## Activity ideas
+kind: section
+
+## The listening cycle
+kind: activity
+do:
+- **Predict:** learners see the title or a picture and predict words and ideas.
+- **Listen and check:** first listen; note what was confirmed.
+- **Compare:** partners compare notes and plan what to listen for.
+- **Listen again:** check the plan; solve the problem spots.
+- **Reflect:** what helped you understand this time?
+role: AI drafts prediction prompts and a short script at the right level from your topic; a free text-to-speech voice or your own recording turns it into audio.
+check: Does the script sound like speech, not like writing read aloud?
+refs: vandergrift2010
+
+## Captions with a plan
+kind: activity
+do:
+- First viewing with full captions, focusing on meaning.
+- Second viewing with captions off; learners note what they now catch.
+- A short task that uses the content.
+role: AI drafts the comprehension questions and a captions-on / captions-off worksheet.
+check: This sequence is a design choice — the meta-analysis shows captions help, not that this order is best. Watch what your learners can do without captions.
+refs: montero2013
+
+## Hear it, type it
+kind: activity
+do:
+- Learners hear short chunks of fast speech (*want to → wanna*, linked words) and type what they hear.
+- Hints appear on request: number of words, first letters, the written form.
+- A final round with new chunks and no hints.
+role: AI builds the interactive page; the browser's built-in text-to-speech can read each chunk aloud.
+check: Synthetic voices vary between devices, and one voice means one accent. Add recordings of real speakers where you can.
+refs: huang2024
+
+## Mistakes to avoid
+kind: card
+- Playing the audio again and again with no new purpose.
+- Comprehension questions that test reading or memory more than listening.
+- AI scripts that sound written, not spoken — no hesitations, no natural speed.
+- Only one voice and one accent; learners will meet many.
+
+## Revisit your draft
+kind: questions
+- Where in your activity do learners *manage* their listening, not only listen?
+- What support (captions, script, hints) do they get — and when is it removed?
+- Which study supports your main design decision?
+
+</script>
+<script type="text/markdown" id="md3">
+# Speaking
+
+Learners need to speak a lot to learn to speak — and many hesitate to. Research asks two questions you can design for: **what kind of feedback makes learners try again**, and **what practice space lowers the barrier to speaking**. Recent studies test AI chatbots as that space, including with young learners.
+
+<!--
+HOW TO EDIT
+  ## Title  kind: paper (badge; did / found / means; refs) · activity (do / role / check; refs) · card · questions · section
+-->
+
+## What research says
+kind: section
+
+## Feedback that makes learners try again
+kind: paper
+badge: Classic · 1997
+did: An analysis of 18.3 hours of interaction in four primary-level French immersion classrooms, classifying six types of teacher feedback and how learners responded to each.
+found: Teachers overwhelmingly used **recasts** (repeating the learner's sentence correctly), yet recasts were the least likely to lead learners to repair their own speech. **Elicitation, metalinguistic clues, clarification requests and repetition** led to learner-generated repair more often.
+means: If your activity includes a feedback partner — human or AI — ask it to prompt the learner to try again, not just to say the correct form.
+refs: lyster1997
+
+## Text chat as rehearsal for speech
+kind: paper
+badge: Classic · 2002
+did: A classroom experiment in which the experimental group spent two of four weekly contact hours in a text chatroom, grounded in models of speech production and working memory.
+found: The chatroom group developed **more oral proficiency** than the control group.
+means: Typing in real time can rehearse the same processes as speaking. A chat round before a speaking round gives hesitant learners time to plan.
+refs: payne2002
+
+## An AI partner for speaking practice
+kind: paper
+badge: Recent · 2024
+did: EFL learners did interactive speaking activities with an AI chatbot (Andy); a comparison group did conventional face-to-face speaking activities with peers. The study measured speaking performance and willingness to communicate, and asked learners about the experience.
+found: The AI-mediated activities were **more effective for speaking performance and willingness to communicate**, and learners viewed them positively.
+means: An AI partner can lower the barrier to speaking. It was compared with peer practice, so plan how AI practice leads back to talking with people.
+refs: fathi2024
+
+## Chatbots with young learners — alone or in pairs
+kind: paper
+badge: Recent · 2024
+did: 85 elementary EFL learners in a three-week summer programme (45 minutes a day) practised with a generative-AI chatbot called CoolE Bot, either individually or in pairs; a third group had conventional instruction. Researchers based in Taiwan.
+found: **Both chatbot groups outperformed** the conventional group on speaking tests, with **no significant difference between individual and paired** use. Learners reported enjoyment, more confidence and less anxiety; pairs also helped each other.
+means: Sharing one device between two learners works — useful when devices are limited, and it adds peer support. The study used one specific chatbot; general-purpose tools such as ChatGPT or Claude have age limits, so check them before using a chatbot with children.
+refs: tai2024
+
+## Activity ideas
+kind: section
+
+## Rehearse with AI, perform with people
+kind: activity
+do:
+- Pairs share one device and practise a role-play with an AI partner (ordering food, asking for directions, a club interview).
+- Swap partners and perform the same role-play **without** the AI.
+- The listener asks one follow-up question the AI did not ask.
+role: The AI plays the other speaker and keeps the conversation going with short questions.
+check: Who talks more — the AI or the learner? Limit the AI to one or two sentences per turn. For learners under 18, check the tool's age rules (see the AI studio).
+refs: tai2024 | fathi2024
+
+## Chat first, then talk
+kind: activity
+do:
+- Five minutes of text chat on the topic in pairs or small groups.
+- Five minutes of spoken discussion on the same topic, without the chat window.
+- Learners note one phrase they used in both.
+role: AI suggests the discussion questions and a short list of useful phrases at the learners' level.
+check: The spoken round must be new talk, not reading the chat aloud.
+refs: payne2002
+
+## A partner who prompts, not corrects
+kind: activity
+do:
+- Write the AI's instructions: when the learner makes an error, ask a clarification question or give a clue — do not give the correct sentence.
+- Learners talk with the AI, then note when they corrected themselves.
+- Compare with a version where the AI simply restates the correct form.
+role: The AI acts as the conversation partner with your feedback rules.
+check: Does the AI actually follow the rule? Language models often slip back into correcting.
+refs: lyster1997
+
+## Mistakes to avoid
+kind: card
+- The AI talks more than the learner.
+- Correcting every error and stopping the conversation.
+- Measuring only enjoyment, not what learners can say afterwards.
+- Giving young learners general-purpose AI tools that are 18+ only.
+
+## Revisit your draft
+kind: questions
+- How much will each learner actually speak in your activity — in minutes or turns?
+- What happens when a learner makes an error?
+- When does practice with AI lead back to speaking with people?
+
+</script>
+<script type="text/markdown" id="md4">
+# Reading
+
+Digital reading gives teachers tools print never had: words that explain themselves when clicked, questions generated in seconds, a text rewritten at an easier level on demand. Research shows which of these help — and recent work warns that "easier" text is not always easier to understand.
+
+<!--
+HOW TO EDIT
+  ## Title  kind: paper (badge; did / found / means; refs) · activity (do / role / check; refs) · card · questions · section
+-->
+
+## What research says
+kind: section
+
+## Pictures, text or video glosses?
+kind: paper
+badge: Classic · 1996
+did: Three studies with 160 university learners of German reading in a hypermedia program whose words could be annotated with text, pictures or video.
+found: Learners picked up more vocabulary incidentally than expected (25% on production tests, 77% on recognition). Words annotated with **pictures plus text** were remembered significantly better than words with video plus text or text alone, and the type of annotation learners looked up tended to be the cue they used to remember the word.
+means: For concrete target words, a picture plus a short definition is a strong gloss. Video is not automatically better.
+refs: chunplass1996
+
+## What glosses do for reading
+kind: paper
+badge: Classic · 2008
+did: A meta-analysis of 11 studies on computer-mediated glosses in L2 reading.
+found: Glosses had a **medium effect on reading comprehension** and a **large effect on incidental vocabulary learning**; effects varied with learners' level, the type of text and how learning was assessed.
+means: Glossing helps vocabulary most. Choose which words to gloss on purpose, and match the gloss to your learners' level.
+refs: abraham2008
+
+## Can ChatGPT write reading questions?
+kind: paper
+badge: Recent · 2024
+did: The researchers asked ChatGPT to write multiple-choice reading comprehension items targeting given reading subskills and materials, then compared them with human-written items, and gathered views through questionnaires, expert judgement and interviews.
+found: ChatGPT's items were **comparable to human-written items on the psychometric measures**, and reviewers saw its potential as a test developer and a teaching assistant for reading.
+means: AI can draft questions aimed at specific subskills (main idea, detail, inference, vocabulary in context). You still check every key and every distractor.
+refs: lin2024
+
+## Is AI-simplified text easier to understand?
+kind: paper
+badge: Recent · 2025
+did: The study compared L2 readers' comprehension of three versions of a passage: the original, a version simplified by human experts, and a version simplified by AI.
+found: Once readers' **topic familiarity** was taken into account, **neither simplified version was easier to understand** than the original.
+means: Shorter words and sentences do not guarantee comprehension; what readers already know about the topic matters. Test any AI-simplified text with learners — for example by asking them to think aloud — before relying on it.
+refs: murphyodo2025
+
+## Activity ideas
+kind: section
+
+## Picture-glossed reading
+kind: activity
+do:
+- Choose 6–8 target words in a short text.
+- Learners read; clicking a word shows a picture and a short definition.
+- After reading, a quick recall task with the pictures, then one with words only.
+role: AI drafts the definitions at the learners' level and describes a picture for each word; it can build the clickable page.
+check: Do the pictures show the meaning clearly? Are the definitions simpler than the words they explain?
+refs: chunplass1996 | abraham2008
+
+## Questions by subskill
+kind: activity
+do:
+- AI drafts one question each for main idea, detail, inference and vocabulary in context.
+- The teacher checks and fixes them.
+- After answering, learners write one question of their own for another group.
+role: AI drafts the items and the answer key.
+check: Can a learner answer any question *without* reading the text? Is there exactly one correct answer?
+refs: lin2024
+
+## Build the topic before the text
+kind: activity
+do:
+- Before reading, learners meet the topic through pictures, a short video or a quick discussion.
+- Half the class reads the original text, half an AI-simplified version.
+- Compare: what helped understanding — the easier language, or knowing the topic?
+role: AI produces the simplified version and the pre-reading prompts.
+check: Did the simplification remove meaning the task needs?
+refs: murphyodo2025
+
+## Mistakes to avoid
+kind: card
+- Glossing so many words that the text becomes a dictionary.
+- Questions that can be answered from general knowledge.
+- Assuming a simplified text is an easier text.
+- Uploading copyrighted textbook texts to public AI tools.
+
+## Revisit your draft
+kind: questions
+- What will learners understand, notice or learn from the text — and how will you know?
+- What support do they get while reading, and does it target the right words?
+- If AI changes the text, how will you check it is still worth reading?
+
+</script>
+<script type="text/markdown" id="md5">
+# Writing
+
+Feedback is the centre of writing instruction — and the oldest argument in the field is whether correcting grammar helps at all. AI now produces feedback instantly, which makes the real question sharper: **what do learners do with the feedback**, and does improving *this* draft mean they write better *next* time?
+
+<!--
+HOW TO EDIT
+  ## Title  kind: paper (badge; did / found / means; refs) · activity (do / role / check; refs) · card · questions · section
+-->
+
+## What research says
+kind: section
+
+## The case against grammar correction
+kind: paper
+badge: Classic · 1996
+did: A position paper reviewing research and theory on correcting grammar in L2 writing classes.
+found: Truscott argued that grammar correction **should be abandoned**: research showed it ineffective, there were theoretical and practical reasons to expect that, and it can do harm. The paper started a long-running debate in the field.
+means: Do not assume more correction is better. Decide what your feedback is for, how much, and what learners must do with it.
+refs: truscott1996
+
+## Automated writing evaluation in the classroom
+kind: paper
+badge: Classic · 2006
+did: A review of automated writing evaluation (AWE): how the systems work, what research had found, and a proposed agenda for studying how AWE is actually used in classrooms.
+found: Scoring engines had been studied psychometrically, but **little research looked at classroom use** and its results. The authors called for research on both the writing process and the products.
+means: The useful question is not "is the machine's score accurate?" but "how will learners and teachers use its feedback?"
+refs: warschauer2006
+
+## Teacher feedback or ChatGPT feedback?
+kind: paper
+badge: Recent · 2026
+did: 20 Chinese undergraduates wrote argumentative essays, received feedback from both their teacher and ChatGPT, and revised. The researchers analysed the revisions and surveyed the students.
+found: Students **engaged more and revised more accurately with teacher feedback**, especially on language and content — but they were particularly successful at using **ChatGPT's feedback on organisation**. They preferred teacher feedback overall while recognising ChatGPT's strengths.
+means: Use AI feedback as a complement, and give each source the job it does best.
+refs: zou2026
+
+## Working through AI feedback alone or together
+kind: paper
+badge: Recent · 2024
+did: A seven-week experiment with 117 second-year EFL students and six teachers at a Chinese university. Students processed ChatGPT feedback individually, or together with a teacher, with peers, or with both.
+found: Students who worked through the feedback **individually improved their drafts the most** — but those who worked through it **with their teacher did best on a new, similar writing task**.
+means: A better draft is not the same as learning. If you want learners to write better next time, build in teacher-guided discussion of the AI feedback and check with a new task.
+refs: yan2024
+
+## Activity ideas
+kind: section
+
+## Two sources, one decision
+kind: activity
+do:
+- Learners receive teacher or peer feedback **and** AI feedback on the same paragraph.
+- In a table, they decide for each suggestion: accept, change or reject — and why.
+- They revise, then explain one decision to a partner.
+role: AI gives feedback using criteria you set (organisation, ideas, language).
+check: Which source did learners trust, and were they right to?
+refs: zou2026
+
+## Discuss the feedback, then write something new
+kind: activity
+do:
+- Groups read AI feedback on a sample paragraph with the teacher guiding the discussion.
+- Each learner writes a **new** short paragraph on a different topic, without AI.
+- Compare: which feedback points show up in the new paragraph?
+role: AI produces the feedback on the sample paragraph.
+check: The new paragraph — not the revised one — shows what was learned.
+refs: yan2024
+
+## One error pattern, indirect feedback
+kind: activity
+do:
+- Tell the AI to give feedback on **one** pattern only (for example verb forms), marking where the problem is without correcting it.
+- Learners correct the marked places themselves, then check with a partner.
+- A short new piece of writing tests the same pattern.
+role: AI marks the pattern according to your rules.
+check: Did the AI stick to one pattern, and did it avoid giving the answers?
+refs: truscott1996 | warschauer2006
+
+## Mistakes to avoid
+kind: card
+- Letting the AI rewrite the whole text — then nobody knows what the learner can do.
+- Judging success only by the revised draft.
+- Feedback on everything at once.
+- Pasting learners' writing into free AI tools without their agreement.
+
+## Revisit your draft
+kind: questions
+- Who gives feedback in your activity, on what, and when?
+- What must learners *do* with the feedback?
+- How will you check learning with a new piece of writing?
+
+</script>
+<script type="text/markdown" id="md6">
+# Build it with AI
+
+You have your first idea and you have read the research. Now **revise the plan**, then **guide** an AI to build it — you make the design decisions; the AI does the construction. Use the free versions: **Gemini first**, then Claude or ChatGPT if you need a second attempt.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: step · prompt (fenced ``` block) · card · section
+-->
+
+## Five steps
+kind: section
+
+## Revise your draft · version 1
+kind: step
+do: Go back to your version 0. For each part, write **keep**, **change** or **drop** — and name the study behind every change. Keep version 0 unchanged; your portfolio needs both.
+
+## Write the specification
+kind: step
+do: Fill in the specification below. The more precise it is, the less you fix later.
+
+## Generate
+kind: step
+do: Paste the builder prompt, your specification and the add-on for your skill into Gemini with **Canvas** selected. Open **Preview**.
+tip: In Claude, turn on **Settings → Capabilities → Cloud code execution and file creation** first. In ChatGPT, copy the code into a plain-text file, save it as `activity.html` and open it in Chrome.
+
+## Test it as a learner
+kind: step
+do: Try a right answer, a wrong answer and no answer. Try it on a phone. Then send the test prompt below.
+check: Are all answer keys correct? Does the activity do what your plan says — or something easier to build?
+
+## Revise and save each version
+kind: step
+do: Ask for specific changes, one at a time. Save every version and note what you changed and why. The before-and-after is evidence for your presentation and your portfolio.
+
+## The prompts
+kind: section
+Replace everything in [square brackets].
+
+## Your specification
+kind: prompt
+```text
+Skill: [listening / speaking / reading / writing]
+Learners: [age, level, setting, one detail that matters]
+Learning goal: by the end, learners can [observable goal]
+Activity steps: [your revised steps from version 1]
+Research basis: [author and year] — [the design decision it supports]
+Where AI helps: [preparing material / during the activity / feedback]
+Success check: [what learners do at the end, with new content]
+```
+
+## Builder prompt
+kind: prompt
+```text
+You are helping a teacher build a classroom activity. Use my specification below exactly; do not change the learning goal or the steps.
+
+[PASTE YOUR SPECIFICATION]
+
+Build ONE self-contained HTML page that:
+1. Shows the learning goal in learner-friendly English.
+2. Runs the activity steps in order, with clear instructions on each screen.
+3. Gives feedback after each learner answer, explaining why it is right or wrong, with an optional hint first.
+4. Ends with a final task on new content and no hints.
+5. Has a "For the teacher" section with the answer key and a 5-line lesson plan (timing, grouping, materials).
+Requirements: no external libraries, images or links; no AI calls; no collection or storage of learner data; large readable text; works with keyboard only; does not rely on colour alone; works on a phone.
+After the code, list the checks you made on every answer key.
+```
+
+## Add-on · listening
+kind: prompt
+```text
+Listening: use the browser's built-in speech synthesis (Web Speech API) to read each audio chunk aloud, with Play, Slower and Replay buttons. Hide the transcript until after the learner answers. Write the script as natural speech, with contractions and short sentences.
+```
+
+## Add-on · speaking
+kind: prompt
+```text
+Speaking: the page prepares learners to speak with a partner rather than talking to them. Include a role card for each partner, 4–6 useful phrases with example sentences, a planning space, and a "listener checklist" with one follow-up question to ask. If I want an AI conversation partner, write its instructions separately: replies of one or two sentences, one question per turn, and when the learner makes an error, ask a clarification question or give a clue instead of correcting it.
+```
+
+## Add-on · reading
+kind: prompt
+```text
+Reading: show the text with [6–8] target words underlined. Clicking a word opens a short, level-appropriate definition and a simple picture drawn with inline SVG (no image files). After reading, add questions by subskill: one main idea, one detail, one inference, one vocabulary in context. Each question must need the text to answer.
+```
+
+## Add-on · writing
+kind: prompt
+```text
+Writing: the page guides learners through writing a short [genre] paragraph on [topic], then a self-check on ONE pattern: [e.g. verb tense]. Provide a checklist and two example sentences, and show learners WHERE to look in their own writing without correcting it for them. Finish with a short new writing task on a different topic.
+```
+
+## Test it before you present
+kind: prompt
+```text
+Review the page you built as a strict teacher and as a learner at [level]:
+1. Check every answer key and list any errors.
+2. List any words or structures above [level].
+3. Check: keyboard use, text size, contrast, phone layout, anything that relies on sound or colour alone.
+4. Does every step practise [learning goal]? Which step practises something else?
+Fix the three most important problems and tell me exactly what you changed.
+```
+
+## Keep a version log
+kind: card
+Copy this table into your group document — it becomes the "what we tried" part of your presentation.
+
+| Version | What we asked the AI | What came back | What we changed, and why |
+|---|---|---|---|
+| v1 | | | |
+| v2 | | | |
+
+</script>
+<script type="text/markdown" id="md7">
+# Present and reflect
+
+Each group teaches its activity to the class — your classmates are the learners. Then everyone reflects, using the same headings as the portfolio.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: step · questions · card · checklist · section
+-->
+
+## Your presentation · about 7 minutes plus 3 for questions
+kind: section
+
+## Our learners and goal
+kind: step
+time: 1 minute
+do: Who the activity is for, and what they will be able to do afterwards.
+
+## From first idea to revised plan
+kind: step
+time: 1.5 minutes
+do: Show version 0 next to version 1. Name **one study** that changed your design, and what it changed.
+
+## Teach it
+kind: step
+time: 3 minutes
+do: Run the activity live with the class as learners. Let them actually do it — do not just show screens.
+
+## What the AI got right and wrong
+kind: step
+time: 1 minute
+do: One thing the AI built well, one thing you had to fix, and how you found the problem.
+
+## What we would test with real learners
+kind: step
+time: 30 seconds
+do: What evidence would show that the activity works — and what result would make you change it?
+
+## Peer feedback
+kind: section
+Each listener answers these for every group — on paper, in the chat, or in a shared form. The group keeps the answers: they go into **Feedback I received** in each member's portfolio.
+
+## For each group
+kind: questions
+- As a learner, what did you actually do — and what did you learn?
+- Which design decision is best supported by the research they cited?
+- Where did the activity drift from its learning goal?
+- One thing to keep, and one thing to change before using it with real learners.
+
+## Reflection · for your portfolio
+kind: section
+Answer individually. Each set matches a section of the portfolio, so your answers can go straight into it.
+
+## Where I started
+kind: questions
+- What was your group's first idea (version 0)?
+- What did you assume about the learners, the skill or the AI before reading?
+
+## What I learned
+kind: questions
+- Which study changed your thinking most, and how?
+- What did you learn about your chosen skill that you did not know this morning?
+- Which finding surprised you — in your skill or another group's?
+
+## What I tried
+kind: questions
+- What did you ask the AI to build, and what came back the first time?
+- What did you have to fix, and how did you find the problem?
+- What would you do differently when guiding an AI next time?
+
+## Feedback I received
+kind: questions
+- What was the most useful comment from a classmate?
+- What will you change because of it?
+
+## Looking ahead
+kind: questions
+- Could this activity become part of your final project — as a teaching demo, or as something to test in research?
+- What would you need to know about real learners before using it?
+
+## Before you leave
+kind: checklist
+- Version 0, version 1 and the final activity are saved in the group document
+- The version log is filled in
+- Peer feedback collected for our group
+- My reflection answers are saved for the portfolio
+
+</script>
+<script type="text/markdown" id="mdr">
+# Sources
+
+Sixteen studies: two classic and two recent for each skill. Every reference was checked against its DOI record, and every summary on the skill pages was written from the study's own abstract. Where an abstract did not report a detail — a sample size, a country — the summary leaves it out rather than guess.
+
+<!-- ## id + apa/doi = a reference; other ## blocks render as cards -->
+
+## The sixteen at a glance
+kind: card
+wide: yes
+
+| Skill | Classic | Classic | Recent | Recent |
+|---|---|---|---|---|
+| **Listening** | Vandergrift & Tafaghodtari (2010) — teaching *how* to listen | Montero Perez et al. (2013) — captioned video, meta-analysis | Huang et al. (2024) — chatbot for decoding | Goh & Aryadoust (2025) — AI for listening and speaking |
+| **Speaking** | Lyster & Ranta (1997) — feedback and uptake | Payne & Whitney (2002) — text chat and oral proficiency | Fathi et al. (2024) — AI-mediated speaking and WTC | Tai & Chen (2024) — chatbots with elementary learners |
+| **Reading** | Chun & Plass (1996) — multimedia glosses | Abraham (2008) — glosses, meta-analysis | Lin & Chen (2024) — ChatGPT-written reading items | Murphy Odo (2025) — AI-simplified texts |
+| **Writing** | Truscott (1996) — the case against grammar correction | Warschauer & Ware (2006) — AWE in the classroom | Zou et al. (2026) — teacher vs ChatGPT feedback | Yan (2024) — processing AI feedback together |
+
+## Two dates we had to check
+kind: card
+wide: yes
+Checking references is not only for AI output. Two of today's studies show why.
+- **Payne & Whitney.** The issue is dated 2002 (CALICO Journal 20[1], confirmed in ERIC), but the publisher's DOI record says 2003 and Semantic Scholar says 2013. We cite **2002**.
+- **Zou et al.** Published online in January 2025, in the printed issue (volume 39, issue 4) in 2026. Following APA, we cite the **issue year, 2026**.
+
+## abraham2008
+apa: Abraham, L. B. (2008). Computer-mediated glosses in second language reading comprehension and vocabulary learning: A meta-analysis. *Computer Assisted Language Learning, 21*(3), 199–226.
+doi: 10.1080/09588220802090246
+
+## chunplass1996
+apa: Chun, D. M., & Plass, J. L. (1996). Effects of multimedia annotations on vocabulary acquisition. *The Modern Language Journal, 80*(2), 183–198.
+doi: 10.1111/j.1540-4781.1996.tb01159.x
+
+## fathi2024
+apa: Fathi, J., Rahimi, M., & Derakhshan, A. (2024). Improving EFL learners' speaking skills and willingness to communicate via artificial intelligence-mediated interactions. *System, 121*, 103254.
+doi: 10.1016/j.system.2024.103254
+
+## goh2025
+apa: Goh, C. C. M., & Aryadoust, V. (2025). Developing and assessing second language listening and speaking: Does AI make it better? *Annual Review of Applied Linguistics, 45*, 179–199.
+doi: 10.1017/s0267190525100111
+
+## huang2024
+apa: Huang, W., Jia, C., Hew, K. F., & Guo, J. (2024). Using chatbots to support EFL listening decoding skills in a fully online environment. *Language Learning & Technology, 28*(2), 62–90.
+doi: 10.64152/10125/73572
+
+## lin2024
+apa: Lin, Z., & Chen, H. (2024). Investigating the capability of ChatGPT for generating multiple-choice reading comprehension items. *System, 123*, 103344.
+doi: 10.1016/j.system.2024.103344
+
+## lyster1997
+apa: Lyster, R., & Ranta, L. (1997). Corrective feedback and learner uptake: Negotiation of form in communicative classrooms. *Studies in Second Language Acquisition, 19*(1), 37–66.
+doi: 10.1017/S0272263197001034
+
+## montero2013
+apa: Montero Perez, M., Van Den Noortgate, W., & Desmet, P. (2013). Captioned video for L2 listening and vocabulary learning: A meta-analysis. *System, 41*(3), 720–739.
+doi: 10.1016/j.system.2013.07.013
+
+## murphyodo2025
+apa: Murphy Odo, D. (2025). Comprehensibility of AI-generated and human simplified texts for L2 learners. *Language Learning & Technology, 29*(1), 1–18.
+doi: 10.64152/10125/73627
+
+## payne2002
+apa: Payne, J. S., & Whitney, P. J. (2002). Developing L2 oral proficiency through synchronous CMC: Output, working memory, and interlanguage development. *CALICO Journal, 20*(1), 7–32.
+doi: 10.1558/cj.v20i1.7-32
+
+## tai2024
+apa: Tai, T.-Y., & Chen, H. H.-J. (2024). Improving elementary EFL speaking skills with generative AI chatbots: Exploring individual and paired interactions. *Computers & Education, 220*, 105112.
+doi: 10.1016/j.compedu.2024.105112
+
+## truscott1996
+apa: Truscott, J. (1996). The case against grammar correction in L2 writing classes. *Language Learning, 46*(2), 327–369.
+doi: 10.1111/j.1467-1770.1996.tb01238.x
+
+## vandergrift2010
+apa: Vandergrift, L., & Tafaghodtari, M. H. (2010). Teaching L2 learners how to listen does make a difference: An empirical study. *Language Learning, 60*(2), 470–497.
+doi: 10.1111/j.1467-9922.2009.00559.x
+
+## warschauer2006
+apa: Warschauer, M., & Ware, P. (2006). Automated writing evaluation: Defining the classroom research agenda. *Language Teaching Research, 10*(2), 157–180.
+doi: 10.1191/1362168806lr190oa
+
+## yan2024
+apa: Yan, D. (2024). Comparing individual vs. collaborative processing of ChatGPT-generated feedback: Effects on L2 writing task improvement and learning. *Language Learning & Technology, 28*(1), 1–19.
+doi: 10.64152/10125/73597
+
+## zou2026
+apa: Zou, S., Guo, K., Wang, J., & Liu, Y. (2026). Investigating students' uptake of teacher- and ChatGPT-generated feedback in EFL writing: A comparison study. *Computer Assisted Language Learning, 39*(4), 1062–1091.
+doi: 10.1080/09588221.2024.2447279
+
+</script>
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="who" id="who"></div>
+      <div class="top-links" id="topLinks"></div>
+    </div>
+    <nav class="phases" id="nav" aria-label="Sections"></nav>
+  </div>
+</header>
+<main class="wrap" id="main" tabindex="-1">
+  <div id="loadWarn"></div>
+  <div id="phases"></div>
+</main>
+<footer class="wrap" id="foot"></footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ── markdown ── */
+function inline(s){
+  let t=esc(s);
+  t=t.replace(/`([^`]+)`/g,(m,a)=>"<code>"+a+"</code>");
+  t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  t=t.replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+  return t;
+}
+function md(src){
+  if(!src) return "";
+  const L=String(src).replace(/\r\n?/g,"\n").split("\n");
+  let out="",list=null,para=[],code=null,table=false,lang="",started=false;
+  const fp=()=>{if(para.length){out+="<p>"+inline(para.join(" "))+"</p>";para=[]}};
+  const cl=()=>{if(list){out+="</"+list+">";list=null}};
+  const ct=()=>{if(table){out+="</tbody></table></div>";table=false}};
+  for(const line of L){
+    if(code!==null){ if(/^```/.test(line)){
+        const pre=lang==="sample"
+          ? '<pre class="sample">'+code.split("\n").map((l,i,a)=>'<span class="ln'+(l.trim()?'':' blank')+(/^(Interviewer:|\()/.test(l)?' muted-line':'')+'">'+esc(l)+(i<a.length-1?"\n":"")+"</span>").join("")+"</pre>"
+          : "<pre>"+esc(code)+"</pre>";
+        out+=pre+'<div class="copyrow"><button class="pill" data-copypre>Copy</button><span class="status"></span></div>';code=null
+      } else code+=(code===""&&!started?"":"\n")+line, started=true; continue; }
+    if(/^```/.test(line)){fp();cl();ct();code="";started=false;lang=line.slice(3).trim();continue}
+    if(/^\s*\|/.test(line)){
+      fp();cl();
+      if(/^[\s|:\-]+$/.test(line)) continue;
+      const cells=line.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c=>c.trim());
+      if(!table){out+='<div class="tblwrap"><table><thead><tr>'+cells.map(c=>"<th>"+inline(c)+"</th>").join("")+"</tr></thead><tbody>";table=true}
+      else out+="<tr>"+cells.map(c=>"<td>"+inline(c)+"</td>").join("")+"</tr>";
+      continue;
+    }
+    ct();
+    if(!line.trim()){fp();cl();continue}
+    let m;
+    if((m=line.match(/^(#{1,6})\s+(.*)$/))){fp();cl();const n=Math.min(m[1].length+2,6);out+="<h"+n+">"+inline(m[2])+"</h"+n+">";continue}
+    if((m=line.match(/^>\s?(.*)$/))){fp();cl();out+='<div class="card kind-note">'+inline(m[1])+"</div>";continue}
+    if((m=line.match(/^\s*[-*]\s+(.*)$/))){fp();if(list!=="ul"){cl();out+="<ul>";list="ul"}out+="<li>"+inline(m[1])+"</li>";continue}
+    if((m=line.match(/^\s*\d+[.)]\s+(.*)$/))){fp();if(list!=="ol"){cl();out+="<ol>";list="ol"}out+="<li>"+inline(m[1])+"</li>";continue}
+    para.push(line.trim());
+  }
+  fp();cl();ct();
+  if(code!==null) out+="<pre>"+esc(code)+"</pre>";
+  return out;
+}
+/* ## blocks with "key: value" fields; a field with no value collects the "- " lines below it */
+function parseDoc(src){
+  const clean=String(src).replace(/<!--[\s\S]*?-->/g,"").replace(/\r\n?/g,"\n");
+  const parts=clean.split(/^##\s+/m);
+  const head=parts.shift()||"";
+  const title=(head.match(/^#\s+(.*)$/m)||[])[1]||"";
+  const intro=head.replace(/^#\s+.*$/m,"").trim();
+  const items=parts.map(block=>{
+    const nl=block.indexOf("\n");
+    const t=(nl<0?block:block.slice(0,nl)).trim();
+    const rest=nl<0?"":block.slice(nl+1);
+    const f={},bullets=[],body=[];let cur=null,inCode=false;
+    for(const line of rest.split("\n")){
+      if(/^```/.test(line)){inCode=!inCode;body.push(line);cur=null;continue}
+      if(inCode){body.push(line);continue}
+      const m=line.match(/^([a-z][a-z0-9_]*):[ \t]*(.*)$/);
+      if(m){const k=m[1],v=m[2].trim();if(v){f[k]=v;cur=null}else{f[k]=[];cur=k}continue}
+      const b=line.match(/^\s*[-*]\s+(.*)$/);
+      if(b){ if(cur) f[cur].push(b[1].trim()); else bullets.push(b[1].trim()); continue; }
+      if(!line.trim()){cur=null;body.push(line);continue}
+      cur=null;body.push(line);
+    }
+    return {title:t,f,bullets,body:body.join("\n").trim()};
+  });
+  return {title,intro,items};
+}
+const list=v=>Array.isArray(v)?v:(v?String(v).split("|").map(s=>s.trim()).filter(Boolean):[]);
+
+/* ── references ── */
+const REFS={};
+function shortCite(apa){
+  const m=String(apa).match(/^(.+?)\s*\((\d{4})/); if(!m) return String(apa).slice(0,26);
+  const a=m[1],y=m[2],first=a.split(",")[0].trim();
+  const n=Math.max(1,Math.round(((a.match(/,/g)||[]).length+1)/2));
+  if(n>=3) return first+" et al. ("+y+")";
+  if(n===2) return first+" & "+((a.split("&")[1]||"").trim().split(",")[0].trim())+" ("+y+")";
+  return first+" ("+y+")";
+}
+function chips(ids){
+  return list(ids).map(id=>{const r=REFS[id];
+    if(!r) return '<span class="cite">'+esc(id)+"</span>";
+    const href=r.doi?"https://doi.org/"+r.doi:(r.url||"#ref-"+id);
+    return '<a class="cite" href="'+href+'" target="_blank" rel="noopener" title="'+esc(r.apa.replace(/\*/g,""))+'">'+esc(r.short)+"</a>";
+  }).join("");
+}
+
+/* ── items ── */
+const LABELS={did:"What they did",found:"What they found",means:"For your activity",role:"Where AI helps",check:"Check",do:"Do this",tip:"Tip",time:"Time",who:"Who",what:"What",why:"Why",basis:"Based on",note:"Note",output:"You leave with",ask:"Ask"};
+const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id"]);
+function fieldsHtml(f){
+  return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
+    const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
+    const html=Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v);
+    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+html+"</div>";
+  }).join("");
+}
+let checkIndex=0;
+function itemHtml(it,ctx){
+  const k=it.f.kind||"card";
+  if(k==="section") return '<h3 class="sec">'+esc(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
+  if(k==="reveal"){
+    return '<details class="card kind-reveal"><summary><h4>'+esc(it.title)+"</h4></summary>"+md(it.body)+fieldsHtml(it.f)+
+      (it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+
+      (it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</details>";
+  }
+  if(k==="milestone"){
+    return '<div class="ms'+(it.f.now==="yes"?" now":"")+'"><div class="when">'+esc(it.f.date||"")+"</div><h4>"+esc(it.title)+"</h4>"+(it.f.what?"<p>"+inline(it.f.what)+"</p>":"")+md(it.body)+"</div>";
+  }
+  let inner="";
+  if(it.f.badge){const b=it.f.badge, c=/^classic/i.test(b)?" b-classic":/^recent/i.test(b)?" b-recent":"";
+    inner+='<span class="badge'+c+'">'+esc(b)+"</span>";}
+  inner+="<h4>"+esc(it.title)+"</h4>";
+  /* lead text first, then labelled fields — except samples, where the context comes before the text */
+  if(k==="sample"){ inner+=fieldsHtml(it.f)+md(it.body); } else { inner+=md(it.body); inner+=fieldsHtml(it.f); }
+  if(k==="checklist"){
+    const st=store.get(CONFIG.storeKey+"-chk",{});
+    inner+=it.bullets.map(b=>{const id="c"+(checkIndex++);return '<label class="chk"><input type="checkbox" data-chk="'+id+'"'+(st[id]?" checked":"")+"><span>"+inline(b)+"</span></label>"}).join("");
+  }else if(k==="questions"){
+    inner+='<ol class="qlist">'+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ol>";
+    inner+='<div class="copyrow"><button class="pill" data-copyq>Copy these questions</button><span class="status"></span></div>';
+  }else if(it.bullets.length){
+    inner+="<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>";
+  }
+  if(it.f.link) inner+='<p style="margin:.6rem 0 0">'+inline(it.f.link)+"</p>";
+  if(it.f.refs) inner+='<div style="margin-top:.5rem">'+chips(it.f.refs)+"</div>";
+  return '<article class="card kind-'+k+(k==="step"?" step":"")+'">'+inner+"</article>";
+}
+function renderItems(items){
+  let out="",group=null,buf=[];
+  const flush=()=>{ if(!buf.length) return;
+    const k=group, cls=k==="step"?"steps":k==="milestone"?"timeline":"grid"+(["prompt","wide"].includes(k)?" wide":"");
+    out+='<div class="'+cls+'">'+buf.join("")+"</div>"; buf=[]; };
+  for(const it of items){
+    const k=it.f.kind||"card";
+    if(k==="section"){flush();group=null;out+=itemHtml(it);continue}
+    const g=(it.f.wide==="yes"||k==="prompt"||k==="sample"||k==="reveal")?"wide":(k==="step"||k==="milestone"?k:"grid");
+    if(g!==group){flush();group=g}
+    buf.push(itemHtml(it));
+  }
+  flush(); return out;
+}
+
+/* ── page ── */
+$("#who").innerHTML=esc(CONFIG.instructor)+"<span>"+esc(CONFIG.course)+" · "+esc(CONFIG.title)+"</span>";
+$("#topLinks").innerHTML=CONFIG.links.map(([t,u])=>'<a class="pill" href="'+u+'">'+esc(t)+"</a>").join("")+'<button class="pill" id="theme">Dark</button>';
+$("#foot").textContent=CONFIG.instructor+" · "+CONFIG.course+" · Text lives in content/*.md. Ticks and copied text stay in your browser.";
+$("#nav").innerHTML=CONFIG.pages.map(([k,t],i)=>'<button class="ph" data-go="'+k+'" aria-current="'+(i===0)+'"><b>'+(k==="r"?"·":"0"+k)+"</b>"+esc(t)+"</button>").join("");
+function applyTheme(t){document.documentElement.dataset.theme=t;$("#theme").textContent=t==="dark"?"Light":"Dark";store.set("course-theme",t)}
+applyTheme(store.get("course-theme","light"));
+$("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+function go(k,scroll){
+  $$(".phase").forEach(p=>p.classList.toggle("on",p.id==="p-"+k));
+  $$(".ph").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===String(k))));
+  if(scroll!==false){ window.scrollTo({top:0,behavior:"instant"}); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"instant"})); }
+}
+function fromHash(){const m=location.hash.match(/^#p-([0-9r]+)$/);return m&&CONFIG.pages.some(p=>p[0]===m[1])?m[1]:CONFIG.pages[0][0]}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]");
+  if(b){const k=b.dataset.go; if(location.hash==="#p-"+k) go(k); else location.hash="p-"+k; return;}
+  const cp=e.target.closest("[data-copypre],[data-copyq]");
+  if(cp){
+    const text=cp.hasAttribute("data-copypre")?cp.closest(".copyrow").previousElementSibling.textContent
+      :[...cp.closest(".card").querySelectorAll(".qlist li")].map((li,i)=>(i+1)+". "+li.textContent).join("\n");
+    const st=cp.nextElementSibling;
+    (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>st.textContent="Copied.")
+      .catch(()=>{st.textContent="Select the text and copy it manually."});
+  }
+});
+window.addEventListener("hashchange",()=>go(fromHash()));
+document.addEventListener("change",e=>{
+  const c=e.target.closest("[data-chk]"); if(!c) return;
+  const st=store.get(CONFIG.storeKey+"-chk",{}); st[c.dataset.chk]=c.checked; store.set(CONFIG.storeKey+"-chk",st);
+});
+
+async function load(){
+  const texts={};
+  await Promise.all(CONFIG.pages.map(async([k])=>{
+    const emb=document.getElementById("md"+k); if(emb){texts[k]=emb.textContent;return}
+    try{
+      const path=k==="r"?"content/refs.md":window.CONTENT_FILES[k];
+      const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw 0; texts[k]=await r.text();
+    }catch(e){texts[k]=null}
+  }));
+  if(Object.values(texts).every(t=>t==null)){
+    $("#loadWarn").innerHTML='<div class="banner"><strong>The content did not load.</strong> Browsers block <code>content/*.md</code> when this file is opened from disk. Use the web address, the standalone file, or run <code>python3 -m http.server</code> in this folder.</div>';
+    return;
+  }
+  const refsDoc=parseDoc(texts.r||"");
+  refsDoc.items.forEach(it=>{ if(it.f.apa) REFS[it.title]={apa:it.f.apa,doi:it.f.doi||"",url:it.f.url||"",short:shortCite(it.f.apa)}; });
+  $("#phases").innerHTML=CONFIG.pages.map(([k,label],i)=>{
+    const d=parseDoc(texts[k]||"");
+    let body;
+    if(k==="r"){
+      const refs=d.items.filter(x=>x.f.apa).sort((a,b)=>a.f.apa.localeCompare(b.f.apa));
+      body=md(d.intro)+renderItems(d.items.filter(x=>!x.f.apa))+(refs.length?'<h3 class="sec">References</h3>'+refs.map(x=>
+        '<div class="refitem" id="ref-'+esc(x.title)+'">'+inline(x.f.apa)+'<div class="links">'+
+        (x.f.doi?'<a href="https://doi.org/'+esc(x.f.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':"")+
+        (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
+        '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
+    }else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
+    return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
+      '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
+      (next?'<button class="pill" data-go="'+next[0]+'">'+esc(next[1])+" →</button>":"<span></span>")+"</div></section>";
+  }).join("");
+  go(fromHash(), !!location.hash);
+}
+</script>
+<script>
+/* file names per page key — keep in step with content/ */
+window.CONTENT_FILES={
+  "1":"content/01-start.md",
+  "2":"content/02-listening.md",
+  "3":"content/03-speaking.md",
+  "4":"content/04-reading.md",
+  "5":"content/05-writing.md",
+  "6":"content/06-build.md",
+  "7":"content/07-present.md"
+};
+load();
+</script>
+</body>
+</html>

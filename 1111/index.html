@@ -17,7 +17,7 @@ const CONFIG = {
   title: "Week 10 · 11/11 · Four skills, one activity",
   kicker: "11/11 · Four skills",
   storeKey: "w10-1111",
-  pages: [["1","Start"],["2","Listening"],["3","Speaking"],["4","Reading"],["5","Writing"],["6","Build with AI"],["7","Present & reflect"],["r","Sources"]],
+  pages: [["1","Start"],["2","Listening"],["3","Speaking"],["4","Reading"],["5","Writing"],["6","Activity board"],["7","Build with AI"],["8","Present & reflect"],["r","Sources"]],
   links: [["10/21 · Learner language","../1021/"],["Final project","../final/"],["AI studio","../ai-tools/"]]
 };
 </script>
@@ -146,6 +146,59 @@ thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;
 .pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 .banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
 footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+/* ── activity board ── */
+.board{--L:var(--blue);--S:var(--burnt);--R:var(--green);--W:var(--red);margin:1.2rem 0}
+.bbar{position:sticky;top:var(--hdr,92px);z-index:20;background:var(--bg);padding:.6rem 0;border-bottom:1px solid var(--line);display:grid;gap:.55rem}
+.brow{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.brow .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);font-weight:600;margin-right:.2rem}
+.sk{border:1px solid var(--line-2);background:var(--paper);border-radius:999px;padding:.25rem .75rem;font-size:.82rem;cursor:pointer;display:inline-flex;gap:.35rem;align-items:center}
+.sk svg{width:16px;height:16px}
+.sk[aria-pressed="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .sk[aria-pressed="true"]{background:var(--green);color:#16200E}
+.tl{border:1.5px solid var(--line-2);background:var(--paper);border-radius:10px;padding:.28rem .6rem .28rem .3rem;font-size:.82rem;cursor:pointer;display:inline-flex;gap:.4rem;align-items:center}
+.tl .mono{width:1.45rem;height:1.45rem;border-radius:6px;display:grid;place-items:center;font-family:var(--mono);font-size:.68rem;font-weight:600;color:#fff;flex:none}
+.tl[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 2px var(--gold)}
+.meter{display:flex;align-items:center;gap:.5rem;font-size:.84rem}
+.meter .dots{display:flex;gap:3px}
+.meter .dots i{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--green);display:block}
+.meter .dots i.on{background:var(--green)}
+.bhint{font-size:.84rem;color:var(--fg-soft);min-height:1.3em}
+.bhint b{color:var(--fg)}
+.skillblock{margin-top:1.3rem}
+.skillhead{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.skillhead .ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--c)}
+.skillhead .ico svg{width:22px;height:22px}
+.skillhead h3{font-size:1.25rem}
+.skillhead .cnt{font-size:.78rem;color:var(--fg-soft);margin-left:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:.6rem}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:.65rem .75rem .6rem;display:flex;flex-direction:column;gap:.3rem;min-height:150px;transition:transform .12s,box-shadow .12s}
+.tile:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.tile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tile .code{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--c)}
+.tile .nm{font-family:var(--serif);font-weight:600;font-size:1rem;line-height:1.2}
+.tile .hw{font-size:.8rem;color:var(--fg-soft);line-height:1.45;flex:1}
+.tile .tags{display:flex;flex-wrap:wrap;gap:3px;min-height:1.2rem}
+.tile .tags span{font-size:.68rem;font-family:var(--mono);color:#fff;border-radius:5px;padding:.05rem .35rem}
+.tile .tags span.model{background:none!important;color:var(--fg-soft);border:1.5px dashed var(--line-2)}
+.tile.hit{box-shadow:0 0 0 2px var(--gold);background:var(--gold-soft)}
+.tile.cand{border-style:dashed}
+.tile.matched .code::after{content:" ✓";color:var(--green)}
+.toolcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:.8rem;margin:.8rem 0}
+.toolcard{border-top:5px solid var(--tc)}
+.toolcard .by{font-size:.76rem;color:var(--fg-soft);margin:-.2rem 0 .4rem}
+.toolcard .fits{display:flex;flex-wrap:wrap;gap:3px;margin-top:.4rem}
+.toolcard .fits span{font-family:var(--mono);font-size:.7rem;border:1px solid var(--line-2);border-radius:5px;padding:0 .35rem}
+.tagrow{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.tagrow .tg{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.35rem .6rem;font-size:.84rem}
+.tagrow .tg b{font-family:var(--mono);font-size:.78rem;color:var(--burnt);margin-right:.3rem}
+.ws{display:grid;gap:.6rem}
+.ws label{display:grid;gap:.2rem;font-size:.84rem;font-weight:600}
+.ws select,.ws textarea,.ws input[type=text]{font:inherit;font-weight:400;background:var(--bg);color:var(--fg);border:1px solid var(--line-2);border-radius:8px;padding:.4rem .5rem}
+.ws textarea{min-height:3.2em;resize:vertical}
+.ws .chkrow{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-weight:400}
+.ws .chkrow label{display:flex;gap:.3rem;align-items:center;font-weight:400}
+.ws .autotools{font-weight:400;font-size:.86rem;color:var(--fg-soft)}
+@media (max-width:600px){.bbar{position:static}}
 @media print{header.top,.pager,.copyrow{display:none}.phase{display:block!important;break-before:page}pre{white-space:pre-wrap}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
@@ -266,7 +319,7 @@ function chips(ids){
 
 /* ── items ── */
 const LABELS={did:"What they did",found:"What they found",means:"For your activity",role:"Where AI helps",check:"Check",do:"Do this",tip:"Tip",time:"Time",who:"Who",what:"What",why:"Why",basis:"Based on",note:"Note",output:"You leave with",ask:"Ask"};
-const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id"]);
+const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id","wide"]);
 function fieldsHtml(f){
   return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
     const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
@@ -277,9 +330,9 @@ function fieldsHtml(f){
 let checkIndex=0;
 function itemHtml(it,ctx){
   const k=it.f.kind||"card";
-  if(k==="section") return '<h3 class="sec">'+esc(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
+  if(k==="section") return '<h3 class="sec">'+inline(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
   if(k==="reveal"){
-    return '<details class="card kind-reveal"><summary><h4>'+esc(it.title)+"</h4></summary>"+md(it.body)+fieldsHtml(it.f)+
+    return '<details class="card kind-reveal"><summary><h4>'+inline(it.title)+"</h4></summary>"+md(it.body)+fieldsHtml(it.f)+
       (it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+
       (it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</details>";
   }
@@ -289,7 +342,7 @@ function itemHtml(it,ctx){
   let inner="";
   if(it.f.badge){const b=it.f.badge, c=/^classic/i.test(b)?" b-classic":/^recent/i.test(b)?" b-recent":"";
     inner+='<span class="badge'+c+'">'+esc(b)+"</span>";}
-  inner+="<h4>"+esc(it.title)+"</h4>";
+  inner+="<h4>"+inline(it.title)+"</h4>";
   /* lead text first, then labelled fields — except samples, where the context comes before the text */
   if(k==="sample"){ inner+=fieldsHtml(it.f)+md(it.body); } else { inner+=md(it.body); inner+=fieldsHtml(it.f); }
   if(k==="checklist"){
@@ -318,6 +371,110 @@ function renderItems(items){
     buf.push(itemHtml(it));
   }
   flush(); return out;
+}
+
+/* ── activity board ── */
+const SKILLS={L:["Listening","M3 18v-6a9 9 0 0 1 18 0v6|M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"],
+  S:["Speaking","M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z|M8 9h8M8 13h5"],
+  R:["Reading","M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z|M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"],
+  W:["Writing","M12 20h9|M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"]};
+const TOOLCOL=["#3E6B77","#B9752B","#5C7A3C","#A8442A","#6B5B95","#2F7F6F","#8A6D1F","#4F6D9A","#7A4E3A"];
+const icon=k=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+SKILLS[k][1].split("|").map(d=>'<path d="'+d+'"/>').join("")+"</svg>";
+const BOARD={acts:[],tools:[],tags:[],skill:"all",tool:null,model:false};
+const bstate=()=>store.get(CONFIG.storeKey+"-board",{map:{},ws:{}});
+const bsave=st=>store.set(CONFIG.storeKey+"-board",st);
+function boardHtml(d){
+  const acts=d.items.filter(x=>x.f.kind==="act"), tools=d.items.filter(x=>x.f.kind==="tool"), tagIt=d.items.find(x=>x.f.kind==="tags");
+  BOARD.acts=acts.map(a=>({code:a.title,skill:a.f.skill,name:a.f.name||"",how:a.f.how||""}));
+  BOARD.tools=tools.map((t,i)=>({id:t.title,name:t.f.name||t.title,col:TOOLCOL[i%TOOLCOL.length],mono:t.f.mono||(t.f.name||t.title).split(/[\s·]+/).filter(w=>/^[A-Z]/.test(w)).map(w=>w[0]).join("").slice(0,2)||t.title.slice(0,2).toUpperCase(),model:list(t.f.model),f:t.f}));
+  BOARD.tags=tagIt?tagIt.bullets.map(b=>{const m=b.split(/\s+—\s+/);return {tag:m[0],what:m[1]||""}}):[];
+  const rest=d.items.filter(x=>!["act","tool","tags"].includes(x.f.kind));
+  let h=renderItems(rest);
+  h+='<div class="board" id="board"><div class="bbar">'+
+    '<div class="brow"><span class="lbl">Skill</span><button class="sk" data-skill="all" aria-pressed="true">All forty</button>'+
+      Object.keys(SKILLS).map(k=>'<button class="sk" data-skill="'+k+'" aria-pressed="false" style="--c:var(--'+k+')">'+icon(k)+SKILLS[k][0]+"</button>").join("")+"</div>"+
+    '<div class="brow"><span class="lbl">Tool</span>'+BOARD.tools.map(t=>'<button class="tl" data-tool="'+esc(t.id)+'" aria-pressed="false" title="'+esc(t.f.by||"")+'"><span class="mono" style="background:'+t.col+'">'+esc(t.mono)+"</span>"+esc(t.name)+"</button>").join("")+"</div>"+
+    '<div class="brow"><div class="meter" id="meter"></div><span style="flex:1"></span>'+
+      '<button class="pill" id="bModel" aria-pressed="false">Show a model mapping</button><button class="pill" id="bCopy">Copy my matches</button><button class="pill" id="bClear">Clear</button><span class="status" id="bStatus"></span></div>'+
+    '<div class="bhint" id="bhint"></div></div>'+
+    Object.keys(SKILLS).map(k=>'<section class="skillblock" data-block="'+k+'" style="--c:var(--'+k+')"><div class="skillhead"><span class="ico">'+icon(k)+'</span><h3>'+SKILLS[k][0]+'</h3><span class="cnt" data-cnt="'+k+'"></span></div><div class="tiles">'+
+      BOARD.acts.filter(a=>a.skill===k).map(a=>'<button class="tile" data-act="'+esc(a.code)+'"><span class="code">'+esc(a.code)+'</span><span class="nm">'+inline(a.name)+'</span><span class="hw">'+inline(a.how)+'</span><span class="tags"></span></button>').join("")+"</div></section>").join("")+
+    "</div>";
+  h+='<h3 class="sec">The nine tools</h3><div class="sec-body">Try each one before you match it. The tags under each card show the model mapping — open them only after your own sorting.</div><div class="toolcards">'+
+    BOARD.tools.map(t=>'<article class="card toolcard" style="--tc:'+t.col+'"><h4>'+esc(t.name)+'</h4><div class="by">'+esc(t.f.by||"")+"</div>"+
+      (t.f.what?'<div class="field"><span class="flabel">What it does</span>'+inline(t.f.what)+"</div>":"")+
+      (t.f.mind?'<div class="field"><span class="flabel">Before you use it</span>'+inline(t.f.mind)+"</div>":"")+
+      '<p style="margin:.5rem 0 0"><a href="'+esc(t.f.url)+'" target="_blank" rel="noopener">Open '+esc(t.name)+" ↗</a>"+(t.f.link?" · "+inline(t.f.link):"")+"</p>"+
+      '<details style="margin-top:.5rem"><summary class="small muted" style="cursor:pointer">Model mapping</summary><div class="fits">'+t.model.map(c=>"<span>"+esc(c)+"</span>").join("")+'</div><p class="small" style="margin:.4rem 0 0">'+inline(t.f.why||"")+"</p></details></article>").join("")+"</div>";
+  if(BOARD.tags.length) h+='<h3 class="sec">Theory tags</h3><div class="sec-body">Shorthand for your justification — choose one to three.</div><div class="tagrow">'+BOARD.tags.map(t=>'<span class="tg"><b>'+esc(t.tag)+"</b>"+esc(t.what)+"</span>").join("")+"</div>";
+  h+='<h3 class="sec">Our group\'s activity</h3><div class="sec-body">The one activity you will build and show. It saves in this browser; copy it into your group document.</div>'+
+    '<div class="card ws" id="ws"><label>Activity<select data-ws="act"><option value="">Choose…</option>'+
+      Object.keys(SKILLS).map(k=>'<optgroup label="'+SKILLS[k][0]+'">'+BOARD.acts.filter(a=>a.skill===k).map(a=>'<option value="'+esc(a.code)+'">'+esc(a.code+" · "+a.name)+"</option>").join("")+"</optgroup>").join("")+"</select></label>"+
+    '<div class="autotools" id="wsTools"></div>'+
+    '<label>Why this activity type? (skill and activity in one line)<input type="text" data-ws="why"></label>'+
+    '<div><span class="flabel">Theory tags (1–3)</span><div class="chkrow">'+BOARD.tags.map(t=>'<label><input type="checkbox" data-wstag="'+esc(t.tag)+'">'+esc(t.tag)+"</label>").join("")+"</div></div>"+
+    '<label>How we will use it (one sentence)<textarea data-ws="how"></textarea></label>'+
+    '<div class="copyrow"><button class="pill" id="wsCopy">Copy worksheet</button><span class="status"></span></div></div>'+
+    '<div class="card kind-note" style="margin-top:.8rem">Presentation opener: <em>"Here\'s our activity [code + name] using [tools or our page]. We chose it because [one line]; theory tags [list]; quick demo: [10–20 seconds]."</em></div>';
+  return h;
+}
+function paintBoard(){
+  const st=bstate(), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t]));
+  $$("#board .sk").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.skill===BOARD.skill)));
+  $$("#board .tl").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.tool===BOARD.tool)));
+  $$("#board .skillblock").forEach(s=>s.hidden=BOARD.skill!=="all"&&s.dataset.block!==BOARD.skill);
+  $("#bModel").setAttribute("aria-pressed",String(BOARD.model));
+  $("#bModel").textContent=BOARD.model?"Hide the model mapping":"Show a model mapping";
+  const active=BOARD.tool&&byId[BOARD.tool];
+  $$("#board .tile").forEach(el=>{
+    const c=el.dataset.act, mine=(st.map[c]||[]).filter(id=>byId[id]);
+    const model=BOARD.model?BOARD.tools.filter(t=>t.model.includes(c)&&!mine.includes(t.id)):[];
+    el.querySelector(".tags").innerHTML=mine.map(id=>'<span style="background:'+byId[id].col+'" title="'+esc(byId[id].name)+'">'+esc(byId[id].mono)+"</span>").join("")+
+      model.map(t=>'<span class="model" title="Model: '+esc(t.name)+'">'+esc(t.mono)+"</span>").join("");
+    el.classList.toggle("matched",mine.length>0);
+    el.classList.toggle("hit",!!active&&mine.includes(active.id));
+    el.classList.toggle("cand",!!active&&BOARD.model&&active.model.includes(c)&&!mine.includes(active.id));
+    el.setAttribute("aria-pressed",String(!!active&&mine.includes(active.id)));
+    el.setAttribute("aria-label",c+" "+el.querySelector(".nm").textContent+(mine.length?", matched with "+mine.map(id=>byId[id].name).join(", "):""));
+  });
+  const n=BOARD.acts.filter(a=>(st.map[a.code]||[]).some(id=>byId[id])).length;
+  $("#meter").innerHTML='<span class="dots">'+[0,1,2,3,4].map(i=>'<i class="'+(i<n?"on":"")+'"></i>').join("")+"</span><span><b>"+n+"</b> "+(n===1?"activity":"activities")+" matched"+(n>=5?" — goal reached":" · goal: 5")+"</span>";
+  Object.keys(SKILLS).forEach(k=>{const el=document.querySelector('[data-cnt="'+k+'"]'); if(el) el.textContent=BOARD.acts.filter(a=>a.skill===k&&(st.map[a.code]||[]).length).length+" of 10 matched";});
+  $("#bhint").innerHTML=active?"Now click every activity <b>"+esc(active.name)+"</b> could serve. Click again to remove it.":"Choose a tool above, then click activities to match it.";
+  const ws=st.ws||{}, a=BOARD.acts.find(x=>x.code===ws.act);
+  $("#wsTools").innerHTML=a?"Tools matched to "+esc(a.code)+": "+(((st.map[a.code]||[]).filter(id=>byId[id]).map(id=>esc(byId[id].name)).join(", "))||"none yet — match some on the board, or plan to build your own page."):"";
+}
+function initBoard(){
+  if(!$("#board")) return;
+  const st=bstate(), ws=st.ws||{};
+  $$("#ws [data-ws]").forEach(el=>{el.value=ws[el.dataset.ws]||""});
+  $$("#ws [data-wstag]").forEach(el=>{el.checked=(ws.tags||[]).includes(el.dataset.wstag)});
+  const hdr=()=>document.documentElement.style.setProperty("--hdr",$("header.top").offsetHeight+"px"); hdr(); window.addEventListener("resize",hdr);
+  $("#board").addEventListener("click",e=>{
+    const sk=e.target.closest("[data-skill]"); if(sk){BOARD.skill=sk.dataset.skill;return paintBoard();}
+    const tl=e.target.closest("[data-tool]"); if(tl){BOARD.tool=BOARD.tool===tl.dataset.tool?null:tl.dataset.tool;return paintBoard();}
+    const ti=e.target.closest("[data-act]");
+    if(ti){ if(!BOARD.tool){$("#bhint").innerHTML="<b>Choose a tool first</b> — then click the activities it could serve.";return;}
+      const s=bstate(), c=ti.dataset.act, arr=s.map[c]||[], i=arr.indexOf(BOARD.tool);
+      if(i<0) arr.push(BOARD.tool); else arr.splice(i,1); s.map[c]=arr; bsave(s); return paintBoard(); }
+  });
+  $("#bModel").onclick=()=>{BOARD.model=!BOARD.model;paintBoard()};
+  $("#bClear").onclick=()=>{ if(!confirm("Clear all your matches on this board?")) return; const s=bstate(); s.map={}; bsave(s); paintBoard(); };
+  const say=(el,t)=>{el.textContent=t;setTimeout(()=>el.textContent="",2500)};
+  const copy=(text,el)=>(navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>say(el,"Copied.")).catch(()=>say(el,"Copy failed — select and copy by hand."));
+  $("#bCopy").onclick=()=>{
+    const s=bstate(), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t.name]));
+    const lines=BOARD.acts.filter(a=>(s.map[a.code]||[]).some(id=>byId[id])).map(a=>a.code+" "+a.name+": "+s.map[a.code].filter(id=>byId[id]).map(id=>byId[id]).join(" + "));
+    copy(lines.length?"Activity board matches ("+lines.length+")\n"+lines.join("\n"):"No matches yet.",$("#bStatus"));
+  };
+  const saveWs=()=>{const s=bstate(); s.ws={tags:$$("#ws [data-wstag]").filter(x=>x.checked).map(x=>x.dataset.wstag)}; $$("#ws [data-ws]").forEach(el=>s.ws[el.dataset.ws]=el.value); bsave(s); paintBoard();};
+  $("#ws").addEventListener("input",saveWs); $("#ws").addEventListener("change",saveWs);
+  $("#wsCopy").onclick=e=>{
+    const s=bstate(), w=s.ws||{}, a=BOARD.acts.find(x=>x.code===w.act), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t.name]));
+    const text=["Activity: "+(a?a.code+" · "+a.name:""),"Link/tool: "+(a?(s.map[a.code]||[]).filter(id=>byId[id]).map(id=>byId[id]).join(" + "):""),"Why this bin: "+(w.why||""),"Theory tags: "+(w.tags||[]).join(", "),"How we'd use it: "+(w.how||"")].join("\n");
+    copy(text,e.target.nextElementSibling);
+  };
+  paintBoard();
 }
 
 /* ── page ── */
@@ -378,12 +535,14 @@ async function load(){
         (x.f.doi?'<a href="https://doi.org/'+esc(x.f.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':"")+
         (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
         '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
-    }else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    }else if(d.items.some(x=>x.f.kind==="act")) body='<div class="intro">'+md(d.intro)+"</div>"+boardHtml(d);
+    else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
     const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
     return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
       '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
       (next?'<button class="pill" data-go="'+next[0]+'">'+esc(next[1])+" →</button>":"<span></span>")+"</div></section>";
   }).join("");
+  initBoard();
   go(fromHash(), !!location.hash);
 }
 </script>
@@ -395,8 +554,9 @@ window.CONTENT_FILES={
   "3":"content/03-speaking.md",
   "4":"content/04-reading.md",
   "5":"content/05-writing.md",
-  "6":"content/06-build.md",
-  "7":"content/07-present.md"
+  "6":"content/06-board.md",
+  "7":"content/07-build.md",
+  "8":"content/08-present.md"
 };
 load();
 </script>

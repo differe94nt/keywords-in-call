@@ -1,6 +1,6 @@
 # Sources
 
-Sixteen studies: two classic and two recent for each skill. Every reference was checked against its DOI record, and every summary on the skill pages was written from the study's own abstract. Where an abstract did not report a detail — a sample size, a country — the summary leaves it out rather than guess.
+Sixteen studies: two classic and two recent for each skill. Every reference was checked against its DOI record, and every summary on the skill pages was written from the study's abstract, checked against the full text where it was open. Where we could not confirm a detail, the summary leaves it out rather than guess. "No significant difference" is reported as exactly that — not as proof that two options are equal.
 
 <!-- ## id + apa/doi = a reference; other ## blocks render as cards -->
 
@@ -19,8 +19,8 @@ wide: yes
 kind: card
 wide: yes
 Checking references is not only for AI output. Two of today's studies show why.
-- **Payne & Whitney.** The issue is dated 2002 (CALICO Journal 20[1], confirmed in ERIC), but the publisher's DOI record says 2003 and Semantic Scholar says 2013. We cite **2002**.
-- **Zou et al.** Published online in January 2025, in the printed issue (volume 39, issue 4) in 2026. Following APA, we cite the **issue year, 2026**.
+- **Payne & Whitney.** The issue is dated 2002 (CALICO Journal 20[1], confirmed in [ERIC EJ655669](https://eric.ed.gov/?id=EJ655669)), but the publisher's DOI record says 2003 and Semantic Scholar says 2013. We cite **2002**.
+- **Zou et al.** Published online in January 2025, in the printed issue (volume 39, issue 4) in 2026 — see the [publisher's page](https://www.tandfonline.com/doi/abs/10.1080/09588221.2024.2447279). Following APA, we cite the **issue year, 2026**, not the earliest date in the DOI record.
 
 ## abraham2008
 apa: Abraham, L. B. (2008). Computer-mediated glosses in second language reading comprehension and vocabulary learning: A meta-analysis. *Computer Assisted Language Learning, 21*(3), 199–226.
@@ -31,7 +31,7 @@ apa: Chun, D. M., & Plass, J. L. (1996). Effects of multimedia annotations on vo
 doi: 10.1111/j.1540-4781.1996.tb01159.x
 
 ## fathi2024
-apa: Fathi, J., Rahimi, M., & Derakhshan, A. (2024). Improving EFL learners' speaking skills and willingness to communicate via artificial intelligence-mediated interactions. *System, 121*, 103254.
+apa: Fathi, J., Rahimi, M., & Derakhshan, A. (2024). Improving EFL learners' speaking skills and willingness to communicate via artificial intelligence-mediated interactions. *System, 121*, Article 103254.
 doi: 10.1016/j.system.2024.103254
 
 ## goh2025
@@ -43,7 +43,7 @@ apa: Huang, W., Jia, C., Hew, K. F., & Guo, J. (2024). Using chatbots to support
 doi: 10.64152/10125/73572
 
 ## lin2024
-apa: Lin, Z., & Chen, H. (2024). Investigating the capability of ChatGPT for generating multiple-choice reading comprehension items. *System, 123*, 103344.
+apa: Lin, Z., & Chen, H. (2024). Investigating the capability of ChatGPT for generating multiple-choice reading comprehension items. *System, 123*, Article 103344.
 doi: 10.1016/j.system.2024.103344
 
 ## lyster1997
@@ -63,7 +63,7 @@ apa: Payne, J. S., & Whitney, P. J. (2002). Developing L2 oral proficiency throu
 doi: 10.1558/cj.v20i1.7-32
 
 ## tai2024
-apa: Tai, T.-Y., & Chen, H. H.-J. (2024). Improving elementary EFL speaking skills with generative AI chatbots: Exploring individual and paired interactions. *Computers & Education, 220*, 105112.
+apa: Tai, T.-Y., & Chen, H. H.-J. (2024). Improving elementary EFL speaking skills with generative AI chatbots: Exploring individual and paired interactions. *Computers & Education, 220*, Article 105112.
 doi: 10.1016/j.compedu.2024.105112
 
 ## truscott1996

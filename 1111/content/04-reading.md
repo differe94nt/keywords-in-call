@@ -37,13 +37,14 @@ refs: lin2024
 ## Is AI-simplified text easier to understand?
 kind: paper
 badge: Recent · 2025
-did: The study compared L2 readers' comprehension of three versions of a passage: the original, a version simplified by human experts, and a version simplified by AI.
-found: Once readers' **topic familiarity** was taken into account, **neither simplified version was easier to understand** than the original.
-means: Shorter words and sentences do not guarantee comprehension; what readers already know about the topic matters. Test any AI-simplified text with learners — for example by asking them to think aloud — before relying on it.
+did: The study compared L2 readers' comprehension of three versions of a passage: the original, a version simplified by human experts, and a version simplified automatically with **Cleartext**, a machine-learning simplification tool — not ChatGPT.
+found: Once readers' **topic familiarity** was taken into account, **neither simplified version was easier to understand** than the original in this study.
+means: Shorter words and sentences do not guarantee comprehension; what readers already know about the topic matters. The study does not show that today's chatbots cannot help — it shows you should test any AI-simplified text with learners (for example, by asking them to think aloud) before relying on it.
 refs: murphyodo2025
 
 ## Activity ideas
 kind: section
+These are **classroom adaptations inspired by the studies** — the exact activities were not tested in them. For seven more reading activity types, and the websites that can run them, see the **Activity board**.
 
 ## Picture-glossed reading
 kind: activity
@@ -65,14 +66,15 @@ role: AI drafts the items and the answer key.
 check: Can a learner answer any question *without* reading the text? Is there exactly one correct answer?
 refs: lin2024
 
-## Build the topic before the text
+## Original or simplified? Explore it
 kind: activity
 do:
 - Before reading, learners meet the topic through pictures, a short video or a quick discussion.
 - Half the class reads the original text, half an AI-simplified version.
-- Compare: what helped understanding — the easier language, or knowing the topic?
+- Groups compare: what did each half understand, and where did they get stuck?
+- The class writes one question to test next time — for example, *Would the simplified text still help without the topic preparation?*
 role: AI produces the simplified version and the pre-reading prompts.
-check: Did the simplification remove meaning the task needs?
+check: This is a classroom exploration, not an experiment — both halves had the same preparation, so you cannot tell whether the topic or the language helped. Did the simplification remove meaning the task needs?
 refs: murphyodo2025
 
 ## Mistakes to avoid

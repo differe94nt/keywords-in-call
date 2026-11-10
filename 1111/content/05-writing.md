@@ -31,7 +31,7 @@ kind: paper
 badge: Recent · 2026
 did: 20 Chinese undergraduates wrote argumentative essays, received feedback from both their teacher and ChatGPT, and revised. The researchers analysed the revisions and surveyed the students.
 found: Students **engaged more and revised more accurately with teacher feedback**, especially on language and content — but they were particularly successful at using **ChatGPT's feedback on organisation**. They preferred teacher feedback overall while recognising ChatGPT's strengths.
-means: Use AI feedback as a complement, and give each source the job it does best.
+means: Use AI feedback as a complement. With 20 students in one setting, this is a reason to *try* giving each source a different job — not a rule about which source does what.
 refs: zou2026
 
 ## Working through AI feedback alone or together
@@ -44,6 +44,7 @@ refs: yan2024
 
 ## Activity ideas
 kind: section
+These are **classroom adaptations inspired by the studies** — the exact activities were not tested in them. For seven more writing activity types, and the websites that can run them, see the **Activity board**.
 
 ## Two sources, one decision
 kind: activity
@@ -65,14 +66,14 @@ role: AI produces the feedback on the sample paragraph.
 check: The new paragraph — not the revised one — shows what was learned.
 refs: yan2024
 
-## One error pattern, indirect feedback
+## One error pattern, indirect feedback · a design to test
 kind: activity
 do:
 - Tell the AI to give feedback on **one** pattern only (for example verb forms), marking where the problem is without correcting it.
 - Learners correct the marked places themselves, then check with a partner.
 - A short new piece of writing tests the same pattern.
 role: AI marks the pattern according to your rules.
-check: Did the AI stick to one pattern, and did it avoid giving the answers?
+check: Did the AI stick to one pattern, and did it avoid giving the answers? Neither study below shows that this activity works: Truscott raises the question of whether correction helps at all, and Warschauer & Ware ask how automated feedback is used in class. Treat it as a design to test, and use the new piece of writing as your evidence.
 refs: truscott1996 | warschauer2006
 
 ## Mistakes to avoid

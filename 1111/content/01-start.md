@@ -9,41 +9,46 @@ HOW TO EDIT
 
 ## Today, step by step
 kind: section
-About three hours. Groups of 3–4.
+Three hours, groups of 3–4. The board below adds up to 180 minutes, including a 10-minute break and 8 minutes of buffer for switching groups.
 
 ## Choose a skill
 kind: milestone
-date: 0:00–0:15
-what: Each group chooses **one skill**. If two groups choose the same skill, choose different learners.
+date: 0:00–0:10
+what: Each group chooses **one skill** and decides who reads which study. If two groups choose the same skill, choose different learners.
 
 ## Think first — your draft activity
 kind: milestone
-date: 0:15–0:35
-what: **Before reading anything**, sketch your own activity using the draft frame below. This is your *starting point* — keep it, even if you change everything later.
+date: 0:10–0:25
+what: **Before reading anything**, sketch your own activity using the draft frame below. This is your *starting point for today* — keep it, even if you change everything later.
 
 ## Read for your skill
 kind: milestone
-date: 0:35–1:05
-what: Read your skill's page: two classic studies, two recent ones, and three activity ideas. Skim the other three skills — good ideas travel.
+date: 0:25–0:50
+what: Jigsaw the four studies on your skill's page: each member reads one card closely, then teaches it to the group. Every group needs at least **one classic and one recent** study it can cite. Other skills are extra reading.
+
+## Activity board
+kind: milestone
+date: 0:50–1:10
+what: On the **Activity board**, look through the ten activity types for your skill, try the websites and AI tools, and match tools to **at least five** activities. Choose the one activity your group will build and show.
 
 ## Revise your draft
 kind: milestone
-date: 1:05–1:15
-what: What will you keep, change or drop because of what you read? Name the study behind each change.
+date: 1:10–1:20
+what: What will you keep, change or drop because of what you read and tried? Name the study behind each change.
 
 ## Break
 kind: milestone
-date: 1:15–1:25
+date: 1:20–1:30
 
 ## Build it with AI
 kind: milestone
-date: 1:25–2:10
-what: Guide an AI — **Gemini first, then Claude or ChatGPT** if you need it — to build your activity. Test it, fix it, save each version.
+date: 1:30–2:10
+what: Guide an AI — **Gemini first, then Claude or ChatGPT** if you need it — to build your activity, or combine it with the tools you matched on the board. Test it, fix it, save each version.
 
 ## Present
 kind: milestone
 date: 2:10–2:50
-what: About **7 minutes per group plus 3 minutes of questions**. Your classmates are your learners for the demonstration.
+what: **6 minutes of teaching plus 2 minutes of feedback per group** — four groups take 32 minutes, leaving 8 for switching and technical problems. With more than four groups, run two rooms in parallel or shorten every slot.
 
 ## Reflect
 kind: milestone
@@ -68,12 +73,13 @@ What we are least sure about:
 
 ## Why think first?
 kind: card
-If you read the research first, your activity will look like the studies. If you think first, you can see **what the research changes** in your own thinking — and that change is exactly what your portfolio asks you to show under *Where I started* and *What I learned*.
+If you read the research first, your activity will look like the studies. If you think first, you can see **what the research changes** in your own thinking — and that change is evidence for *What I learned* in your portfolio. Version 0 is where **today** started; your portfolio's *Where I started* still goes back to the beginning of the semester.
 
 ## How the four skill pages work
 kind: card
 - **Classic studies** (badge in blue) are older papers the field still builds on.
 - **Recent studies** (badge in green) are from 2024–2026 and mostly involve AI.
 - Each study card says *what they did*, *what they found*, and *what it means for your activity*.
-- Each page ends with **three activity ideas** and the mistakes to avoid.
+- Each page ends with **three activity ideas** and the mistakes to avoid. These ideas are classroom adaptations *inspired by* the studies; the studies did not test them.
+- The **Activity board** shows forty activity types — ten per skill — and nine websites and AI tools you can run them with.
 - Every reference was checked against its publisher record; click a citation to open it.

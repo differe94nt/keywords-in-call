@@ -17,7 +17,7 @@ const CONFIG = {
   title: "Week 10 · 11/11 · Four skills, one activity",
   kicker: "11/11 · Four skills",
   storeKey: "w10-1111",
-  pages: [["1","Start"],["2","Listening"],["3","Speaking"],["4","Reading"],["5","Writing"],["6","Build with AI"],["7","Present & reflect"],["r","Sources"]],
+  pages: [["1","Start"],["2","Listening"],["3","Speaking"],["4","Reading"],["5","Writing"],["6","Activity board"],["7","Build with AI"],["8","Present & reflect"],["r","Sources"]],
   links: [["10/21 · Learner language","../1021/"],["Final project","../final/"],["AI studio","../ai-tools/"]]
 };
 </script>
@@ -146,6 +146,59 @@ thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;
 .pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 .banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
 footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+/* ── activity board ── */
+.board{--L:var(--blue);--S:var(--burnt);--R:var(--green);--W:var(--red);margin:1.2rem 0}
+.bbar{position:sticky;top:var(--hdr,92px);z-index:20;background:var(--bg);padding:.6rem 0;border-bottom:1px solid var(--line);display:grid;gap:.55rem}
+.brow{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.brow .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);font-weight:600;margin-right:.2rem}
+.sk{border:1px solid var(--line-2);background:var(--paper);border-radius:999px;padding:.25rem .75rem;font-size:.82rem;cursor:pointer;display:inline-flex;gap:.35rem;align-items:center}
+.sk svg{width:16px;height:16px}
+.sk[aria-pressed="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .sk[aria-pressed="true"]{background:var(--green);color:#16200E}
+.tl{border:1.5px solid var(--line-2);background:var(--paper);border-radius:10px;padding:.28rem .6rem .28rem .3rem;font-size:.82rem;cursor:pointer;display:inline-flex;gap:.4rem;align-items:center}
+.tl .mono{width:1.45rem;height:1.45rem;border-radius:6px;display:grid;place-items:center;font-family:var(--mono);font-size:.68rem;font-weight:600;color:#fff;flex:none}
+.tl[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 2px var(--gold)}
+.meter{display:flex;align-items:center;gap:.5rem;font-size:.84rem}
+.meter .dots{display:flex;gap:3px}
+.meter .dots i{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--green);display:block}
+.meter .dots i.on{background:var(--green)}
+.bhint{font-size:.84rem;color:var(--fg-soft);min-height:1.3em}
+.bhint b{color:var(--fg)}
+.skillblock{margin-top:1.3rem}
+.skillhead{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.skillhead .ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--c)}
+.skillhead .ico svg{width:22px;height:22px}
+.skillhead h3{font-size:1.25rem}
+.skillhead .cnt{font-size:.78rem;color:var(--fg-soft);margin-left:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:.6rem}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:.65rem .75rem .6rem;display:flex;flex-direction:column;gap:.3rem;min-height:150px;transition:transform .12s,box-shadow .12s}
+.tile:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.tile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tile .code{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--c)}
+.tile .nm{font-family:var(--serif);font-weight:600;font-size:1rem;line-height:1.2}
+.tile .hw{font-size:.8rem;color:var(--fg-soft);line-height:1.45;flex:1}
+.tile .tags{display:flex;flex-wrap:wrap;gap:3px;min-height:1.2rem}
+.tile .tags span{font-size:.68rem;font-family:var(--mono);color:#fff;border-radius:5px;padding:.05rem .35rem}
+.tile .tags span.model{background:none!important;color:var(--fg-soft);border:1.5px dashed var(--line-2)}
+.tile.hit{box-shadow:0 0 0 2px var(--gold);background:var(--gold-soft)}
+.tile.cand{border-style:dashed}
+.tile.matched .code::after{content:" ✓";color:var(--green)}
+.toolcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:.8rem;margin:.8rem 0}
+.toolcard{border-top:5px solid var(--tc)}
+.toolcard .by{font-size:.76rem;color:var(--fg-soft);margin:-.2rem 0 .4rem}
+.toolcard .fits{display:flex;flex-wrap:wrap;gap:3px;margin-top:.4rem}
+.toolcard .fits span{font-family:var(--mono);font-size:.7rem;border:1px solid var(--line-2);border-radius:5px;padding:0 .35rem}
+.tagrow{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.tagrow .tg{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.35rem .6rem;font-size:.84rem}
+.tagrow .tg b{font-family:var(--mono);font-size:.78rem;color:var(--burnt);margin-right:.3rem}
+.ws{display:grid;gap:.6rem}
+.ws label{display:grid;gap:.2rem;font-size:.84rem;font-weight:600}
+.ws select,.ws textarea,.ws input[type=text]{font:inherit;font-weight:400;background:var(--bg);color:var(--fg);border:1px solid var(--line-2);border-radius:8px;padding:.4rem .5rem}
+.ws textarea{min-height:3.2em;resize:vertical}
+.ws .chkrow{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-weight:400}
+.ws .chkrow label{display:flex;gap:.3rem;align-items:center;font-weight:400}
+.ws .autotools{font-weight:400;font-size:.86rem;color:var(--fg-soft)}
+@media (max-width:600px){.bbar{position:static}}
 @media print{header.top,.pager,.copyrow{display:none}.phase{display:block!important;break-before:page}pre{white-space:pre-wrap}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
@@ -164,41 +217,46 @@ HOW TO EDIT
 
 ## Today, step by step
 kind: section
-About three hours. Groups of 3–4.
+Three hours, groups of 3–4. The board below adds up to 180 minutes, including a 10-minute break and 8 minutes of buffer for switching groups.
 
 ## Choose a skill
 kind: milestone
-date: 0:00–0:15
-what: Each group chooses **one skill**. If two groups choose the same skill, choose different learners.
+date: 0:00–0:10
+what: Each group chooses **one skill** and decides who reads which study. If two groups choose the same skill, choose different learners.
 
 ## Think first — your draft activity
 kind: milestone
-date: 0:15–0:35
-what: **Before reading anything**, sketch your own activity using the draft frame below. This is your *starting point* — keep it, even if you change everything later.
+date: 0:10–0:25
+what: **Before reading anything**, sketch your own activity using the draft frame below. This is your *starting point for today* — keep it, even if you change everything later.
 
 ## Read for your skill
 kind: milestone
-date: 0:35–1:05
-what: Read your skill's page: two classic studies, two recent ones, and three activity ideas. Skim the other three skills — good ideas travel.
+date: 0:25–0:50
+what: Jigsaw the four studies on your skill's page: each member reads one card closely, then teaches it to the group. Every group needs at least **one classic and one recent** study it can cite. Other skills are extra reading.
+
+## Activity board
+kind: milestone
+date: 0:50–1:10
+what: On the **Activity board**, look through the ten activity types for your skill, try the websites and AI tools, and match tools to **at least five** activities. Choose the one activity your group will build and show.
 
 ## Revise your draft
 kind: milestone
-date: 1:05–1:15
-what: What will you keep, change or drop because of what you read? Name the study behind each change.
+date: 1:10–1:20
+what: What will you keep, change or drop because of what you read and tried? Name the study behind each change.
 
 ## Break
 kind: milestone
-date: 1:15–1:25
+date: 1:20–1:30
 
 ## Build it with AI
 kind: milestone
-date: 1:25–2:10
-what: Guide an AI — **Gemini first, then Claude or ChatGPT** if you need it — to build your activity. Test it, fix it, save each version.
+date: 1:30–2:10
+what: Guide an AI — **Gemini first, then Claude or ChatGPT** if you need it — to build your activity, or combine it with the tools you matched on the board. Test it, fix it, save each version.
 
 ## Present
 kind: milestone
 date: 2:10–2:50
-what: About **7 minutes per group plus 3 minutes of questions**. Your classmates are your learners for the demonstration.
+what: **6 minutes of teaching plus 2 minutes of feedback per group** — four groups take 32 minutes, leaving 8 for switching and technical problems. With more than four groups, run two rooms in parallel or shorten every slot.
 
 ## Reflect
 kind: milestone
@@ -223,14 +281,15 @@ What we are least sure about:
 
 ## Why think first?
 kind: card
-If you read the research first, your activity will look like the studies. If you think first, you can see **what the research changes** in your own thinking — and that change is exactly what your portfolio asks you to show under *Where I started* and *What I learned*.
+If you read the research first, your activity will look like the studies. If you think first, you can see **what the research changes** in your own thinking — and that change is evidence for *What I learned* in your portfolio. Version 0 is where **today** started; your portfolio's *Where I started* still goes back to the beginning of the semester.
 
 ## How the four skill pages work
 kind: card
 - **Classic studies** (badge in blue) are older papers the field still builds on.
 - **Recent studies** (badge in green) are from 2024–2026 and mostly involve AI.
 - Each study card says *what they did*, *what they found*, and *what it means for your activity*.
-- Each page ends with **three activity ideas** and the mistakes to avoid.
+- Each page ends with **three activity ideas** and the mistakes to avoid. These ideas are classroom adaptations *inspired by* the studies; the studies did not test them.
+- The **Activity board** shows forty activity types — ten per skill — and nine websites and AI tools you can run them with.
 - Every reference was checked against its publisher record; click a citation to open it.
 
 </script>
@@ -248,11 +307,11 @@ HOW TO EDIT
 ## What research says
 kind: section
 
-## Teaching learners *how* to listen
+## Teaching learners how to listen
 kind: paper
 badge: Classic · 2010
 did: Over a semester, 106 learners in six French-as-a-second-language classes listened to the same texts the same number of times. The experimental group (59) was guided through the processes of successful listening — predicting and planning, monitoring, evaluating, problem solving. The control group (47) was not.
-found: The guided group outperformed the control group on the final comprehension measure, and the **less skilled listeners gained the most**. Learners' awareness of their own listening processes grew over the semester.
+found: The guided group outperformed the control group on the final comprehension measure. Within the guided group, **less skilled listeners gained more than more skilled ones**. Learners' awareness of their own listening processes grew over the semester.
 means: Playing the audio more often is not the same as teaching listening. Build in prediction, partner comparison and reflection between listens.
 refs: vandergrift2010
 
@@ -268,8 +327,8 @@ refs: montero2013
 kind: paper
 badge: Recent · 2024
 did: A flipped course for *decoding* — recognising words in connected speech — worked better than a conventional course but overloaded the teacher. The team built a chatbot as a 24/7 practice partner and compared a fully online chatbot course (46 students) with the flipped course (43).
-found: Both groups did **equally well on the decoding test**, and the chatbot group showed **stronger behavioural and emotional engagement**.
-means: AI can take over repetitive practice and feedback that would otherwise fall on the teacher — the learning outcome was the same, the workload was not.
+found: The study found **no significant difference between the groups on the decoding post-test**. The authors report that the chatbot course better supported **behavioural and emotional engagement**; read the paper for when in the course each difference appeared.
+means: "No significant difference" does not prove the two courses are equal. The design suggests a chatbot can take on repetitive practice and reminders that would otherwise depend on the teacher — the study did not measure teacher workload directly.
 refs: huang2024
 
 ## Does AI make listening and speaking better?
@@ -282,6 +341,7 @@ refs: goh2025
 
 ## Activity ideas
 kind: section
+These are **classroom adaptations inspired by the studies** — the exact activities were not tested in them. For seven more listening activity types, and the websites that can run them, see the **Activity board**.
 
 ## The listening cycle
 kind: activity
@@ -347,7 +407,7 @@ kind: paper
 badge: Classic · 1997
 did: An analysis of 18.3 hours of interaction in four primary-level French immersion classrooms, classifying six types of teacher feedback and how learners responded to each.
 found: Teachers overwhelmingly used **recasts** (repeating the learner's sentence correctly), yet recasts were the least likely to lead learners to repair their own speech. **Elicitation, metalinguistic clues, clarification requests and repetition** led to learner-generated repair more often.
-means: If your activity includes a feedback partner — human or AI — ask it to prompt the learner to try again, not just to say the correct form.
+means: If your activity includes a feedback partner — human or AI — ask it to prompt the learner to try again, not just to say the correct form. Note what was measured: immediate repair in the lesson, which is not the same as long-term learning.
 refs: lyster1997
 
 ## Text chat as rehearsal for speech
@@ -369,13 +429,14 @@ refs: fathi2024
 ## Chatbots with young learners — alone or in pairs
 kind: paper
 badge: Recent · 2024
-did: 85 elementary EFL learners in a three-week summer programme (45 minutes a day) practised with a generative-AI chatbot called CoolE Bot, either individually or in pairs; a third group had conventional instruction. Researchers based in Taiwan.
-found: **Both chatbot groups outperformed** the conventional group on speaking tests, with **no significant difference between individual and paired** use. Learners reported enjoyment, more confidence and less anxiety; pairs also helped each other.
-means: Sharing one device between two learners works — useful when devices are limited, and it adds peer support. The study used one specific chatbot; general-purpose tools such as ChatGPT or Claude have age limits, so check them before using a chatbot with children.
+did: 85 elementary EFL learners in a three-week summer programme (45 minutes a day) practised with a generative-AI chatbot called CoolE Bot, either individually or in pairs; a third group had conventional instruction.
+found: **Both chatbot groups outperformed** the conventional group on speaking tests. **No significant difference was detected between individual and paired** use. Learners reported enjoyment, more confidence and less anxiety; pairs also helped each other.
+means: "No significant difference" is not proof that pairs and individuals do equally well — but paired use is worth trying where devices are limited, and it adds peer support. The study used one specific chatbot for three weeks; general-purpose tools such as ChatGPT or Claude have age limits, so check them before using a chatbot with children.
 refs: tai2024
 
 ## Activity ideas
 kind: section
+These are **classroom adaptations inspired by the studies** — the exact activities were not tested in them. For seven more speaking activity types, and the websites that can run them, see the **Activity board**.
 
 ## Rehearse with AI, perform with people
 kind: activity
@@ -394,7 +455,7 @@ do:
 - Five minutes of spoken discussion on the same topic, without the chat window.
 - Learners note one phrase they used in both.
 role: AI suggests the discussion questions and a short list of useful phrases at the learners' level.
-check: The spoken round must be new talk, not reading the chat aloud.
+check: The spoken round must be new talk, not reading the chat aloud. Payne & Whitney studied a semester of chat sessions — this five-plus-five sequence is our adaptation, not their design.
 refs: payne2002
 
 ## A partner who prompts, not corrects
@@ -461,13 +522,14 @@ refs: lin2024
 ## Is AI-simplified text easier to understand?
 kind: paper
 badge: Recent · 2025
-did: The study compared L2 readers' comprehension of three versions of a passage: the original, a version simplified by human experts, and a version simplified by AI.
-found: Once readers' **topic familiarity** was taken into account, **neither simplified version was easier to understand** than the original.
-means: Shorter words and sentences do not guarantee comprehension; what readers already know about the topic matters. Test any AI-simplified text with learners — for example by asking them to think aloud — before relying on it.
+did: The study compared L2 readers' comprehension of three versions of a passage: the original, a version simplified by human experts, and a version simplified automatically with **Cleartext**, a machine-learning simplification tool — not ChatGPT.
+found: Once readers' **topic familiarity** was taken into account, **neither simplified version was easier to understand** than the original in this study.
+means: Shorter words and sentences do not guarantee comprehension; what readers already know about the topic matters. The study does not show that today's chatbots cannot help — it shows you should test any AI-simplified text with learners (for example, by asking them to think aloud) before relying on it.
 refs: murphyodo2025
 
 ## Activity ideas
 kind: section
+These are **classroom adaptations inspired by the studies** — the exact activities were not tested in them. For seven more reading activity types, and the websites that can run them, see the **Activity board**.
 
 ## Picture-glossed reading
 kind: activity
@@ -489,14 +551,15 @@ role: AI drafts the items and the answer key.
 check: Can a learner answer any question *without* reading the text? Is there exactly one correct answer?
 refs: lin2024
 
-## Build the topic before the text
+## Original or simplified? Explore it
 kind: activity
 do:
 - Before reading, learners meet the topic through pictures, a short video or a quick discussion.
 - Half the class reads the original text, half an AI-simplified version.
-- Compare: what helped understanding — the easier language, or knowing the topic?
+- Groups compare: what did each half understand, and where did they get stuck?
+- The class writes one question to test next time — for example, *Would the simplified text still help without the topic preparation?*
 role: AI produces the simplified version and the pre-reading prompts.
-check: Did the simplification remove meaning the task needs?
+check: This is a classroom exploration, not an experiment — both halves had the same preparation, so you cannot tell whether the topic or the language helped. Did the simplification remove meaning the task needs?
 refs: murphyodo2025
 
 ## Mistakes to avoid
@@ -547,7 +610,7 @@ kind: paper
 badge: Recent · 2026
 did: 20 Chinese undergraduates wrote argumentative essays, received feedback from both their teacher and ChatGPT, and revised. The researchers analysed the revisions and surveyed the students.
 found: Students **engaged more and revised more accurately with teacher feedback**, especially on language and content — but they were particularly successful at using **ChatGPT's feedback on organisation**. They preferred teacher feedback overall while recognising ChatGPT's strengths.
-means: Use AI feedback as a complement, and give each source the job it does best.
+means: Use AI feedback as a complement. With 20 students in one setting, this is a reason to *try* giving each source a different job — not a rule about which source does what.
 refs: zou2026
 
 ## Working through AI feedback alone or together
@@ -560,6 +623,7 @@ refs: yan2024
 
 ## Activity ideas
 kind: section
+These are **classroom adaptations inspired by the studies** — the exact activities were not tested in them. For seven more writing activity types, and the websites that can run them, see the **Activity board**.
 
 ## Two sources, one decision
 kind: activity
@@ -581,14 +645,14 @@ role: AI produces the feedback on the sample paragraph.
 check: The new paragraph — not the revised one — shows what was learned.
 refs: yan2024
 
-## One error pattern, indirect feedback
+## One error pattern, indirect feedback · a design to test
 kind: activity
 do:
 - Tell the AI to give feedback on **one** pattern only (for example verb forms), marking where the problem is without correcting it.
 - Learners correct the marked places themselves, then check with a partner.
 - A short new piece of writing tests the same pattern.
 role: AI marks the pattern according to your rules.
-check: Did the AI stick to one pattern, and did it avoid giving the answers?
+check: Did the AI stick to one pattern, and did it avoid giving the answers? Neither study below shows that this activity works: Truscott raises the question of whether correction helps at all, and Warschauer & Ware ask how automated feedback is used in class. Treat it as a design to test, and use the new piece of writing as your evidence.
 refs: truscott1996 | warschauer2006
 
 ## Mistakes to avoid
@@ -606,6 +670,389 @@ kind: questions
 
 </script>
 <script type="text/markdown" id="md6">
+# Activity board
+
+Forty small activity types — ten for each skill — and nine websites and AI tools that can run them. **Pick a tool, then click every activity it could serve.** One tool can fit several activities, and one activity can combine several tools. Your matches stay in this browser; copy them into your group document before you leave.
+
+<!--
+HOW TO EDIT
+  ## L1 … W10        kind: act   · skill: L/S/R/W · name: · how:
+  ## <tool id>       kind: tool  · mono: (2-letter badge) · name: · url: · by: · what: · mind: · model: (activity codes, | separated) · why:
+  ## Theory tags     kind: tags  · bullets "TAG — meaning"
+  Other ## blocks render as ordinary cards/steps above the board.
+-->
+
+## Four steps
+kind: section
+
+## Look at all the activities in your skill
+kind: step
+do: Use the skill buttons to show your skill. Read all ten — the code (L1, S4 …) is how you will name your activity later.
+
+## Try the websites and AI tools
+kind: step
+do: Open each tool below the board and try it for two minutes. Read **Before you use it** on each tool card.
+
+## Match tools to activities
+kind: step
+do: Choose a tool, then click each activity it could serve. The same tool may fit several activities; you may combine tools for one activity. Match **at least five activities** with at least one tool each.
+
+## Choose your group's activity
+kind: step
+do: Fill in the worksheet under the board for the **one** activity your group will build and show. You will start your presentation with it.
+
+## L1
+kind: act
+skill: L
+name: Clip → transcript → gist/detail
+how: Play a short clip twice — first for a one-sentence gist, then with the transcript for three detail answers.
+
+## L2
+kind: act
+skill: L
+name: Dictogloss
+how: Read a 100–150-word passage twice while students take notes; pairs reconstruct the text and compare it with the original.
+
+## L3
+kind: act
+skill: L
+name: Minimal-pair detective
+how: Read word pairs aloud; students mark which one they heard, then check together as a class.
+
+## L4
+kind: act
+skill: L
+name: Modelled note-taking → imitate
+how: Demonstrate live note-taking on a 1–2-minute clip; students copy the approach on a new clip.
+
+## L5
+kind: act
+skill: L
+name: Caption gap-fill
+how: Remove key linkers from a transcript; students listen and restore the missing words.
+
+## L6
+kind: act
+skill: L
+name: Speed ladder
+how: Play the same clip at 0.75× for comprehension, then at 1.0× to catch new details.
+
+## L7
+kind: act
+skill: L
+name: Accent compare
+how: Play two short clips with different accents; students list the differences and the strategies that helped them understand.
+
+## L8
+kind: act
+skill: L
+name: Signal-word hunt
+how: Students tick off contrast, addition and time markers as they hear them, then verify against the transcript.
+
+## L9
+kind: act
+skill: L
+name: Audio → visual map
+how: After a short talk, students turn the main points into a quick mind map and compare in pairs.
+
+## L10
+kind: act
+skill: L
+name: Listening jigsaw
+how: Groups summarise different segments of a talk, then teach their part so the class can rebuild the whole.
+
+## S1
+kind: act
+skill: S
+name: Private rehearsal → pair share
+how: Students practise a 60-second talk silently or into their phone, then deliver it to a partner.
+
+## S2
+kind: act
+skill: S
+name: Role-play with fading cues
+how: Round 1 gives sentence starters, round 2 only keywords, round 3 no cues.
+
+## S3
+kind: act
+skill: S
+name: Picture prompt trio
+how: Show one image; students describe it, compare its elements, then infer or hypothesise about its context.
+
+## S4
+kind: act
+skill: S
+name: Retell with constraints
+how: Students retell a short story using exactly two linkers and one relative clause.
+
+## S5
+kind: act
+skill: S
+name: Mini-debate (30-second CER)
+how: Pairs take 30-second turns giving claim, evidence and reasoning until both sides have spoken twice.
+
+## S6
+kind: act
+skill: S
+name: Pronunciation clinic
+how: Drill target minimal pairs or sentences, first in chorus, then individually, with quick corrective feedback.
+
+## S7
+kind: act
+skill: S
+name: Story co-build
+how: Pairs take turns adding one sentence to a shared story, keeping tense and viewpoint consistent.
+
+## S8
+kind: act
+skill: S
+name: Pragmatics rehearsal
+how: Students practise speech acts such as requests and apologies with scenario cards and peer feedback.
+
+## S9
+kind: act
+skill: S
+name: Elevator pitch
+how: Learners prepare and deliver a 45–60-second self-introduction or idea pitch to a timer, then refine it once.
+
+## S10
+kind: act
+skill: S
+name: Fluency ladder
+how: Students speak on the same topic for 30, then 45, then 60 seconds, aiming for fewer pauses and fillers each round.
+
+## R1
+kind: act
+skill: R
+name: Level & compare
+how: Give the original and a simplified version of the same paragraph; students highlight what changed and why.
+
+## R2
+kind: act
+skill: R
+name: Connector hunt
+how: Students underline *however*, *although*, *despite* and similar words and note the function each one signals.
+
+## R3
+kind: act
+skill: R
+name: Skim → scan → probe
+how: One gist question, then fact-finding questions, then one inference question on the same text.
+
+## R4
+kind: act
+skill: R
+name: Jigsaw reading
+how: Each student masters one section of a text and teaches it to a new group.
+
+## R5
+kind: act
+skill: R
+name: Headline match
+how: Students match mixed-up headlines and paragraphs and justify their choices.
+
+## R6
+kind: act
+skill: R
+name: Paraphrase ladder
+how: Students paraphrase a paragraph at A2, then B1, then B2, keeping the meaning while adding complexity.
+
+## R7
+kind: act
+skill: R
+name: Cloze builder (rational)
+how: Delete only reference words or linkers; peers complete the gaps and discuss any that are ambiguous.
+
+## R8
+kind: act
+skill: R
+name: Graphic organiser
+how: Students turn the text into a cause–effect, sequence or claim–evidence diagram.
+
+## R9
+kind: act
+skill: R
+name: Vocabulary in context
+how: Learners write in-text definitions and one example sentence for six target words from the passage.
+
+## R10
+kind: act
+skill: R
+name: Fact-check chain
+how: Students pick three claims from the text and find the exact lines that support them.
+
+## W1
+kind: act
+skill: W
+name: Model → imitate → rewrite
+how: Analyse a model paragraph's structure, imitate it on a new topic, then rewrite freely without the scaffold.
+
+## W2
+kind: act
+skill: W
+name: Sentence frames → free
+how: Draft with sentence frames in round 1; write a second draft without them in round 2.
+
+## W3
+kind: act
+skill: W
+name: Micro-writes (100–150 words)
+how: A quick daily write on a narrow prompt, with one improvement target collected per entry.
+
+## W4
+kind: act
+skill: W
+name: Write → review → rewrite
+how: Students draft, exchange for peer comments with a short rubric, then submit a revised version.
+
+## W5
+kind: act
+skill: W
+name: Error corpus
+how: Collect common class errors, cluster them by pattern, and write a one-line "fix rule" with a corrected example.
+
+## W6
+kind: act
+skill: W
+name: Sentence combining
+how: Combine five short kernel sentences into two grammatical, information-rich sentences.
+
+## W7
+kind: act
+skill: W
+name: Argument builder
+how: Fill in claim, two reasons, evidence and a counter-argument in a table before drafting a paragraph.
+
+## W8
+kind: act
+skill: W
+name: Data commentary
+how: Write 4–5 sentences on a simple chart: trend, peak, comparison and implication.
+
+## W9
+kind: act
+skill: W
+name: Email genre swap
+how: Rewrite an email from informal to formal (or the reverse) and underline the register changes.
+
+## W10
+kind: act
+skill: W
+name: Reflection note
+how: After a writing task, add 3–4 sentences on what changed in revision and why.
+
+## learnyourway
+kind: tool
+mono: LY
+name: Learn Your Way
+url: https://learnyourway.withgoogle.com/
+by: Google Research experiment
+what: Turns textbook material into several formats — immersive text with embedded questions, narrated slides, an audio lesson, a mind map and quizzes. The demos are school-subject lessons (for example science and economics) in English.
+mind: You mainly work with Google's demo lessons; check whether adding your own material is open. It is content-subject English, not an English course — choose a lesson your learners could follow.
+model: L1 | L9 | R3 | R8
+why: The audio lesson suits gist and detail listening and mind-mapping; the immersive text with questions suits skim–scan–probe; the mind map is a ready-made graphic organiser to compare with learners' own.
+
+## lll
+kind: tool
+mono: LL
+name: Little Language Lessons
+url: https://labs.google/lll/en
+by: Google Labs experiment (Gemini)
+what: Three small experiments: **Tiny Lesson** gives words, phrases and tips for a situation you type; **Slang Hang** generates an informal conversation; **Word Cam** labels objects in a photo with words in the target language.
+mind: Everything is AI-generated — check phrases and slang before teaching them. Check that your learners' language pair is offered.
+model: S3 | S8 | R9 | W9
+why: Tiny Lesson prepares phrases for a speech-act scenario; Word Cam gives vocabulary for a picture prompt; Slang Hang supplies informal language to contrast with a formal register.
+
+## pronounce
+kind: tool
+mono: Pr
+name: Pronounce
+url: https://www.getpronounce.com/
+by: Commercial AI speaking coach (not a Google product)
+what: Learners record themselves; the app analyses pronunciation and clarity, points to sounds and words to practise, and offers AI conversation coaches in several accents.
+mind: Needs an account; the free plan is limited. It uploads learners' voice recordings to a company — get consent, and do not use it with children's voices.
+model: S1 | S6 | S9 | S10 | L7
+why: Private recording with feedback before speaking to a partner; targeted sound practice; timed talks; coaches with different accents for comparison.
+
+## quizlet
+kind: tool
+mono: Qz
+name: Quizlet
+url: https://quizlet.com/latest
+by: Commercial flashcard platform
+what: Teacher- or student-made card sets with audio, and study modes such as Flashcards, Learn, Test and Match.
+mind: Some study modes are limited on the free plan. Card audio is text-to-speech — check minimal pairs by ear before using them.
+model: L3 | R9 | W5
+why: Audio cards for hearing pairs of words; definition-and-example cards for vocabulary in context; "error → fix rule" cards for an error corpus.
+
+## wordwall
+kind: tool
+mono: Ww
+name: Wordwall
+url: https://wordwall.net/
+by: Commercial activity maker
+what: Turns your content into games and printables from templates such as Quiz, Match up, Flashcards and Spin the wheel.
+mind: The free Basic plan allows 3 activities and 12 templates (check the price page). Ready-made community activities vary in quality.
+model: R5 | R9 | W5 | S5 | S9
+why: Match up for headlines and paragraphs; quizzes for "which sentence is correct?"; Spin the wheel to pick debate or pitch topics.
+
+## wordcoach
+kind: tool
+mono: WC
+name: Google Word Coach
+url: https://www.google.com/search?q=google+word+coach
+by: Vocabulary game inside Google Search
+what: Short rounds of five questions on word meanings, synonyms, antonyms and pictures.
+mind: The official game runs inside Google Search (search "Google Word Coach", easiest on a phone). The *googlewordscoach.com* site in the handout is an unofficial fan site.
+model: R9
+why: A two-minute vocabulary warm-up; follow it with an activity where learners use the words.
+
+## semantris
+kind: tool
+mono: Se
+name: Semantris
+url: https://research.google.com/semantris/
+by: Google Research word-association game
+what: Type a clue word; a language model decides which words on screen are most related. *Arcade* is fast and timed; *Blocks* is slower.
+mind: The model judges how related words are, not whether the English is correct. Use it to talk about meaning, then check with a dictionary.
+model: R8 | R9
+why: After a few rounds, learners build a word web of related terms — a graphic organiser — and explain the links.
+
+## artsculture
+kind: tool
+mono: AC
+name: The Lab · Google Arts & Culture
+url: https://artsandculture.google.com/lab
+by: Google Arts & Culture experiments
+what: A collection of experiments. **Say What You See** shows an image; learners type a description of up to 120 characters, and the AI generates an image from it to compare with the original.
+mind: Say What You See is typed — for speaking, have learners describe aloud first. It teaches image prompting, so precise nouns and adjectives score well.
+model: S3 | W3 | W6
+why: A picture prompt to describe and compare; a very short write with an instant visual check; compressing several details into one precise sentence.
+link: [Open Say What You See](https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw)
+
+## englinker
+kind: tool
+mono: En
+name: Englinker
+url: https://englinker.com/about/
+by: Independent site run by one founder
+what: A curated directory of English-learning resources — books and documents, games, tools and AI, videos and podcasts — with study guides. It is a list of links, not an exercise site.
+mind: It describes itself as a first version. Check each resource it links to before using it with learners.
+model: L1 | L7
+why: Its videos and podcasts section is a quick place to find clips for gist-and-detail listening and for comparing accents.
+
+## Theory tags
+kind: tags
+- i+1 — input a little beyond learners' current level
+- ZPD/Scaf — support first, then remove it so learners can do it alone
+- Bandura — learning by watching a model
+- Behav — practice, repetition and reinforcement
+- Swain — producing language makes learners notice gaps
+- Piaget — reorganising what you know when new information does not fit
+- UDL — several ways to take in, engage with and show learning
+
+</script>
+<script type="text/markdown" id="md7">
 # Build it with AI
 
 You have your first idea and you have read the research. Now **revise the plan**, then **guide** an AI to build it — you make the design decisions; the AI does the construction. Use the free versions: **Gemini first**, then Claude or ChatGPT if you need a second attempt.
@@ -620,7 +1067,7 @@ kind: section
 
 ## Revise your draft · version 1
 kind: step
-do: Go back to your version 0. For each part, write **keep**, **change** or **drop** — and name the study behind every change. Keep version 0 unchanged; your portfolio needs both.
+do: Go back to your version 0. For each part, write **keep**, **change** or **drop** — and name the study behind every change. Keep version 0 unchanged; your portfolio needs both. If you matched websites on the Activity board, decide here: build your own page, use an existing tool, or combine them.
 
 ## Write the specification
 kind: step
@@ -633,7 +1080,7 @@ tip: In Claude, turn on **Settings → Capabilities → Cloud code execution and
 
 ## Test it as a learner
 kind: step
-do: Try a right answer, a wrong answer and no answer. Try it on a phone. Then send the test prompt below.
+do: For closed questions, try a right answer, a wrong answer and no answer. For open speaking or writing tasks, walk through the steps, hints, criteria and checklist instead — the page cannot judge free answers. Try it on a phone, and for listening, play the audio on the device you will present with. Then send the test prompt below.
 check: Are all answer keys correct? Does the activity do what your plan says — or something easier to build?
 
 ## Revise and save each version
@@ -666,8 +1113,8 @@ You are helping a teacher build a classroom activity. Use my specification below
 Build ONE self-contained HTML page that:
 1. Shows the learning goal in learner-friendly English.
 2. Runs the activity steps in order, with clear instructions on each screen.
-3. Gives feedback after each learner answer, explaining why it is right or wrong, with an optional hint first.
-4. Ends with a final task on new content and no hints.
+3. For closed-answer items, uses teacher-checked answer keys, offers an optional hint first, and explains the answer. For open speaking and writing tasks, provides criteria, an example and a self/peer checklist instead; it does not claim to score free speech or diagnose a learner's text.
+4. Ends with a final independent task on new content, with hints and model answers unavailable.
 5. Has a "For the teacher" section with the answer key and a 5-line lesson plan (timing, grouping, materials).
 Requirements: no external libraries, images or links; no AI calls; no collection or storage of learner data; large readable text; works with keyboard only; does not rely on colour alone; works on a phone.
 After the code, list the checks you made on every answer key.
@@ -681,6 +1128,7 @@ Listening: use the browser's built-in speech synthesis (Web Speech API) to read 
 
 ## Add-on · speaking
 kind: prompt
+The page itself makes no AI calls, so it cannot hold a real conversation. It prepares learners; talking to an AI partner is a **separate step** in another tool, with the instructions below.
 ```text
 Speaking: the page prepares learners to speak with a partner rather than talking to them. Include a role card for each partner, 4–6 useful phrases with example sentences, a planning space, and a "listener checklist" with one follow-up question to ask. If I want an AI conversation partner, write its instructions separately: replies of one or two sentences, one question per turn, and when the learner makes an error, ask a clarification question or give a clue instead of correcting it.
 ```
@@ -701,9 +1149,9 @@ Writing: the page guides learners through writing a short [genre] paragraph on [
 kind: prompt
 ```text
 Review the page you built as a strict teacher and as a learner at [level]:
-1. Check every answer key and list any errors.
+1. Check every answer key for closed items and list any errors. For open tasks, check that the criteria, example and checklist match the learning goal, and that the page never pretends to grade free answers.
 2. List any words or structures above [level].
-3. Check: keyboard use, text size, contrast, phone layout, anything that relies on sound or colour alone.
+3. Check: keyboard use, text size, contrast, phone layout, anything that relies on sound or colour alone. For listening, tell me which parts I must check by ear on a real device.
 4. Does every step practise [learning goal]? Which step practises something else?
 Fix the three most important problems and tell me exactly what you changed.
 ```
@@ -718,7 +1166,7 @@ Copy this table into your group document — it becomes the "what we tried" part
 | v2 | | | |
 
 </script>
-<script type="text/markdown" id="md7">
+<script type="text/markdown" id="md8">
 # Present and reflect
 
 Each group teaches its activity to the class — your classmates are the learners. Then everyone reflects, using the same headings as the portfolio.
@@ -728,17 +1176,18 @@ HOW TO EDIT
   ## Title   kind: step · questions · card · checklist · section
 -->
 
-## Your presentation · about 7 minutes plus 3 for questions
+## Your presentation · 6 minutes plus 2 for feedback
 kind: section
+Open your page and tools **before** your turn. Four groups take 32 minutes, leaving 8 for switching. Start with one line: *"Our activity is [code and name from the Activity board], using [our page / the tools we chose]."*
 
 ## Our learners and goal
 kind: step
-time: 1 minute
+time: 30 seconds
 do: Who the activity is for, and what they will be able to do afterwards.
 
 ## From first idea to revised plan
 kind: step
-time: 1.5 minutes
+time: 1 minute
 do: Show version 0 next to version 1. Name **one study** that changed your design, and what it changed.
 
 ## Teach it
@@ -748,13 +1197,13 @@ do: Run the activity live with the class as learners. Let them actually do it �
 
 ## What the AI got right and wrong
 kind: step
-time: 1 minute
+time: 30 seconds
 do: One thing the AI built well, one thing you had to fix, and how you found the problem.
 
 ## What we would test with real learners
 kind: step
-time: 30 seconds
-do: What evidence would show that the activity works — and what result would make you change it?
+time: 1 minute
+do: Classmates trying it shows whether it is usable — not that your learners would learn from it. What evidence would show that it works with them, on new material, and what result would make you change it?
 
 ## Peer feedback
 kind: section
@@ -770,6 +1219,10 @@ kind: questions
 ## Reflection · for your portfolio
 kind: section
 Answer individually. Each set matches a section of the portfolio, so your answers can go straight into it.
+
+## Where I started — a note
+kind: card
+Version 0 is where **today's** activity started. Your portfolio's *Where I started* goes back to your beliefs at the start of the semester; use version 0 as one example inside it, not instead of it.
 
 ## Where I started
 kind: questions
@@ -788,6 +1241,12 @@ kind: questions
 - What did you have to fix, and how did you find the problem?
 - What would you do differently when guiding an AI next time?
 
+## Evidence of my learning
+kind: questions
+- Which artifact shows your learning best: version 0 and version 1, a prompt revision, the tested activity, or the peer feedback?
+- What exact before-and-after change can you point to?
+- What was your own contribution, and what does this evidence still not show?
+
 ## Feedback I received
 kind: questions
 - What was the most useful comment from a classmate?
@@ -804,12 +1263,14 @@ kind: checklist
 - The version log is filled in
 - Peer feedback collected for our group
 - My reflection answers are saved for the portfolio
+- I wrote down my own contribution, and which AI tools I used and how I checked their output (for my AI-use statement)
+- Today's work is one portfolio artifact; the portfolio still needs its other artifacts and tools from the semester
 
 </script>
 <script type="text/markdown" id="mdr">
 # Sources
 
-Sixteen studies: two classic and two recent for each skill. Every reference was checked against its DOI record, and every summary on the skill pages was written from the study's own abstract. Where an abstract did not report a detail — a sample size, a country — the summary leaves it out rather than guess.
+Sixteen studies: two classic and two recent for each skill. Every reference was checked against its DOI record, and every summary on the skill pages was written from the study's abstract, checked against the full text where it was open. Where we could not confirm a detail, the summary leaves it out rather than guess. "No significant difference" is reported as exactly that — not as proof that two options are equal.
 
 <!-- ## id + apa/doi = a reference; other ## blocks render as cards -->
 
@@ -828,8 +1289,8 @@ wide: yes
 kind: card
 wide: yes
 Checking references is not only for AI output. Two of today's studies show why.
-- **Payne & Whitney.** The issue is dated 2002 (CALICO Journal 20[1], confirmed in ERIC), but the publisher's DOI record says 2003 and Semantic Scholar says 2013. We cite **2002**.
-- **Zou et al.** Published online in January 2025, in the printed issue (volume 39, issue 4) in 2026. Following APA, we cite the **issue year, 2026**.
+- **Payne & Whitney.** The issue is dated 2002 (CALICO Journal 20[1], confirmed in [ERIC EJ655669](https://eric.ed.gov/?id=EJ655669)), but the publisher's DOI record says 2003 and Semantic Scholar says 2013. We cite **2002**.
+- **Zou et al.** Published online in January 2025, in the printed issue (volume 39, issue 4) in 2026 — see the [publisher's page](https://www.tandfonline.com/doi/abs/10.1080/09588221.2024.2447279). Following APA, we cite the **issue year, 2026**, not the earliest date in the DOI record.
 
 ## abraham2008
 apa: Abraham, L. B. (2008). Computer-mediated glosses in second language reading comprehension and vocabulary learning: A meta-analysis. *Computer Assisted Language Learning, 21*(3), 199–226.
@@ -840,7 +1301,7 @@ apa: Chun, D. M., & Plass, J. L. (1996). Effects of multimedia annotations on vo
 doi: 10.1111/j.1540-4781.1996.tb01159.x
 
 ## fathi2024
-apa: Fathi, J., Rahimi, M., & Derakhshan, A. (2024). Improving EFL learners' speaking skills and willingness to communicate via artificial intelligence-mediated interactions. *System, 121*, 103254.
+apa: Fathi, J., Rahimi, M., & Derakhshan, A. (2024). Improving EFL learners' speaking skills and willingness to communicate via artificial intelligence-mediated interactions. *System, 121*, Article 103254.
 doi: 10.1016/j.system.2024.103254
 
 ## goh2025
@@ -852,7 +1313,7 @@ apa: Huang, W., Jia, C., Hew, K. F., & Guo, J. (2024). Using chatbots to support
 doi: 10.64152/10125/73572
 
 ## lin2024
-apa: Lin, Z., & Chen, H. (2024). Investigating the capability of ChatGPT for generating multiple-choice reading comprehension items. *System, 123*, 103344.
+apa: Lin, Z., & Chen, H. (2024). Investigating the capability of ChatGPT for generating multiple-choice reading comprehension items. *System, 123*, Article 103344.
 doi: 10.1016/j.system.2024.103344
 
 ## lyster1997
@@ -872,7 +1333,7 @@ apa: Payne, J. S., & Whitney, P. J. (2002). Developing L2 oral proficiency throu
 doi: 10.1558/cj.v20i1.7-32
 
 ## tai2024
-apa: Tai, T.-Y., & Chen, H. H.-J. (2024). Improving elementary EFL speaking skills with generative AI chatbots: Exploring individual and paired interactions. *Computers & Education, 220*, 105112.
+apa: Tai, T.-Y., & Chen, H. H.-J. (2024). Improving elementary EFL speaking skills with generative AI chatbots: Exploring individual and paired interactions. *Computers & Education, 220*, Article 105112.
 doi: 10.1016/j.compedu.2024.105112
 
 ## truscott1996
@@ -1010,7 +1471,7 @@ function chips(ids){
 
 /* ── items ── */
 const LABELS={did:"What they did",found:"What they found",means:"For your activity",role:"Where AI helps",check:"Check",do:"Do this",tip:"Tip",time:"Time",who:"Who",what:"What",why:"Why",basis:"Based on",note:"Note",output:"You leave with",ask:"Ask"};
-const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id"]);
+const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id","wide"]);
 function fieldsHtml(f){
   return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
     const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
@@ -1021,9 +1482,9 @@ function fieldsHtml(f){
 let checkIndex=0;
 function itemHtml(it,ctx){
   const k=it.f.kind||"card";
-  if(k==="section") return '<h3 class="sec">'+esc(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
+  if(k==="section") return '<h3 class="sec">'+inline(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
   if(k==="reveal"){
-    return '<details class="card kind-reveal"><summary><h4>'+esc(it.title)+"</h4></summary>"+md(it.body)+fieldsHtml(it.f)+
+    return '<details class="card kind-reveal"><summary><h4>'+inline(it.title)+"</h4></summary>"+md(it.body)+fieldsHtml(it.f)+
       (it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+
       (it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</details>";
   }
@@ -1033,7 +1494,7 @@ function itemHtml(it,ctx){
   let inner="";
   if(it.f.badge){const b=it.f.badge, c=/^classic/i.test(b)?" b-classic":/^recent/i.test(b)?" b-recent":"";
     inner+='<span class="badge'+c+'">'+esc(b)+"</span>";}
-  inner+="<h4>"+esc(it.title)+"</h4>";
+  inner+="<h4>"+inline(it.title)+"</h4>";
   /* lead text first, then labelled fields — except samples, where the context comes before the text */
   if(k==="sample"){ inner+=fieldsHtml(it.f)+md(it.body); } else { inner+=md(it.body); inner+=fieldsHtml(it.f); }
   if(k==="checklist"){
@@ -1062,6 +1523,110 @@ function renderItems(items){
     buf.push(itemHtml(it));
   }
   flush(); return out;
+}
+
+/* ── activity board ── */
+const SKILLS={L:["Listening","M3 18v-6a9 9 0 0 1 18 0v6|M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"],
+  S:["Speaking","M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z|M8 9h8M8 13h5"],
+  R:["Reading","M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z|M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"],
+  W:["Writing","M12 20h9|M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"]};
+const TOOLCOL=["#3E6B77","#B9752B","#5C7A3C","#A8442A","#6B5B95","#2F7F6F","#8A6D1F","#4F6D9A","#7A4E3A"];
+const icon=k=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+SKILLS[k][1].split("|").map(d=>'<path d="'+d+'"/>').join("")+"</svg>";
+const BOARD={acts:[],tools:[],tags:[],skill:"all",tool:null,model:false};
+const bstate=()=>store.get(CONFIG.storeKey+"-board",{map:{},ws:{}});
+const bsave=st=>store.set(CONFIG.storeKey+"-board",st);
+function boardHtml(d){
+  const acts=d.items.filter(x=>x.f.kind==="act"), tools=d.items.filter(x=>x.f.kind==="tool"), tagIt=d.items.find(x=>x.f.kind==="tags");
+  BOARD.acts=acts.map(a=>({code:a.title,skill:a.f.skill,name:a.f.name||"",how:a.f.how||""}));
+  BOARD.tools=tools.map((t,i)=>({id:t.title,name:t.f.name||t.title,col:TOOLCOL[i%TOOLCOL.length],mono:t.f.mono||(t.f.name||t.title).split(/[\s·]+/).filter(w=>/^[A-Z]/.test(w)).map(w=>w[0]).join("").slice(0,2)||t.title.slice(0,2).toUpperCase(),model:list(t.f.model),f:t.f}));
+  BOARD.tags=tagIt?tagIt.bullets.map(b=>{const m=b.split(/\s+—\s+/);return {tag:m[0],what:m[1]||""}}):[];
+  const rest=d.items.filter(x=>!["act","tool","tags"].includes(x.f.kind));
+  let h=renderItems(rest);
+  h+='<div class="board" id="board"><div class="bbar">'+
+    '<div class="brow"><span class="lbl">Skill</span><button class="sk" data-skill="all" aria-pressed="true">All forty</button>'+
+      Object.keys(SKILLS).map(k=>'<button class="sk" data-skill="'+k+'" aria-pressed="false" style="--c:var(--'+k+')">'+icon(k)+SKILLS[k][0]+"</button>").join("")+"</div>"+
+    '<div class="brow"><span class="lbl">Tool</span>'+BOARD.tools.map(t=>'<button class="tl" data-tool="'+esc(t.id)+'" aria-pressed="false" title="'+esc(t.f.by||"")+'"><span class="mono" style="background:'+t.col+'">'+esc(t.mono)+"</span>"+esc(t.name)+"</button>").join("")+"</div>"+
+    '<div class="brow"><div class="meter" id="meter"></div><span style="flex:1"></span>'+
+      '<button class="pill" id="bModel" aria-pressed="false">Show a model mapping</button><button class="pill" id="bCopy">Copy my matches</button><button class="pill" id="bClear">Clear</button><span class="status" id="bStatus"></span></div>'+
+    '<div class="bhint" id="bhint"></div></div>'+
+    Object.keys(SKILLS).map(k=>'<section class="skillblock" data-block="'+k+'" style="--c:var(--'+k+')"><div class="skillhead"><span class="ico">'+icon(k)+'</span><h3>'+SKILLS[k][0]+'</h3><span class="cnt" data-cnt="'+k+'"></span></div><div class="tiles">'+
+      BOARD.acts.filter(a=>a.skill===k).map(a=>'<button class="tile" data-act="'+esc(a.code)+'"><span class="code">'+esc(a.code)+'</span><span class="nm">'+inline(a.name)+'</span><span class="hw">'+inline(a.how)+'</span><span class="tags"></span></button>').join("")+"</div></section>").join("")+
+    "</div>";
+  h+='<h3 class="sec">The nine tools</h3><div class="sec-body">Try each one before you match it. The tags under each card show the model mapping — open them only after your own sorting.</div><div class="toolcards">'+
+    BOARD.tools.map(t=>'<article class="card toolcard" style="--tc:'+t.col+'"><h4>'+esc(t.name)+'</h4><div class="by">'+esc(t.f.by||"")+"</div>"+
+      (t.f.what?'<div class="field"><span class="flabel">What it does</span>'+inline(t.f.what)+"</div>":"")+
+      (t.f.mind?'<div class="field"><span class="flabel">Before you use it</span>'+inline(t.f.mind)+"</div>":"")+
+      '<p style="margin:.5rem 0 0"><a href="'+esc(t.f.url)+'" target="_blank" rel="noopener">Open '+esc(t.name)+" ↗</a>"+(t.f.link?" · "+inline(t.f.link):"")+"</p>"+
+      '<details style="margin-top:.5rem"><summary class="small muted" style="cursor:pointer">Model mapping</summary><div class="fits">'+t.model.map(c=>"<span>"+esc(c)+"</span>").join("")+'</div><p class="small" style="margin:.4rem 0 0">'+inline(t.f.why||"")+"</p></details></article>").join("")+"</div>";
+  if(BOARD.tags.length) h+='<h3 class="sec">Theory tags</h3><div class="sec-body">Shorthand for your justification — choose one to three.</div><div class="tagrow">'+BOARD.tags.map(t=>'<span class="tg"><b>'+esc(t.tag)+"</b>"+esc(t.what)+"</span>").join("")+"</div>";
+  h+='<h3 class="sec">Our group\'s activity</h3><div class="sec-body">The one activity you will build and show. It saves in this browser; copy it into your group document.</div>'+
+    '<div class="card ws" id="ws"><label>Activity<select data-ws="act"><option value="">Choose…</option>'+
+      Object.keys(SKILLS).map(k=>'<optgroup label="'+SKILLS[k][0]+'">'+BOARD.acts.filter(a=>a.skill===k).map(a=>'<option value="'+esc(a.code)+'">'+esc(a.code+" · "+a.name)+"</option>").join("")+"</optgroup>").join("")+"</select></label>"+
+    '<div class="autotools" id="wsTools"></div>'+
+    '<label>Why this activity type? (skill and activity in one line)<input type="text" data-ws="why"></label>'+
+    '<div><span class="flabel">Theory tags (1–3)</span><div class="chkrow">'+BOARD.tags.map(t=>'<label><input type="checkbox" data-wstag="'+esc(t.tag)+'">'+esc(t.tag)+"</label>").join("")+"</div></div>"+
+    '<label>How we will use it (one sentence)<textarea data-ws="how"></textarea></label>'+
+    '<div class="copyrow"><button class="pill" id="wsCopy">Copy worksheet</button><span class="status"></span></div></div>'+
+    '<div class="card kind-note" style="margin-top:.8rem">Presentation opener: <em>"Here\'s our activity [code + name] using [tools or our page]. We chose it because [one line]; theory tags [list]; quick demo: [10–20 seconds]."</em></div>';
+  return h;
+}
+function paintBoard(){
+  const st=bstate(), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t]));
+  $$("#board .sk").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.skill===BOARD.skill)));
+  $$("#board .tl").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.tool===BOARD.tool)));
+  $$("#board .skillblock").forEach(s=>s.hidden=BOARD.skill!=="all"&&s.dataset.block!==BOARD.skill);
+  $("#bModel").setAttribute("aria-pressed",String(BOARD.model));
+  $("#bModel").textContent=BOARD.model?"Hide the model mapping":"Show a model mapping";
+  const active=BOARD.tool&&byId[BOARD.tool];
+  $$("#board .tile").forEach(el=>{
+    const c=el.dataset.act, mine=(st.map[c]||[]).filter(id=>byId[id]);
+    const model=BOARD.model?BOARD.tools.filter(t=>t.model.includes(c)&&!mine.includes(t.id)):[];
+    el.querySelector(".tags").innerHTML=mine.map(id=>'<span style="background:'+byId[id].col+'" title="'+esc(byId[id].name)+'">'+esc(byId[id].mono)+"</span>").join("")+
+      model.map(t=>'<span class="model" title="Model: '+esc(t.name)+'">'+esc(t.mono)+"</span>").join("");
+    el.classList.toggle("matched",mine.length>0);
+    el.classList.toggle("hit",!!active&&mine.includes(active.id));
+    el.classList.toggle("cand",!!active&&BOARD.model&&active.model.includes(c)&&!mine.includes(active.id));
+    el.setAttribute("aria-pressed",String(!!active&&mine.includes(active.id)));
+    el.setAttribute("aria-label",c+" "+el.querySelector(".nm").textContent+(mine.length?", matched with "+mine.map(id=>byId[id].name).join(", "):""));
+  });
+  const n=BOARD.acts.filter(a=>(st.map[a.code]||[]).some(id=>byId[id])).length;
+  $("#meter").innerHTML='<span class="dots">'+[0,1,2,3,4].map(i=>'<i class="'+(i<n?"on":"")+'"></i>').join("")+"</span><span><b>"+n+"</b> "+(n===1?"activity":"activities")+" matched"+(n>=5?" — goal reached":" · goal: 5")+"</span>";
+  Object.keys(SKILLS).forEach(k=>{const el=document.querySelector('[data-cnt="'+k+'"]'); if(el) el.textContent=BOARD.acts.filter(a=>a.skill===k&&(st.map[a.code]||[]).length).length+" of 10 matched";});
+  $("#bhint").innerHTML=active?"Now click every activity <b>"+esc(active.name)+"</b> could serve. Click again to remove it.":"Choose a tool above, then click activities to match it.";
+  const ws=st.ws||{}, a=BOARD.acts.find(x=>x.code===ws.act);
+  $("#wsTools").innerHTML=a?"Tools matched to "+esc(a.code)+": "+(((st.map[a.code]||[]).filter(id=>byId[id]).map(id=>esc(byId[id].name)).join(", "))||"none yet — match some on the board, or plan to build your own page."):"";
+}
+function initBoard(){
+  if(!$("#board")) return;
+  const st=bstate(), ws=st.ws||{};
+  $$("#ws [data-ws]").forEach(el=>{el.value=ws[el.dataset.ws]||""});
+  $$("#ws [data-wstag]").forEach(el=>{el.checked=(ws.tags||[]).includes(el.dataset.wstag)});
+  const hdr=()=>document.documentElement.style.setProperty("--hdr",$("header.top").offsetHeight+"px"); hdr(); window.addEventListener("resize",hdr);
+  $("#board").addEventListener("click",e=>{
+    const sk=e.target.closest("[data-skill]"); if(sk){BOARD.skill=sk.dataset.skill;return paintBoard();}
+    const tl=e.target.closest("[data-tool]"); if(tl){BOARD.tool=BOARD.tool===tl.dataset.tool?null:tl.dataset.tool;return paintBoard();}
+    const ti=e.target.closest("[data-act]");
+    if(ti){ if(!BOARD.tool){$("#bhint").innerHTML="<b>Choose a tool first</b> — then click the activities it could serve.";return;}
+      const s=bstate(), c=ti.dataset.act, arr=s.map[c]||[], i=arr.indexOf(BOARD.tool);
+      if(i<0) arr.push(BOARD.tool); else arr.splice(i,1); s.map[c]=arr; bsave(s); return paintBoard(); }
+  });
+  $("#bModel").onclick=()=>{BOARD.model=!BOARD.model;paintBoard()};
+  $("#bClear").onclick=()=>{ if(!confirm("Clear all your matches on this board?")) return; const s=bstate(); s.map={}; bsave(s); paintBoard(); };
+  const say=(el,t)=>{el.textContent=t;setTimeout(()=>el.textContent="",2500)};
+  const copy=(text,el)=>(navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>say(el,"Copied.")).catch(()=>say(el,"Copy failed — select and copy by hand."));
+  $("#bCopy").onclick=()=>{
+    const s=bstate(), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t.name]));
+    const lines=BOARD.acts.filter(a=>(s.map[a.code]||[]).some(id=>byId[id])).map(a=>a.code+" "+a.name+": "+s.map[a.code].filter(id=>byId[id]).map(id=>byId[id]).join(" + "));
+    copy(lines.length?"Activity board matches ("+lines.length+")\n"+lines.join("\n"):"No matches yet.",$("#bStatus"));
+  };
+  const saveWs=()=>{const s=bstate(); s.ws={tags:$$("#ws [data-wstag]").filter(x=>x.checked).map(x=>x.dataset.wstag)}; $$("#ws [data-ws]").forEach(el=>s.ws[el.dataset.ws]=el.value); bsave(s); paintBoard();};
+  $("#ws").addEventListener("input",saveWs); $("#ws").addEventListener("change",saveWs);
+  $("#wsCopy").onclick=e=>{
+    const s=bstate(), w=s.ws||{}, a=BOARD.acts.find(x=>x.code===w.act), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t.name]));
+    const text=["Activity: "+(a?a.code+" · "+a.name:""),"Link/tool: "+(a?(s.map[a.code]||[]).filter(id=>byId[id]).map(id=>byId[id]).join(" + "):""),"Why this bin: "+(w.why||""),"Theory tags: "+(w.tags||[]).join(", "),"How we'd use it: "+(w.how||"")].join("\n");
+    copy(text,e.target.nextElementSibling);
+  };
+  paintBoard();
 }
 
 /* ── page ── */
@@ -1122,12 +1687,14 @@ async function load(){
         (x.f.doi?'<a href="https://doi.org/'+esc(x.f.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':"")+
         (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
         '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
-    }else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    }else if(d.items.some(x=>x.f.kind==="act")) body='<div class="intro">'+md(d.intro)+"</div>"+boardHtml(d);
+    else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
     const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
     return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
       '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
       (next?'<button class="pill" data-go="'+next[0]+'">'+esc(next[1])+" →</button>":"<span></span>")+"</div></section>";
   }).join("");
+  initBoard();
   go(fromHash(), !!location.hash);
 }
 </script>
@@ -1139,8 +1706,9 @@ window.CONTENT_FILES={
   "3":"content/03-speaking.md",
   "4":"content/04-reading.md",
   "5":"content/05-writing.md",
-  "6":"content/06-build.md",
-  "7":"content/07-present.md"
+  "6":"content/06-board.md",
+  "7":"content/07-build.md",
+  "8":"content/08-present.md"
 };
 load();
 </script>

@@ -15,7 +15,7 @@ kind: paper
 badge: Classic · 1997
 did: An analysis of 18.3 hours of interaction in four primary-level French immersion classrooms, classifying six types of teacher feedback and how learners responded to each.
 found: Teachers overwhelmingly used **recasts** (repeating the learner's sentence correctly), yet recasts were the least likely to lead learners to repair their own speech. **Elicitation, metalinguistic clues, clarification requests and repetition** led to learner-generated repair more often.
-means: If your activity includes a feedback partner — human or AI — ask it to prompt the learner to try again, not just to say the correct form.
+means: If your activity includes a feedback partner — human or AI — ask it to prompt the learner to try again, not just to say the correct form. Note what was measured: immediate repair in the lesson, which is not the same as long-term learning.
 refs: lyster1997
 
 ## Text chat as rehearsal for speech
@@ -37,13 +37,14 @@ refs: fathi2024
 ## Chatbots with young learners — alone or in pairs
 kind: paper
 badge: Recent · 2024
-did: 85 elementary EFL learners in a three-week summer programme (45 minutes a day) practised with a generative-AI chatbot called CoolE Bot, either individually or in pairs; a third group had conventional instruction. Researchers based in Taiwan.
-found: **Both chatbot groups outperformed** the conventional group on speaking tests, with **no significant difference between individual and paired** use. Learners reported enjoyment, more confidence and less anxiety; pairs also helped each other.
-means: Sharing one device between two learners works — useful when devices are limited, and it adds peer support. The study used one specific chatbot; general-purpose tools such as ChatGPT or Claude have age limits, so check them before using a chatbot with children.
+did: 85 elementary EFL learners in a three-week summer programme (45 minutes a day) practised with a generative-AI chatbot called CoolE Bot, either individually or in pairs; a third group had conventional instruction.
+found: **Both chatbot groups outperformed** the conventional group on speaking tests. **No significant difference was detected between individual and paired** use. Learners reported enjoyment, more confidence and less anxiety; pairs also helped each other.
+means: "No significant difference" is not proof that pairs and individuals do equally well — but paired use is worth trying where devices are limited, and it adds peer support. The study used one specific chatbot for three weeks; general-purpose tools such as ChatGPT or Claude have age limits, so check them before using a chatbot with children.
 refs: tai2024
 
 ## Activity ideas
 kind: section
+These are **classroom adaptations inspired by the studies** — the exact activities were not tested in them. For seven more speaking activity types, and the websites that can run them, see the **Activity board**.
 
 ## Rehearse with AI, perform with people
 kind: activity
@@ -62,7 +63,7 @@ do:
 - Five minutes of spoken discussion on the same topic, without the chat window.
 - Learners note one phrase they used in both.
 role: AI suggests the discussion questions and a short list of useful phrases at the learners' level.
-check: The spoken round must be new talk, not reading the chat aloud.
+check: The spoken round must be new talk, not reading the chat aloud. Payne & Whitney studied a semester of chat sessions — this five-plus-five sequence is our adaptation, not their design.
 refs: payne2002
 
 ## A partner who prompts, not corrects

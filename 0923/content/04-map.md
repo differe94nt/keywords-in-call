@@ -51,12 +51,11 @@ note: Examine what automated feedback identifies and how learners use it to revi
 links: 13
 refs: warschauer2006 | kohnke2023
 
-## W7 · Listening, speaking, pronunciation, multimodal input
+## W7 · Learner language: errors, groups and AI
 week: 7
 date: 10/21
-note: Use captioning and video studies to compare tasks, outcome measures and study designs. Examine comprehension and vocabulary findings separately from lasting listening development; evaluate speaking and pronunciation with appropriate evidence for those skills.
+note: As taught (originally planned: listening, speaking, pronunciation and multimodal input). Groups analysed errors in a learner writing sample and a learner speaking sample, proposed teaching responses, then compared their analysis with an AI's and with an AI-built practice page.
 links: 10
-refs: monteroperez2013 | winke2010
 
 ## W8 · Conference week
 week: 8
@@ -71,12 +70,12 @@ note: Present a focused research question and a literature review explaining wha
 links: 11
 refs: plonsky2016
 
-## W10 · CMC and online interaction
+## W10 · Four skills, one activity
 week: 10
 date: 11/11
-note: Examine communication between people through digital media. Identify opportunities for interaction and feedback, then ask how the design and participants shape language use and learning.
+note: As taught (originally planned: CMC and online interaction). Groups read two classic and two recent studies on one skill, matched activity types to websites and AI tools, built one activity with AI and taught it to the class. Computer-mediated communication stays in the week through the speaking studies, including text chat as rehearsal for speech.
 links: 12
-refs: chun2016
+refs: monteroperez2013 | chun2016
 
 ## W11 · Research symposium
 week: 11

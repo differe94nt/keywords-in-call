@@ -11,11 +11,11 @@ HOW TO EDIT
 ## What research says
 kind: section
 
-## Teaching learners *how* to listen
+## Teaching learners how to listen
 kind: paper
 badge: Classic · 2010
 did: Over a semester, 106 learners in six French-as-a-second-language classes listened to the same texts the same number of times. The experimental group (59) was guided through the processes of successful listening — predicting and planning, monitoring, evaluating, problem solving. The control group (47) was not.
-found: The guided group outperformed the control group on the final comprehension measure, and the **less skilled listeners gained the most**. Learners' awareness of their own listening processes grew over the semester.
+found: The guided group outperformed the control group on the final comprehension measure. Within the guided group, **less skilled listeners gained more than more skilled ones**. Learners' awareness of their own listening processes grew over the semester.
 means: Playing the audio more often is not the same as teaching listening. Build in prediction, partner comparison and reflection between listens.
 refs: vandergrift2010
 
@@ -31,8 +31,8 @@ refs: montero2013
 kind: paper
 badge: Recent · 2024
 did: A flipped course for *decoding* — recognising words in connected speech — worked better than a conventional course but overloaded the teacher. The team built a chatbot as a 24/7 practice partner and compared a fully online chatbot course (46 students) with the flipped course (43).
-found: Both groups did **equally well on the decoding test**, and the chatbot group showed **stronger behavioural and emotional engagement**.
-means: AI can take over repetitive practice and feedback that would otherwise fall on the teacher — the learning outcome was the same, the workload was not.
+found: The study found **no significant difference between the groups on the decoding post-test**. The authors report that the chatbot course better supported **behavioural and emotional engagement**; read the paper for when in the course each difference appeared.
+means: "No significant difference" does not prove the two courses are equal. The design suggests a chatbot can take on repetitive practice and reminders that would otherwise depend on the teacher — the study did not measure teacher workload directly.
 refs: huang2024
 
 ## Does AI make listening and speaking better?
@@ -45,6 +45,7 @@ refs: goh2025
 
 ## Activity ideas
 kind: section
+These are **classroom adaptations inspired by the studies** — the exact activities were not tested in them. For seven more listening activity types, and the websites that can run them, see the **Activity board**.
 
 ## The listening cycle
 kind: activity

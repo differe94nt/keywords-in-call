@@ -83,12 +83,11 @@ date: 11/18
 note: Present your question and proposed approach to an audience. Use feedback to refine the scope, clarify the evidence needed and address weaknesses before the final project.
 links: 15
 
-## W12 · Task-based language teaching
+## W12 · Reading Aryadoust: assessment, AI and chatbots
 week: 12
 date: 11/25
-note: Define the learning task, its communicative purpose and the conditions for completing it. Apply Chapelle’s criteria to activities within an app or course rather than assigning a single rating from the product name alone.
+note: As taught (originally planned: task-based language teaching). Groups read fifteen papers by Vahid Aryadoust on validity, the four skills, materials and AI, then built a listening or speaking chatbot on Mizou and rehearsed their own speaking on Yoodli. Validity and reliability lead straight into W13 on digital assessment.
 links: 13
-refs: chapelle2001
 
 ## W13 · Digital assessment and test design
 week: 13

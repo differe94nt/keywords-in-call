@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAEFD0">
+<title>Reading Aryadoust · 11/25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ════════ SETTINGS — the only block to edit; text lives in content/*.md ════════ -->
+<script>
+const CONFIG = {
+  instructor: "王伯雅 Po-Ya Angela Wang",
+  course: "英語數位教材與教學",
+  title: "Week 12 · 11/25 · Reading Aryadoust",
+  kicker: "11/25 · Reading Aryadoust",
+  storeKey: "w12-1125",
+  pages: [["1","The author"],["2","Validity & measurement"],["3","Listening"],["4","Speaking"],["5","Reading"],["6","Writing"],["7","CALL & AI trends"],["8","Build a chatbot"],["r","Sources"]],
+  links: [["11/11 · Four skills","../1111/"],["Final project","../final/"],["AI studio","../ai-tools/"]]
+};
+</script>
+
+<style>
+:root{
+  --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
+  --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
+  --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77; --blue-soft:#DCE9EC;
+  --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
+  --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
+  --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
+  --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD; --blue-soft:#22343A;
+  --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+h4{font-family:var(--sans);font-weight:600;margin:0;font-size:1rem}
+p{margin:0 0 .75em}
+a{color:var(--green);text-underline-offset:2px;overflow-wrap:anywhere}
+button,input{font:inherit;color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--tint);padding:.1em .35em;border-radius:5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.muted{color:var(--fg-soft)} .small{font-size:.84rem}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 0}
+.who{font-family:var(--serif);font-size:1.02rem;font-weight:600}
+.who span{display:block;font-family:var(--sans);font-size:.75rem;color:var(--fg-soft);font-weight:400}
+.top-links{margin-left:auto;display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+.pill{background:none;border:1px solid var(--line-2);border-radius:999px;padding:.2rem .65rem;font-size:.76rem;color:var(--fg);text-decoration:none;cursor:pointer;display:inline-block}
+.pill:hover{background:var(--tint)}
+nav.phases{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.45rem}
+.ph{display:flex;gap:.45rem;align-items:center;background:none;border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;cursor:pointer;white-space:nowrap;font-size:.84rem;color:var(--fg-soft)}
+.ph b{font-family:var(--mono);font-size:.72rem;color:var(--burnt)}
+.ph:hover{background:var(--tint);color:var(--fg)}
+.ph[aria-current="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .ph[aria-current="true"]{background:var(--green);color:#16200E}
+.ph[aria-current="true"] b{color:var(--gold)}
+
+main{padding:1.6rem 0 4rem}
+.phase{display:none}.phase.on{display:block}
+.kicker{font-family:var(--mono);font-size:.74rem;color:var(--burnt);letter-spacing:.06em;text-transform:uppercase}
+.phase>h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:.15rem 0 .7rem}
+.intro{max-width:72ch}
+.intro ul,.intro ol{padding-left:1.2rem}
+h3.sec{font-size:1.3rem;margin:2rem 0 .3rem}
+.sec-body{max-width:72ch;color:var(--fg-soft);margin-bottom:.8rem}
+.sec-body .tblwrap{max-width:none;color:var(--fg)}
+.sec-body:has(.tblwrap){max-width:none}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:.9rem;margin:.8rem 0 1.2rem}
+.grid.wide{grid-template-columns:1fr}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;min-width:0}
+.card h4{font-family:var(--serif);font-size:1.12rem;margin-bottom:.35rem}
+.card .badge{display:inline-block;font-size:.7rem;border:1px solid var(--line-2);border-radius:999px;padding:.03rem .5rem;color:var(--fg-soft);margin-bottom:.4rem}
+.card p,.card li{font-size:.92rem}
+.card ul,.card ol{margin:.35rem 0 .2rem;padding-left:1.15rem}
+.card li{margin-bottom:.28rem}
+.field{margin:.35rem 0}
+.field .flabel{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);display:block;font-weight:600}
+.kind-tool{border-top:4px solid var(--blue)}
+.kind-issue{border-left:4px solid var(--burnt)}
+.kind-theory{border-top:4px solid var(--gold)}
+.kind-track{border-top:4px solid var(--green)}
+.kind-prompt{border-top:4px solid var(--blue)}
+.kind-questions{border-left:4px solid var(--green)}
+.kind-checklist{border-left:4px solid var(--gold)}
+.kind-note{background:var(--gold-soft);border-color:transparent}
+.kind-sample{border-top:4px solid var(--green)}
+.kind-paper{border-top:4px solid var(--blue)}
+.grid:has(.kind-paper),.grid:has(.kind-activity){grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+.kind-activity{border-top:4px solid var(--gold)}
+.badge.b-classic{background:var(--blue-soft);border-color:var(--blue);color:var(--blue);font-weight:600}
+.badge.b-recent{background:var(--green-soft);border-color:var(--green);color:var(--green);font-weight:600}
+.kind-reveal{border-left:4px solid var(--burnt)}
+.kind-reveal summary{cursor:pointer;list-style:none}
+.kind-reveal summary::-webkit-details-marker{display:none}
+.kind-reveal summary h4::after{content:"  ▸ click to reveal";font-family:var(--sans);font-size:.75rem;color:var(--burnt);font-weight:500}
+.kind-reveal[open] summary h4::after{content:"  ▾"}
+pre.sample{counter-reset:ln;background:var(--paper);color:var(--fg);border:1px solid var(--line);font-size:.86rem;line-height:1.7}
+pre.sample .ln{display:block;position:relative;padding-left:2.7em}
+pre.sample .ln::before{counter-increment:ln;content:counter(ln);position:absolute;left:0;width:2em;text-align:right;color:var(--burnt);font-size:.72rem}
+pre.sample .ln.muted-line{color:var(--fg-soft);opacity:.75}
+pre.sample .ln:empty::before,pre.sample .ln.blank::before{content:"";counter-increment:none}
+
+.steps{counter-reset:step;display:grid;gap:.7rem;margin:.8rem 0 1.2rem}
+.step{position:relative;padding-left:3.2rem}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:1rem;top:1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:.8rem;display:grid;place-items:center}
+html[data-theme="dark"] .step::before{background:var(--green);color:#16200E}
+
+.timeline{border-left:2px solid var(--gold);margin:.8rem 0 1.4rem .4rem;padding-left:1.2rem}
+.ms{position:relative;padding:.5rem 0 .8rem}
+.ms::before{content:"";position:absolute;left:-1.62rem;top:.95rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--gold);border:2px solid var(--green)}
+.ms.now::before{background:var(--green)}
+.ms .when{font-family:var(--mono);font-size:.8rem;color:var(--burnt)}
+.ms h4{font-family:var(--serif);font-size:1.08rem;margin:.1rem 0 .2rem}
+.ms p{font-size:.92rem;margin:0}
+
+label.chk{display:flex;gap:.55rem;align-items:flex-start;padding:.25rem 0;font-size:.92rem;cursor:pointer}
+label.chk input{margin-top:.3rem;width:1rem;height:1rem;accent-color:var(--green);flex:none}
+.qlist{margin:.4rem 0;padding-left:1.3rem}
+.qlist li{margin-bottom:.45rem;font-size:.93rem}
+
+pre{background:var(--ink);color:var(--cream);padding:.8rem .9rem;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:.78rem;line-height:1.55;margin:.5rem 0;position:relative}
+html[data-theme="dark"] pre{background:#141C0F}
+.copyrow{display:flex;gap:.4rem;align-items:center;margin-top:.3rem}
+.status{font-size:.76rem;color:var(--green)}
+
+.tblwrap{overflow-x:auto;margin:.6rem 0 1rem;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:.6rem .7rem;border-top:1px solid var(--line)}
+thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;border-top:0}
+
+.cite{display:inline-block;font-size:.76rem;border:1px solid var(--line);border-radius:999px;padding:.02rem .5rem;text-decoration:none;color:var(--fg-soft);background:var(--paper);margin:.15rem .15rem 0 0}
+.cite:hover{border-color:var(--green);color:var(--green)}
+.refitem{padding:.6rem 0;border-bottom:1px solid var(--line)}
+.refitem .links a{font-size:.72rem;margin-right:.5rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+/* ── papers ── */
+.dl{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-top:.6rem;padding-top:.55rem;border-top:1px dashed var(--line)}
+.dlbtn{background:var(--green);color:#fff;text-decoration:none;border-radius:999px;padding:.22rem .75rem;font-size:.8rem;font-weight:600}
+html[data-theme="dark"] .dlbtn{color:#16200E}
+.field.angle{background:var(--gold-soft);border-radius:8px;padding:.35rem .55rem}
+table.matrix{min-width:780px}
+table.matrix td,table.matrix th{padding:.45rem .5rem}
+.mx-c{text-align:center} .mx-h{text-align:center;font-size:.7rem}
+.dot{font-size:1.1rem;line-height:1}
+.mx-teach{color:var(--green)} .mx-test{color:var(--red)} .mx-mat{color:var(--burnt)} .mx-AI{color:#6B5B95}
+.mx-L,.mx-S,.mx-R,.mx-W{color:var(--blue)}
+/* ── activity board ── */
+.board{--L:var(--blue);--S:var(--burnt);--R:var(--green);--W:var(--red);margin:1.2rem 0}
+.bbar{position:sticky;top:var(--hdr,92px);z-index:20;background:var(--bg);padding:.6rem 0;border-bottom:1px solid var(--line);display:grid;gap:.55rem}
+.brow{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.brow .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-soft);font-weight:600;margin-right:.2rem}
+.sk{border:1px solid var(--line-2);background:var(--paper);border-radius:999px;padding:.25rem .75rem;font-size:.82rem;cursor:pointer;display:inline-flex;gap:.35rem;align-items:center}
+.sk svg{width:16px;height:16px}
+.sk[aria-pressed="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+html[data-theme="dark"] .sk[aria-pressed="true"]{background:var(--green);color:#16200E}
+.tl{border:1.5px solid var(--line-2);background:var(--paper);border-radius:10px;padding:.28rem .6rem .28rem .3rem;font-size:.82rem;cursor:pointer;display:inline-flex;gap:.4rem;align-items:center}
+.tl .mono{width:1.45rem;height:1.45rem;border-radius:6px;display:grid;place-items:center;font-family:var(--mono);font-size:.68rem;font-weight:600;color:#fff;flex:none}
+.tl[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 2px var(--gold)}
+.meter{display:flex;align-items:center;gap:.5rem;font-size:.84rem}
+.meter .dots{display:flex;gap:3px}
+.meter .dots i{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--green);display:block}
+.meter .dots i.on{background:var(--green)}
+.bhint{font-size:.84rem;color:var(--fg-soft);min-height:1.3em}
+.bhint b{color:var(--fg)}
+.skillblock{margin-top:1.3rem}
+.skillhead{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.skillhead .ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--c)}
+.skillhead .ico svg{width:22px;height:22px}
+.skillhead h3{font-size:1.25rem}
+.skillhead .cnt{font-size:.78rem;color:var(--fg-soft);margin-left:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:.6rem}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:.65rem .75rem .6rem;display:flex;flex-direction:column;gap:.3rem;min-height:150px;transition:transform .12s,box-shadow .12s}
+.tile:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.tile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tile .code{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--c)}
+.tile .nm{font-family:var(--serif);font-weight:600;font-size:1rem;line-height:1.2}
+.tile .hw{font-size:.8rem;color:var(--fg-soft);line-height:1.45;flex:1}
+.tile .tags{display:flex;flex-wrap:wrap;gap:3px;min-height:1.2rem}
+.tile .tags span{font-size:.68rem;font-family:var(--mono);color:#fff;border-radius:5px;padding:.05rem .35rem}
+.tile .tags span.model{background:none!important;color:var(--fg-soft);border:1.5px dashed var(--line-2)}
+.tile.hit{box-shadow:0 0 0 2px var(--gold);background:var(--gold-soft)}
+.tile.cand{border-style:dashed}
+.tile.matched .code::after{content:" ✓";color:var(--green)}
+.toolcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:.8rem;margin:.8rem 0}
+.toolcard{border-top:5px solid var(--tc)}
+.toolcard .by{font-size:.76rem;color:var(--fg-soft);margin:-.2rem 0 .4rem}
+.toolcard .fits{display:flex;flex-wrap:wrap;gap:3px;margin-top:.4rem}
+.toolcard .fits span{font-family:var(--mono);font-size:.7rem;border:1px solid var(--line-2);border-radius:5px;padding:0 .35rem}
+.tagrow{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.tagrow .tg{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.35rem .6rem;font-size:.84rem}
+.tagrow .tg b{font-family:var(--mono);font-size:.78rem;color:var(--burnt);margin-right:.3rem}
+.ws{display:grid;gap:.6rem}
+.ws label{display:grid;gap:.2rem;font-size:.84rem;font-weight:600}
+.ws select,.ws textarea,.ws input[type=text]{font:inherit;font-weight:400;background:var(--bg);color:var(--fg);border:1px solid var(--line-2);border-radius:8px;padding:.4rem .5rem}
+.ws textarea{min-height:3.2em;resize:vertical}
+.ws .chkrow{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-weight:400}
+.ws .chkrow label{display:flex;gap:.3rem;align-items:center;font-weight:400}
+.ws .autotools{font-weight:400;font-size:.86rem;color:var(--fg-soft)}
+@media (max-width:600px){.bbar{position:static}}
+@media print{header.top,.pager,.copyrow{display:none}.phase{display:block!important;break-before:page}pre{white-space:pre-wrap}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<script type="text/markdown" id="md1">
+# Reading Vahid Aryadoust
+
+This week we read one researcher closely. Vahid Aryadoust works on **language assessment**, but his studies reach every theme of this semester: **teaching, testing, materials design, the four skills and AI**. Reading fifteen of his papers side by side shows how one research agenda moves from *what are we measuring?* to *can AI help us measure and teach it?*
+
+<!--
+HOW TO EDIT
+  ## Title   kind: card · section · matrix (draws the paper map from papers.md) · step · questions
+-->
+
+## Who he is
+kind: section
+
+## Position
+kind: card
+- Associate Professor of language assessment, **National Institute of Education (NIE), Nanyang Technological University, Singapore** — at NIE since 2016.
+- Honorary Associate Professor, Institute of Education, University College London; Visiting Professor, Xi'an Jiaotong University.
+- PhD in English Language and Literature, NIE Singapore (2011).
+link: [NTU profile](https://dr.ntu.edu.sg/entities/person/Vahid-Aryadoust) · [ORCID](https://orcid.org/0000-0001-6960-2489) · [Google Scholar](https://scholar.google.com/citations?user=qlxy_-kAAAAJ&hl=en)
+
+## Research areas
+kind: card
+- Language assessment, especially **listening** and **reading comprehension**
+- **Quantitative methods**: Rasch measurement, meta-analysis, neural networks
+- **Sensors in assessment**: eye tracking, brain imaging and skin response, to see how test takers process a test
+- **Generative AI** in language assessment and teaching
+- **Scientometrics**: mapping a research field through its citation networks
+
+## Books
+kind: card
+- *Building a Validity Argument for a Listening Test of Academic Proficiency* (Cambridge Scholars, 2013)
+- *Trends in Language Assessment Research and Practice* (ed. with J. Fox, Cambridge Scholars, 2016)
+- *Quantitative Data Analysis for Language Assessment*, Vol. I (2019) and Vol. II (2020), ed. with M. Raquel (Routledge)
+
+## Recognition
+kind: card
+- Editorial board, *Annual Review of Applied Linguistics* (appointed 2025)
+- Intercontinental Academia Fellowship (2018–2019)
+- John Cheung Social Media Award (2020) for his YouTube channel *Statistics and Theory*, which teaches research statistics
+- Google Scholar, checked 23 Nov 2026: about 5,100 citations, h-index 41
+link: [NIE news on the ARAL appointment](https://www.ntu.edu.sg/nie/news-events/news/detail/ell-faculty-member-appointed-to-editorial-board-of-the-leading-journal)
+
+## Why his work matters
+kind: section
+Three lines of influence run through the papers this week.
+
+## 1 · Mapping a field before studying it
+kind: card
+His **scientometric reviews** use citation networks to show what a field has studied and where the gaps are — for comprehension subskills, for CALL, for automated feedback. They are a model for the literature review in your own final project.
+
+## 2 · Asking what a test really measures
+kind: card
+Much of his work asks whether scores mean what we think: **validity arguments**, **construct definitions** of listening, the effect of **unreliable measures** on research results. The same questions apply to any quiz, rubric or AI score you design.
+
+## 3 · Testing AI, not trusting it
+kind: card
+His recent studies put generative AI to work — writing listening tests, scoring EAP speaking, giving formative feedback to children — and then check the output with the same measurement tools used for human raters and items.
+
+## The fifteen papers on one map
+kind: matrix
+Each dot shows a theme the paper speaks to. Cross-theme papers appear on more than one page; the buttons take you there.
+
+## How to read this week
+kind: section
+
+## Choose and read
+kind: step
+do: Each group takes **one page** (Validity, Listening, Speaking, Reading, Writing, or CALL & AI). Every member reads one paper on it closely — the full text where there is a **Download** button, the summary card where there is not.
+
+## Fill in the four boxes
+kind: step
+do: For your paper, check the card against the paper: **research question, method, key findings, implications for teaching or test design**. Correct anything the card gets wrong or leaves out.
+
+## Connect it to the semester
+kind: step
+do: Name one earlier week this paper speaks to — evaluating materials (W3–W4), learner language (W7), the four skills (W10) — and one thing it would change in your final project.
+
+## Then build
+kind: step
+do: On **Build a chatbot**, turn one finding into a listening or speaking chatbot on Mizou, and practise your own speaking on Yoodli.
+
+## Questions for the discussion
+kind: questions
+- What does each paper claim to measure — and how do the authors show that it measures that?
+- Where does AI do well in these studies, and what did humans still have to check?
+- Which finding would change how you design a classroom test or a coursebook unit?
+- Which paper's method could you borrow for your own final project?
+
+</script>
+<script type="text/markdown" id="md2">
+# Validity & measurement
+
+Every quiz, rubric and AI score makes a claim about learners. Validity asks **whether the evidence supports that claim**; reliability asks **how much of the score is error**. These papers are the measurement backbone of everything else this week — and of **W13, Digital assessment and test design**.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id from papers.md> · angle: why it is on this page
+  Other kinds: card · questions · section
+-->
+
+## Start here
+kind: section
+
+## What counts as validity?
+paper: argval
+angle: The framework behind the AWE and AWF reviews on the Writing page — and a critique of it from the classroom's point of view.
+
+## Unreliable tests hide real relationships
+paper: relmeta
+angle: A measurement lesson in numbers: low reliability shrinks the correlations researchers report.
+
+## Measurement inside the skill studies
+kind: section
+These papers sit on skill pages, but each one is also a validity study.
+
+## Defining the construct
+paper: typology
+angle: Before you can validate a listening test, you have to say what listening is — most studies never did.
+
+## Validating automated scoring
+paper: awesr
+angle: An argument-based validity review in practice: which inferences have AWE studies backed, and which have they skipped?
+
+## Validating automated feedback
+paper: awfsr
+angle: Validation of feedback accuracy had the least research and the weakest results.
+
+## An AI rater against human raters
+paper: gptspeak
+angle: Many-facet Rasch measurement used to compare a GPT examiner with human raters.
+
+## Does video change the rating?
+paper: visflu
+angle: A rater-cognition question for any speaking test that adds video.
+
+## AI-written test items
+paper: llmlisten
+angle: Item quality, not script quality, was the weak point.
+
+## Machine learning before generative AI
+paper: ann
+angle: Rasch measurement plus a neural network, 2016.
+
+## Discuss
+kind: questions
+- Pick one quiz or rubric you designed this semester. Is it assessment **of**, **for** or **as** learning — and what evidence would show it works for that purpose?
+- What would lower the reliability of a five-item classroom test, and what would that do to the conclusions you draw from it?
+- Which validity inference does an AI scorer most often skip, according to these reviews?
+
+</script>
+<script type="text/markdown" id="md3">
+# Listening
+
+From **what listening is**, to **what materials should give learners**, to **what AI can generate** — five papers that take the skill from construct to coursebook to chatbot. Read them after the listening studies on the [11/11 page](../1111/#p-2).
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## Defining listening
+kind: section
+
+## What do listening studies measure?
+paper: typology
+angle: A framework of 24 subskills, 27 processes and 54 attributes to check what your listening task actually targets.
+
+## Which subskills have been studied?
+paper: subskills
+angle: Listening and reading share comprehension subskills; this codex shows how little of it covers L2.
+
+## Materials
+kind: section
+
+## Seven principles for listening coursebooks
+paper: lcbook
+angle: The most directly usable paper this week: a checklist for evaluating and adapting listening materials.
+
+## AI for listening
+kind: section
+
+## Can ChatGPT write a listening test?
+paper: llmlisten
+angle: Good levelled scripts, weak items — what to check before using AI-made listening tests.
+
+## Does AI make listening better?
+paper: goh2025
+angle: Listening has had the least GenAI attention; voice assistants mostly did not improve it.
+
+## Try it
+kind: card
+Take one listening activity you built on 11/11. Check it against the **seven principles** in Zhai et al. Which principle does it miss, and could AI help you fix it — a second accent, a visual, a metacognitive step?
+
+## Discuss
+kind: questions
+- Which listening subskill or function does your current material target, and which does it ignore?
+- If AI writes the script and items, which checks from Aryadoust, Zakaria & Jia (2024) would you run first?
+
+</script>
+<script type="text/markdown" id="md4">
+# Speaking
+
+Speaking needs a partner — and a rater. Aryadoust's recent work asks whether a **custom GPT** can be both: a practice partner that gives formative feedback, and an examiner whose scores hold up against human raters.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## AI as partner and rater
+kind: section
+
+## A GPT examiner for academic speaking
+paper: gptspeak
+angle: Topic choice, self-paced responses and clarification requests — design choices you can copy into a chatbot.
+
+## Formative speaking feedback for children
+paper: ylgenai
+angle: How to design the feedback of a customized GPT — task, process, self-regulation — and why age rules matter.
+
+## What AI can and cannot do for speaking
+paper: goh2025
+angle: Chatbots raise willingness to communicate; evidence of language development is thinner.
+
+## Rating speech
+kind: section
+
+## Does a face change a fluency rating?
+paper: visflu
+angle: For anyone deciding between audio and video speaking tasks.
+
+## From reading to building
+kind: card
+The **Build a chatbot** page turns these papers into practice: a Mizou bot that runs a speaking task with feedback levels from Aryadoust & Zakaria, and Yoodli for your own rehearsal.
+
+## Discuss
+kind: questions
+- In Aryadoust et al. (2026), students who asked for clarification scored lower. Should clarification requests count against a learner in a formative task?
+- Which kinds of feedback (task, process, self-regulation, self) would you want an AI partner to give your learners — and which should only a teacher give?
+
+</script>
+<script type="text/markdown" id="md5">
+# Reading
+
+What separates weak from strong readers, which comprehension subskills research has actually studied, and how test reliability shapes what we conclude about reading.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## Reading ability
+kind: section
+
+## Vocabulary, grammar and reading
+paper: ann
+angle: Vocabulary predicted reading more strongly than grammar — a direct message for reading materials.
+
+## The map of comprehension subskills
+paper: subskills
+angle: 73 subskills, mostly L1 lower-order reading; a codex to choose what an item should target.
+
+## Measuring reading
+kind: section
+
+## Reliability and reading research
+paper: relmeta
+angle: All 463 correlations involved reading comprehension tests — the less reliable the test, the weaker the relationships.
+
+## Discuss
+kind: questions
+- About one reader in five was misclassified from vocabulary and grammar alone. What else would you check before deciding a learner is a "weak reader"?
+- Which lower-order subskills would you check with young L2 readers, and how could a digital activity do it?
+
+</script>
+<script type="text/markdown" id="md6">
+# Writing
+
+Two systematic reviews of automated writing tools — one on **scores**, one on **feedback** — read through the argument-based validity framework, plus the framework itself.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## Automated writing tools
+kind: section
+
+## Automated scoring
+paper: awesr
+angle: Can AWE replace human raters? Not yet — counter-evidence exists for every inference.
+
+## Automated feedback
+paper: awfsr
+angle: 31 systems, mostly form-focused; feedback on meaning is rare. Read with the 11/11 writing studies.
+
+## The framework behind both reviews
+paper: argval
+angle: Both reviews use argument-based validity; this chapter asks what the framework misses in classrooms.
+
+## Writing in multimodal projects
+paper: dst
+angle: Digital storytelling outcomes were mostly reported for reading and writing.
+
+## Try it
+kind: card
+Run one paragraph through an automated feedback tool and through a generative AI. Sort every comment into **form** or **meaning**. Which tool helps with content and organisation — and how would you know its feedback is accurate?
+
+## Discuss
+kind: questions
+- When would you use an automated score in your teaching, and when would you refuse to?
+- What should a learner do with AI feedback so that it supports learning, not just a cleaner draft?
+
+</script>
+<script type="text/markdown" id="md7">
+# CALL & AI trends
+
+How the field got here: forty years of CALL research mapped through citations, a review of a popular multimodal method, and where generative AI now fits.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## Mapping the field
+kind: section
+
+## Forty years of CALL
+paper: callsci
+angle: Which technologies have stronger evidence — connects to W2–W3 on CALL history and evaluation.
+
+## Comprehension subskills, mapped
+paper: subskills
+angle: The same scientometric method applied to a construct rather than a technology.
+
+## Technology across the four skills
+kind: section
+
+## Digital storytelling
+paper: dst
+angle: Popular across all four skills, but close to 90% of studies reported no reliability checks.
+
+## Generative AI
+kind: section
+
+## AI for listening and speaking
+paper: goh2025
+angle: The broadest review this week, and the best single overview of GenAI in oral skills.
+
+## AI-written listening tests
+paper: llmlisten
+angle: GenAI as a test-writing assistant.
+
+## AI as speaking examiner
+paper: gptspeak
+angle: GenAI as a rater.
+
+## AI as formative speaking partner
+paper: ylgenai
+angle: GenAI as a feedback partner for young learners.
+
+## AI-based written feedback
+paper: awfsr
+angle: The most cited paper on this list.
+
+## Machine learning in 2016
+paper: ann
+angle: AI in assessment before chatbots.
+
+## Borrow the method
+kind: card
+A **scientometric review** (document co-citation analysis — Aryadoust (2020) used the CiteSpace package) is a realistic method for a final-project literature review. Lim & Aryadoust (2022) and Aryadoust (2020) show each step: search, cluster, label, then read the most influential papers in each cluster.
+
+## Discuss
+kind: questions
+- Which CALL technologies with strong evidence have you used this semester?
+- Across these AI papers, what job does AI do well — writing, rating, giving feedback — and what does a human always still check?
+
+</script>
+<script type="text/markdown" id="md8">
+# Build a chatbot
+
+Now turn the readings into practice. **Mizou** lets a teacher build a chatbot that learners talk to — with read-aloud and voice input, so it can run listening and speaking tasks. **Yoodli** is an AI speaking coach for adults: you use it yourself to rehearse a talk or a role-play and get feedback on your delivery.
+
+<!--
+HOW TO EDIT
+  ## Title   kind: card · step · prompt (fenced ``` block) · section · checklist · questions
+  Platform details were checked on 23 Nov 2026 — recheck before each semester.
+-->
+
+## Design rules from the readings
+kind: section
+Six findings to build into your bot. Each one comes from a paper on the earlier pages.
+
+## Let learners choose and pace
+kind: card
+Topic choice, control over response time and the option to ask for clarification were built into the GPT examiner. Decide in advance how clarification requests count — they went with lower scores.
+refs: gptspeak
+
+## Design the feedback by level
+kind: card
+Feedback on the **task** (what was said), the **process** (how to improve) and **self-regulation** (how to plan and monitor next time). Test and revise the bot's instructions several times.
+refs: ylgenai
+
+## Keep a human in the loop
+kind: card
+Chatbots raise willingness to communicate, but do not build the whole repertoire of interaction skills. Pair bot practice with face-to-face talk, and check what the bot says.
+refs: goh2025
+
+## Check AI-written listening items
+kind: card
+AI writes good levelled scripts but weak items: long, with overlapping options, sometimes answerable without listening.
+refs: llmlisten
+
+## Make listening input realistic
+kind: card
+Spoken features, more than one accent, visuals, varied tasks, bottom-up and top-down processing, and a metacognitive step.
+refs: lcbook
+
+## Name the purpose
+kind: card
+Is the bot's feedback assessment **of**, **for** or **as** learning? The answer decides what evidence would show the bot works.
+refs: argval
+
+## The two platforms at a glance
+kind: section
+Checked on 23 November 2026. Both change often — check the pricing and terms pages before class.
+
+| | Mizou | Yoodli |
+|---|---|---|
+| Who builds | The teacher builds a bot | Ready-made practice; custom role-plays mostly on organisation plans |
+| Who uses it | Learners, through a link, **no learner account** | The account holder — you |
+| Voice | Read-aloud and voice input on all plans | Live spoken role-plays, speeches and interviews; camera optional |
+| Feedback | The bot's replies; rubric grading on paid plans | Delivery analysis, e.g. filler words and pacing; pronunciation feedback can be switched on |
+| Free plan | 10 student sessions per day; no rubrics, timer or knowledge files | **5 practice sessions in total**, not per month |
+| Age | Built for schools; the terms page was offline when we checked | Terms: **18 and over** |
+| Data | Says student chats are not used to train AI | Recordings may be used to train models unless you opt out in settings |
+Sources: [Mizou pricing](https://mizou.com/pricing) · [Mizou privacy policy](https://help-mizou.notion.site/Privacy-Policy-055351d6afe94831a28ec7b29375d8fa) · [Yoodli pricing](https://yoodli.ai/pricing) · [Yoodli terms](https://yoodli.ai/tos)
+
+## Mizou · build a listening or speaking bot
+kind: section
+Mizou's own help centre was offline when we checked, and the site now says *Mizou is now part of MeltingSpot*. The steps below follow the current site and recent teacher guides; labels may have moved.
+
+## Sign up and look at an example
+kind: step
+do: Create a free teacher account at [mizou.com](https://mizou.com/education). Then open the [example module](https://mizou.com/module/1706790030516x865778483436453900) **while logged in** — logged-out visitors are sent to the home page.
+
+## Start a new bot
+kind: step
+do: Choose **Custom** (start from scratch), a **Template**, or **AI-Generated** (enter a grade and learning objectives, then click *Get Ideas*). For this class, choose **Custom**.
+
+## Fill in the fields
+kind: step
+do:
+- **Standards:** title, grade level, learning objectives.
+- **AI Instructions** and **Rules:** paste and edit a template below. Keep the instructions short — teacher guides report a limit of about 1,000 characters.
+- **Customization:** the bot's name and a welcome message, which is the first thing learners see.
+- **Tools:** turn on **Audio**, so learners can play the bot's messages aloud and answer by microphone.
+tip: **Generate all fields** fills everything with AI — useful for a first draft, but rewrite it to match your design.
+
+## Test it as a learner
+kind: step
+do: Run it on your phone with the audio on. Try a good answer, a weak answer, an off-topic answer and a request for help. Does the bot follow every rule?
+
+## Publish and share
+kind: step
+do: Click **Publish** and choose whether the bot is public or visible only to you and your students. Start a session and copy its link; learners open it, type a first name and start. They do not need accounts.
+
+## Read the transcripts
+kind: step
+do: In your bot's session list, open each learner's transcript. On paid plans Mizou also suggests a rubric grade. Read the transcripts yourself — this is your evidence of what the bot actually did.
+
+## Mizou template · listening
+kind: prompt
+Read-aloud shows the text as well as playing it, so ask learners to **play first, then read**. This is a practice tool, not a listening test.
+```text
+You are a listening partner for [level, e.g. CEFR A2] learners of English.
+Goal: learners understand the gist and key details of short spoken messages about [topic].
+Each round:
+1. Ask the learner to press play and listen before reading.
+2. Say a 50–70-word message in natural spoken English (contractions, a filler, a self-correction).
+3. Ask one gist question. After the answer, ask one detail question.
+4. If wrong, give a hint about where to listen; do not give the answer at once.
+5. After 3 rounds, ask: "What helped you understand? What will you listen for next time?"
+Use words at [level]. One question per turn.
+```
+
+## Mizou template · speaking
+kind: prompt
+Based on the design choices in Aryadoust et al. (2026) and the feedback levels in Aryadoust & Zakaria (2026).
+```text
+You are a friendly speaking partner for [learners, level].
+Goal: learners can [e.g. describe a plan and give two reasons].
+1. Offer three topics; the learner chooses one.
+2. Ask one short question per turn (max 2 sentences). Ask the learner to answer by microphone.
+3. The learner may ask you to repeat or explain at any time; never penalise this.
+4. When the learner makes an error, ask a clarification question or give a clue; do not give the correct sentence.
+5. After 6 turns, give feedback in three short parts: Task (what you said well), Process (one thing to improve and how), Next time (one planning tip).
+Never ask for personal information.
+```
+
+## Rules to add in either bot
+kind: prompt
+```text
+Stay on the topic of [topic]. Use English at [level]. Keep every reply under 60 words.
+If the learner writes in another language, answer briefly in simple English and continue.
+Do not ask for names, schools, addresses or photos.
+```
+
+## Yoodli · rehearse your own speaking
+kind: section
+Use Yoodli to rehearse **your** presentation of this week's paper — not with school students: its terms require users to be 18 or over.
+
+## Sign up
+kind: step
+do: Sign up at [app.yoodli.ai](https://app.yoodli.ai/home). The free plan gives **five practice sessions in total**; any speech, interview or role-play over 30 seconds counts as one.
+
+## Check your settings first
+kind: step
+do: In settings, choose the **practice language** (English US, UK or Australian) and turn on **pronunciation feedback** if you want it. Opt out of your recordings being used to train Yoodli's AI if you prefer, and keep recordings private.
+
+## Practise
+kind: step
+do:
+- **Speech:** practice → speech → *Start*, speak after the countdown, then *Stop*.
+- **Role-play:** practice → conversation → choose a scenario or *Personalize your conversation*, allow the microphone, *Start* and talk.
+- **Interview:** enter a role, choose the interviewer's manner, optionally add your own questions.
+
+## Read the analysis
+kind: step
+do: Click **View Analysis**. Look at filler words, pacing and word choice, and ask for an AI follow-up question if you want Q&A practice. Note one thing to change, then try again — that before-and-after is evidence for your portfolio.
+
+## Share or delete
+kind: step
+do: In the **Recording Library**, use the three-dot menu to copy a share link, download or delete a recording.
+tip: Yoodli has a **Builder** for custom role-plays, but personas, goals and custom rubrics are on Business and Enterprise plans. Check what your account shows.
+
+## In class today
+kind: section
+
+## Build, swap, review
+kind: step
+time: 40 minutes
+do:
+- **Pairs (20 min):** build one Mizou bot — listening or speaking — from the templates. Write down which paper supports each design choice.
+- **Swap (10 min):** use another pair's bot as a learner, with audio on. Note one thing that worked and one rule the bot broke.
+- **Review (10 min):** read your bot's transcripts and revise its instructions once. Keep both versions.
+
+## Rehearse
+kind: step
+time: 15 minutes
+do: Each person rehearses a **two-minute talk** on their paper in Yoodli — research question, method, one finding, one implication. Use one free session only, and keep the analysis for your portfolio.
+
+## Before you use either tool
+kind: checklist
+- No real learner names, voices or work go into either tool without consent
+- Age rules checked for the learners who would use the bot
+- The bot's instructions forbid asking for personal information
+- I read the transcripts and checked what the bot said
+- I can name the paper behind each design choice
+
+## Evaluate your bot
+kind: questions
+- What is your bot's purpose — assessment of, for or as learning — and what evidence from the transcripts shows it served that purpose?
+- Which of the six design rules did your bot follow, and which did it break?
+- What would you change before using it with real learners?
+
+</script>
+<script type="text/markdown" id="mdp">
+# The fifteen papers
+
+<!--
+HOW TO EDIT
+  One ## block per paper. The ## line is the paper's id; pages show a paper with
+      ## any title
+      paper: <id>
+      angle: why it is on that page
+  Fields: title · short · cite · badge · themes (teach | test | mat | L | S | R | W | AI) · home (page keys)
+          rq · method · found (list) · design (list) · basis · note · download · access · refs (id in refs.md)
+  Order here = order in the map on page 1.
+-->
+
+## argval
+title: A critical assessment of the argument-based validity framework
+short: Aryadoust & Zakaria (2026)
+cite: Book chapter in *Effective Assessment in Schools* (Routledge)
+badge: Book chapter · 2026
+themes: teach | test
+home: 2 | 6
+rq: Aim (from the abstract): to interrogate the argument-based validity framework that dominates validation theory in language assessment — its relevance for practice and its limitations.
+method: A conceptual chapter. It traces how mainstream validity theory developed and surfaces its assumptions, then contrasts validity as understood in educational measurement (**assessment of learning**) with ideas of validity developed from classroom practice (**assessment for learning** and **assessment as learning**).
+found:
+- The dominant framework grew out of measurement for ranking and certifying; its assumptions do not automatically fit classroom assessment.
+- How you define validity shapes what you count as good assessment practice.
+- The authors invite readers to rethink validity for their own contexts and suggest ways this rethinking can improve practice.
+design:
+- Before building a quiz or rubric, decide its **purpose**: to rank (of learning), to guide teaching (for learning) or to help learners regulate themselves (as learning). Each purpose needs different evidence.
+- For a classroom AI chatbot that gives feedback, the key validity question is whether learners can *use* the feedback, not only whether its scores are accurate.
+basis: Publisher abstract only.
+access: No free full text — use the NTU library or interlibrary loan.
+refs: argval
+
+## relmeta
+title: A meta-analysis of the role of reliability in inter-construct correlations in second language research
+short: Zhao & Aryadoust (2026)
+cite: *Educational Assessment*, advance online publication
+badge: Meta-analysis · 2026
+themes: test | R
+home: 2 | 5
+rq: Aim (from the abstract): how does the reliability of a test condition the size of the correlations researchers observe between that test and other constructs?
+method: Meta-analysis of **49 studies (1999–2025)**: 58 Cronbach's alpha estimates and 463 correlations between **reading comprehension tests** and 13 other language-related measures, analysed with robust variance estimation to handle dependent effect sizes.
+found:
+- Cronbach's alpha significantly predicted the size of inter-construct correlations (*t*(21.74) = 2.35, *p* = .03).
+- Less reliable reading tests systematically produced **weaker (attenuated) correlations** with other measures.
+- Measurement error does not just add noise; it limits what relationships researchers can observe.
+design:
+- A short or poorly written classroom test can make two skills look unrelated when they are related. Report reliability before interpreting any correlation.
+- When you read a study claiming "vocabulary hardly predicts reading", check the reliability of its tests first.
+basis: Publisher abstract only.
+access: No free full text yet (published online October 2026).
+refs: relmeta
+
+## typology
+title: The typology of second language listening constructs: A systematic review
+short: Aryadoust & Luo (2023)
+cite: *Language Testing*, 40(2)
+badge: Systematic review · 2023
+themes: test | teach | L
+home: 3 | 2
+rq: Aim (from the abstract): how have L2 listening constructs been conceptualized (defined) and operationalized (measured) in published research?
+method: Systematic review of **157 peer-reviewed papers in 19 applied linguistics journals**, coded for publication details and reliability, and for the listening subskills, cognitive processes, attributes and listening functions each study measured or investigated.
+found:
+- Only **39 papers (24.84%)** gave a theoretical definition of listening, and 38 of those were general or narrow.
+- Listening functions such as **discriminative, empathetic and analytical listening** were largely ignored.
+- The studies operationalized **24 subskills, 27 cognitive processes and 54 listening attributes** (105 features).
+- The authors built a **multilayered framework**: subskills and processes in five groups each, attributes in three groups.
+design:
+- Write down what *kind* of listening your task targets before you write the questions — gist, detail, inference, or a listening function such as empathetic listening.
+- Use the framework as a checklist so a listening test does not measure only one narrow slice of the skill.
+basis: Publisher abstract only.
+access: The NIE repository record says an open version is at the publisher; we could not confirm it. Try the DOI link on campus.
+refs: typology
+
+## subskills
+title: A review of comprehension subskills: A scientometrics perspective
+short: Aryadoust (2020)
+cite: *System*, 88, Article 102180
+badge: Scientometric review · 2020
+themes: test | teach | L | R
+home: 3 | 5 | 7
+rq: Aim (from the paper): no universally accepted taxonomy of listening and reading **comprehension subskills** exists, so the study (i) identifies influential publications on comprehension subskills objectively, through keyword searches and citation analysis, and (ii) reviews their content to list the subskills that have been empirically investigated.
+method: **Document co-citation analysis** of 192 publications (Scopus and Web of Science, merged), with timeline visualization, burst detection and automatic cluster labelling; then a close reading of the influential publications in each cluster.
+found:
+- **18 substantial research clusters** containing **73 empirically investigated subskills** — 55 in L1 comprehension, only 18 in L2.
+- 15 clusters (83.33%) focused on **lower-order L1 reading** abilities such as orthographic processing and speeded word reading.
+- The subskills were drawn as a **codex**, the first integrative framework of empirically investigated comprehension subskills.
+- Experimental research on **L2** comprehension subskills is needed.
+design:
+- Teachers of young L2 learners can include activities that teach and check lower-level abilities — phonological awareness, rapid naming, lexical access — to find learners' gaps.
+- Use the codex and its reference clusters to choose which subskill a reading or listening item should target.
+basis: Author's accepted manuscript (full text).
+download: https://repository.nie.edu.sg/server/api/core/bitstreams/f53be6b0-d6d0-4fcc-bbe5-51bae4f0a102/content
+access: Free · accepted manuscript, NIE repository
+refs: subskills
+
+## lcbook
+title: An evaluation framework for second language listening coursebooks: Principles and practice
+short: Zhai et al. (2026)
+cite: *TEFLIN Journal*, 37(1)
+badge: Materials framework · 2026
+themes: mat | teach | L | AI
+home: 3
+rq: "(1) What good qualities should listening texts and tasks exhibit? (2) What cognitive processes should listening tasks engage learners in? (3) What level of difficulty should listening texts present to support learning?"
+method: A conceptual framework grounded in listening comprehension, listening assessment and SLA theory. **Seven principles**, each with a guiding question and indicators, illustrated on Units 1–4 of *Listen This Way* (Level 4), a coursebook for second-year English majors in mainland China; text difficulty checked with Text Inspector.
+found:
+- The seven principles — texts: (1) authentic spoken features, (2) diverse accents, (3) multimodal, (4) difficulty matched to learners; tasks: (5) varied and real-world, (6) bottom-up **and** top-down processing, (7) metacognitive awareness.
+- The coursebook met principles 1, 4 and 6, but used only British and American accents, offered few visuals, had no integrated listen-to-speak or listen-to-write tasks, and did little for metacognitive awareness.
+design:
+- Use the seven principles to evaluate — and then adapt — any listening material, including the materials you designed this semester.
+- Fill gaps with unscripted podcasts, other accents of English, video, integrated tasks, listening diaries and self-assessment checklists.
+- Generative AI can draft texts and tasks, synthesize several accents and make video — always with human checking.
+- The authors note that the framework is conceptual and not yet empirically validated.
+basis: Full text.
+download: https://journal.teflin.org/index.php/journal/article/download/3375/456
+access: Free · published version, CC BY-SA
+refs: lcbook
+
+## llmlisten
+title: Investigating the affordances of OpenAI's large language model in developing listening assessments
+short: Aryadoust, Zakaria & Jia (2024)
+cite: *Computers and Education: Artificial Intelligence*, 6, Article 100204
+badge: Empirical study · 2024
+themes: test | mat | L | AI
+home: 3 | 7 | 2
+rq: Aim (from the abstract): can ChatGPT 4 write listening scripts and test items for test takers at different proficiency levels (academic, low, intermediate, advanced), to reduce the cost and complexity of listening test development?
+method: Prompt engineering and step-by-step refinement of prompts to generate scripts and items on **24 topics** taken from academic listening tests. Scripts were analysed linguistically with **Coh-Metrix and Text Inspector**; items were analysed for topic variation and overlap. Goh & Aryadoust (2025) report the output as 96 scripts and 384 multiple-choice items.
+found:
+- ChatGPT 4 **reliably varied the scripts' language** by level, as the prompts required.
+- The **items were weaker**: often long, with options that overlapped in meaning; quality also depended on the topic.
+- Goh & Aryadoust (2025) add that many options could be eliminated through world knowledge alone.
+design:
+- AI is a good **script writer** for levelled listening texts; check them with a text profiler.
+- Treat AI-written **items** as drafts: shorten them, remove overlapping options, and check that no item can be answered without listening.
+- The paper also discusses the ethical questions of using GenAI in assessment.
+basis: Abstract; item counts and the world-knowledge finding as reported in Goh & Aryadoust (2025).
+download: https://www.sciencedirect.com/science/article/pii/S2666920X24000055
+access: Free · open access, CC BY-NC-ND (download on the publisher page)
+refs: llmlisten
+
+## goh2025
+title: Developing and assessing second language listening and speaking: Does AI make it better?
+short: Goh & Aryadoust (2025)
+cite: *Annual Review of Applied Linguistics*, 45
+badge: Review · 2025
+themes: teach | test | L | S | AI
+home: 3 | 4 | 7
+rq: Aim: how can AI — especially generative AI — support the teaching, learning and assessment of L2 listening and speaking, and what are its limits? (A review with no numbered research questions.)
+method: A critical narrative review organised around models of listening (perception, parsing, utilization) and speaking (conceptualization, formulation, articulation), covering spoken dialogue systems, personal assistants, chatbots, custom GPTs and AI-generated tests.
+found:
+- Listening has received less GenAI attention than other skills; studies of voice assistants mostly found no significant listening gains.
+- Chatbots and spoken dialogue systems consistently **raise willingness to communicate and lower anxiety**, but evidence of actual language development is thin.
+- AI-generated listening tests have **authenticity and cognitive-validity problems**.
+- Custom GPTs can give corrective, recast and self-regulation feedback, or act as a speaking examiner.
+- Risks: privacy of voice and student data, especially for young learners, and hallucination.
+design:
+- Use GenAI for **assessment for and as learning** — personalised materials, immediate feedback, support for self-regulation — not only for ranking.
+- Let learners repeat speaking tasks with an AI partner, but keep face-to-face interaction: AI talk does not build the full repertoire of interaction skills.
+- Use AI for pre-task planning (ideas, vocabulary), not for scripts; teach AI literacy; keep the teacher as **the human in the loop**, evaluating AI tools as carefully as textbooks.
+basis: Full text.
+download: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/8F12356CE315EDC807C1C82F3DBCB7A9/S0267190525100111a.pdf/div-class-title-developing-and-assessing-second-language-listening-and-speaking-does-ai-make-it-better-div.pdf
+access: Free · published version, CC BY-NC-ND
+refs: goh2025
+
+## gptspeak
+title: Automatic conversational assessment using a GPT-based model for EAP speaking
+short: Aryadoust et al. (2026)
+cite: *English for Specific Purposes*, 84
+badge: Empirical study · 2026
+themes: test | S | AI
+home: 4 | 2 | 7
+rq: Aim (from the abstract): how can a conversational agent, customized through advanced prompting in OpenAI's **GPT Builder**, be used to assess speaking in English for academic purposes? The system was built around four dimensions: measurement definition, system design, performance evaluation and learner experience.
+method: First-year English majors from two large universities took a GPT-run speaking assessment in which they could **choose topics, control their response time and ask for clarification**. GPT and human ratings were compared with **many-facet Rasch measurement** and linear mixed-effects models, across eight scoring categories.
+found:
+- GPT was a **mid-range rater in severity**; mean differences from human raters were not significant.
+- **3 of the 8 scoring categories** differed significantly between GPT and human ratings.
+- GPT scoring was acceptably consistent and reliable, with typical rater habits such as avoiding extreme scores.
+- Students who asked for clarification tended to score lower; students who spoke longer tended to score higher.
+- Students' views of GPT did not affect their scores.
+design:
+- A custom GPT examiner is a realistic option for **formative** speaking assessment, especially where learners choose topics and pace.
+- Check its ratings against human raters category by category: agreement overall can hide disagreement on specific criteria.
+- Decide in advance how clarification requests should count — the study found they went with lower scores.
+basis: Abstract only (the sample size and category names were not available to us).
+download: https://www.sciencedirect.com/science/article/pii/S0889490626000451
+access: Free · open access, CC BY-NC (download on the publisher page); a preprint is also on SSRN
+refs: gptspeak
+
+## ylgenai
+title: Formative assessment of speaking for young learners using customized generative AI
+short: Aryadoust & Zakaria (2026)
+cite: Book chapter in *Second Language Oracy Development for Young Learners* (Springer)
+badge: Book chapter · 2026
+themes: teach | test | S | AI
+home: 4 | 7
+rq: Aim (from the chapter page): how can a customized generative AI (ChatGPT) be designed to provide formative speaking assessment for young learners?
+method: A conceptual and design chapter grounded in communicative competence theory and models of formative feedback. It walks through building a customized GPT — **task specifications, tone, feedback design and iterative testing** — with sample interactions and classroom uses.
+found:
+- Direct and semi-direct speaking tests struggle with feasibility, cost and construct underrepresentation; speaking needs an interlocutor.
+- A customized GPT can give feedback at the **task, process, self-regulation and self** levels; learners can review their speech through transcripts.
+- Limits: data privacy, **age restrictions**, no multimodal input, and the transparency and reliability of automated scoring.
+- It "cannot replace human interlocutors" but can extend speaking practice at low cost.
+design:
+- Design the bot's feedback by level: what to say about the task, about the process, and about the learner's own planning and monitoring.
+- Check the tool's age rules before children use it; young learners usually need a teacher-run setup.
+basis: Chapter abstract page only.
+access: No free full text — use the NTU library.
+refs: ylgenai
+
+## visflu
+title: Investigating the role of AI-generated visual input in predicting perceived fluency
+short: Jia & Aryadoust (2026, preprint)
+cite: SSRN preprint — not yet peer reviewed
+badge: Preprint · 2026
+themes: test | S | AI
+home: 4 | 2
+rq: Aim (from the abstract): does visual input change how raters perceive speech fluency — their ratings and their response times — and how do response times relate to ratings?
+method: Within-subjects experiment: **82 participants rated 30 AI-generated speech stimuli**, each presented in audio-only and audiovisual conditions in random order; linear mixed-effects models plus correlations.
+found:
+- AI-generated visual input **sped up raters' responses but did not change fluency ratings**.
+- The authors suggest matching visuals give "redundant" information already in the audio.
+- Response time correlated with ratings in simple correlations, but not once rater and stimulus variation were controlled.
+design:
+- Adding a talking-head video to a speaking task may change *how* raters work without changing scores — useful evidence when choosing between audio and video formats.
+- AI-generated speakers can be research and practice material, with limits the authors discuss.
+- Simple correlations can mislead when each rater scores many samples.
+basis: Abstract only. This is a preprint; check whether a peer-reviewed version has appeared before citing it.
+download: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6235281
+access: Free · preprint on SSRN
+refs: visflu
+
+## ann
+title: Does EFL readers' lexical and grammatical knowledge predict their reading ability? Insights from a perceptron artificial neural network study
+short: Aryadoust & Baghaei (2016)
+cite: *Educational Assessment*, 21(2)
+badge: Empirical study · 2016
+themes: test | R | AI
+home: 5 | 2 | 7
+rq: Aim (from the abstract): how well do EFL learners' vocabulary and grammar knowledge distinguish low- from high-ability readers?
+method: **825 test takers** took an L2 reading test plus validated grammar and vocabulary tests; abilities were estimated with the **Rasch model**; a multilayer **perceptron artificial neural network** classified readers as low or high ability from their grammar and vocabulary measures.
+found:
+- The network correctly classified about **78% of readers** from vocabulary and grammar alone.
+- **Vocabulary** was more strongly associated with reading comprehension than grammar.
+- The results fit cognitive theories that treat lexical and grammatical knowledge as a major difference between poor and competent readers.
+design:
+- Vocabulary and grammar tests can serve as a quick screening of reading readiness — but about one reader in five would be misclassified, so do not use them alone.
+- In reading materials, vocabulary support is the first lever to pull.
+- An early example of machine learning in language assessment, years before generative AI.
+basis: Publisher abstract only.
+access: No free full text — use the NTU library.
+refs: ann
+
+## awesr
+title: A systematic review of automated writing evaluation systems
+short: Shi & Aryadoust (2023)
+cite: *Education and Information Technologies*, 28(1)
+badge: Systematic review · 2023
+themes: test | W | AI
+home: 6 | 2
+rq: "1. What are the study contexts and the trends of AWE scoring … 2. Which validity inferences have been investigated in the identified AWE studies? 3. What methodologies were adopted in the AWE studies to investigate each validity inference? 4. What areas of investigation have been studied to provide evidence of backing or rebuttals for each inference?"
+method: Systematic review of **105 published papers on automated writing evaluation (AWE) scoring** from Scopus, coded within an **argument-based validation framework** (domain description, evaluation, generalization, explanation, extrapolation, utilization).
+found:
+- Research is growing and spans many settings, languages and educational levels.
+- Coverage of the validity inferences is uneven: **evaluation** (scoring accuracy) is studied most; **domain description** is neglected.
+- Most studies were quantitative and positive, but **counter-evidence appeared for every inference**.
+design:
+- Replacing human raters with AWE is not justified; combine AWE with human scoring for high-stakes use, or use it as an independent rater for immediate formative scores.
+- Before adopting a tool, ask what writing **domain** it was built for and whether that matches your learners' tasks.
+basis: Author's accepted manuscript (full text).
+note: The published record lists the first author's name as "Huawei, S."; a correction was issued, and the author's name is Huawei Shi.
+download: https://repository.nie.edu.sg/server/api/core/bitstreams/223f6952-ce18-4df4-8f63-b51cd2f44141/content
+access: Free · accepted manuscript, NIE repository
+refs: awesr
+
+## awfsr
+title: A systematic review of AI-based automated written feedback research
+short: Shi & Aryadoust (2024)
+cite: *ReCALL*, 36(2)
+badge: Systematic review · 2024
+themes: teach | test | W | AI
+home: 6 | 7 | 2
+rq: "1. What are the research contexts in AWF studies … 2. What types of AWF provided by AWF systems were investigated, and in what ways was AWF utilized in these studies? 3. How can the published AWF research be characterized in terms of the research design … 4. What are the foci of investigation in the studies, and what results are found?"
+method: Systematic review (PRISMA) of **83 SSCI articles (85 studies, 1993–2022)** from Scopus, coded on 4 categories and 17 variables; intra-coder agreement above κ = .90; findings interpreted through the argument-based validity framework.
+found:
+- 82.4% of studies were at university level; English was the target language in 82 of 85.
+- **31 systems**, led by Pigai, Criterion and Grammarly; 57.6% of studies looked at **form-focused** feedback, only 15 at meaning.
+- 14 ways of using AWF — most often on its own, sometimes compared with teacher or peer feedback.
+- Effects on writing were mostly positive (30 of 38 studies), but **validation of AWF accuracy had the least research and the weakest results**.
+design:
+- Form-focused AWF cannot cover the whole writing construct; add teacher or peer feedback on content, organisation and coherence.
+- AWF "may hardly be the equivalent of or replacement for" human feedback — decide whether your tool supplements or replaces.
+- Check a tool's stated users, levels and genres before using it; the authors point to generative AI for higher-order feedback.
+basis: Full text.
+download: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/28A670C4C7F2F1F30C7EA36EC489F867/S0958344023000265a.pdf/div-class-title-a-systematic-review-of-ai-based-automated-written-feedback-research-div.pdf
+access: Free · published version, CC BY
+refs: awfsr
+
+## callsci
+title: A scientometric review of research trends in computer-assisted language learning (1977–2020)
+short: Lim & Aryadoust (2022)
+cite: *Computer Assisted Language Learning*, 35(9)
+badge: Scientometric review · 2022
+themes: teach | mat
+home: 7
+rq: Aim (from the abstract): what have been the main research trends in CALL from 1977 to 2020, and how much support is there for the technologies studied?
+method: **Document co-citation analysis** of **3,697 studies in 11 journals** (Scopus), with burst index and betweenness centrality to identify influential publications, then content analysis of those publications.
+found:
+- **Seven major research clusters**.
+- Stronger support for **synchronous computer-mediated communication and negotiated interaction, multimedia, telecollaboration or e-mail exchange, and digital games**.
+- Weaker support, and some major drawbacks, for **blogs, wikis and podcasts**.
+design:
+- When choosing a technology for a lesson, start from the clusters with stronger evidence, and ask what kind of interaction the tool creates.
+- The study is also a ready-made map of research topics for your final project.
+basis: Publisher abstract only.
+access: No free full text — use the NTU library.
+refs: callsci
+
+## dst
+title: A systematic review of digital storytelling in language learning in adolescents and adults
+short: Lim, Zakaria & Aryadoust (2022)
+cite: *Education and Information Technologies*, 27(5)
+badge: Systematic review · 2022
+themes: teach | mat | L | S | R | W
+home: 7 | 6
+rq: "1. What are the research topics and methods that have been adopted in previous DST research? 2. What are the theories or frameworks of DST that have been adopted in previous DST research? 3. How were the studies designed in terms of the reliability of the instruments used? 4. How do the outcomes of using DST vary across the four language skills and variables in the coding scheme?"
+method: Systematic review of digital storytelling (DST) studies with adolescents and adults found in Scopus — 71 papers in the dataset, 58 after removing 13 repeated entries — coded for topics, methods, theories, reliability and outcomes in the four skills.
+found:
+- Combining several data-collection methods was the most common approach (23 of 58 studies, 39.7%); most studies neither tested nor mentioned a theory or framework.
+- **Close to 90% of studies reported no reliability testing** of their instruments.
+- Most reported positive outcomes, but "not all claims were supported with evidence"; listening and speaking studies were few.
+design:
+- Digital storytelling is promising for all four skills, but the evidence is weaker than its popularity suggests.
+- If you use it, define the components (images, audio, script), the skill you are developing and how you will measure it — reliably.
+basis: Author's accepted manuscript (full text).
+download: https://repository.nie.edu.sg/server/api/core/bitstreams/50f00c34-3704-4309-bdf7-7c0e0b5a1224/content
+access: Free · accepted manuscript, NIE repository
+refs: dst
+
+</script>
+<script type="text/markdown" id="mdr">
+# Sources
+
+Fifteen papers by Vahid Aryadoust and colleagues. Every reference was checked against its DOI record (Crossref) on 23 November 2026, and each summary card says whether it was written from the full text or from the abstract only. Free full texts are linked only where they are legal: the publisher's open-access version or the author's accepted manuscript in the NIE repository.
+
+<!-- ## id + apa/doi = a reference; other ## blocks render as cards -->
+
+## Notes on the references
+kind: card
+wide: yes
+- **Book chapters.** Both chapters were published in 2026. The publisher's page for *Effective Assessment in Schools* shows ©2027, but the book appeared in July 2026, so we cite 2026, the date in the DOI record.
+- **Zhao & Aryadoust (2026)** is an advance online publication, without volume or pages yet.
+- **Jia & Aryadoust (2026)** is a preprint and has not been peer reviewed.
+- **Aryadoust et al. (2026, ESP)** has seven authors in the published record; the SSRN preprint lists six.
+- **Shi & Aryadoust (2023)**: the published record lists the first author as "Huawei, S."; a correction was published.
+- **Background facts** about the author come from his NTU library profile, the NIE department page, ORCID and Google Scholar (checked 23 November 2026).
+
+## argval
+apa: Aryadoust, V., & Zakaria, A. (2026). A critical assessment of the argument-based validity framework. In K. H. K. Tan, H. Y. Tay, K. L. Chue, & A. Yeo (Eds.), *Effective assessment in schools: Beyond basics and best practices* (pp. 133–145). Routledge.
+doi: 10.4324/9781003534709-14
+
+## relmeta
+apa: Zhao, H., & Aryadoust, V. (2026). A meta-analysis of the role of reliability in inter-construct correlations in second language research. *Educational Assessment*. Advance online publication.
+doi: 10.1080/10627197.2026.2749629
+
+## typology
+apa: Aryadoust, V., & Luo, L. (2023). The typology of second language listening constructs: A systematic review. *Language Testing, 40*(2), 375–409.
+doi: 10.1177/02655322221126604
+
+## subskills
+apa: Aryadoust, V. (2020). A review of comprehension subskills: A scientometrics perspective. *System, 88*, Article 102180.
+doi: 10.1016/j.system.2019.102180
+
+## lcbook
+apa: Zhai, J., Lee, I., Aryadoust, V., & Renandya, W. A. (2026). An evaluation framework for second language listening coursebooks: Principles and practice. *TEFLIN Journal, 37*(1), 210–233.
+doi: 10.15639/teflinjournal.v37i1/210-233
+
+## llmlisten
+apa: Aryadoust, V., Zakaria, A., & Jia, Y. (2024). Investigating the affordances of OpenAI's large language model in developing listening assessments. *Computers and Education: Artificial Intelligence, 6*, Article 100204.
+doi: 10.1016/j.caeai.2024.100204
+
+## goh2025
+apa: Goh, C. C. M., & Aryadoust, V. (2025). Developing and assessing second language listening and speaking: Does AI make it better? *Annual Review of Applied Linguistics, 45*, 179–199.
+doi: 10.1017/s0267190525100111
+
+## gptspeak
+apa: Aryadoust, V., Wong, J., Zhang, W., Qian, J., Sai, Z., Liu, T., & Han, Y. (2026). Automatic conversational assessment using a GPT-based model for EAP speaking. *English for Specific Purposes, 84*, 181–200.
+doi: 10.1016/j.esp.2026.06.005
+
+## ylgenai
+apa: Aryadoust, V., & Zakaria, A. (2026). Formative assessment of speaking for young learners using customized generative AI. In C. C. M. Goh, R. L. Sabnani, & W. A. Renandya (Eds.), *Second language oracy development for young learners: Listening, speaking and thinking* (pp. 211–224). Springer.
+doi: 10.1007/978-981-95-7526-8_15
+
+## visflu
+apa: Jia, Y., & Aryadoust, V. (2026). *Investigating the role of AI-generated visual input in predicting perceived fluency* [Preprint]. SSRN.
+doi: 10.2139/ssrn.6235281
+
+## ann
+apa: Aryadoust, V., & Baghaei, P. (2016). Does EFL readers' lexical and grammatical knowledge predict their reading ability? Insights from a perceptron artificial neural network study. *Educational Assessment, 21*(2), 135–156.
+doi: 10.1080/10627197.2016.1166343
+
+## awesr
+apa: Shi, H., & Aryadoust, V. (2023). A systematic review of automated writing evaluation systems. *Education and Information Technologies, 28*(1), 771–795.
+doi: 10.1007/s10639-022-11200-7
+
+## awfsr
+apa: Shi, H., & Aryadoust, V. (2024). A systematic review of AI-based automated written feedback research. *ReCALL, 36*(2), 187–209.
+doi: 10.1017/s0958344023000265
+
+## callsci
+apa: Lim, M. H., & Aryadoust, V. (2022). A scientometric review of research trends in computer-assisted language learning (1977–2020). *Computer Assisted Language Learning, 35*(9), 2675–2700.
+doi: 10.1080/09588221.2021.1892768
+
+## dst
+apa: Lim, N. Z. L., Zakaria, A., & Aryadoust, V. (2022). A systematic review of digital storytelling in language learning in adolescents and adults. *Education and Information Technologies, 27*(5), 6125–6155.
+doi: 10.1007/s10639-021-10861-0
+
+</script>
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="who" id="who"></div>
+      <div class="top-links" id="topLinks"></div>
+    </div>
+    <nav class="phases" id="nav" aria-label="Sections"></nav>
+  </div>
+</header>
+<main class="wrap" id="main" tabindex="-1">
+  <div id="loadWarn"></div>
+  <div id="phases"></div>
+</main>
+<footer class="wrap" id="foot"></footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ── markdown ── */
+function inline(s){
+  let t=esc(s);
+  t=t.replace(/`([^`]+)`/g,(m,a)=>"<code>"+a+"</code>");
+  t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  t=t.replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+  return t;
+}
+function md(src){
+  if(!src) return "";
+  const L=String(src).replace(/\r\n?/g,"\n").split("\n");
+  let out="",list=null,para=[],code=null,table=false,lang="",started=false;
+  const fp=()=>{if(para.length){out+="<p>"+inline(para.join(" "))+"</p>";para=[]}};
+  const cl=()=>{if(list){out+="</"+list+">";list=null}};
+  const ct=()=>{if(table){out+="</tbody></table></div>";table=false}};
+  for(const line of L){
+    if(code!==null){ if(/^```/.test(line)){
+        const pre=lang==="sample"
+          ? '<pre class="sample">'+code.split("\n").map((l,i,a)=>'<span class="ln'+(l.trim()?'':' blank')+(/^(Interviewer:|\()/.test(l)?' muted-line':'')+'">'+esc(l)+(i<a.length-1?"\n":"")+"</span>").join("")+"</pre>"
+          : "<pre>"+esc(code)+"</pre>";
+        out+=pre+'<div class="copyrow"><button class="pill" data-copypre>Copy</button><span class="status"></span></div>';code=null
+      } else code+=(code===""&&!started?"":"\n")+line, started=true; continue; }
+    if(/^```/.test(line)){fp();cl();ct();code="";started=false;lang=line.slice(3).trim();continue}
+    if(/^\s*\|/.test(line)){
+      fp();cl();
+      if(/^[\s|:\-]+$/.test(line)) continue;
+      const cells=line.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c=>c.trim());
+      if(!table){out+='<div class="tblwrap"><table><thead><tr>'+cells.map(c=>"<th>"+inline(c)+"</th>").join("")+"</tr></thead><tbody>";table=true}
+      else out+="<tr>"+cells.map(c=>"<td>"+inline(c)+"</td>").join("")+"</tr>";
+      continue;
+    }
+    ct();
+    if(!line.trim()){fp();cl();continue}
+    let m;
+    if((m=line.match(/^(#{1,6})\s+(.*)$/))){fp();cl();const n=Math.min(m[1].length+2,6);out+="<h"+n+">"+inline(m[2])+"</h"+n+">";continue}
+    if((m=line.match(/^>\s?(.*)$/))){fp();cl();out+='<div class="card kind-note">'+inline(m[1])+"</div>";continue}
+    if((m=line.match(/^\s*[-*]\s+(.*)$/))){fp();if(list!=="ul"){cl();out+="<ul>";list="ul"}out+="<li>"+inline(m[1])+"</li>";continue}
+    if((m=line.match(/^\s*\d+[.)]\s+(.*)$/))){fp();if(list!=="ol"){cl();out+="<ol>";list="ol"}out+="<li>"+inline(m[1])+"</li>";continue}
+    para.push(line.trim());
+  }
+  fp();cl();ct();
+  if(code!==null) out+="<pre>"+esc(code)+"</pre>";
+  return out;
+}
+/* ## blocks with "key: value" fields; a field with no value collects the "- " lines below it */
+function parseDoc(src){
+  const clean=String(src).replace(/<!--[\s\S]*?-->/g,"").replace(/\r\n?/g,"\n");
+  const parts=clean.split(/^##\s+/m);
+  const head=parts.shift()||"";
+  const title=(head.match(/^#\s+(.*)$/m)||[])[1]||"";
+  const intro=head.replace(/^#\s+.*$/m,"").trim();
+  const items=parts.map(block=>{
+    const nl=block.indexOf("\n");
+    const t=(nl<0?block:block.slice(0,nl)).trim();
+    const rest=nl<0?"":block.slice(nl+1);
+    const f={},bullets=[],body=[];let cur=null,inCode=false;
+    for(const line of rest.split("\n")){
+      if(/^```/.test(line)){inCode=!inCode;body.push(line);cur=null;continue}
+      if(inCode){body.push(line);continue}
+      const m=line.match(/^([a-z][a-z0-9_]*):[ \t]*(.*)$/);
+      if(m){const k=m[1],v=m[2].trim();if(v){f[k]=v;cur=null}else{f[k]=[];cur=k}continue}
+      const b=line.match(/^\s*[-*]\s+(.*)$/);
+      if(b){ if(cur) f[cur].push(b[1].trim()); else bullets.push(b[1].trim()); continue; }
+      if(!line.trim()){cur=null;body.push(line);continue}
+      cur=null;body.push(line);
+    }
+    return {title:t,f,bullets,body:body.join("\n").trim()};
+  });
+  return {title,intro,items};
+}
+const list=v=>Array.isArray(v)?v:(v?String(v).split("|").map(s=>s.trim()).filter(Boolean):[]);
+
+/* ── references ── */
+const REFS={};
+function shortCite(apa){
+  const m=String(apa).match(/^(.+?)\s*\((\d{4})/); if(!m) return String(apa).slice(0,26);
+  const a=m[1],y=m[2],first=a.split(",")[0].trim();
+  const n=Math.max(1,Math.round(((a.match(/,/g)||[]).length+1)/2));
+  if(n>=3) return first+" et al. ("+y+")";
+  if(n===2) return first+" & "+((a.split("&")[1]||"").trim().split(",")[0].trim())+" ("+y+")";
+  return first+" ("+y+")";
+}
+function chips(ids){
+  return list(ids).map(id=>{const r=REFS[id];
+    if(!r) return '<span class="cite">'+esc(id)+"</span>";
+    const href=r.doi?"https://doi.org/"+r.doi:(r.url||"#ref-"+id);
+    return '<a class="cite" href="'+href+'" target="_blank" rel="noopener" title="'+esc(r.apa.replace(/\*/g,""))+'">'+esc(r.short)+"</a>";
+  }).join("");
+}
+
+/* ── items ── */
+const LABELS={rq:"Research question or aim",method:"Method",did:"What they did",found:"Key findings",design:"For teaching & test design",angle:"Why it is on this page",means:"For your activity",role:"Where AI helps",check:"Check",do:"Do this",tip:"Tip",time:"Time",who:"Who",what:"What",why:"Why",basis:"Based on",note:"Note",output:"You leave with",ask:"Ask"};
+const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id","wide","paper","download","access","themes","home","short","title","cite"]);
+function fieldsHtml(f){
+  return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
+    const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
+    const html=Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v);
+    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+html+"</div>";
+  }).join("");
+}
+let checkIndex=0;
+const PAPERS={};
+const THEMES=[["teach","Teaching"],["test","Testing"],["mat","Materials"],["L","Listening"],["S","Speaking"],["R","Reading"],["W","Writing"],["AI","AI"]];
+let CUR_PAGE="";
+function paperCard(it){
+  const P=PAPERS[it.f.paper]; if(!P) return '<article class="card">Missing paper: '+esc(it.f.paper)+"</article>";
+  const f=P.f, b=f.badge||"";
+  let h='<article class="card kind-paper">'+(b?'<span class="badge'+(/preprint/i.test(b)?"":/20(2[4-9])/.test(b)?" b-recent":" b-classic")+'">'+esc(b)+"</span>":"");
+  h+="<h4>"+inline(f.title||P.title)+"</h4>";
+  if(f.cite) h+='<div class="small muted" style="margin:-.15rem 0 .4rem">'+inline(f.cite)+"</div>";
+  if(it.f.angle) h+='<div class="field angle"><span class="flabel">Why it is on this page</span>'+inline(it.f.angle)+"</div>";
+  ["rq","method","found","design","note"].forEach(k=>{ if(f[k]){const v=f[k]; h+='<div class="field"><span class="flabel">'+esc(LABELS[k])+"</span>"+(Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v))+"</div>";} });
+  if(f.basis) h+='<div class="small muted" style="margin-top:.4rem">Summary based on: '+inline(f.basis)+"</div>";
+  h+='<div class="dl">'+(f.download?'<a class="dlbtn" href="'+esc(f.download)+'" target="_blank" rel="noopener">⬇ Download</a>':"")+
+     (f.access?'<span class="small muted">'+inline(f.access)+"</span>":"")+(f.refs?chips(f.refs):"")+"</div>";
+  const also=list(f.home).filter(k=>k!==CUR_PAGE).map(k=>{const pg=CONFIG.pages.find(p=>p[0]===k);return pg?'<button class="pill" data-go="'+k+'">'+esc(pg[1])+"</button>":""}).join(" ");
+  if(also) h+='<div class="small muted" style="margin-top:.45rem">Also in: '+also+"</div>";
+  return h+"</article>";
+}
+function matrixHtml(){
+  const ids=Object.keys(PAPERS);
+  return '<div class="tblwrap"><table class="matrix"><thead><tr><th>Study</th>'+THEMES.map(t=>'<th class="mx-h">'+t[1]+"</th>").join("")+"<th>Read it in</th></tr></thead><tbody>"+
+    ids.map(id=>{const f=PAPERS[id].f, th=list(f.themes);
+      return "<tr><td><strong>"+inline(f.short||id)+'</strong><div class="small muted">'+inline(f.title||"")+"</div></td>"+
+        THEMES.map(t=>'<td class="mx-c">'+(th.includes(t[0])?'<span class="dot mx-'+t[0]+'" role="img" aria-label="'+t[1]+'">●</span>':"")+"</td>").join("")+
+        "<td>"+list(f.home).map(k=>{const pg=CONFIG.pages.find(p=>p[0]===k);return pg?'<button class="pill" data-go="'+k+'">'+esc(pg[1])+"</button>":""}).join(" ")+"</td></tr>";}).join("")+"</tbody></table></div>";
+}
+function itemHtml(it,ctx){
+  const k=it.f.kind||"card";
+  if(it.f.paper) return paperCard(it);
+  if(k==="matrix") return '<h3 class="sec">'+inline(it.title)+'</h3><div class="sec-body">'+md(it.body)+"</div>"+matrixHtml();
+  if(k==="section") return '<h3 class="sec">'+inline(it.title)+'</h3><div class="sec-body">'+md(it.body)+(it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+(it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</div>";
+  if(k==="reveal"){
+    return '<details class="card kind-reveal"><summary><h4>'+inline(it.title)+"</h4></summary>"+md(it.body)+fieldsHtml(it.f)+
+      (it.bullets.length?"<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>":"")+
+      (it.f.refs?"<div>"+chips(it.f.refs)+"</div>":"")+"</details>";
+  }
+  if(k==="milestone"){
+    return '<div class="ms'+(it.f.now==="yes"?" now":"")+'"><div class="when">'+esc(it.f.date||"")+"</div><h4>"+esc(it.title)+"</h4>"+(it.f.what?"<p>"+inline(it.f.what)+"</p>":"")+md(it.body)+"</div>";
+  }
+  let inner="";
+  if(it.f.badge){const b=it.f.badge, c=/^classic/i.test(b)?" b-classic":/^recent/i.test(b)?" b-recent":"";
+    inner+='<span class="badge'+c+'">'+esc(b)+"</span>";}
+  inner+="<h4>"+inline(it.title)+"</h4>";
+  /* lead text first, then labelled fields — except samples, where the context comes before the text */
+  if(k==="sample"){ inner+=fieldsHtml(it.f)+md(it.body); } else { inner+=md(it.body); inner+=fieldsHtml(it.f); }
+  if(k==="checklist"){
+    const st=store.get(CONFIG.storeKey+"-chk",{});
+    inner+=it.bullets.map(b=>{const id="c"+(checkIndex++);return '<label class="chk"><input type="checkbox" data-chk="'+id+'"'+(st[id]?" checked":"")+"><span>"+inline(b)+"</span></label>"}).join("");
+  }else if(k==="questions"){
+    inner+='<ol class="qlist">'+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ol>";
+    inner+='<div class="copyrow"><button class="pill" data-copyq>Copy these questions</button><span class="status"></span></div>';
+  }else if(it.bullets.length){
+    inner+="<ul>"+it.bullets.map(b=>"<li>"+inline(b)+"</li>").join("")+"</ul>";
+  }
+  if(it.f.link) inner+='<p style="margin:.6rem 0 0">'+inline(it.f.link)+"</p>";
+  if(it.f.refs) inner+='<div style="margin-top:.5rem">'+chips(it.f.refs)+"</div>";
+  return '<article class="card kind-'+k+(k==="step"?" step":"")+'">'+inner+"</article>";
+}
+function renderItems(items){
+  let out="",group=null,buf=[];
+  const flush=()=>{ if(!buf.length) return;
+    const k=group, cls=k==="step"?"steps":k==="milestone"?"timeline":"grid"+(["prompt","wide"].includes(k)?" wide":"");
+    out+='<div class="'+cls+'">'+buf.join("")+"</div>"; buf=[]; };
+  for(const it of items){
+    const k=it.f.kind||"card";
+    if(k==="section"||k==="matrix"){flush();group=null;out+=itemHtml(it);continue}
+    const g=(it.f.wide==="yes"||k==="prompt"||k==="sample"||k==="reveal")?"wide":(k==="step"||k==="milestone"?k:"grid");
+    if(g!==group){flush();group=g}
+    buf.push(itemHtml(it));
+  }
+  flush(); return out;
+}
+
+/* ── activity board ── */
+const SKILLS={L:["Listening","M3 18v-6a9 9 0 0 1 18 0v6|M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"],
+  S:["Speaking","M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z|M8 9h8M8 13h5"],
+  R:["Reading","M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z|M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"],
+  W:["Writing","M12 20h9|M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"]};
+const TOOLCOL=["#3E6B77","#B9752B","#5C7A3C","#A8442A","#6B5B95","#2F7F6F","#8A6D1F","#4F6D9A","#7A4E3A"];
+const icon=k=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+SKILLS[k][1].split("|").map(d=>'<path d="'+d+'"/>').join("")+"</svg>";
+const BOARD={acts:[],tools:[],tags:[],skill:"all",tool:null,model:false};
+const bstate=()=>store.get(CONFIG.storeKey+"-board",{map:{},ws:{}});
+const bsave=st=>store.set(CONFIG.storeKey+"-board",st);
+function boardHtml(d){
+  const acts=d.items.filter(x=>x.f.kind==="act"), tools=d.items.filter(x=>x.f.kind==="tool"), tagIt=d.items.find(x=>x.f.kind==="tags");
+  BOARD.acts=acts.map(a=>({code:a.title,skill:a.f.skill,name:a.f.name||"",how:a.f.how||""}));
+  BOARD.tools=tools.map((t,i)=>({id:t.title,name:t.f.name||t.title,col:TOOLCOL[i%TOOLCOL.length],mono:t.f.mono||(t.f.name||t.title).split(/[\s·]+/).filter(w=>/^[A-Z]/.test(w)).map(w=>w[0]).join("").slice(0,2)||t.title.slice(0,2).toUpperCase(),model:list(t.f.model),f:t.f}));
+  BOARD.tags=tagIt?tagIt.bullets.map(b=>{const m=b.split(/\s+—\s+/);return {tag:m[0],what:m[1]||""}}):[];
+  const rest=d.items.filter(x=>!["act","tool","tags"].includes(x.f.kind));
+  let h=renderItems(rest);
+  h+='<div class="board" id="board"><div class="bbar">'+
+    '<div class="brow"><span class="lbl">Skill</span><button class="sk" data-skill="all" aria-pressed="true">All forty</button>'+
+      Object.keys(SKILLS).map(k=>'<button class="sk" data-skill="'+k+'" aria-pressed="false" style="--c:var(--'+k+')">'+icon(k)+SKILLS[k][0]+"</button>").join("")+"</div>"+
+    '<div class="brow"><span class="lbl">Tool</span>'+BOARD.tools.map(t=>'<button class="tl" data-tool="'+esc(t.id)+'" aria-pressed="false" title="'+esc(t.f.by||"")+'"><span class="mono" style="background:'+t.col+'">'+esc(t.mono)+"</span>"+esc(t.name)+"</button>").join("")+"</div>"+
+    '<div class="brow"><div class="meter" id="meter"></div><span style="flex:1"></span>'+
+      '<button class="pill" id="bModel" aria-pressed="false">Show a model mapping</button><button class="pill" id="bCopy">Copy my matches</button><button class="pill" id="bClear">Clear</button><span class="status" id="bStatus"></span></div>'+
+    '<div class="bhint" id="bhint"></div></div>'+
+    Object.keys(SKILLS).map(k=>'<section class="skillblock" data-block="'+k+'" style="--c:var(--'+k+')"><div class="skillhead"><span class="ico">'+icon(k)+'</span><h3>'+SKILLS[k][0]+'</h3><span class="cnt" data-cnt="'+k+'"></span></div><div class="tiles">'+
+      BOARD.acts.filter(a=>a.skill===k).map(a=>'<button class="tile" data-act="'+esc(a.code)+'"><span class="code">'+esc(a.code)+'</span><span class="nm">'+inline(a.name)+'</span><span class="hw">'+inline(a.how)+'</span><span class="tags"></span></button>').join("")+"</div></section>").join("")+
+    "</div>";
+  h+='<h3 class="sec">The nine tools</h3><div class="sec-body">Try each one before you match it. The tags under each card show the model mapping — open them only after your own sorting.</div><div class="toolcards">'+
+    BOARD.tools.map(t=>'<article class="card toolcard" style="--tc:'+t.col+'"><h4>'+esc(t.name)+'</h4><div class="by">'+esc(t.f.by||"")+"</div>"+
+      (t.f.what?'<div class="field"><span class="flabel">What it does</span>'+inline(t.f.what)+"</div>":"")+
+      (t.f.mind?'<div class="field"><span class="flabel">Before you use it</span>'+inline(t.f.mind)+"</div>":"")+
+      '<p style="margin:.5rem 0 0"><a href="'+esc(t.f.url)+'" target="_blank" rel="noopener">Open '+esc(t.name)+" ↗</a>"+(t.f.link?" · "+inline(t.f.link):"")+"</p>"+
+      '<details style="margin-top:.5rem"><summary class="small muted" style="cursor:pointer">Model mapping</summary><div class="fits">'+t.model.map(c=>"<span>"+esc(c)+"</span>").join("")+'</div><p class="small" style="margin:.4rem 0 0">'+inline(t.f.why||"")+"</p></details></article>").join("")+"</div>";
+  if(BOARD.tags.length) h+='<h3 class="sec">Theory tags</h3><div class="sec-body">Shorthand for your justification — choose one to three.</div><div class="tagrow">'+BOARD.tags.map(t=>'<span class="tg"><b>'+esc(t.tag)+"</b>"+esc(t.what)+"</span>").join("")+"</div>";
+  h+='<h3 class="sec">Our group\'s activity</h3><div class="sec-body">The one activity you will build and show. It saves in this browser; copy it into your group document.</div>'+
+    '<div class="card ws" id="ws"><label>Activity<select data-ws="act"><option value="">Choose…</option>'+
+      Object.keys(SKILLS).map(k=>'<optgroup label="'+SKILLS[k][0]+'">'+BOARD.acts.filter(a=>a.skill===k).map(a=>'<option value="'+esc(a.code)+'">'+esc(a.code+" · "+a.name)+"</option>").join("")+"</optgroup>").join("")+"</select></label>"+
+    '<div class="autotools" id="wsTools"></div>'+
+    '<label>Why this activity type? (skill and activity in one line)<input type="text" data-ws="why"></label>'+
+    '<div><span class="flabel">Theory tags (1–3)</span><div class="chkrow">'+BOARD.tags.map(t=>'<label><input type="checkbox" data-wstag="'+esc(t.tag)+'">'+esc(t.tag)+"</label>").join("")+"</div></div>"+
+    '<label>How we will use it (one sentence)<textarea data-ws="how"></textarea></label>'+
+    '<div class="copyrow"><button class="pill" id="wsCopy">Copy worksheet</button><span class="status"></span></div></div>'+
+    '<div class="card kind-note" style="margin-top:.8rem">Presentation opener: <em>"Here\'s our activity [code + name] using [tools or our page]. We chose it because [one line]; theory tags [list]; quick demo: [10–20 seconds]."</em></div>';
+  return h;
+}
+function paintBoard(){
+  const st=bstate(), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t]));
+  $$("#board .sk").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.skill===BOARD.skill)));
+  $$("#board .tl").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.tool===BOARD.tool)));
+  $$("#board .skillblock").forEach(s=>s.hidden=BOARD.skill!=="all"&&s.dataset.block!==BOARD.skill);
+  $("#bModel").setAttribute("aria-pressed",String(BOARD.model));
+  $("#bModel").textContent=BOARD.model?"Hide the model mapping":"Show a model mapping";
+  const active=BOARD.tool&&byId[BOARD.tool];
+  $$("#board .tile").forEach(el=>{
+    const c=el.dataset.act, mine=(st.map[c]||[]).filter(id=>byId[id]);
+    const model=BOARD.model?BOARD.tools.filter(t=>t.model.includes(c)&&!mine.includes(t.id)):[];
+    el.querySelector(".tags").innerHTML=mine.map(id=>'<span style="background:'+byId[id].col+'" title="'+esc(byId[id].name)+'">'+esc(byId[id].mono)+"</span>").join("")+
+      model.map(t=>'<span class="model" title="Model: '+esc(t.name)+'">'+esc(t.mono)+"</span>").join("");
+    el.classList.toggle("matched",mine.length>0);
+    el.classList.toggle("hit",!!active&&mine.includes(active.id));
+    el.classList.toggle("cand",!!active&&BOARD.model&&active.model.includes(c)&&!mine.includes(active.id));
+    el.setAttribute("aria-pressed",String(!!active&&mine.includes(active.id)));
+    el.setAttribute("aria-label",c+" "+el.querySelector(".nm").textContent+(mine.length?", matched with "+mine.map(id=>byId[id].name).join(", "):""));
+  });
+  const n=BOARD.acts.filter(a=>(st.map[a.code]||[]).some(id=>byId[id])).length;
+  $("#meter").innerHTML='<span class="dots">'+[0,1,2,3,4].map(i=>'<i class="'+(i<n?"on":"")+'"></i>').join("")+"</span><span><b>"+n+"</b> "+(n===1?"activity":"activities")+" matched"+(n>=5?" — goal reached":" · goal: 5")+"</span>";
+  Object.keys(SKILLS).forEach(k=>{const el=document.querySelector('[data-cnt="'+k+'"]'); if(el) el.textContent=BOARD.acts.filter(a=>a.skill===k&&(st.map[a.code]||[]).length).length+" of 10 matched";});
+  $("#bhint").innerHTML=active?"Now click every activity <b>"+esc(active.name)+"</b> could serve. Click again to remove it.":"Choose a tool above, then click activities to match it.";
+  const ws=st.ws||{}, a=BOARD.acts.find(x=>x.code===ws.act);
+  $("#wsTools").innerHTML=a?"Tools matched to "+esc(a.code)+": "+(((st.map[a.code]||[]).filter(id=>byId[id]).map(id=>esc(byId[id].name)).join(", "))||"none yet — match some on the board, or plan to build your own page."):"";
+}
+function initBoard(){
+  if(!$("#board")) return;
+  const st=bstate(), ws=st.ws||{};
+  $$("#ws [data-ws]").forEach(el=>{el.value=ws[el.dataset.ws]||""});
+  $$("#ws [data-wstag]").forEach(el=>{el.checked=(ws.tags||[]).includes(el.dataset.wstag)});
+  const hdr=()=>document.documentElement.style.setProperty("--hdr",$("header.top").offsetHeight+"px"); hdr(); window.addEventListener("resize",hdr);
+  $("#board").addEventListener("click",e=>{
+    const sk=e.target.closest("[data-skill]"); if(sk){BOARD.skill=sk.dataset.skill;return paintBoard();}
+    const tl=e.target.closest("[data-tool]"); if(tl){BOARD.tool=BOARD.tool===tl.dataset.tool?null:tl.dataset.tool;return paintBoard();}
+    const ti=e.target.closest("[data-act]");
+    if(ti){ if(!BOARD.tool){$("#bhint").innerHTML="<b>Choose a tool first</b> — then click the activities it could serve.";return;}
+      const s=bstate(), c=ti.dataset.act, arr=s.map[c]||[], i=arr.indexOf(BOARD.tool);
+      if(i<0) arr.push(BOARD.tool); else arr.splice(i,1); s.map[c]=arr; bsave(s); return paintBoard(); }
+  });
+  $("#bModel").onclick=()=>{BOARD.model=!BOARD.model;paintBoard()};
+  $("#bClear").onclick=()=>{ if(!confirm("Clear all your matches on this board?")) return; const s=bstate(); s.map={}; bsave(s); paintBoard(); };
+  const say=(el,t)=>{el.textContent=t;setTimeout(()=>el.textContent="",2500)};
+  const copy=(text,el)=>(navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>say(el,"Copied.")).catch(()=>say(el,"Copy failed — select and copy by hand."));
+  $("#bCopy").onclick=()=>{
+    const s=bstate(), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t.name]));
+    const lines=BOARD.acts.filter(a=>(s.map[a.code]||[]).some(id=>byId[id])).map(a=>a.code+" "+a.name+": "+s.map[a.code].filter(id=>byId[id]).map(id=>byId[id]).join(" + "));
+    copy(lines.length?"Activity board matches ("+lines.length+")\n"+lines.join("\n"):"No matches yet.",$("#bStatus"));
+  };
+  const saveWs=()=>{const s=bstate(); s.ws={tags:$$("#ws [data-wstag]").filter(x=>x.checked).map(x=>x.dataset.wstag)}; $$("#ws [data-ws]").forEach(el=>s.ws[el.dataset.ws]=el.value); bsave(s); paintBoard();};
+  $("#ws").addEventListener("input",saveWs); $("#ws").addEventListener("change",saveWs);
+  $("#wsCopy").onclick=e=>{
+    const s=bstate(), w=s.ws||{}, a=BOARD.acts.find(x=>x.code===w.act), byId=Object.fromEntries(BOARD.tools.map(t=>[t.id,t.name]));
+    const text=["Activity: "+(a?a.code+" · "+a.name:""),"Link/tool: "+(a?(s.map[a.code]||[]).filter(id=>byId[id]).map(id=>byId[id]).join(" + "):""),"Why this bin: "+(w.why||""),"Theory tags: "+(w.tags||[]).join(", "),"How we'd use it: "+(w.how||"")].join("\n");
+    copy(text,e.target.nextElementSibling);
+  };
+  paintBoard();
+}
+
+/* ── page ── */
+$("#who").innerHTML=esc(CONFIG.instructor)+"<span>"+esc(CONFIG.course)+" · "+esc(CONFIG.title)+"</span>";
+$("#topLinks").innerHTML=CONFIG.links.map(([t,u])=>'<a class="pill" href="'+u+'">'+esc(t)+"</a>").join("")+'<button class="pill" id="theme">Dark</button>';
+$("#foot").textContent=CONFIG.instructor+" · "+CONFIG.course+" · Text lives in content/*.md. Ticks and copied text stay in your browser.";
+$("#nav").innerHTML=CONFIG.pages.map(([k,t],i)=>'<button class="ph" data-go="'+k+'" aria-current="'+(i===0)+'"><b>'+(k==="r"?"·":"0"+k)+"</b>"+esc(t)+"</button>").join("");
+function applyTheme(t){document.documentElement.dataset.theme=t;$("#theme").textContent=t==="dark"?"Light":"Dark";store.set("course-theme",t)}
+applyTheme(store.get("course-theme","light"));
+$("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+function go(k,scroll){
+  $$(".phase").forEach(p=>p.classList.toggle("on",p.id==="p-"+k));
+  $$(".ph").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===String(k))));
+  if(scroll!==false){ window.scrollTo({top:0,behavior:"instant"}); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"instant"})); }
+}
+function fromHash(){const m=location.hash.match(/^#p-([0-9r]+)$/);return m&&CONFIG.pages.some(p=>p[0]===m[1])?m[1]:CONFIG.pages[0][0]}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]");
+  if(b){const k=b.dataset.go; if(location.hash==="#p-"+k) go(k); else location.hash="p-"+k; return;}
+  const cp=e.target.closest("[data-copypre],[data-copyq]");
+  if(cp){
+    const text=cp.hasAttribute("data-copypre")?cp.closest(".copyrow").previousElementSibling.textContent
+      :[...cp.closest(".card").querySelectorAll(".qlist li")].map((li,i)=>(i+1)+". "+li.textContent).join("\n");
+    const st=cp.nextElementSibling;
+    (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>st.textContent="Copied.")
+      .catch(()=>{st.textContent="Select the text and copy it manually."});
+  }
+});
+window.addEventListener("hashchange",()=>go(fromHash()));
+document.addEventListener("change",e=>{
+  const c=e.target.closest("[data-chk]"); if(!c) return;
+  const st=store.get(CONFIG.storeKey+"-chk",{}); st[c.dataset.chk]=c.checked; store.set(CONFIG.storeKey+"-chk",st);
+});
+
+async function load(){
+  const texts={};
+  await Promise.all(CONFIG.pages.map(async([k])=>{
+    const emb=document.getElementById("md"+k); if(emb){texts[k]=emb.textContent;return}
+    try{
+      const path=k==="r"?"content/refs.md":window.CONTENT_FILES[k];
+      const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw 0; texts[k]=await r.text();
+    }catch(e){texts[k]=null}
+  }));
+  if(Object.values(texts).every(t=>t==null)){
+    $("#loadWarn").innerHTML='<div class="banner"><strong>The content did not load.</strong> Browsers block <code>content/*.md</code> when this file is opened from disk. Use the web address, the standalone file, or run <code>python3 -m http.server</code> in this folder.</div>';
+    return;
+  }
+  try{ const emb=document.getElementById("mdp"); const pt=emb?emb.textContent:await (await fetch(window.CONTENT_FILES.p,{cache:"no-store"})).text();
+    parseDoc(pt).items.forEach(it=>{PAPERS[it.title]={title:it.title,f:it.f}}); }catch(e){}
+  const refsDoc=parseDoc(texts.r||"");
+  refsDoc.items.forEach(it=>{ if(it.f.apa) REFS[it.title]={apa:it.f.apa,doi:it.f.doi||"",url:it.f.url||"",short:shortCite(it.f.apa)}; });
+  $("#phases").innerHTML=CONFIG.pages.map(([k,label],i)=>{
+    const d=parseDoc(texts[k]||""); CUR_PAGE=k;
+    let body;
+    if(k==="r"){
+      const refs=d.items.filter(x=>x.f.apa).sort((a,b)=>a.f.apa.localeCompare(b.f.apa));
+      body=md(d.intro)+renderItems(d.items.filter(x=>!x.f.apa))+(refs.length?'<h3 class="sec">References</h3>'+refs.map(x=>
+        '<div class="refitem" id="ref-'+esc(x.title)+'">'+inline(x.f.apa)+'<div class="links">'+
+        (x.f.doi?'<a href="https://doi.org/'+esc(x.f.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':"")+
+        (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
+        '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
+    }else if(d.items.some(x=>x.f.kind==="act")) body='<div class="intro">'+md(d.intro)+"</div>"+boardHtml(d);
+    else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
+    return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
+      '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
+      (next?'<button class="pill" data-go="'+next[0]+'">'+esc(next[1])+" →</button>":"<span></span>")+"</div></section>";
+  }).join("");
+  initBoard();
+  go(fromHash(), !!location.hash);
+}
+</script>
+<script>
+/* file names per page key — keep in step with content/ */
+window.CONTENT_FILES={
+  "1":"content/01-author.md",
+  "2":"content/02-validity.md",
+  "3":"content/03-listening.md",
+  "4":"content/04-speaking.md",
+  "5":"content/05-reading.md",
+  "6":"content/06-writing.md",
+  "7":"content/07-trends.md",
+  "8":"content/08-chatbot.md",
+  "p":"content/papers.md"
+};
+load();
+</script>
+</body>
+</html>

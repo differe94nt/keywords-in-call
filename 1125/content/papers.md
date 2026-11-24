@@ -17,7 +17,7 @@ short: Aryadoust & Zakaria (2026)
 cite: Book chapter in *Effective Assessment in Schools* (Routledge)
 badge: Book chapter · 2026
 themes: teach | test
-home: 2 | 6
+home: 3 | 7
 rq: Aim (from the abstract): to interrogate the argument-based validity framework that dominates validation theory in language assessment — its relevance for practice and its limitations.
 method: A conceptual chapter. It traces how mainstream validity theory developed and surfaces its assumptions, then contrasts validity as understood in educational measurement (**assessment of learning**) with ideas of validity developed from classroom practice (**assessment for learning** and **assessment as learning**).
 found:
@@ -37,7 +37,7 @@ short: Zhao & Aryadoust (2026)
 cite: *Educational Assessment*, advance online publication
 badge: Meta-analysis · 2026
 themes: test | R
-home: 2 | 5
+home: 3 | 6
 rq: Aim (from the abstract): how does the reliability of a test condition the size of the correlations researchers observe between that test and other constructs?
 method: Meta-analysis of **49 studies (1999–2025)**: 58 Cronbach's alpha estimates and 463 correlations between **reading comprehension tests** and 13 other language-related measures, analysed with robust variance estimation to handle dependent effect sizes.
 found:
@@ -57,7 +57,7 @@ short: Aryadoust & Luo (2023)
 cite: *Language Testing*, 40(2)
 badge: Systematic review · 2023
 themes: test | teach | L
-home: 3 | 2
+home: 4 | 3
 rq: Aim (from the abstract): how have L2 listening constructs been conceptualized (defined) and operationalized (measured) in published research?
 method: Systematic review of **157 peer-reviewed papers in 19 applied linguistics journals**, coded for publication details and reliability, and for the listening subskills, cognitive processes, attributes and listening functions each study measured or investigated.
 found:
@@ -78,7 +78,7 @@ short: Aryadoust (2020)
 cite: *System*, 88, Article 102180
 badge: Scientometric review · 2020
 themes: test | teach | L | R
-home: 3 | 5 | 7
+home: 4 | 6 | 8
 rq: Aim (from the paper): no universally accepted taxonomy of listening and reading **comprehension subskills** exists, so the study (i) identifies influential publications on comprehension subskills objectively, through keyword searches and citation analysis, and (ii) reviews their content to list the subskills that have been empirically investigated.
 method: **Document co-citation analysis** of 192 publications (Scopus and Web of Science, merged), with timeline visualization, burst detection and automatic cluster labelling; then a close reading of the influential publications in each cluster.
 found:
@@ -100,7 +100,7 @@ short: Zhai et al. (2026)
 cite: *TEFLIN Journal*, 37(1)
 badge: Materials framework · 2026
 themes: mat | teach | L | AI
-home: 3
+home: 4
 rq: "(1) What good qualities should listening texts and tasks exhibit? (2) What cognitive processes should listening tasks engage learners in? (3) What level of difficulty should listening texts present to support learning?"
 method: A conceptual framework grounded in listening comprehension, listening assessment and SLA theory. **Seven principles**, each with a guiding question and indicators, illustrated on Units 1–4 of *Listen This Way* (Level 4), a coursebook for second-year English majors in mainland China; text difficulty checked with Text Inspector.
 found:
@@ -122,7 +122,7 @@ short: Aryadoust, Zakaria & Jia (2024)
 cite: *Computers and Education: Artificial Intelligence*, 6, Article 100204
 badge: Empirical study · 2024
 themes: test | mat | L | AI
-home: 3 | 7 | 2
+home: 4 | 8 | 3
 rq: Aim (from the abstract): can ChatGPT 4 write listening scripts and test items for test takers at different proficiency levels (academic, low, intermediate, advanced), to reduce the cost and complexity of listening test development?
 method: Prompt engineering and step-by-step refinement of prompts to generate scripts and items on **24 topics** taken from academic listening tests. Scripts were analysed linguistically with **Coh-Metrix and Text Inspector**; items were analysed for topic variation and overlap. Goh & Aryadoust (2025) report the output as 96 scripts and 384 multiple-choice items.
 found:
@@ -144,7 +144,7 @@ short: Goh & Aryadoust (2025)
 cite: *Annual Review of Applied Linguistics*, 45
 badge: Review · 2025
 themes: teach | test | L | S | AI
-home: 3 | 4 | 7
+home: 4 | 5 | 8
 rq: Aim: how can AI — especially generative AI — support the teaching, learning and assessment of L2 listening and speaking, and what are its limits? (A review with no numbered research questions.)
 method: A critical narrative review organised around models of listening (perception, parsing, utilization) and speaking (conceptualization, formulation, articulation), covering spoken dialogue systems, personal assistants, chatbots, custom GPTs and AI-generated tests.
 found:
@@ -168,7 +168,7 @@ short: Aryadoust et al. (2026)
 cite: *English for Specific Purposes*, 84
 badge: Empirical study · 2026
 themes: test | S | AI
-home: 4 | 2 | 7
+home: 5 | 3 | 8
 rq: Aim (from the abstract): how can a conversational agent, customized through advanced prompting in OpenAI's **GPT Builder**, be used to assess speaking in English for academic purposes? The system was built around four dimensions: measurement definition, system design, performance evaluation and learner experience.
 method: First-year English majors from two large universities took a GPT-run speaking assessment in which they could **choose topics, control their response time and ask for clarification**. GPT and human ratings were compared with **many-facet Rasch measurement** and linear mixed-effects models, across eight scoring categories.
 found:
@@ -192,7 +192,7 @@ short: Aryadoust & Zakaria (2026)
 cite: Book chapter in *Second Language Oracy Development for Young Learners* (Springer)
 badge: Book chapter · 2026
 themes: teach | test | S | AI
-home: 4 | 7
+home: 5 | 8
 rq: Aim (from the chapter page): how can a customized generative AI (ChatGPT) be designed to provide formative speaking assessment for young learners?
 method: A conceptual and design chapter grounded in communicative competence theory and models of formative feedback. It walks through building a customized GPT — **task specifications, tone, feedback design and iterative testing** — with sample interactions and classroom uses.
 found:
@@ -213,7 +213,7 @@ short: Jia & Aryadoust (2026, preprint)
 cite: SSRN preprint — not yet peer reviewed
 badge: Preprint · 2026
 themes: test | S | AI
-home: 4 | 2
+home: 5 | 3
 rq: Aim (from the abstract): does visual input change how raters perceive speech fluency — their ratings and their response times — and how do response times relate to ratings?
 method: Within-subjects experiment: **82 participants rated 30 AI-generated speech stimuli**, each presented in audio-only and audiovisual conditions in random order; linear mixed-effects models plus correlations.
 found:
@@ -235,7 +235,7 @@ short: Aryadoust & Baghaei (2016)
 cite: *Educational Assessment*, 21(2)
 badge: Empirical study · 2016
 themes: test | R | AI
-home: 5 | 2 | 7
+home: 6 | 3 | 8
 rq: Aim (from the abstract): how well do EFL learners' vocabulary and grammar knowledge distinguish low- from high-ability readers?
 method: **825 test takers** took an L2 reading test plus validated grammar and vocabulary tests; abilities were estimated with the **Rasch model**; a multilayer **perceptron artificial neural network** classified readers as low or high ability from their grammar and vocabulary measures.
 found:
@@ -256,7 +256,7 @@ short: Shi & Aryadoust (2023)
 cite: *Education and Information Technologies*, 28(1)
 badge: Systematic review · 2023
 themes: test | W | AI
-home: 6 | 2
+home: 7 | 3
 rq: "1. What are the study contexts and the trends of AWE scoring … 2. Which validity inferences have been investigated in the identified AWE studies? 3. What methodologies were adopted in the AWE studies to investigate each validity inference? 4. What areas of investigation have been studied to provide evidence of backing or rebuttals for each inference?"
 method: Systematic review of **105 published papers on automated writing evaluation (AWE) scoring** from Scopus, coded within an **argument-based validation framework** (domain description, evaluation, generalization, explanation, extrapolation, utilization).
 found:
@@ -267,7 +267,6 @@ design:
 - Replacing human raters with AWE is not justified; combine AWE with human scoring for high-stakes use, or use it as an independent rater for immediate formative scores.
 - Before adopting a tool, ask what writing **domain** it was built for and whether that matches your learners' tasks.
 basis: Author's accepted manuscript (full text).
-note: The published record lists the first author's name as "Huawei, S."; a correction was issued, and the author's name is Huawei Shi.
 download: https://repository.nie.edu.sg/server/api/core/bitstreams/223f6952-ce18-4df4-8f63-b51cd2f44141/content
 access: Free · accepted manuscript, NIE repository
 refs: awesr
@@ -278,7 +277,7 @@ short: Shi & Aryadoust (2024)
 cite: *ReCALL*, 36(2)
 badge: Systematic review · 2024
 themes: teach | test | W | AI
-home: 6 | 7 | 2
+home: 7 | 8 | 3
 rq: "1. What are the research contexts in AWF studies … 2. What types of AWF provided by AWF systems were investigated, and in what ways was AWF utilized in these studies? 3. How can the published AWF research be characterized in terms of the research design … 4. What are the foci of investigation in the studies, and what results are found?"
 method: Systematic review (PRISMA) of **83 SSCI articles (85 studies, 1993–2022)** from Scopus, coded on 4 categories and 17 variables; intra-coder agreement above κ = .90; findings interpreted through the argument-based validity framework.
 found:
@@ -301,7 +300,7 @@ short: Lim & Aryadoust (2022)
 cite: *Computer Assisted Language Learning*, 35(9)
 badge: Scientometric review · 2022
 themes: teach | mat
-home: 7
+home: 8
 rq: Aim (from the abstract): what have been the main research trends in CALL from 1977 to 2020, and how much support is there for the technologies studied?
 method: **Document co-citation analysis** of **3,697 studies in 11 journals** (Scopus), with burst index and betweenness centrality to identify influential publications, then content analysis of those publications.
 found:
@@ -321,7 +320,7 @@ short: Lim, Zakaria & Aryadoust (2022)
 cite: *Education and Information Technologies*, 27(5)
 badge: Systematic review · 2022
 themes: teach | mat | L | S | R | W
-home: 7 | 6
+home: 8 | 7
 rq: "1. What are the research topics and methods that have been adopted in previous DST research? 2. What are the theories or frameworks of DST that have been adopted in previous DST research? 3. How were the studies designed in terms of the reliability of the instruments used? 4. How do the outcomes of using DST vary across the four language skills and variables in the coding scheme?"
 method: Systematic review of digital storytelling (DST) studies with adolescents and adults found in Scopus — 71 papers in the dataset, 58 after removing 13 repeated entries — coded for topics, methods, theories, reliability and outcomes in the four skills.
 found:

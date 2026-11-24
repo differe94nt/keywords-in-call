@@ -1,12 +1,42 @@
 # Build a chatbot
 
-Now turn the readings into practice. **Mizou** lets a teacher build a chatbot that learners talk to — with read-aloud and voice input, so it can run listening and speaking tasks. **Yoodli** is an AI speaking coach for adults: you use it yourself to rehearse a talk or a role-play and get feedback on your delivery.
+Now turn the readings into practice. **Mizou** lets a teacher build a chatbot that learners talk to — with read-aloud and voice input, so it can run listening and speaking tasks. **Yoodli** runs spoken AI role-plays, interviews and speeches with feedback, and lets learners practise in **US, UK or Australian English**. Both can be set up as tasks. Before building, decide what the bot's assessment is **for**.
 
 <!--
 HOW TO EDIT
-  ## Title   kind: card · step · prompt (fenced ``` block) · section · checklist · questions
-  Platform details were checked on 23 Nov 2026 — recheck before each semester.
+  ## Title   kind: card · step · prompt (fenced ``` block) · section · checklist · questions · reveal
+  Platform details were checked on 23–24 Nov 2026 — recheck before each semester.
 -->
+
+## Assessment of, for or as learning?
+kind: section
+The same chatbot can serve three different purposes. Each purpose needs different features in the bot and different evidence that it works.
+refs: wiliam2011 | earl2013 | argval
+
+| | Assessment **of** learning | Assessment **for** learning | Assessment **as** learning |
+|---|---|---|---|
+| Main purpose | Judge, rank or certify what learners can do | Guide the next step in teaching and learning | Help learners monitor and regulate their own learning |
+| Also called | Summative | Formative | Self-assessment, self-regulation |
+| Who uses the evidence | Teacher, school, others outside class | Teacher and learners, during the course | Mainly the learner |
+| When | At the end of a unit or course | During learning, often | Throughout, built into the task |
+| Example in a speaking class | A recorded oral exam with a rubric | A practice talk with feedback the class acts on | Learners set a goal, check their own recording against criteria, plan the next try |
+| What the bot does | Asks the same questions of everyone and scores against a rubric | Gives feedback that says what to do next, and lets learners try again | Asks learners to set a goal, judge their own answer and plan the next attempt |
+| What the bot should keep | Comparable transcripts and scores | Each attempt, the feedback and the next attempt | The learner's goals, self-ratings and reflections |
+| Validity question | Are the scores accurate, fair and consistent? | Did the teacher or learner act on the evidence, and did the next attempt improve? | Can learners judge their own work against the criteria? |
+| In Mizou | Rubric grading (paid plans) and transcripts | The bot's feedback rules; transcripts for the teacher | A goal-setting opening and a reflection at the end |
+Sources: Black & Wiliam (1998); Wiliam (2011), including the definition by Black et al. (2004) he quotes; Earl (2013); Lee (2007); Aryadoust & Zakaria (2026).
+
+## The key distinction
+kind: card
+Wiliam (2011) separates two things that are often mixed up. **For** and **of** learning are about the **purpose** an assessment was designed for. **Formative** and **summative** are about the **function** it actually serves. A test designed to rank can still be used formatively, and a practice quiz can end up only producing a mark. An assessment is formative only when the evidence is **used** to decide the next step.
+refs: wiliam2011 | blackwiliam1998
+
+## Which one is your bot?
+kind: reveal
+- **A bot that asks ten questions and reports a score** — assessment *of* learning. You need consistent questions, a clear rubric, and a check that the scores agree with a human rater (Aryadoust et al., 2026, found that GPT and human ratings differed significantly on 3 of 8 scoring categories).
+- **A bot that gives a hint and asks the learner to try again** — assessment *for* learning, but only if the learner's second attempt uses the hint. Read the transcripts to see.
+- **A bot that opens with "What is your goal today?" and closes with "How did you do, and what will you try next time?"** — assessment *as* learning. The evidence is in the learners' own judgements and plans.
+refs: gptspeak | wiliam2011 | earl2013
 
 ## Design rules from the readings
 kind: section
@@ -39,23 +69,24 @@ refs: lcbook
 
 ## Name the purpose
 kind: card
-Is the bot's feedback assessment **of**, **for** or **as** learning? The answer decides what evidence would show the bot works.
+Decide whether the bot's assessment is **of**, **for** or **as** learning — see the table at the top of this page. The purpose decides what evidence would show the bot works.
 refs: argval
 
 ## The two platforms at a glance
 kind: section
-Checked on 23 November 2026. Both change often — check the pricing and terms pages before class.
+Checked on 23–24 November 2026. Both change often — check the pricing and terms pages before class.
 
 | | Mizou | Yoodli |
 |---|---|---|
-| Who builds | The teacher builds a bot | Ready-made practice; custom role-plays mostly on organisation plans |
-| Who uses it | Learners, through a link, **no learner account** | The account holder — you |
-| Voice | Read-aloud and voice input on all plans | Live spoken role-plays, speeches and interviews; camera optional |
-| Feedback | The bot's replies; rubric grading on paid plans | Delivery analysis, e.g. filler words and pacing; pronunciation feedback can be switched on |
-| Free plan | 10 student sessions per day; no rubrics, timer or knowledge files | **5 practice sessions in total**, not per month |
+| Who builds | The teacher builds a bot | Ready-made role-plays, interviews and speeches; anyone can build custom role-plays in the **Builder** |
+| Who uses it | Learners, through a link, **no learner account** | Each learner with **their own account**; sharing a custom role-play by link is Enterprise only |
+| English varieties | Set the variety in the bot's instructions (for example, British spelling); Mizou does not say which accent its read-aloud voice uses | Practice language **English – USA, UK or Australia**, chosen before each session (and 26 other language options) |
+| Voice | Read-aloud and voice input on all plans | Live spoken role-plays; each AI persona has its own voice, chosen in the Builder |
+| Feedback | The bot's replies; rubric grading on paid plans | Delivery analysis, such as filler words and pacing; optional pronunciation feedback aimed at being understood |
+| Free plan | 10 student sessions per day; no rubrics, timer or knowledge files | **5 sessions in total** (Starter); any session over 30 seconds counts |
 | Age | Built for schools; the terms page was offline when we checked | Terms: **18 and over** |
-| Data | Says student chats are not used to train AI | Recordings may be used to train models unless you opt out in settings |
-Sources: [Mizou pricing](https://mizou.com/pricing) · [Mizou privacy policy](https://help-mizou.notion.site/Privacy-Policy-055351d6afe94831a28ec7b29375d8fa) · [Yoodli pricing](https://yoodli.ai/pricing) · [Yoodli terms](https://yoodli.ai/tos)
+| Data | Says student chats are not used to train AI | On Starter and Pro, session data **may be used** to improve the platform; excluded on Advanced and above |
+Sources: [Mizou pricing](https://mizou.com/pricing) · [Mizou privacy policy](https://help-mizou.notion.site/Privacy-Policy-055351d6afe94831a28ec7b29375d8fa) · [Yoodli pricing](https://yoodli.ai/pricing) · [Yoodli terms](https://yoodli.ai/tos) · [Yoodli: language and localization](https://support.yoodli.ai/en/articles/15346192-yoodli-language-localization-overview) · [Yoodli: customizing practice](https://support.yoodli.ai/en/articles/9628260-customizing-practice)
 
 ## Mizou · build a listening or speaking bot
 kind: section
@@ -121,7 +152,7 @@ Never ask for personal information.
 
 ## A task bot
 kind: card
-For a bot built as a **task** — with an information gap, a decision and a language focus at the end — use the template on the [Tasks: TBLT & PBL](#p-8) page.
+For a bot built as a **task** — with an information gap, a decision and a language focus at the end — use the template on the [Tasks, problems and projects](#p-1) page.
 
 ## Rules to add in either bot
 kind: prompt
@@ -131,33 +162,57 @@ If the learner writes in another language, answer briefly in simple English and 
 Do not ask for names, schools, addresses or photos.
 ```
 
-## Yoodli · rehearse your own speaking
+## Yoodli · English varieties and AI role-plays
 kind: section
-Use Yoodli to rehearse **your** presentation of this week's paper — not with school students: its terms require users to be 18 or over.
+Yoodli's strength for a language class is **spoken role-play in a chosen variety of English**, with feedback after each session. It suits **adult learners (18 and over)**, such as university students — its terms do not allow younger users. Checked on 24 November 2026.
 
-## Sign up
-kind: step
-do: Sign up at [app.yoodli.ai](https://app.yoodli.ai/home). The free plan gives **five practice sessions in total**; any speech, interview or role-play over 30 seconds counts as one.
+## Choose the English variety
+kind: card
+Before each session, choose the practice language from the **language menu at the bottom left of the video preview**: **English – USA**, **English – UK** or **English – Australia**. Yoodli also lists 26 other language options.
+- The choice changes the **transcript**, the **AI partner's replies** and the **feedback** to match that variety.
+- It does **not** change the AI voice's accent: the voice belongs to the role-play's **persona**.
+link: [Yoodli: language and localization](https://support.yoodli.ai/en/articles/15346192-yoodli-language-localization-overview)
 
-## Check your settings first
-kind: step
-do: In settings, choose the **practice language** (English US, UK or Australian) and turn on **pronunciation feedback** if you want it. Opt out of your recordings being used to train Yoodli's AI if you prefer, and keep recordings private.
+## Voices come with personas
+kind: card
+In the **Builder**, every AI persona has a name, role, manner and a **voice**. Yoodli picks a voice from its standard set, and you can choose another. To hear different voices, build or choose personas with different voices — Yoodli does not publish a list of accents.
+link: [Yoodli: personas](https://support.yoodli.ai/en/articles/18419351-personas-create-with-ai) · [Yoodli: customizing practice](https://support.yoodli.ai/en/articles/9628260-customizing-practice)
 
-## Practise
+## Pronunciation feedback: being understood
+kind: card
+Learners can turn on **pronunciation feedback** in their personal settings. Yoodli says it does **not** aim to remove an accent, but to show what would make the speaker **easier to understand**. It switches itself off if it detects a native speaker.
+link: [Yoodli: personal settings](https://support.yoodli.ai/en/articles/10055670-personal-settings)
+
+## Limits to plan around
+kind: card
+- **Five sessions in total** on the free Starter plan — any session over 30 seconds counts. Plan each one.
+- **18 and over** only.
+- A teacher cannot share a custom role-play by link unless the school has an **Enterprise** plan. On free accounts, each learner builds the role-play from your written instructions.
+- On Starter and Pro, session data **may be used** to improve Yoodli. Recordings are **private** until shared.
+link: [Yoodli pricing](https://yoodli.ai/pricing) · [Yoodli terms](https://yoodli.ai/tos)
+
+## Task 1 · Same conversation, three varieties
 kind: step
+time: 3 sessions
 do:
-- **Speech:** practice → speech → *Start*, speak after the countdown, then *Stop*.
-- **Role-play:** practice → conversation → choose a scenario or *Personalize your conversation*, allow the microphone, *Start* and talk.
-- **Interview:** enter a role, choose the interviewer's manner, optionally add your own questions.
+- **Pre-task:** choose one role-play — a job interview or a service encounter. Write down three phrases you plan to use.
+- **Task:** do it three times, with the practice language set to **US**, then **UK**, then **Australia**. Keep the same goal each time.
+- **Report:** compare the three transcripts and feedback reports. Which words, spellings or phrases changed? What did the feedback flag differently?
+- **Language focus:** choose two expressions to keep, and say in which variety each one is more typical.
+tip: This links to **L7 Accent compare** on the 11/11 board, and to the listening-materials principle of exposing learners to more than one variety (Zhai et al., 2026).
 
-## Read the analysis
+## Task 2 · Be understood, then try again
 kind: step
-do: Click **View Analysis**. Look at filler words, pacing and word choice, and ask for an AI follow-up question if you want Q&A practice. Note one thing to change, then try again — that before-and-after is evidence for your portfolio.
+time: 2 sessions
+do:
+- Turn on **pronunciation feedback**. Give a **one-minute** talk on a topic you know.
+- Click **View Analysis**. Choose **one** point that would make you easier to understand.
+- Give the same talk again. Compare the two reports — that before-and-after is assessment **for** learning, and your note on it is assessment **as** learning.
 
-## Share or delete
+## Task 3 · Build a persona (for the teacher)
 kind: step
-do: In the **Recording Library**, use the three-dot menu to copy a share link, download or delete a recording.
-tip: Yoodli has a **Builder** for custom role-plays, but personas, goals and custom rubrics are on Business and Enterprise plans. Check what your account shows.
+do: In the **Builder**, create a role-play with a persona whose voice differs from Yoodli's default. Write the persona's role, manner and goal. Then write the instructions your learners would follow to build the same role-play in their own accounts.
+tip: Personas, goals and custom rubrics for a whole class are on Business and Enterprise plans. Check what your account shows.
 
 ## In class today
 kind: section
@@ -170,10 +225,10 @@ do:
 - **Swap (10 min):** use another pair's bot as a learner, with audio on. Note one thing that worked and one rule the bot broke.
 - **Review (10 min):** read your bot's transcripts and revise its instructions once. Keep both versions.
 
-## Rehearse
+## Try Yoodli as a learner
 kind: step
 time: 15 minutes
-do: Each person rehearses a **two-minute talk** on their paper in Yoodli — research question, method, one finding, one implication. Use one free session only, and keep the analysis for your portfolio.
+do: Each person does **Task 1** with two of the three varieties — for example, a short talk on their paper (research question, method, one finding, one implication) in US and then UK English. Compare the two reports and note one difference. Keep the analysis for your portfolio.
 
 ## Before you use either tool
 kind: checklist
@@ -185,6 +240,6 @@ kind: checklist
 
 ## Evaluate your bot
 kind: questions
-- What is your bot's purpose — assessment of, for or as learning — and what evidence from the transcripts shows it served that purpose?
+- What is your bot's purpose — assessment of, for or as learning — and what evidence from the transcripts shows it served that purpose? Use the table at the top of this page.
 - Which of the six design rules did your bot follow, and which did it break?
 - What would you change before using it with real learners?

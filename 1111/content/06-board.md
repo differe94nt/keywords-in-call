@@ -32,7 +32,7 @@ do: Fill in the worksheet under the board for the **one** activity your group wi
 ## Is it a task?
 kind: card
 wide: yes
-Not every activity here is a *task* in the research sense: some are exercises that practise a form. The 11/25 page [Tasks: TBLT & PBL](../1125/#p-8) gives the four criteria, sorts seven of these activities, and compares task-based with problem-based learning.
+Not every activity here is a *task* in the research sense: some are exercises that practise a form. The 11/25 page [Tasks, problems and projects](../1125/#p-1) gives the four criteria, sorts seven of these activities, and compares task-based, problem-based and project-based learning.
 
 ## L1
 kind: act

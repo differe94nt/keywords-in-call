@@ -1,6 +1,6 @@
 # Sources
 
-Fifteen papers by Vahid Aryadoust and colleagues, then the readings on task-based language teaching and problem-based learning (page *Tasks: TBLT & PBL*). Every reference was checked against its DOI record (Crossref) on 23 November 2026, and each summary card says whether it was written from the full text or from the abstract only. Free full texts are linked only where they are legal: the publisher's open-access version or the author's accepted manuscript in the NIE repository.
+Readings on task-based, problem-based and project-based learning (page 1), fifteen papers by Vahid Aryadoust and colleagues (pages 2–8), and the sources on assessment of, for and as learning (page 9). Every reference was checked against its DOI record (Crossref) on 23 November 2026, and each summary card says whether it was written from the full text or from the abstract only. Free full texts are linked only where they are legal: the publisher's open-access version or the author's accepted manuscript in the NIE repository.
 
 <!-- ## id + apa/doi = a reference; other ## blocks render as cards -->
 
@@ -11,8 +11,7 @@ wide: yes
 - **Zhao & Aryadoust (2026)** is an advance online publication, without volume or pages yet.
 - **Jia & Aryadoust (2026)** is a preprint and has not been peer reviewed.
 - **Aryadoust et al. (2026, ESP)** has seven authors in the published record; the SSRN preprint lists six.
-- **Shi & Aryadoust (2023)**: the published record lists the first author as "Huawei, S."; a correction was published.
-- **TBLT and PBL readings** were checked against Crossref on 24 November 2026. Their cards say whether they were written from the full text (Long, 2016; Ellis, 2017) or from the abstract. Willis (1996) is a book without a DOI.
+- **Readings on tasks, problems, projects and assessment purposes** were checked against Crossref on 24 November 2026. Their cards say whether they were written from the full text (Long, 2016; Ellis, 2017; Wiliam, 2011) or from the abstract. Willis (1996) and Earl (2013) are books without a DOI.
 - **Background facts** about the author come from his NTU library profile, the NIE department page, ORCID and Google Scholar (checked 23 November 2026).
 
 ## argval
@@ -145,3 +144,30 @@ doi: 10.1177/0735633117705960
 ## beckett2005
 apa: Beckett, G. H., & Slater, T. (2005). The project framework: A tool for language, content, and skills integration. *ELT Journal, 59*(2), 108–116.
 doi: 10.1093/eltj/cci024
+
+## stoller2019
+apa: Stoller, F. L., & Myers, C. C. (2019). Project-based learning. In A. Gras-Velázquez (Ed.), *Project-based learning in second language acquisition* (pp. 25–47). Routledge.
+doi: 10.4324/9780429457432-3
+
+## kokotsaki2016
+apa: Kokotsaki, D., Menzies, V., & Wiggins, A. (2016). Project-based learning: A review of the literature. *Improving Schools, 19*(3), 267–277.
+doi: 10.1177/1365480216659733
+
+## chen2019
+apa: Chen, C.-H., & Yang, Y.-C. (2019). Revisiting the effects of project-based learning on students' academic achievement: A meta-analysis investigating moderators. *Educational Research Review, 26*, 71–81.
+doi: 10.1016/j.edurev.2018.11.001
+
+## blackwiliam1998
+apa: Black, P., & Wiliam, D. (1998). Assessment and classroom learning. *Assessment in Education: Principles, Policy & Practice, 5*(1), 7–74.
+doi: 10.1080/0969595980050102
+
+## wiliam2011
+apa: Wiliam, D. (2011). What is assessment for learning? *Studies in Educational Evaluation, 37*(1), 3–14.
+doi: 10.1016/j.stueduc.2011.03.001
+
+## earl2013
+apa: Earl, L. M. (2013). *Assessment as learning: Using classroom assessment to maximize student learning* (2nd ed.). Corwin.
+
+## lee2007
+apa: Lee, I. (2007). Assessment for learning: Integrating assessment, teaching, and learning in the ESL/EFL writing classroom. *Canadian Modern Language Review, 64*(1), 199–213.
+doi: 10.3138/cmlr.64.1.199

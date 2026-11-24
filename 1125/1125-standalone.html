@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FAEFD0">
-<title>Reading Aryadoust · 11/25</title>
+<title>Tasks, Assessment and AI · 11/25</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
@@ -14,10 +14,10 @@
 const CONFIG = {
   instructor: "王伯雅 Po-Ya Angela Wang",
   course: "英語數位教材與教學",
-  title: "Week 12 · 11/25 · Reading Aryadoust",
-  kicker: "11/25 · Reading Aryadoust",
+  title: "Week 12 · 11/25 · Tasks, assessment and AI",
+  kicker: "11/25 · Tasks, assessment and AI",
   storeKey: "w12-1125",
-  pages: [["1","The author"],["2","Validity & measurement"],["3","Listening"],["4","Speaking"],["5","Reading"],["6","Writing"],["7","CALL & AI trends"],["8","Tasks: TBLT & PBL"],["9","Build a chatbot"],["r","Sources"]],
+  pages: [["1","Tasks, problems, projects"],["2","The author"],["3","Validity & measurement"],["4","Listening"],["5","Speaking"],["6","Reading"],["7","Writing"],["8","CALL & AI trends"],["9","Build a chatbot"],["r","Sources"]],
   links: [["11/11 · Four skills","../1111/"],["Final project","../final/"],["AI studio","../ai-tools/"]]
 };
 </script>
@@ -27,6 +27,7 @@ const CONFIG = {
   --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
   --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
   --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77; --blue-soft:#DCE9EC;
+  --purple:#6B5B95; --purple-soft:#ECE7F4; --burnt-soft:#F6E5CF;
   --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
   --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
   --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
@@ -36,6 +37,7 @@ html[data-theme="dark"]{
   --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
   --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
   --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD; --blue-soft:#22343A;
+  --purple:#B4A6DA; --purple-soft:#2D2840; --burnt-soft:#3A2B19;
   --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -146,6 +148,31 @@ thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;
 .pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 .banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
 footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+/* ── folds: labelled, colour-coded, expandable blocks ── */
+.fold{--fc:var(--green);--fb:var(--green-soft);margin:.5rem 0;border-radius:10px;background:var(--fb);border-left:4px solid var(--fc)}
+.fold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;padding:.42rem .65rem;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--fc)}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary .tag{font-family:var(--mono);background:var(--fc);color:var(--paper);border-radius:6px;padding:.05rem .42rem;font-size:.68rem;letter-spacing:0}
+.fold>summary::after{content:"▸";margin-left:auto;font-size:.85rem;transition:transform .15s}
+.fold[open]>summary::after{transform:rotate(90deg)}
+.fold>summary:hover{filter:brightness(.9)}
+.fold .fbody{padding:0 .8rem .6rem;font-size:.92rem;color:var(--fg)}
+.fold .fbody ul{margin:.1rem 0 .1rem;padding-left:1.1rem}
+.f-rq,.f-key{--fc:var(--blue);--fb:var(--blue-soft)}
+.f-method{--fc:var(--purple);--fb:var(--purple-soft)}
+.f-found{--fc:var(--green);--fb:var(--green-soft)}
+.f-design{--fc:var(--burnt);--fb:var(--burnt-soft)}
+.foldbar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.6rem 0 .2rem;font-size:.8rem;color:var(--fg-soft)}
+.foldbar .legend{display:flex;flex-wrap:wrap;gap:.35rem;margin-left:auto}
+.foldbar .legend span{border-left:4px solid var(--fc);background:var(--fb);border-radius:6px;padding:.05rem .45rem;font-size:.72rem;color:var(--fg)}
+details.secfold{margin-top:1.6rem;border-top:2px solid var(--line-2)}
+details.secfold>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:.6rem;padding-top:.5rem}
+details.secfold>summary::-webkit-details-marker{display:none}
+details.secfold>summary h3.sec{margin:0}
+details.secfold>summary::after{content:"▾ hide";margin-left:auto;font-size:.74rem;color:var(--fg-soft);font-family:var(--sans)}
+details.secfold:not([open])>summary::after{content:"▸ show"}
+details.secfold:not([open])>summary h3.sec{color:var(--fg-soft)}
+details.secfold>.sec-body{margin-top:.3rem}
 /* ── papers ── */
 .dl{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-top:.6rem;padding-top:.55rem;border-top:1px dashed var(--line)}
 .dlbtn{background:var(--green);color:#fff;text-decoration:none;border-radius:999px;padding:.22rem .75rem;font-size:.8rem;font-weight:600}
@@ -217,392 +244,11 @@ html[data-theme="dark"] .sk[aria-pressed="true"]{background:var(--green);color:#
 </head>
 <body>
 <script type="text/markdown" id="md1">
-# Reading Vahid Aryadoust
+# Tasks, problems and projects
 
-This week we read one researcher closely. Vahid Aryadoust works on **language assessment**, but his studies reach every theme of this semester: **teaching, testing, materials design, the four skills and AI**. Reading fifteen of his papers side by side shows how one research agenda moves from *what are we measuring?* to *can AI help us measure and teach it?*
+This week starts with **tasks**. The way this course is built — choose a skill, try the tools, build an activity, present it, get feedback — is a **task cycle**, and today's chatbot build is one too. This page gives the research behind **task-based language teaching (TBLT)** and compares it with two close relatives: **problem-based learning (PBL)** and **project-based learning (PjBL)**. Then we read Vahid Aryadoust's work on assessment and AI (pages 2–8) and build a chatbot (page 9).
 
-<!--
-HOW TO EDIT
-  ## Title   kind: card · section · matrix (draws the paper map from papers.md) · step · questions
--->
-
-## Who he is
-kind: section
-
-## Position
-kind: card
-- Associate Professor of language assessment, **National Institute of Education (NIE), Nanyang Technological University, Singapore** — at NIE since 2016.
-- Honorary Associate Professor, Institute of Education, University College London; Visiting Professor, Xi'an Jiaotong University.
-- PhD in English Language and Literature, NIE Singapore (2011).
-link: [NTU profile](https://dr.ntu.edu.sg/entities/person/Vahid-Aryadoust) · [ORCID](https://orcid.org/0000-0001-6960-2489) · [Google Scholar](https://scholar.google.com/citations?user=qlxy_-kAAAAJ&hl=en)
-
-## Research areas
-kind: card
-- Language assessment, especially **listening** and **reading comprehension**
-- **Quantitative methods**: Rasch measurement, meta-analysis, neural networks
-- **Sensors in assessment**: eye tracking, brain imaging and skin response, to see how test takers process a test
-- **Generative AI** in language assessment and teaching
-- **Scientometrics**: mapping a research field through its citation networks
-
-## Books
-kind: card
-- *Building a Validity Argument for a Listening Test of Academic Proficiency* (Cambridge Scholars, 2013)
-- *Trends in Language Assessment Research and Practice* (ed. with J. Fox, Cambridge Scholars, 2016)
-- *Quantitative Data Analysis for Language Assessment*, Vol. I (2019) and Vol. II (2020), ed. with M. Raquel (Routledge)
-
-## Recognition
-kind: card
-- Editorial board, *Annual Review of Applied Linguistics* (appointed 2025)
-- Intercontinental Academia Fellowship (2018–2019)
-- John Cheung Social Media Award (2020) for his YouTube channel *Statistics and Theory*, which teaches research statistics
-- Google Scholar, checked 23 Nov 2026: about 5,100 citations, h-index 41
-link: [NIE news on the ARAL appointment](https://www.ntu.edu.sg/nie/news-events/news/detail/ell-faculty-member-appointed-to-editorial-board-of-the-leading-journal)
-
-## Why his work matters
-kind: section
-Three lines of influence run through the papers this week.
-
-## 1 · Mapping a field before studying it
-kind: card
-His **scientometric reviews** use citation networks to show what a field has studied and where the gaps are — for comprehension subskills, for CALL, for automated feedback. They are a model for the literature review in your own final project.
-
-## 2 · Asking what a test really measures
-kind: card
-Much of his work asks whether scores mean what we think: **validity arguments**, **construct definitions** of listening, the effect of **unreliable measures** on research results. The same questions apply to any quiz, rubric or AI score you design.
-
-## 3 · Testing AI, not trusting it
-kind: card
-His recent studies put generative AI to work — writing listening tests, scoring EAP speaking, giving formative feedback to children — and then check the output with the same measurement tools used for human raters and items.
-
-## The fifteen papers on one map
-kind: matrix
-Each dot shows a theme the paper speaks to. Cross-theme papers appear on more than one page; the buttons take you there.
-
-## How to read this week
-kind: section
-
-## Choose and read
-kind: step
-do: Each group takes **one page** (Validity, Listening, Speaking, Reading, Writing, or CALL & AI). Every member reads one paper on it closely — the full text where there is a **Download** button, the summary card where there is not.
-
-## Fill in the four boxes
-kind: step
-do: For your paper, check the card against the paper: **research question, method, key findings, implications for teaching or test design**. Correct anything the card gets wrong or leaves out.
-
-## Connect it to the semester
-kind: step
-do: Name one earlier week this paper speaks to — evaluating materials (W3–W4), learner language (W7), the four skills (W10) — and one thing it would change in your final project.
-
-## Tasks before tools
-kind: step
-do: On **Tasks: TBLT & PBL**, check the 11/11 activity board against the definition of a task, and compare task-based with problem-based learning.
-
-## Then build
-kind: step
-do: On **Build a chatbot**, turn one finding into a listening or speaking chatbot on Mizou, and practise your own speaking on Yoodli.
-
-## Questions for the discussion
-kind: questions
-- What does each paper claim to measure — and how do the authors show that it measures that?
-- Where does AI do well in these studies, and what did humans still have to check?
-- Which finding would change how you design a classroom test or a coursebook unit?
-- Which paper's method could you borrow for your own final project?
-
-</script>
-<script type="text/markdown" id="md2">
-# Validity & measurement
-
-Every quiz, rubric and AI score makes a claim about learners. Validity asks **whether the evidence supports that claim**; reliability asks **how much of the score is error**. These papers are the measurement backbone of everything else this week — and of **W13, Digital assessment and test design**.
-
-<!--
-HOW TO EDIT
-  ## Title   paper: <id from papers.md> · angle: why it is on this page
-  Other kinds: card · questions · section
--->
-
-## Start here
-kind: section
-
-## What counts as validity?
-paper: argval
-angle: The framework behind the AWE and AWF reviews on the Writing page — and a critique of it from the classroom's point of view.
-
-## Unreliable tests hide real relationships
-paper: relmeta
-angle: A measurement lesson in numbers: low reliability shrinks the correlations researchers report.
-
-## Measurement inside the skill studies
-kind: section
-These papers sit on skill pages, but each one is also a validity study.
-
-## Defining the construct
-paper: typology
-angle: Before you can validate a listening test, you have to say what listening is — most studies never did.
-
-## Validating automated scoring
-paper: awesr
-angle: An argument-based validity review in practice: which inferences have AWE studies backed, and which have they skipped?
-
-## Validating automated feedback
-paper: awfsr
-angle: Validation of feedback accuracy had the least research and the weakest results.
-
-## An AI rater against human raters
-paper: gptspeak
-angle: Many-facet Rasch measurement used to compare a GPT examiner with human raters.
-
-## Does video change the rating?
-paper: visflu
-angle: A rater-cognition question for any speaking test that adds video.
-
-## AI-written test items
-paper: llmlisten
-angle: Item quality, not script quality, was the weak point.
-
-## Machine learning before generative AI
-paper: ann
-angle: Rasch measurement plus a neural network, 2016.
-
-## Discuss
-kind: questions
-- Pick one quiz or rubric you designed this semester. Is it assessment **of**, **for** or **as** learning — and what evidence would show it works for that purpose?
-- What would lower the reliability of a five-item classroom test, and what would that do to the conclusions you draw from it?
-- Which validity inference does an AI scorer most often skip, according to these reviews?
-
-</script>
-<script type="text/markdown" id="md3">
-# Listening
-
-From **what listening is**, to **what materials should give learners**, to **what AI can generate** — five papers that take the skill from construct to coursebook to chatbot. Read them after the listening studies on the [11/11 page](../1111/#p-2).
-
-<!--
-HOW TO EDIT
-  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
--->
-
-## Defining listening
-kind: section
-
-## What do listening studies measure?
-paper: typology
-angle: A framework of 24 subskills, 27 processes and 54 attributes to check what your listening task actually targets.
-
-## Which subskills have been studied?
-paper: subskills
-angle: Listening and reading share comprehension subskills; this codex shows how little of it covers L2.
-
-## Materials
-kind: section
-
-## Seven principles for listening coursebooks
-paper: lcbook
-angle: The most directly usable paper this week: a checklist for evaluating and adapting listening materials.
-
-## AI for listening
-kind: section
-
-## Can ChatGPT write a listening test?
-paper: llmlisten
-angle: Good levelled scripts, weak items — what to check before using AI-made listening tests.
-
-## Does AI make listening better?
-paper: goh2025
-angle: Listening has had the least GenAI attention; voice assistants mostly did not improve it.
-
-## Try it
-kind: card
-Take one listening activity you built on 11/11. Check it against the **seven principles** in Zhai et al. Which principle does it miss, and could AI help you fix it — a second accent, a visual, a metacognitive step?
-
-## Discuss
-kind: questions
-- Which listening subskill or function does your current material target, and which does it ignore?
-- If AI writes the script and items, which checks from Aryadoust, Zakaria & Jia (2024) would you run first?
-
-</script>
-<script type="text/markdown" id="md4">
-# Speaking
-
-Speaking needs a partner — and a rater. Aryadoust's recent work asks whether a **custom GPT** can be both: a practice partner that gives formative feedback, and an examiner whose scores hold up against human raters.
-
-<!--
-HOW TO EDIT
-  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
--->
-
-## AI as partner and rater
-kind: section
-
-## A GPT examiner for academic speaking
-paper: gptspeak
-angle: Topic choice, self-paced responses and clarification requests — design choices you can copy into a chatbot.
-
-## Formative speaking feedback for children
-paper: ylgenai
-angle: How to design the feedback of a customized GPT — task, process, self-regulation — and why age rules matter.
-
-## What AI can and cannot do for speaking
-paper: goh2025
-angle: Chatbots raise willingness to communicate; evidence of language development is thinner.
-
-## Rating speech
-kind: section
-
-## Does a face change a fluency rating?
-paper: visflu
-angle: For anyone deciding between audio and video speaking tasks.
-
-## From reading to building
-kind: card
-The **Build a chatbot** page turns these papers into practice: a Mizou bot that runs a speaking task with feedback levels from Aryadoust & Zakaria, and Yoodli for your own rehearsal.
-
-## Discuss
-kind: questions
-- In Aryadoust et al. (2026), students who asked for clarification scored lower. Should clarification requests count against a learner in a formative task?
-- Which kinds of feedback (task, process, self-regulation, self) would you want an AI partner to give your learners — and which should only a teacher give?
-
-</script>
-<script type="text/markdown" id="md5">
-# Reading
-
-What separates weak from strong readers, which comprehension subskills research has actually studied, and how test reliability shapes what we conclude about reading.
-
-<!--
-HOW TO EDIT
-  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
--->
-
-## Reading ability
-kind: section
-
-## Vocabulary, grammar and reading
-paper: ann
-angle: Vocabulary predicted reading more strongly than grammar — a direct message for reading materials.
-
-## The map of comprehension subskills
-paper: subskills
-angle: 73 subskills, mostly L1 lower-order reading; a codex to choose what an item should target.
-
-## Measuring reading
-kind: section
-
-## Reliability and reading research
-paper: relmeta
-angle: All 463 correlations involved reading comprehension tests — the less reliable the test, the weaker the relationships.
-
-## Discuss
-kind: questions
-- About one reader in five was misclassified from vocabulary and grammar alone. What else would you check before deciding a learner is a "weak reader"?
-- Which lower-order subskills would you check with young L2 readers, and how could a digital activity do it?
-
-</script>
-<script type="text/markdown" id="md6">
-# Writing
-
-Two systematic reviews of automated writing tools — one on **scores**, one on **feedback** — read through the argument-based validity framework, plus the framework itself.
-
-<!--
-HOW TO EDIT
-  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
--->
-
-## Automated writing tools
-kind: section
-
-## Automated scoring
-paper: awesr
-angle: Can AWE replace human raters? Not yet — counter-evidence exists for every inference.
-
-## Automated feedback
-paper: awfsr
-angle: 31 systems, mostly form-focused; feedback on meaning is rare. Read with the 11/11 writing studies.
-
-## The framework behind both reviews
-paper: argval
-angle: Both reviews use argument-based validity; this chapter asks what the framework misses in classrooms.
-
-## Writing in multimodal projects
-paper: dst
-angle: Digital storytelling outcomes were mostly reported for reading and writing.
-
-## Try it
-kind: card
-Run one paragraph through an automated feedback tool and through a generative AI. Sort every comment into **form** or **meaning**. Which tool helps with content and organisation — and how would you know its feedback is accurate?
-
-## Discuss
-kind: questions
-- When would you use an automated score in your teaching, and when would you refuse to?
-- What should a learner do with AI feedback so that it supports learning, not just a cleaner draft?
-
-</script>
-<script type="text/markdown" id="md7">
-# CALL & AI trends
-
-How the field got here: forty years of CALL research mapped through citations, a review of a popular multimodal method, and where generative AI now fits.
-
-<!--
-HOW TO EDIT
-  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
--->
-
-## Mapping the field
-kind: section
-
-## Forty years of CALL
-paper: callsci
-angle: Which technologies have stronger evidence — connects to W2–W3 on CALL history and evaluation.
-
-## Comprehension subskills, mapped
-paper: subskills
-angle: The same scientometric method applied to a construct rather than a technology.
-
-## Technology across the four skills
-kind: section
-
-## Digital storytelling
-paper: dst
-angle: Popular across all four skills, but close to 90% of studies reported no reliability checks.
-
-## Generative AI
-kind: section
-
-## AI for listening and speaking
-paper: goh2025
-angle: The broadest review this week, and the best single overview of GenAI in oral skills.
-
-## AI-written listening tests
-paper: llmlisten
-angle: GenAI as a test-writing assistant.
-
-## AI as speaking examiner
-paper: gptspeak
-angle: GenAI as a rater.
-
-## AI as formative speaking partner
-paper: ylgenai
-angle: GenAI as a feedback partner for young learners.
-
-## AI-based written feedback
-paper: awfsr
-angle: The most cited paper on this list.
-
-## Machine learning in 2016
-paper: ann
-angle: AI in assessment before chatbots.
-
-## Borrow the method
-kind: card
-A **scientometric review** (document co-citation analysis — Aryadoust (2020) used the CiteSpace package) is a realistic method for a final-project literature review. Lim & Aryadoust (2022) and Aryadoust (2020) show each step: search, cluster, label, then read the most influential papers in each cluster.
-
-## Discuss
-kind: questions
-- Which CALL technologies with strong evidence have you used this semester?
-- Across these AI papers, what job does AI do well — writing, rating, giving feedback — and what does a human always still check?
-
-</script>
-<script type="text/markdown" id="md8">
-# Tasks: TBLT and PBL
-
-The way this course is built — choose a skill, try the tools, build an activity, present it, get feedback — is a **task cycle**. So is today's chatbot build. This page gives the research behind **task-based language teaching (TBLT)**, compares it with **problem-based learning (PBL)**, and links both back to Aryadoust's work on assessment.
+Both relatives are often shortened to "PBL". On this site, **PBL** means problem-based and **PjBL** means project-based.
 
 <!--
 HOW TO EDIT
@@ -610,7 +256,7 @@ HOW TO EDIT
   Literature cards: badge · key (list) · design (list) · basis · link · refs
   References are in refs.md (ids: ellis2009, long2016, ellis2017, ellis2021, swan2005, bryfonski2019,
   butler2011, norris2016, ziegler2016, chong2020, willis1996, barrows1996, savery2006, kirschner2006,
-  hmelo2007, strobel2009, lin2018, beckett2005). Checked 24 Nov 2026.
+  hmelo2007, strobel2009, lin2018, beckett2005, stoller2019, kokotsaki2016, chen2019). Checked 24 Nov 2026.
 -->
 
 ## What counts as a task?
@@ -675,7 +321,7 @@ wide: yes
 | Planning | Filled in the worksheet and the version log; prepared the 6-minute talk |
 | Report | Presented: learners and goal, first idea to revised plan, three minutes teaching the activity |
 | Language focus | Peer feedback, *What the AI got right and wrong*, the reflection |
-For you as future teachers the outcome is a **product** — an activity that solves a teaching problem — so the same sequence also works like a **project** or **problem-based** unit (see the comparison below). TBLT applies most directly to the activities you build **for your learners**.
+For you as future teachers the outcome is a **product** — an activity that solves a teaching problem — so the same sequence also works like a **project** (a product to show) or a **problem-based** unit (a teaching problem to solve). See the comparison below. TBLT applies most directly to the activities you build **for your learners**.
 link: [Open the 11/11 activity board](../1111/#p-6)
 
 ## Is it a task? Sort the activity board
@@ -799,7 +445,7 @@ basis: Abstracts.
 link: [⬇ Chong & Reinders, free (Language Learning & Technology, CC BY-NC-ND)](https://hdl.handle.net/10125/44739)
 refs: ziegler2016 | chong2020
 
-## Problem-based learning
+## Problem-based learning (PBL)
 kind: section
 PBL began in medical education and spread to many disciplines. Learners work in groups on a real problem, find out what they need to know, and propose a solution.
 refs: barrows1996 | savery2006 | strobel2009
@@ -863,34 +509,77 @@ design:
 basis: Abstract.
 refs: beckett2005
 
-## TBLT and PBL compared
+## Project-based learning (PjBL)
 kind: section
-This table is our comparison, drawn from the sources on this page. Both approaches are learner-centred and both start from meaning; they differ in **what the outcome is for**.
+Learners work over a longer period towards a **product** for a real audience — a guide, a video, a campaign, a website — and learn language, content and skills on the way.
+refs: stoller2019 | kokotsaki2016
 
-| | TBLT | PBL |
-|---|---|---|
-| Began in | Second language acquisition research and language teaching | Medical education |
-| Unit of work | A task: a meaning-focused activity with a gap and an outcome | A real problem, usually complex and open, with no single answer |
-| Main goal | Language development through using the language | Content knowledge, problem-solving, collaboration and self-directed learning |
-| Role of language | The target of learning | The medium; in a language class it is both medium and target |
-| Typical length | One lesson, or a sequence ending in an exit task | Several sessions to several weeks |
-| Teacher | Designs and sequences tasks; focuses on form before, during or after | Facilitates and scaffolds the inquiry |
-| Assessed by | Task completion, sometimes plus language quality | The solution and the process |
-| Evidence | Positive programme effects (d = 0.93) | Better long-term retention and skills; weaker short-term exam retention |
-| Main criticism | Little new language for learners with little exposure | Too little guidance for novices |
-Sources: Ellis (2009, 2017); Long (2016); Bryfonski & McKay (2019); Swan (2005); Barrows (1996); Savery (2006); Kirschner et al. (2006); Hmelo-Silver et al. (2007); Strobel & van Barneveld (2009).
+## Project-based learning in second language acquisition
+kind: card
+badge: Classic · 2019
+key:
+- PjBL has been recommended for **purposeful language learning for more than three decades**, and for combining language and content aims, literacy and research skills, and service learning.
+- Reported benefits: better language skills (including reading informational texts), deeper content learning, real-life skills, sustained motivation and engagement, and positive self-concept.
+- Most of this support comes from **teachers' reports**; controlled studies are few.
+design:
+- Plan the language learners will need at each stage of the project — do not leave it to chance.
+basis: Abstract (chapter in an edited book).
+refs: stoller2019
+
+## Project-based learning: A review of the literature
+kind: card
+badge: Review · 2016
+key:
+- PjBL is characterised by learners' **autonomy, investigations, goal-setting, collaboration, communication and reflection** within real-world practice.
+- Most studies were quasi-experimental without random allocation, so a **causal link** to better outcomes cannot be established with certainty.
+- What helps: digital technology, good group processes, teacher **scaffolding**, a balance between direct instruction and inquiry, and **well-aligned assessment**.
+design:
+- Decide in advance how the product, the process and the language will each be assessed.
+basis: Abstract.
+refs: kokotsaki2016
+
+## Effects of project-based learning: a meta-analysis
+kind: card
+badge: Meta-analysis · 2019
+key:
+- **30 journal articles (1998–2017)**, 46 comparisons, 12,585 students in 189 schools in nine countries.
+- PjBL versus traditional teaching: **d+ = 0.71**, a medium-to-large effect on academic achievement.
+- The effect varied with subject area, school location, hours of instruction and **information technology support** — not with educational stage or group size.
+design:
+- This covers school subjects in general, not language learning specifically. Use it as background, not as proof for an English class.
+basis: Abstract.
+refs: chen2019
+
+## Three approaches compared
+kind: section
+This table is our comparison, drawn from the sources on this page. All three are learner-centred and start from meaning; they differ in **what the work is organised around** and **what the outcome is for**.
+
+| | TBLT | Problem-based (PBL) | Project-based (PjBL) |
+|---|---|---|---|
+| Began in | Second language acquisition research and language teaching | Medical education | General education; in language teaching for more than 30 years |
+| Organised around | A **task**: a meaning-focused activity with a gap and an outcome | A **problem**: complex and open, with no single answer | A **product** for an audience: a guide, video, website or event |
+| Ends with | The task outcome: a decision, a map, a plan | A proposed solution | A finished product, shown or presented |
+| Main goal | Language development through using the language | Content knowledge, problem-solving, collaboration, self-directed learning | Language, content and skills together; motivation |
+| Role of language | The target of learning | The medium; in a language class, medium and target | Medium and target — best made explicit to learners |
+| Typical length | One lesson, or a sequence ending in an exit task | Several sessions to several weeks | Several weeks to a term |
+| Teacher | Designs and sequences tasks; plans the focus on form | Facilitates and scaffolds the inquiry | Guides, scaffolds, balances direct teaching and inquiry |
+| Assessed by | Task completion, sometimes plus language quality | The solution and the process | The product, the process and the language |
+| Evidence | TBLT programmes: d = 0.93 | Better long-term retention and skills; weaker on short-term exams | School subjects: d+ = 0.71; in language classes mostly teacher reports |
+| Main criticism | Little new language for learners with little exposure | Too little guidance for novices | Product and content can crowd out language; causal evidence is thin |
+Sources: Ellis (2009, 2017); Long (2016); Bryfonski & McKay (2019); Swan (2005); Barrows (1996); Savery (2006); Kirschner et al. (2006); Hmelo-Silver et al. (2007); Strobel & van Barneveld (2009); Beckett & Slater (2005); Stoller & Myers (2019); Kokotsaki et al. (2016); Chen & Yang (2019).
 
 ## Where they meet
 kind: card
 - **Problem-solving** is one of the common pedagogic task types in TBLT, so a PBL problem can be a large task.
-- A PBL unit can be built from a **sequence of tasks** that ends in an exit task — the solution.
-- In a language class, PBL needs a planned **language focus**, or the content can crowd out the language.
-refs: ellis2017 | long2016 | beckett2005
+- A PBL or PjBL unit can be built from a **sequence of tasks** that ends in an exit task — the solution or the product.
+- In a language class, PBL and PjBL both need a planned **language focus**, or the content and the product can crowd out the language.
+refs: ellis2017 | long2016 | beckett2005 | stoller2019
 
 ## Choosing between them
 kind: card
 - **Beginners, little class time:** short tasks, input-based first, with task-supported practice of new language.
-- **Higher proficiency, more time, content goals:** a problem or project, with scaffolds and a language focus.
+- **A real question to answer, more time, content goals:** a problem (PBL), with scaffolds and a language focus.
+- **A real audience to make something for:** a project (PjBL) built from tasks, with the language made explicit.
 - **Either way:** decide what evidence would show it worked — a task outcome, a language measure, or both.
 refs: ellis2017 | swan2005 | kirschner2006
 
@@ -924,20 +613,430 @@ Use English at [level]. Keep every reply under 60 words. Do not ask for personal
 kind: questions
 - Which of the 40 board activities would Long count as tasks, and which would Ellis? Why do they differ?
 - Swan says tasks teach little new language when class time is short. How would you answer him for a Taiwanese junior-high class?
-- Is the way this course is built closer to TBLT or to PBL for **you**? For your future learners?
+- Is the way this course is built closer to TBLT, PBL or PjBL for **you**? For your future learners?
+- Your final project: which of the three is it, and what would change if you redesigned it as one of the others?
 - What should a task-based test score — the outcome, the language, or both? What would Aryadoust ask about that score?
+
+</script>
+<script type="text/markdown" id="md2">
+# Reading Vahid Aryadoust
+
+This week we read one researcher closely. Vahid Aryadoust works on **language assessment**, but his studies reach every theme of this semester: **teaching, testing, materials design, the four skills and AI**. Reading fifteen of his papers side by side shows how one research agenda moves from *what are we measuring?* to *can AI help us measure and teach it?*
+
+<!--
+HOW TO EDIT
+  ## Title   kind: card · section · matrix (draws the paper map from papers.md) · step · questions
+-->
+
+## Who he is
+kind: section
+
+## Position
+kind: card
+- Associate Professor of language assessment, **National Institute of Education (NIE), Nanyang Technological University, Singapore** — at NIE since 2016.
+- Honorary Associate Professor, Institute of Education, University College London; Visiting Professor, Xi'an Jiaotong University.
+- PhD in English Language and Literature, NIE Singapore (2011).
+link: [NTU profile](https://dr.ntu.edu.sg/entities/person/Vahid-Aryadoust) · [ORCID](https://orcid.org/0000-0001-6960-2489) · [Google Scholar](https://scholar.google.com/citations?user=qlxy_-kAAAAJ&hl=en)
+
+## Research areas
+kind: card
+- Language assessment, especially **listening** and **reading comprehension**
+- **Quantitative methods**: Rasch measurement, meta-analysis, neural networks
+- **Sensors in assessment**: eye tracking, brain imaging and skin response, to see how test takers process a test
+- **Generative AI** in language assessment and teaching
+- **Scientometrics**: mapping a research field through its citation networks
+
+## Books
+kind: card
+- *Building a Validity Argument for a Listening Test of Academic Proficiency* (Cambridge Scholars, 2013)
+- *Trends in Language Assessment Research and Practice* (ed. with J. Fox, Cambridge Scholars, 2016)
+- *Quantitative Data Analysis for Language Assessment*, Vol. I (2019) and Vol. II (2020), ed. with M. Raquel (Routledge)
+
+## Recognition
+kind: card
+- Editorial board, *Annual Review of Applied Linguistics* (appointed 2025)
+- Intercontinental Academia Fellowship (2018–2019)
+- John Cheung Social Media Award (2020) for his YouTube channel *Statistics and Theory*, which teaches research statistics
+- Google Scholar, checked 23 Nov 2026: about 5,100 citations, h-index 41
+link: [NIE news on the ARAL appointment](https://www.ntu.edu.sg/nie/news-events/news/detail/ell-faculty-member-appointed-to-editorial-board-of-the-leading-journal)
+
+## Why his work matters
+kind: section
+Three lines of influence run through the papers this week.
+
+## 1 · Mapping a field before studying it
+kind: card
+His **scientometric reviews** use citation networks to show what a field has studied and where the gaps are — for comprehension subskills, for CALL, for automated feedback. They are a model for the literature review in your own final project.
+
+## 2 · Asking what a test really measures
+kind: card
+Much of his work asks whether scores mean what we think: **validity arguments**, **construct definitions** of listening, the effect of **unreliable measures** on research results. The same questions apply to any quiz, rubric or AI score you design.
+
+## 3 · Testing AI, not trusting it
+kind: card
+His recent studies put generative AI to work — writing listening tests, scoring EAP speaking, giving formative feedback to children — and then check the output with the same measurement tools used for human raters and items.
+
+## The fifteen papers on one map
+kind: matrix
+Each dot shows a theme the paper speaks to. Cross-theme papers appear on more than one page; the buttons take you there.
+
+## How to read this week
+kind: section
+
+## Choose and read
+kind: step
+do: Each group takes **one page** (Validity, Listening, Speaking, Reading, Writing, or CALL & AI). Every member reads one paper on it closely — the full text where there is a **Download** button, the summary card where there is not.
+
+## Fill in the four boxes
+kind: step
+do: For your paper, check the card against the paper: **research question, method, key findings, implications for teaching or test design**. Correct anything the card gets wrong or leaves out.
+
+## Connect it to the semester
+kind: step
+do: Name one earlier week this paper speaks to — evaluating materials (W3–W4), learner language (W7), the four skills (W10) — and one thing it would change in your final project.
+
+## Then build
+kind: step
+do: On **Build a chatbot**, turn one finding into a listening or speaking chatbot on Mizou, and practise your own speaking on Yoodli.
+
+## Questions for the discussion
+kind: questions
+- What does each paper claim to measure — and how do the authors show that it measures that?
+- Where does AI do well in these studies, and what did humans still have to check?
+- Which finding would change how you design a classroom test or a coursebook unit?
+- Which paper's method could you borrow for your own final project?
+
+</script>
+<script type="text/markdown" id="md3">
+# Validity & measurement
+
+Every quiz, rubric and AI score makes a claim about learners. Validity asks **whether the evidence supports that claim**; reliability asks **how much of the score is error**. These papers are the measurement backbone of everything else this week — and of **W13, Digital assessment and test design**.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id from papers.md> · angle: why it is on this page
+  Other kinds: card · questions · section
+-->
+
+## Start here
+kind: section
+
+## What counts as validity?
+paper: argval
+angle: The framework behind the AWE and AWF reviews on the Writing page — and a critique of it from the classroom's point of view.
+
+## Unreliable tests hide real relationships
+paper: relmeta
+angle: A measurement lesson in numbers: low reliability shrinks the correlations researchers report.
+
+## Measurement inside the skill studies
+kind: section
+These papers sit on skill pages, but each one is also a validity study.
+
+## Defining the construct
+paper: typology
+angle: Before you can validate a listening test, you have to say what listening is — most studies never did.
+
+## Validating automated scoring
+paper: awesr
+angle: An argument-based validity review in practice: which inferences have AWE studies backed, and which have they skipped?
+
+## Validating automated feedback
+paper: awfsr
+angle: Validation of feedback accuracy had the least research and the weakest results.
+
+## An AI rater against human raters
+paper: gptspeak
+angle: Many-facet Rasch measurement used to compare a GPT examiner with human raters.
+
+## Does video change the rating?
+paper: visflu
+angle: A rater-cognition question for any speaking test that adds video.
+
+## AI-written test items
+paper: llmlisten
+angle: Item quality, not script quality, was the weak point.
+
+## Machine learning before generative AI
+paper: ann
+angle: Rasch measurement plus a neural network, 2016.
+
+## Discuss
+kind: questions
+- Pick one quiz or rubric you designed this semester. Is it assessment **of**, **for** or **as** learning — and what evidence would show it works for that purpose?
+- What would lower the reliability of a five-item classroom test, and what would that do to the conclusions you draw from it?
+- Which validity inference does an AI scorer most often skip, according to these reviews?
+
+</script>
+<script type="text/markdown" id="md4">
+# Listening
+
+From **what listening is**, to **what materials should give learners**, to **what AI can generate** — five papers that take the skill from construct to coursebook to chatbot. Read them after the listening studies on the [11/11 page](../1111/#p-2).
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## Defining listening
+kind: section
+
+## What do listening studies measure?
+paper: typology
+angle: A framework of 24 subskills, 27 processes and 54 attributes to check what your listening task actually targets.
+
+## Which subskills have been studied?
+paper: subskills
+angle: Listening and reading share comprehension subskills; this codex shows how little of it covers L2.
+
+## Materials
+kind: section
+
+## Seven principles for listening coursebooks
+paper: lcbook
+angle: The most directly usable paper this week: a checklist for evaluating and adapting listening materials.
+
+## AI for listening
+kind: section
+
+## Can ChatGPT write a listening test?
+paper: llmlisten
+angle: Good levelled scripts, weak items — what to check before using AI-made listening tests.
+
+## Does AI make listening better?
+paper: goh2025
+angle: Listening has had the least GenAI attention; voice assistants mostly did not improve it.
+
+## Try it
+kind: card
+Take one listening activity you built on 11/11. Check it against the **seven principles** in Zhai et al. Which principle does it miss, and could AI help you fix it — a second accent, a visual, a metacognitive step?
+
+## Discuss
+kind: questions
+- Which listening subskill or function does your current material target, and which does it ignore?
+- If AI writes the script and items, which checks from Aryadoust, Zakaria & Jia (2024) would you run first?
+
+</script>
+<script type="text/markdown" id="md5">
+# Speaking
+
+Speaking needs a partner — and a rater. Aryadoust's recent work asks whether a **custom GPT** can be both: a practice partner that gives formative feedback, and an examiner whose scores hold up against human raters.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## AI as partner and rater
+kind: section
+
+## A GPT examiner for academic speaking
+paper: gptspeak
+angle: Topic choice, self-paced responses and clarification requests — design choices you can copy into a chatbot.
+
+## Formative speaking feedback for children
+paper: ylgenai
+angle: How to design the feedback of a customized GPT — task, process, self-regulation — and why age rules matter.
+
+## What AI can and cannot do for speaking
+paper: goh2025
+angle: Chatbots raise willingness to communicate; evidence of language development is thinner.
+
+## Rating speech
+kind: section
+
+## Does a face change a fluency rating?
+paper: visflu
+angle: For anyone deciding between audio and video speaking tasks.
+
+## From reading to building
+kind: card
+The **Build a chatbot** page turns these papers into practice: a Mizou bot that runs a speaking task with feedback levels from Aryadoust & Zakaria, and Yoodli for your own rehearsal.
+
+## Discuss
+kind: questions
+- In Aryadoust et al. (2026), students who asked for clarification scored lower. Should clarification requests count against a learner in a formative task?
+- Which kinds of feedback (task, process, self-regulation, self) would you want an AI partner to give your learners — and which should only a teacher give?
+
+</script>
+<script type="text/markdown" id="md6">
+# Reading
+
+What separates weak from strong readers, which comprehension subskills research has actually studied, and how test reliability shapes what we conclude about reading.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## Reading ability
+kind: section
+
+## Vocabulary, grammar and reading
+paper: ann
+angle: Vocabulary predicted reading more strongly than grammar — a direct message for reading materials.
+
+## The map of comprehension subskills
+paper: subskills
+angle: 73 subskills, mostly L1 lower-order reading; a codex to choose what an item should target.
+
+## Measuring reading
+kind: section
+
+## Reliability and reading research
+paper: relmeta
+angle: All 463 correlations involved reading comprehension tests — the less reliable the test, the weaker the relationships.
+
+## Discuss
+kind: questions
+- About one reader in five was misclassified from vocabulary and grammar alone. What else would you check before deciding a learner is a "weak reader"?
+- Which lower-order subskills would you check with young L2 readers, and how could a digital activity do it?
+
+</script>
+<script type="text/markdown" id="md7">
+# Writing
+
+Two systematic reviews of automated writing tools — one on **scores**, one on **feedback** — read through the argument-based validity framework, plus the framework itself.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## Automated writing tools
+kind: section
+
+## Automated scoring
+paper: awesr
+angle: Can AWE replace human raters? Not yet — counter-evidence exists for every inference.
+
+## Automated feedback
+paper: awfsr
+angle: 31 systems, mostly form-focused; feedback on meaning is rare. Read with the 11/11 writing studies.
+
+## The framework behind both reviews
+paper: argval
+angle: Both reviews use argument-based validity; this chapter asks what the framework misses in classrooms.
+
+## Writing in multimodal projects
+paper: dst
+angle: Digital storytelling outcomes were mostly reported for reading and writing.
+
+## Try it
+kind: card
+Run one paragraph through an automated feedback tool and through a generative AI. Sort every comment into **form** or **meaning**. Which tool helps with content and organisation — and how would you know its feedback is accurate?
+
+## Discuss
+kind: questions
+- When would you use an automated score in your teaching, and when would you refuse to?
+- What should a learner do with AI feedback so that it supports learning, not just a cleaner draft?
+
+</script>
+<script type="text/markdown" id="md8">
+# CALL & AI trends
+
+How the field got here: forty years of CALL research mapped through citations, a review of a popular multimodal method, and where generative AI now fits.
+
+<!--
+HOW TO EDIT
+  ## Title   paper: <id> · angle: … ; other kinds: card · questions · section
+-->
+
+## Mapping the field
+kind: section
+
+## Forty years of CALL
+paper: callsci
+angle: Which technologies have stronger evidence — connects to W2–W3 on CALL history and evaluation.
+
+## Comprehension subskills, mapped
+paper: subskills
+angle: The same scientometric method applied to a construct rather than a technology.
+
+## Technology across the four skills
+kind: section
+
+## Digital storytelling
+paper: dst
+angle: Popular across all four skills, but close to 90% of studies reported no reliability checks.
+
+## Generative AI
+kind: section
+
+## AI for listening and speaking
+paper: goh2025
+angle: The broadest review this week, and the best single overview of GenAI in oral skills.
+
+## AI-written listening tests
+paper: llmlisten
+angle: GenAI as a test-writing assistant.
+
+## AI as speaking examiner
+paper: gptspeak
+angle: GenAI as a rater.
+
+## AI as formative speaking partner
+paper: ylgenai
+angle: GenAI as a feedback partner for young learners.
+
+## AI-based written feedback
+paper: awfsr
+angle: The most cited paper on this list.
+
+## Machine learning in 2016
+paper: ann
+angle: AI in assessment before chatbots.
+
+## Borrow the method
+kind: card
+A **scientometric review** (document co-citation analysis — Aryadoust (2020) used the CiteSpace package) is a realistic method for a final-project literature review. Lim & Aryadoust (2022) and Aryadoust (2020) show each step: search, cluster, label, then read the most influential papers in each cluster.
+
+## Discuss
+kind: questions
+- Which CALL technologies with strong evidence have you used this semester?
+- Across these AI papers, what job does AI do well — writing, rating, giving feedback — and what does a human always still check?
 
 </script>
 <script type="text/markdown" id="md9">
 # Build a chatbot
 
-Now turn the readings into practice. **Mizou** lets a teacher build a chatbot that learners talk to — with read-aloud and voice input, so it can run listening and speaking tasks. **Yoodli** is an AI speaking coach for adults: you use it yourself to rehearse a talk or a role-play and get feedback on your delivery.
+Now turn the readings into practice. **Mizou** lets a teacher build a chatbot that learners talk to — with read-aloud and voice input, so it can run listening and speaking tasks. **Yoodli** runs spoken AI role-plays, interviews and speeches with feedback, and lets learners practise in **US, UK or Australian English**. Both can be set up as tasks. Before building, decide what the bot's assessment is **for**.
 
 <!--
 HOW TO EDIT
-  ## Title   kind: card · step · prompt (fenced ``` block) · section · checklist · questions
-  Platform details were checked on 23 Nov 2026 — recheck before each semester.
+  ## Title   kind: card · step · prompt (fenced ``` block) · section · checklist · questions · reveal
+  Platform details were checked on 23–24 Nov 2026 — recheck before each semester.
 -->
+
+## Assessment of, for or as learning?
+kind: section
+The same chatbot can serve three different purposes. Each purpose needs different features in the bot and different evidence that it works.
+refs: wiliam2011 | earl2013 | argval
+
+| | Assessment **of** learning | Assessment **for** learning | Assessment **as** learning |
+|---|---|---|---|
+| Main purpose | Judge, rank or certify what learners can do | Guide the next step in teaching and learning | Help learners monitor and regulate their own learning |
+| Also called | Summative | Formative | Self-assessment, self-regulation |
+| Who uses the evidence | Teacher, school, others outside class | Teacher and learners, during the course | Mainly the learner |
+| When | At the end of a unit or course | During learning, often | Throughout, built into the task |
+| Example in a speaking class | A recorded oral exam with a rubric | A practice talk with feedback the class acts on | Learners set a goal, check their own recording against criteria, plan the next try |
+| What the bot does | Asks the same questions of everyone and scores against a rubric | Gives feedback that says what to do next, and lets learners try again | Asks learners to set a goal, judge their own answer and plan the next attempt |
+| What the bot should keep | Comparable transcripts and scores | Each attempt, the feedback and the next attempt | The learner's goals, self-ratings and reflections |
+| Validity question | Are the scores accurate, fair and consistent? | Did the teacher or learner act on the evidence, and did the next attempt improve? | Can learners judge their own work against the criteria? |
+| In Mizou | Rubric grading (paid plans) and transcripts | The bot's feedback rules; transcripts for the teacher | A goal-setting opening and a reflection at the end |
+Sources: Black & Wiliam (1998); Wiliam (2011), including the definition by Black et al. (2004) he quotes; Earl (2013); Lee (2007); Aryadoust & Zakaria (2026).
+
+## The key distinction
+kind: card
+Wiliam (2011) separates two things that are often mixed up. **For** and **of** learning are about the **purpose** an assessment was designed for. **Formative** and **summative** are about the **function** it actually serves. A test designed to rank can still be used formatively, and a practice quiz can end up only producing a mark. An assessment is formative only when the evidence is **used** to decide the next step.
+refs: wiliam2011 | blackwiliam1998
+
+## Which one is your bot?
+kind: reveal
+- **A bot that asks ten questions and reports a score** — assessment *of* learning. You need consistent questions, a clear rubric, and a check that the scores agree with a human rater (Aryadoust et al., 2026, found that GPT and human ratings differed significantly on 3 of 8 scoring categories).
+- **A bot that gives a hint and asks the learner to try again** — assessment *for* learning, but only if the learner's second attempt uses the hint. Read the transcripts to see.
+- **A bot that opens with "What is your goal today?" and closes with "How did you do, and what will you try next time?"** — assessment *as* learning. The evidence is in the learners' own judgements and plans.
+refs: gptspeak | wiliam2011 | earl2013
 
 ## Design rules from the readings
 kind: section
@@ -970,23 +1069,24 @@ refs: lcbook
 
 ## Name the purpose
 kind: card
-Is the bot's feedback assessment **of**, **for** or **as** learning? The answer decides what evidence would show the bot works.
+Decide whether the bot's assessment is **of**, **for** or **as** learning — see the table at the top of this page. The purpose decides what evidence would show the bot works.
 refs: argval
 
 ## The two platforms at a glance
 kind: section
-Checked on 23 November 2026. Both change often — check the pricing and terms pages before class.
+Checked on 23–24 November 2026. Both change often — check the pricing and terms pages before class.
 
 | | Mizou | Yoodli |
 |---|---|---|
-| Who builds | The teacher builds a bot | Ready-made practice; custom role-plays mostly on organisation plans |
-| Who uses it | Learners, through a link, **no learner account** | The account holder — you |
-| Voice | Read-aloud and voice input on all plans | Live spoken role-plays, speeches and interviews; camera optional |
-| Feedback | The bot's replies; rubric grading on paid plans | Delivery analysis, e.g. filler words and pacing; pronunciation feedback can be switched on |
-| Free plan | 10 student sessions per day; no rubrics, timer or knowledge files | **5 practice sessions in total**, not per month |
+| Who builds | The teacher builds a bot | Ready-made role-plays, interviews and speeches; anyone can build custom role-plays in the **Builder** |
+| Who uses it | Learners, through a link, **no learner account** | Each learner with **their own account**; sharing a custom role-play by link is Enterprise only |
+| English varieties | Set the variety in the bot's instructions (for example, British spelling); Mizou does not say which accent its read-aloud voice uses | Practice language **English – USA, UK or Australia**, chosen before each session (and 26 other language options) |
+| Voice | Read-aloud and voice input on all plans | Live spoken role-plays; each AI persona has its own voice, chosen in the Builder |
+| Feedback | The bot's replies; rubric grading on paid plans | Delivery analysis, such as filler words and pacing; optional pronunciation feedback aimed at being understood |
+| Free plan | 10 student sessions per day; no rubrics, timer or knowledge files | **5 sessions in total** (Starter); any session over 30 seconds counts |
 | Age | Built for schools; the terms page was offline when we checked | Terms: **18 and over** |
-| Data | Says student chats are not used to train AI | Recordings may be used to train models unless you opt out in settings |
-Sources: [Mizou pricing](https://mizou.com/pricing) · [Mizou privacy policy](https://help-mizou.notion.site/Privacy-Policy-055351d6afe94831a28ec7b29375d8fa) · [Yoodli pricing](https://yoodli.ai/pricing) · [Yoodli terms](https://yoodli.ai/tos)
+| Data | Says student chats are not used to train AI | On Starter and Pro, session data **may be used** to improve the platform; excluded on Advanced and above |
+Sources: [Mizou pricing](https://mizou.com/pricing) · [Mizou privacy policy](https://help-mizou.notion.site/Privacy-Policy-055351d6afe94831a28ec7b29375d8fa) · [Yoodli pricing](https://yoodli.ai/pricing) · [Yoodli terms](https://yoodli.ai/tos) · [Yoodli: language and localization](https://support.yoodli.ai/en/articles/15346192-yoodli-language-localization-overview) · [Yoodli: customizing practice](https://support.yoodli.ai/en/articles/9628260-customizing-practice)
 
 ## Mizou · build a listening or speaking bot
 kind: section
@@ -1052,7 +1152,7 @@ Never ask for personal information.
 
 ## A task bot
 kind: card
-For a bot built as a **task** — with an information gap, a decision and a language focus at the end — use the template on the [Tasks: TBLT & PBL](#p-8) page.
+For a bot built as a **task** — with an information gap, a decision and a language focus at the end — use the template on the [Tasks, problems and projects](#p-1) page.
 
 ## Rules to add in either bot
 kind: prompt
@@ -1062,33 +1162,57 @@ If the learner writes in another language, answer briefly in simple English and 
 Do not ask for names, schools, addresses or photos.
 ```
 
-## Yoodli · rehearse your own speaking
+## Yoodli · English varieties and AI role-plays
 kind: section
-Use Yoodli to rehearse **your** presentation of this week's paper — not with school students: its terms require users to be 18 or over.
+Yoodli's strength for a language class is **spoken role-play in a chosen variety of English**, with feedback after each session. It suits **adult learners (18 and over)**, such as university students — its terms do not allow younger users. Checked on 24 November 2026.
 
-## Sign up
-kind: step
-do: Sign up at [app.yoodli.ai](https://app.yoodli.ai/home). The free plan gives **five practice sessions in total**; any speech, interview or role-play over 30 seconds counts as one.
+## Choose the English variety
+kind: card
+Before each session, choose the practice language from the **language menu at the bottom left of the video preview**: **English – USA**, **English – UK** or **English – Australia**. Yoodli also lists 26 other language options.
+- The choice changes the **transcript**, the **AI partner's replies** and the **feedback** to match that variety.
+- It does **not** change the AI voice's accent: the voice belongs to the role-play's **persona**.
+link: [Yoodli: language and localization](https://support.yoodli.ai/en/articles/15346192-yoodli-language-localization-overview)
 
-## Check your settings first
-kind: step
-do: In settings, choose the **practice language** (English US, UK or Australian) and turn on **pronunciation feedback** if you want it. Opt out of your recordings being used to train Yoodli's AI if you prefer, and keep recordings private.
+## Voices come with personas
+kind: card
+In the **Builder**, every AI persona has a name, role, manner and a **voice**. Yoodli picks a voice from its standard set, and you can choose another. To hear different voices, build or choose personas with different voices — Yoodli does not publish a list of accents.
+link: [Yoodli: personas](https://support.yoodli.ai/en/articles/18419351-personas-create-with-ai) · [Yoodli: customizing practice](https://support.yoodli.ai/en/articles/9628260-customizing-practice)
 
-## Practise
+## Pronunciation feedback: being understood
+kind: card
+Learners can turn on **pronunciation feedback** in their personal settings. Yoodli says it does **not** aim to remove an accent, but to show what would make the speaker **easier to understand**. It switches itself off if it detects a native speaker.
+link: [Yoodli: personal settings](https://support.yoodli.ai/en/articles/10055670-personal-settings)
+
+## Limits to plan around
+kind: card
+- **Five sessions in total** on the free Starter plan — any session over 30 seconds counts. Plan each one.
+- **18 and over** only.
+- A teacher cannot share a custom role-play by link unless the school has an **Enterprise** plan. On free accounts, each learner builds the role-play from your written instructions.
+- On Starter and Pro, session data **may be used** to improve Yoodli. Recordings are **private** until shared.
+link: [Yoodli pricing](https://yoodli.ai/pricing) · [Yoodli terms](https://yoodli.ai/tos)
+
+## Task 1 · Same conversation, three varieties
 kind: step
+time: 3 sessions
 do:
-- **Speech:** practice → speech → *Start*, speak after the countdown, then *Stop*.
-- **Role-play:** practice → conversation → choose a scenario or *Personalize your conversation*, allow the microphone, *Start* and talk.
-- **Interview:** enter a role, choose the interviewer's manner, optionally add your own questions.
+- **Pre-task:** choose one role-play — a job interview or a service encounter. Write down three phrases you plan to use.
+- **Task:** do it three times, with the practice language set to **US**, then **UK**, then **Australia**. Keep the same goal each time.
+- **Report:** compare the three transcripts and feedback reports. Which words, spellings or phrases changed? What did the feedback flag differently?
+- **Language focus:** choose two expressions to keep, and say in which variety each one is more typical.
+tip: This links to **L7 Accent compare** on the 11/11 board, and to the listening-materials principle of exposing learners to more than one variety (Zhai et al., 2026).
 
-## Read the analysis
+## Task 2 · Be understood, then try again
 kind: step
-do: Click **View Analysis**. Look at filler words, pacing and word choice, and ask for an AI follow-up question if you want Q&A practice. Note one thing to change, then try again — that before-and-after is evidence for your portfolio.
+time: 2 sessions
+do:
+- Turn on **pronunciation feedback**. Give a **one-minute** talk on a topic you know.
+- Click **View Analysis**. Choose **one** point that would make you easier to understand.
+- Give the same talk again. Compare the two reports — that before-and-after is assessment **for** learning, and your note on it is assessment **as** learning.
 
-## Share or delete
+## Task 3 · Build a persona (for the teacher)
 kind: step
-do: In the **Recording Library**, use the three-dot menu to copy a share link, download or delete a recording.
-tip: Yoodli has a **Builder** for custom role-plays, but personas, goals and custom rubrics are on Business and Enterprise plans. Check what your account shows.
+do: In the **Builder**, create a role-play with a persona whose voice differs from Yoodli's default. Write the persona's role, manner and goal. Then write the instructions your learners would follow to build the same role-play in their own accounts.
+tip: Personas, goals and custom rubrics for a whole class are on Business and Enterprise plans. Check what your account shows.
 
 ## In class today
 kind: section
@@ -1101,10 +1225,10 @@ do:
 - **Swap (10 min):** use another pair's bot as a learner, with audio on. Note one thing that worked and one rule the bot broke.
 - **Review (10 min):** read your bot's transcripts and revise its instructions once. Keep both versions.
 
-## Rehearse
+## Try Yoodli as a learner
 kind: step
 time: 15 minutes
-do: Each person rehearses a **two-minute talk** on their paper in Yoodli — research question, method, one finding, one implication. Use one free session only, and keep the analysis for your portfolio.
+do: Each person does **Task 1** with two of the three varieties — for example, a short talk on their paper (research question, method, one finding, one implication) in US and then UK English. Compare the two reports and note one difference. Keep the analysis for your portfolio.
 
 ## Before you use either tool
 kind: checklist
@@ -1116,7 +1240,7 @@ kind: checklist
 
 ## Evaluate your bot
 kind: questions
-- What is your bot's purpose — assessment of, for or as learning — and what evidence from the transcripts shows it served that purpose?
+- What is your bot's purpose — assessment of, for or as learning — and what evidence from the transcripts shows it served that purpose? Use the table at the top of this page.
 - Which of the six design rules did your bot follow, and which did it break?
 - What would you change before using it with real learners?
 
@@ -1141,7 +1265,7 @@ short: Aryadoust & Zakaria (2026)
 cite: Book chapter in *Effective Assessment in Schools* (Routledge)
 badge: Book chapter · 2026
 themes: teach | test
-home: 2 | 6
+home: 3 | 7
 rq: Aim (from the abstract): to interrogate the argument-based validity framework that dominates validation theory in language assessment — its relevance for practice and its limitations.
 method: A conceptual chapter. It traces how mainstream validity theory developed and surfaces its assumptions, then contrasts validity as understood in educational measurement (**assessment of learning**) with ideas of validity developed from classroom practice (**assessment for learning** and **assessment as learning**).
 found:
@@ -1161,7 +1285,7 @@ short: Zhao & Aryadoust (2026)
 cite: *Educational Assessment*, advance online publication
 badge: Meta-analysis · 2026
 themes: test | R
-home: 2 | 5
+home: 3 | 6
 rq: Aim (from the abstract): how does the reliability of a test condition the size of the correlations researchers observe between that test and other constructs?
 method: Meta-analysis of **49 studies (1999–2025)**: 58 Cronbach's alpha estimates and 463 correlations between **reading comprehension tests** and 13 other language-related measures, analysed with robust variance estimation to handle dependent effect sizes.
 found:
@@ -1181,7 +1305,7 @@ short: Aryadoust & Luo (2023)
 cite: *Language Testing*, 40(2)
 badge: Systematic review · 2023
 themes: test | teach | L
-home: 3 | 2
+home: 4 | 3
 rq: Aim (from the abstract): how have L2 listening constructs been conceptualized (defined) and operationalized (measured) in published research?
 method: Systematic review of **157 peer-reviewed papers in 19 applied linguistics journals**, coded for publication details and reliability, and for the listening subskills, cognitive processes, attributes and listening functions each study measured or investigated.
 found:
@@ -1202,7 +1326,7 @@ short: Aryadoust (2020)
 cite: *System*, 88, Article 102180
 badge: Scientometric review · 2020
 themes: test | teach | L | R
-home: 3 | 5 | 7
+home: 4 | 6 | 8
 rq: Aim (from the paper): no universally accepted taxonomy of listening and reading **comprehension subskills** exists, so the study (i) identifies influential publications on comprehension subskills objectively, through keyword searches and citation analysis, and (ii) reviews their content to list the subskills that have been empirically investigated.
 method: **Document co-citation analysis** of 192 publications (Scopus and Web of Science, merged), with timeline visualization, burst detection and automatic cluster labelling; then a close reading of the influential publications in each cluster.
 found:
@@ -1224,7 +1348,7 @@ short: Zhai et al. (2026)
 cite: *TEFLIN Journal*, 37(1)
 badge: Materials framework · 2026
 themes: mat | teach | L | AI
-home: 3
+home: 4
 rq: "(1) What good qualities should listening texts and tasks exhibit? (2) What cognitive processes should listening tasks engage learners in? (3) What level of difficulty should listening texts present to support learning?"
 method: A conceptual framework grounded in listening comprehension, listening assessment and SLA theory. **Seven principles**, each with a guiding question and indicators, illustrated on Units 1–4 of *Listen This Way* (Level 4), a coursebook for second-year English majors in mainland China; text difficulty checked with Text Inspector.
 found:
@@ -1246,7 +1370,7 @@ short: Aryadoust, Zakaria & Jia (2024)
 cite: *Computers and Education: Artificial Intelligence*, 6, Article 100204
 badge: Empirical study · 2024
 themes: test | mat | L | AI
-home: 3 | 7 | 2
+home: 4 | 8 | 3
 rq: Aim (from the abstract): can ChatGPT 4 write listening scripts and test items for test takers at different proficiency levels (academic, low, intermediate, advanced), to reduce the cost and complexity of listening test development?
 method: Prompt engineering and step-by-step refinement of prompts to generate scripts and items on **24 topics** taken from academic listening tests. Scripts were analysed linguistically with **Coh-Metrix and Text Inspector**; items were analysed for topic variation and overlap. Goh & Aryadoust (2025) report the output as 96 scripts and 384 multiple-choice items.
 found:
@@ -1268,7 +1392,7 @@ short: Goh & Aryadoust (2025)
 cite: *Annual Review of Applied Linguistics*, 45
 badge: Review · 2025
 themes: teach | test | L | S | AI
-home: 3 | 4 | 7
+home: 4 | 5 | 8
 rq: Aim: how can AI — especially generative AI — support the teaching, learning and assessment of L2 listening and speaking, and what are its limits? (A review with no numbered research questions.)
 method: A critical narrative review organised around models of listening (perception, parsing, utilization) and speaking (conceptualization, formulation, articulation), covering spoken dialogue systems, personal assistants, chatbots, custom GPTs and AI-generated tests.
 found:
@@ -1292,7 +1416,7 @@ short: Aryadoust et al. (2026)
 cite: *English for Specific Purposes*, 84
 badge: Empirical study · 2026
 themes: test | S | AI
-home: 4 | 2 | 7
+home: 5 | 3 | 8
 rq: Aim (from the abstract): how can a conversational agent, customized through advanced prompting in OpenAI's **GPT Builder**, be used to assess speaking in English for academic purposes? The system was built around four dimensions: measurement definition, system design, performance evaluation and learner experience.
 method: First-year English majors from two large universities took a GPT-run speaking assessment in which they could **choose topics, control their response time and ask for clarification**. GPT and human ratings were compared with **many-facet Rasch measurement** and linear mixed-effects models, across eight scoring categories.
 found:
@@ -1316,7 +1440,7 @@ short: Aryadoust & Zakaria (2026)
 cite: Book chapter in *Second Language Oracy Development for Young Learners* (Springer)
 badge: Book chapter · 2026
 themes: teach | test | S | AI
-home: 4 | 7
+home: 5 | 8
 rq: Aim (from the chapter page): how can a customized generative AI (ChatGPT) be designed to provide formative speaking assessment for young learners?
 method: A conceptual and design chapter grounded in communicative competence theory and models of formative feedback. It walks through building a customized GPT — **task specifications, tone, feedback design and iterative testing** — with sample interactions and classroom uses.
 found:
@@ -1337,7 +1461,7 @@ short: Jia & Aryadoust (2026, preprint)
 cite: SSRN preprint — not yet peer reviewed
 badge: Preprint · 2026
 themes: test | S | AI
-home: 4 | 2
+home: 5 | 3
 rq: Aim (from the abstract): does visual input change how raters perceive speech fluency — their ratings and their response times — and how do response times relate to ratings?
 method: Within-subjects experiment: **82 participants rated 30 AI-generated speech stimuli**, each presented in audio-only and audiovisual conditions in random order; linear mixed-effects models plus correlations.
 found:
@@ -1359,7 +1483,7 @@ short: Aryadoust & Baghaei (2016)
 cite: *Educational Assessment*, 21(2)
 badge: Empirical study · 2016
 themes: test | R | AI
-home: 5 | 2 | 7
+home: 6 | 3 | 8
 rq: Aim (from the abstract): how well do EFL learners' vocabulary and grammar knowledge distinguish low- from high-ability readers?
 method: **825 test takers** took an L2 reading test plus validated grammar and vocabulary tests; abilities were estimated with the **Rasch model**; a multilayer **perceptron artificial neural network** classified readers as low or high ability from their grammar and vocabulary measures.
 found:
@@ -1380,7 +1504,7 @@ short: Shi & Aryadoust (2023)
 cite: *Education and Information Technologies*, 28(1)
 badge: Systematic review · 2023
 themes: test | W | AI
-home: 6 | 2
+home: 7 | 3
 rq: "1. What are the study contexts and the trends of AWE scoring … 2. Which validity inferences have been investigated in the identified AWE studies? 3. What methodologies were adopted in the AWE studies to investigate each validity inference? 4. What areas of investigation have been studied to provide evidence of backing or rebuttals for each inference?"
 method: Systematic review of **105 published papers on automated writing evaluation (AWE) scoring** from Scopus, coded within an **argument-based validation framework** (domain description, evaluation, generalization, explanation, extrapolation, utilization).
 found:
@@ -1391,7 +1515,6 @@ design:
 - Replacing human raters with AWE is not justified; combine AWE with human scoring for high-stakes use, or use it as an independent rater for immediate formative scores.
 - Before adopting a tool, ask what writing **domain** it was built for and whether that matches your learners' tasks.
 basis: Author's accepted manuscript (full text).
-note: The published record lists the first author's name as "Huawei, S."; a correction was issued, and the author's name is Huawei Shi.
 download: https://repository.nie.edu.sg/server/api/core/bitstreams/223f6952-ce18-4df4-8f63-b51cd2f44141/content
 access: Free · accepted manuscript, NIE repository
 refs: awesr
@@ -1402,7 +1525,7 @@ short: Shi & Aryadoust (2024)
 cite: *ReCALL*, 36(2)
 badge: Systematic review · 2024
 themes: teach | test | W | AI
-home: 6 | 7 | 2
+home: 7 | 8 | 3
 rq: "1. What are the research contexts in AWF studies … 2. What types of AWF provided by AWF systems were investigated, and in what ways was AWF utilized in these studies? 3. How can the published AWF research be characterized in terms of the research design … 4. What are the foci of investigation in the studies, and what results are found?"
 method: Systematic review (PRISMA) of **83 SSCI articles (85 studies, 1993–2022)** from Scopus, coded on 4 categories and 17 variables; intra-coder agreement above κ = .90; findings interpreted through the argument-based validity framework.
 found:
@@ -1425,7 +1548,7 @@ short: Lim & Aryadoust (2022)
 cite: *Computer Assisted Language Learning*, 35(9)
 badge: Scientometric review · 2022
 themes: teach | mat
-home: 7
+home: 8
 rq: Aim (from the abstract): what have been the main research trends in CALL from 1977 to 2020, and how much support is there for the technologies studied?
 method: **Document co-citation analysis** of **3,697 studies in 11 journals** (Scopus), with burst index and betweenness centrality to identify influential publications, then content analysis of those publications.
 found:
@@ -1445,7 +1568,7 @@ short: Lim, Zakaria & Aryadoust (2022)
 cite: *Education and Information Technologies*, 27(5)
 badge: Systematic review · 2022
 themes: teach | mat | L | S | R | W
-home: 7 | 6
+home: 8 | 7
 rq: "1. What are the research topics and methods that have been adopted in previous DST research? 2. What are the theories or frameworks of DST that have been adopted in previous DST research? 3. How were the studies designed in terms of the reliability of the instruments used? 4. How do the outcomes of using DST vary across the four language skills and variables in the coding scheme?"
 method: Systematic review of digital storytelling (DST) studies with adolescents and adults found in Scopus — 71 papers in the dataset, 58 after removing 13 repeated entries — coded for topics, methods, theories, reliability and outcomes in the four skills.
 found:
@@ -1464,7 +1587,7 @@ refs: dst
 <script type="text/markdown" id="mdr">
 # Sources
 
-Fifteen papers by Vahid Aryadoust and colleagues, then the readings on task-based language teaching and problem-based learning (page *Tasks: TBLT & PBL*). Every reference was checked against its DOI record (Crossref) on 23 November 2026, and each summary card says whether it was written from the full text or from the abstract only. Free full texts are linked only where they are legal: the publisher's open-access version or the author's accepted manuscript in the NIE repository.
+Readings on task-based, problem-based and project-based learning (page 1), fifteen papers by Vahid Aryadoust and colleagues (pages 2–8), and the sources on assessment of, for and as learning (page 9). Every reference was checked against its DOI record (Crossref) on 23 November 2026, and each summary card says whether it was written from the full text or from the abstract only. Free full texts are linked only where they are legal: the publisher's open-access version or the author's accepted manuscript in the NIE repository.
 
 <!-- ## id + apa/doi = a reference; other ## blocks render as cards -->
 
@@ -1475,8 +1598,7 @@ wide: yes
 - **Zhao & Aryadoust (2026)** is an advance online publication, without volume or pages yet.
 - **Jia & Aryadoust (2026)** is a preprint and has not been peer reviewed.
 - **Aryadoust et al. (2026, ESP)** has seven authors in the published record; the SSRN preprint lists six.
-- **Shi & Aryadoust (2023)**: the published record lists the first author as "Huawei, S."; a correction was published.
-- **TBLT and PBL readings** were checked against Crossref on 24 November 2026. Their cards say whether they were written from the full text (Long, 2016; Ellis, 2017) or from the abstract. Willis (1996) is a book without a DOI.
+- **Readings on tasks, problems, projects and assessment purposes** were checked against Crossref on 24 November 2026. Their cards say whether they were written from the full text (Long, 2016; Ellis, 2017; Wiliam, 2011) or from the abstract. Willis (1996) and Earl (2013) are books without a DOI.
 - **Background facts** about the author come from his NTU library profile, the NIE department page, ORCID and Google Scholar (checked 23 November 2026).
 
 ## argval
@@ -1610,6 +1732,33 @@ doi: 10.1177/0735633117705960
 apa: Beckett, G. H., & Slater, T. (2005). The project framework: A tool for language, content, and skills integration. *ELT Journal, 59*(2), 108–116.
 doi: 10.1093/eltj/cci024
 
+## stoller2019
+apa: Stoller, F. L., & Myers, C. C. (2019). Project-based learning. In A. Gras-Velázquez (Ed.), *Project-based learning in second language acquisition* (pp. 25–47). Routledge.
+doi: 10.4324/9780429457432-3
+
+## kokotsaki2016
+apa: Kokotsaki, D., Menzies, V., & Wiggins, A. (2016). Project-based learning: A review of the literature. *Improving Schools, 19*(3), 267–277.
+doi: 10.1177/1365480216659733
+
+## chen2019
+apa: Chen, C.-H., & Yang, Y.-C. (2019). Revisiting the effects of project-based learning on students' academic achievement: A meta-analysis investigating moderators. *Educational Research Review, 26*, 71–81.
+doi: 10.1016/j.edurev.2018.11.001
+
+## blackwiliam1998
+apa: Black, P., & Wiliam, D. (1998). Assessment and classroom learning. *Assessment in Education: Principles, Policy & Practice, 5*(1), 7–74.
+doi: 10.1080/0969595980050102
+
+## wiliam2011
+apa: Wiliam, D. (2011). What is assessment for learning? *Studies in Educational Evaluation, 37*(1), 3–14.
+doi: 10.1016/j.stueduc.2011.03.001
+
+## earl2013
+apa: Earl, L. M. (2013). *Assessment as learning: Using classroom assessment to maximize student learning* (2nd ed.). Corwin.
+
+## lee2007
+apa: Lee, I. (2007). Assessment for learning: Integrating assessment, teaching, and learning in the ESL/EFL writing classroom. *Canadian Modern Language Review, 64*(1), 199–213.
+doi: 10.3138/cmlr.64.1.199
+
 </script>
 <header class="top">
   <div class="wrap">
@@ -1726,11 +1875,18 @@ function chips(ids){
 /* ── items ── */
 const LABELS={rq:"Research question or aim",method:"Method",did:"What they did",found:"Key findings",design:"For teaching & test design",angle:"Why it is on this page",means:"For your activity",role:"Where AI helps",check:"Check",do:"Do this",tip:"Tip",time:"Time",who:"Who",what:"What",why:"Why",basis:"Based on",key:"Key points",note:"Note",output:"You leave with",ask:"Ask"};
 const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id","wide","paper","download","access","themes","home","short","title","cite"]);
+/* colour-coded expandable blocks: [tag, open by default] */
+const FOLD={rq:["RQ",true],key:["Key",true],method:["Method",false],found:["Findings",false],design:["Use",false]};
+function valHtml(v){return Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v)}
+function foldHtml(k,v){
+  const [tag,open]=FOLD[k];
+  return '<details class="fold f-'+k+'"'+(open?" open":"")+'><summary><span class="tag">'+tag+"</span>"+esc(LABELS[k]||k)+'</summary><div class="fbody">'+valHtml(v)+"</div></details>";
+}
 function fieldsHtml(f){
   return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
-    const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
-    const html=Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v);
-    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+html+"</div>";
+    if(FOLD[k]) return foldHtml(k,f[k]);
+    const label=LABELS[k]||k.replace(/_/g," ");
+    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+valHtml(f[k])+"</div>";
   }).join("");
 }
 let checkIndex=0;
@@ -1744,7 +1900,8 @@ function paperCard(it){
   h+="<h4>"+inline(f.title||P.title)+"</h4>";
   if(f.cite) h+='<div class="small muted" style="margin:-.15rem 0 .4rem">'+inline(f.cite)+"</div>";
   if(it.f.angle) h+='<div class="field angle"><span class="flabel">Why it is on this page</span>'+inline(it.f.angle)+"</div>";
-  ["rq","method","found","design","note"].forEach(k=>{ if(f[k]){const v=f[k]; h+='<div class="field"><span class="flabel">'+esc(LABELS[k])+"</span>"+(Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v))+"</div>";} });
+  ["rq","method","found","design"].forEach(k=>{ if(f[k]) h+=foldHtml(k,f[k]); });
+  if(f.note) h+='<div class="field"><span class="flabel">Note</span>'+valHtml(f.note)+"</div>";
   if(f.basis) h+='<div class="small muted" style="margin-top:.4rem">Summary based on: '+inline(f.basis)+"</div>";
   h+='<div class="dl">'+(f.download?'<a class="dlbtn" href="'+esc(f.download)+'" target="_blank" rel="noopener">⬇ Download</a>':"")+
      (f.access?'<span class="small muted">'+inline(f.access)+"</span>":"")+(f.refs?chips(f.refs):"")+"</div>";
@@ -1793,18 +1950,26 @@ function itemHtml(it,ctx){
   return '<article class="card kind-'+k+(k==="step"?" step":"")+'">'+inner+"</article>";
 }
 function renderItems(items){
-  let out="",group=null,buf=[];
+  let out="",group=null,buf=[],inSec=false;
   const flush=()=>{ if(!buf.length) return;
     const k=group, cls=k==="step"?"steps":k==="milestone"?"timeline":"grid"+(["prompt","wide"].includes(k)?" wide":"");
     out+='<div class="'+cls+'">'+buf.join("")+"</div>"; buf=[]; };
   for(const it of items){
     const k=it.f.kind||"card";
-    if(k==="section"||k==="matrix"){flush();group=null;out+=itemHtml(it);continue}
+    if(k==="section"||k==="matrix"){flush();group=null;if(inSec) out+="</details>";
+      out+=itemHtml(it).replace(/^<h3 class="sec">([\s\S]*?)<\/h3>/,'<details class="secfold" open><summary><h3 class="sec">$1</h3></summary>');inSec=true;continue}
     const g=(it.f.wide==="yes"||k==="prompt"||k==="sample"||k==="reveal")?"wide":(k==="step"||k==="milestone"?k:"grid");
     if(g!==group){flush();group=g}
     buf.push(itemHtml(it));
   }
-  flush(); return out;
+  flush(); if(inSec) out+="</details>"; return out;
+}
+function foldBar(html){
+  const f=html.includes('class="fold '), sec=html.includes('class="secfold"');
+  if(!f&&!sec) return "";
+  return '<div class="foldbar">'+(f?'<button class="pill" data-fold="open">Show all details</button><button class="pill" data-fold="close">Hide details</button>':"")+
+    (sec?'<button class="pill" data-fold="secclose">Collapse sections</button><button class="pill" data-fold="secopen">Expand sections</button>':"")+
+    (f?'<span class="legend"><span class="f-rq">Research question</span><span class="f-method">Method</span><span class="f-found">Findings</span><span class="f-design">For your design</span></span>':"")+"</div>";
 }
 
 /* ── activity board ── */
@@ -1929,6 +2094,11 @@ function fromHash(){const m=location.hash.match(/^#p-([0-9r]+)$/);return m&&CONF
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-go]");
   if(b){const k=b.dataset.go; if(location.hash==="#p-"+k) go(k); else location.hash="p-"+k; return;}
+  const fb=e.target.closest("[data-fold]");
+  if(fb){const ph=fb.closest(".phase"), a=fb.dataset.fold;
+    if(a==="open"||a==="close") ph.querySelectorAll("details.fold").forEach(d=>d.open=a==="open");
+    else ph.querySelectorAll("details.secfold").forEach(d=>d.open=a==="secopen");
+    return;}
   const cp=e.target.closest("[data-copypre],[data-copyq]");
   if(cp){
     const text=cp.hasAttribute("data-copypre")?cp.closest(".copyrow").previousElementSibling.textContent
@@ -1972,7 +2142,7 @@ async function load(){
         (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
         '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
     }else if(d.items.some(x=>x.f.kind==="act")) body='<div class="intro">'+md(d.intro)+"</div>"+boardHtml(d);
-    else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    else {const r=renderItems(d.items); body='<div class="intro">'+md(d.intro)+"</div>"+foldBar(r)+r;}
     const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
     return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
       '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
@@ -1985,14 +2155,14 @@ async function load(){
 <script>
 /* file names per page key — keep in step with content/ */
 window.CONTENT_FILES={
-  "1":"content/01-author.md",
-  "2":"content/02-validity.md",
-  "3":"content/03-listening.md",
-  "4":"content/04-speaking.md",
-  "5":"content/05-reading.md",
-  "6":"content/06-writing.md",
-  "7":"content/07-trends.md",
-  "8":"content/08-tasks.md",
+  "1":"content/01-tasks.md",
+  "2":"content/02-author.md",
+  "3":"content/03-validity.md",
+  "4":"content/04-listening.md",
+  "5":"content/05-speaking.md",
+  "6":"content/06-reading.md",
+  "7":"content/07-writing.md",
+  "8":"content/08-trends.md",
   "9":"content/09-chatbot.md",
   "p":"content/papers.md"
 };

@@ -83,10 +83,10 @@ date: 11/18
 note: Present your question and proposed approach to an audience. Use feedback to refine the scope, clarify the evidence needed and address weaknesses before the final project.
 links: 15
 
-## W12 · Reading Aryadoust; tasks: TBLT and PBL; chatbots
+## W12 · Tasks (TBLT, PBL, PjBL); reading Aryadoust; chatbots
 week: 12
 date: 11/25
-note: As taught. Groups read fifteen papers by Vahid Aryadoust on validity, the four skills, materials and AI; checked the 11/11 activity board against the research on task-based language teaching and compared it with problem-based learning; then built a task-based listening or speaking chatbot on Mizou and rehearsed their own speaking on Yoodli. Validity and reliability lead straight into W13 on digital assessment.
+note: As taught. Groups checked the 11/11 activity board against the research on task-based language teaching and compared it with problem-based and project-based learning; read fifteen papers by Vahid Aryadoust on validity, the four skills, materials and AI; then built a task-based listening or speaking chatbot on Mizou, sorted assessment of, for and as learning, and practised US, UK and Australian English role-plays on Yoodli. Validity and reliability lead straight into W13 on digital assessment.
 links: 13
 
 ## W13 · Digital assessment and test design

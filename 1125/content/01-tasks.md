@@ -1,6 +1,8 @@
-# Tasks: TBLT and PBL
+# Tasks, problems and projects
 
-The way this course is built — choose a skill, try the tools, build an activity, present it, get feedback — is a **task cycle**. So is today's chatbot build. This page gives the research behind **task-based language teaching (TBLT)**, compares it with **problem-based learning (PBL)**, and links both back to Aryadoust's work on assessment.
+This week starts with **tasks**. The way this course is built — choose a skill, try the tools, build an activity, present it, get feedback — is a **task cycle**, and today's chatbot build is one too. This page gives the research behind **task-based language teaching (TBLT)** and compares it with two close relatives: **problem-based learning (PBL)** and **project-based learning (PjBL)**. Then we read Vahid Aryadoust's work on assessment and AI (pages 2–8) and build a chatbot (page 9).
+
+Both relatives are often shortened to "PBL". On this site, **PBL** means problem-based and **PjBL** means project-based.
 
 <!--
 HOW TO EDIT
@@ -8,7 +10,7 @@ HOW TO EDIT
   Literature cards: badge · key (list) · design (list) · basis · link · refs
   References are in refs.md (ids: ellis2009, long2016, ellis2017, ellis2021, swan2005, bryfonski2019,
   butler2011, norris2016, ziegler2016, chong2020, willis1996, barrows1996, savery2006, kirschner2006,
-  hmelo2007, strobel2009, lin2018, beckett2005). Checked 24 Nov 2026.
+  hmelo2007, strobel2009, lin2018, beckett2005, stoller2019, kokotsaki2016, chen2019). Checked 24 Nov 2026.
 -->
 
 ## What counts as a task?
@@ -73,7 +75,7 @@ wide: yes
 | Planning | Filled in the worksheet and the version log; prepared the 6-minute talk |
 | Report | Presented: learners and goal, first idea to revised plan, three minutes teaching the activity |
 | Language focus | Peer feedback, *What the AI got right and wrong*, the reflection |
-For you as future teachers the outcome is a **product** — an activity that solves a teaching problem — so the same sequence also works like a **project** or **problem-based** unit (see the comparison below). TBLT applies most directly to the activities you build **for your learners**.
+For you as future teachers the outcome is a **product** — an activity that solves a teaching problem — so the same sequence also works like a **project** (a product to show) or a **problem-based** unit (a teaching problem to solve). See the comparison below. TBLT applies most directly to the activities you build **for your learners**.
 link: [Open the 11/11 activity board](../1111/#p-6)
 
 ## Is it a task? Sort the activity board
@@ -197,7 +199,7 @@ basis: Abstracts.
 link: [⬇ Chong & Reinders, free (Language Learning & Technology, CC BY-NC-ND)](https://hdl.handle.net/10125/44739)
 refs: ziegler2016 | chong2020
 
-## Problem-based learning
+## Problem-based learning (PBL)
 kind: section
 PBL began in medical education and spread to many disciplines. Learners work in groups on a real problem, find out what they need to know, and propose a solution.
 refs: barrows1996 | savery2006 | strobel2009
@@ -261,34 +263,77 @@ design:
 basis: Abstract.
 refs: beckett2005
 
-## TBLT and PBL compared
+## Project-based learning (PjBL)
 kind: section
-This table is our comparison, drawn from the sources on this page. Both approaches are learner-centred and both start from meaning; they differ in **what the outcome is for**.
+Learners work over a longer period towards a **product** for a real audience — a guide, a video, a campaign, a website — and learn language, content and skills on the way.
+refs: stoller2019 | kokotsaki2016
 
-| | TBLT | PBL |
-|---|---|---|
-| Began in | Second language acquisition research and language teaching | Medical education |
-| Unit of work | A task: a meaning-focused activity with a gap and an outcome | A real problem, usually complex and open, with no single answer |
-| Main goal | Language development through using the language | Content knowledge, problem-solving, collaboration and self-directed learning |
-| Role of language | The target of learning | The medium; in a language class it is both medium and target |
-| Typical length | One lesson, or a sequence ending in an exit task | Several sessions to several weeks |
-| Teacher | Designs and sequences tasks; focuses on form before, during or after | Facilitates and scaffolds the inquiry |
-| Assessed by | Task completion, sometimes plus language quality | The solution and the process |
-| Evidence | Positive programme effects (d = 0.93) | Better long-term retention and skills; weaker short-term exam retention |
-| Main criticism | Little new language for learners with little exposure | Too little guidance for novices |
-Sources: Ellis (2009, 2017); Long (2016); Bryfonski & McKay (2019); Swan (2005); Barrows (1996); Savery (2006); Kirschner et al. (2006); Hmelo-Silver et al. (2007); Strobel & van Barneveld (2009).
+## Project-based learning in second language acquisition
+kind: card
+badge: Classic · 2019
+key:
+- PjBL has been recommended for **purposeful language learning for more than three decades**, and for combining language and content aims, literacy and research skills, and service learning.
+- Reported benefits: better language skills (including reading informational texts), deeper content learning, real-life skills, sustained motivation and engagement, and positive self-concept.
+- Most of this support comes from **teachers' reports**; controlled studies are few.
+design:
+- Plan the language learners will need at each stage of the project — do not leave it to chance.
+basis: Abstract (chapter in an edited book).
+refs: stoller2019
+
+## Project-based learning: A review of the literature
+kind: card
+badge: Review · 2016
+key:
+- PjBL is characterised by learners' **autonomy, investigations, goal-setting, collaboration, communication and reflection** within real-world practice.
+- Most studies were quasi-experimental without random allocation, so a **causal link** to better outcomes cannot be established with certainty.
+- What helps: digital technology, good group processes, teacher **scaffolding**, a balance between direct instruction and inquiry, and **well-aligned assessment**.
+design:
+- Decide in advance how the product, the process and the language will each be assessed.
+basis: Abstract.
+refs: kokotsaki2016
+
+## Effects of project-based learning: a meta-analysis
+kind: card
+badge: Meta-analysis · 2019
+key:
+- **30 journal articles (1998–2017)**, 46 comparisons, 12,585 students in 189 schools in nine countries.
+- PjBL versus traditional teaching: **d+ = 0.71**, a medium-to-large effect on academic achievement.
+- The effect varied with subject area, school location, hours of instruction and **information technology support** — not with educational stage or group size.
+design:
+- This covers school subjects in general, not language learning specifically. Use it as background, not as proof for an English class.
+basis: Abstract.
+refs: chen2019
+
+## Three approaches compared
+kind: section
+This table is our comparison, drawn from the sources on this page. All three are learner-centred and start from meaning; they differ in **what the work is organised around** and **what the outcome is for**.
+
+| | TBLT | Problem-based (PBL) | Project-based (PjBL) |
+|---|---|---|---|
+| Began in | Second language acquisition research and language teaching | Medical education | General education; in language teaching for more than 30 years |
+| Organised around | A **task**: a meaning-focused activity with a gap and an outcome | A **problem**: complex and open, with no single answer | A **product** for an audience: a guide, video, website or event |
+| Ends with | The task outcome: a decision, a map, a plan | A proposed solution | A finished product, shown or presented |
+| Main goal | Language development through using the language | Content knowledge, problem-solving, collaboration, self-directed learning | Language, content and skills together; motivation |
+| Role of language | The target of learning | The medium; in a language class, medium and target | Medium and target — best made explicit to learners |
+| Typical length | One lesson, or a sequence ending in an exit task | Several sessions to several weeks | Several weeks to a term |
+| Teacher | Designs and sequences tasks; plans the focus on form | Facilitates and scaffolds the inquiry | Guides, scaffolds, balances direct teaching and inquiry |
+| Assessed by | Task completion, sometimes plus language quality | The solution and the process | The product, the process and the language |
+| Evidence | TBLT programmes: d = 0.93 | Better long-term retention and skills; weaker on short-term exams | School subjects: d+ = 0.71; in language classes mostly teacher reports |
+| Main criticism | Little new language for learners with little exposure | Too little guidance for novices | Product and content can crowd out language; causal evidence is thin |
+Sources: Ellis (2009, 2017); Long (2016); Bryfonski & McKay (2019); Swan (2005); Barrows (1996); Savery (2006); Kirschner et al. (2006); Hmelo-Silver et al. (2007); Strobel & van Barneveld (2009); Beckett & Slater (2005); Stoller & Myers (2019); Kokotsaki et al. (2016); Chen & Yang (2019).
 
 ## Where they meet
 kind: card
 - **Problem-solving** is one of the common pedagogic task types in TBLT, so a PBL problem can be a large task.
-- A PBL unit can be built from a **sequence of tasks** that ends in an exit task — the solution.
-- In a language class, PBL needs a planned **language focus**, or the content can crowd out the language.
-refs: ellis2017 | long2016 | beckett2005
+- A PBL or PjBL unit can be built from a **sequence of tasks** that ends in an exit task — the solution or the product.
+- In a language class, PBL and PjBL both need a planned **language focus**, or the content and the product can crowd out the language.
+refs: ellis2017 | long2016 | beckett2005 | stoller2019
 
 ## Choosing between them
 kind: card
 - **Beginners, little class time:** short tasks, input-based first, with task-supported practice of new language.
-- **Higher proficiency, more time, content goals:** a problem or project, with scaffolds and a language focus.
+- **A real question to answer, more time, content goals:** a problem (PBL), with scaffolds and a language focus.
+- **A real audience to make something for:** a project (PjBL) built from tasks, with the language made explicit.
 - **Either way:** decide what evidence would show it worked — a task outcome, a language measure, or both.
 refs: ellis2017 | swan2005 | kirschner2006
 
@@ -322,5 +367,6 @@ Use English at [level]. Keep every reply under 60 words. Do not ask for personal
 kind: questions
 - Which of the 40 board activities would Long count as tasks, and which would Ellis? Why do they differ?
 - Swan says tasks teach little new language when class time is short. How would you answer him for a Taiwanese junior-high class?
-- Is the way this course is built closer to TBLT or to PBL for **you**? For your future learners?
+- Is the way this course is built closer to TBLT, PBL or PjBL for **you**? For your future learners?
+- Your final project: which of the three is it, and what would change if you redesigned it as one of the others?
 - What should a task-based test score — the outcome, the language, or both? What would Aryadoust ask about that score?

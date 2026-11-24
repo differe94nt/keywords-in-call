@@ -14,7 +14,7 @@ seminar/
       04-map.md           the semester map
       refs.md             core and further readings, with publication links
   0930/                   week 4 — learner analysis and differentiation
-  1125/                   week 12 — reading Vahid Aryadoust: 15 papers by skill/purpose, Mizou and Yoodli chatbot guide
+  1125/                   week 12 — tasks (TBLT, PBL, PjBL), 15 Aryadoust papers by skill/purpose, assessment of/for/as learning, Mizou and Yoodli
   1111/                   week 10 — four skills: research, activity board (40 activities × 9 tools), build with AI, present
   1021/                   week 7 — learner language: group vs AI error analysis
   final/                  final project and portfolio guide (both tracks, pitch session)

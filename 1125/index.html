@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FAEFD0">
-<title>Reading Aryadoust · 11/25</title>
+<title>Tasks, Assessment and AI · 11/25</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
@@ -14,10 +14,10 @@
 const CONFIG = {
   instructor: "王伯雅 Po-Ya Angela Wang",
   course: "英語數位教材與教學",
-  title: "Week 12 · 11/25 · Reading Aryadoust",
-  kicker: "11/25 · Reading Aryadoust",
+  title: "Week 12 · 11/25 · Tasks, assessment and AI",
+  kicker: "11/25 · Tasks, assessment and AI",
   storeKey: "w12-1125",
-  pages: [["1","The author"],["2","Validity & measurement"],["3","Listening"],["4","Speaking"],["5","Reading"],["6","Writing"],["7","CALL & AI trends"],["8","Tasks: TBLT & PBL"],["9","Build a chatbot"],["r","Sources"]],
+  pages: [["1","Tasks, problems, projects"],["2","The author"],["3","Validity & measurement"],["4","Listening"],["5","Speaking"],["6","Reading"],["7","Writing"],["8","CALL & AI trends"],["9","Build a chatbot"],["r","Sources"]],
   links: [["11/11 · Four skills","../1111/"],["Final project","../final/"],["AI studio","../ai-tools/"]]
 };
 </script>
@@ -27,6 +27,7 @@ const CONFIG = {
   --cream:#FAEFD0; --paper:#FFFBF0; --ink:#2E3A1F; --ink-soft:#5A6B45;
   --green:#5C7A3C; --green-soft:#E4EDD6; --gold:#E8C24A; --gold-soft:#F7EBC0;
   --burnt:#B9752B; --red:#A8442A; --blue:#3E6B77; --blue-soft:#DCE9EC;
+  --purple:#6B5B95; --purple-soft:#ECE7F4; --burnt-soft:#F6E5CF;
   --bg:var(--cream); --fg:var(--ink); --fg-soft:var(--ink-soft);
   --line:rgba(46,58,31,.16); --line-2:rgba(46,58,31,.34); --tint:rgba(46,58,31,.05);
   --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
@@ -36,6 +37,7 @@ html[data-theme="dark"]{
   --cream:#1B2515; --paper:#243019; --ink:#F4EEDC; --ink-soft:#B9CFA0;
   --green:#8FB463; --green-soft:#2E3D20; --gold:#E8C24A; --gold-soft:#3A3318;
   --burnt:#D79A55; --red:#E08A6C; --blue:#7FB0BD; --blue-soft:#22343A;
+  --purple:#B4A6DA; --purple-soft:#2D2840; --burnt-soft:#3A2B19;
   --line:rgba(244,238,220,.18); --line-2:rgba(244,238,220,.4); --tint:rgba(244,238,220,.06);
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -146,6 +148,31 @@ thead th{background:var(--green-soft);font-size:.78rem;text-transform:uppercase;
 .pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 .banner{background:var(--paper);border:1px solid var(--burnt);border-left-width:4px;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem}
 footer{border-top:1px solid var(--line);padding:1.2rem 0 2.5rem;font-size:.78rem;color:var(--fg-soft)}
+/* ── folds: labelled, colour-coded, expandable blocks ── */
+.fold{--fc:var(--green);--fb:var(--green-soft);margin:.5rem 0;border-radius:10px;background:var(--fb);border-left:4px solid var(--fc)}
+.fold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;padding:.42rem .65rem;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--fc)}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary .tag{font-family:var(--mono);background:var(--fc);color:var(--paper);border-radius:6px;padding:.05rem .42rem;font-size:.68rem;letter-spacing:0}
+.fold>summary::after{content:"▸";margin-left:auto;font-size:.85rem;transition:transform .15s}
+.fold[open]>summary::after{transform:rotate(90deg)}
+.fold>summary:hover{filter:brightness(.9)}
+.fold .fbody{padding:0 .8rem .6rem;font-size:.92rem;color:var(--fg)}
+.fold .fbody ul{margin:.1rem 0 .1rem;padding-left:1.1rem}
+.f-rq,.f-key{--fc:var(--blue);--fb:var(--blue-soft)}
+.f-method{--fc:var(--purple);--fb:var(--purple-soft)}
+.f-found{--fc:var(--green);--fb:var(--green-soft)}
+.f-design{--fc:var(--burnt);--fb:var(--burnt-soft)}
+.foldbar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.6rem 0 .2rem;font-size:.8rem;color:var(--fg-soft)}
+.foldbar .legend{display:flex;flex-wrap:wrap;gap:.35rem;margin-left:auto}
+.foldbar .legend span{border-left:4px solid var(--fc);background:var(--fb);border-radius:6px;padding:.05rem .45rem;font-size:.72rem;color:var(--fg)}
+details.secfold{margin-top:1.6rem;border-top:2px solid var(--line-2)}
+details.secfold>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:.6rem;padding-top:.5rem}
+details.secfold>summary::-webkit-details-marker{display:none}
+details.secfold>summary h3.sec{margin:0}
+details.secfold>summary::after{content:"▾ hide";margin-left:auto;font-size:.74rem;color:var(--fg-soft);font-family:var(--sans)}
+details.secfold:not([open])>summary::after{content:"▸ show"}
+details.secfold:not([open])>summary h3.sec{color:var(--fg-soft)}
+details.secfold>.sec-body{margin-top:.3rem}
 /* ── papers ── */
 .dl{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-top:.6rem;padding-top:.55rem;border-top:1px dashed var(--line)}
 .dlbtn{background:var(--green);color:#fff;text-decoration:none;border-radius:999px;padding:.22rem .75rem;font-size:.8rem;font-weight:600}
@@ -331,11 +358,18 @@ function chips(ids){
 /* ── items ── */
 const LABELS={rq:"Research question or aim",method:"Method",did:"What they did",found:"Key findings",design:"For teaching & test design",angle:"Why it is on this page",means:"For your activity",role:"Where AI helps",check:"Check",do:"Do this",tip:"Tip",time:"Time",who:"Who",what:"What",why:"Why",basis:"Based on",key:"Key points",note:"Note",output:"You leave with",ask:"Ask"};
 const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id","wide","paper","download","access","themes","home","short","title","cite"]);
+/* colour-coded expandable blocks: [tag, open by default] */
+const FOLD={rq:["RQ",true],key:["Key",true],method:["Method",false],found:["Findings",false],design:["Use",false]};
+function valHtml(v){return Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v)}
+function foldHtml(k,v){
+  const [tag,open]=FOLD[k];
+  return '<details class="fold f-'+k+'"'+(open?" open":"")+'><summary><span class="tag">'+tag+"</span>"+esc(LABELS[k]||k)+'</summary><div class="fbody">'+valHtml(v)+"</div></details>";
+}
 function fieldsHtml(f){
   return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
-    const v=f[k], label=LABELS[k]||k.replace(/_/g," ");
-    const html=Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v);
-    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+html+"</div>";
+    if(FOLD[k]) return foldHtml(k,f[k]);
+    const label=LABELS[k]||k.replace(/_/g," ");
+    return '<div class="field"><span class="flabel">'+esc(label)+"</span>"+valHtml(f[k])+"</div>";
   }).join("");
 }
 let checkIndex=0;
@@ -349,7 +383,8 @@ function paperCard(it){
   h+="<h4>"+inline(f.title||P.title)+"</h4>";
   if(f.cite) h+='<div class="small muted" style="margin:-.15rem 0 .4rem">'+inline(f.cite)+"</div>";
   if(it.f.angle) h+='<div class="field angle"><span class="flabel">Why it is on this page</span>'+inline(it.f.angle)+"</div>";
-  ["rq","method","found","design","note"].forEach(k=>{ if(f[k]){const v=f[k]; h+='<div class="field"><span class="flabel">'+esc(LABELS[k])+"</span>"+(Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+inline(x)+"</li>").join("")+"</ul>":inline(v))+"</div>";} });
+  ["rq","method","found","design"].forEach(k=>{ if(f[k]) h+=foldHtml(k,f[k]); });
+  if(f.note) h+='<div class="field"><span class="flabel">Note</span>'+valHtml(f.note)+"</div>";
   if(f.basis) h+='<div class="small muted" style="margin-top:.4rem">Summary based on: '+inline(f.basis)+"</div>";
   h+='<div class="dl">'+(f.download?'<a class="dlbtn" href="'+esc(f.download)+'" target="_blank" rel="noopener">⬇ Download</a>':"")+
      (f.access?'<span class="small muted">'+inline(f.access)+"</span>":"")+(f.refs?chips(f.refs):"")+"</div>";
@@ -398,18 +433,26 @@ function itemHtml(it,ctx){
   return '<article class="card kind-'+k+(k==="step"?" step":"")+'">'+inner+"</article>";
 }
 function renderItems(items){
-  let out="",group=null,buf=[];
+  let out="",group=null,buf=[],inSec=false;
   const flush=()=>{ if(!buf.length) return;
     const k=group, cls=k==="step"?"steps":k==="milestone"?"timeline":"grid"+(["prompt","wide"].includes(k)?" wide":"");
     out+='<div class="'+cls+'">'+buf.join("")+"</div>"; buf=[]; };
   for(const it of items){
     const k=it.f.kind||"card";
-    if(k==="section"||k==="matrix"){flush();group=null;out+=itemHtml(it);continue}
+    if(k==="section"||k==="matrix"){flush();group=null;if(inSec) out+="</details>";
+      out+=itemHtml(it).replace(/^<h3 class="sec">([\s\S]*?)<\/h3>/,'<details class="secfold" open><summary><h3 class="sec">$1</h3></summary>');inSec=true;continue}
     const g=(it.f.wide==="yes"||k==="prompt"||k==="sample"||k==="reveal")?"wide":(k==="step"||k==="milestone"?k:"grid");
     if(g!==group){flush();group=g}
     buf.push(itemHtml(it));
   }
-  flush(); return out;
+  flush(); if(inSec) out+="</details>"; return out;
+}
+function foldBar(html){
+  const f=html.includes('class="fold '), sec=html.includes('class="secfold"');
+  if(!f&&!sec) return "";
+  return '<div class="foldbar">'+(f?'<button class="pill" data-fold="open">Show all details</button><button class="pill" data-fold="close">Hide details</button>':"")+
+    (sec?'<button class="pill" data-fold="secclose">Collapse sections</button><button class="pill" data-fold="secopen">Expand sections</button>':"")+
+    (f?'<span class="legend"><span class="f-rq">Research question</span><span class="f-method">Method</span><span class="f-found">Findings</span><span class="f-design">For your design</span></span>':"")+"</div>";
 }
 
 /* ── activity board ── */
@@ -534,6 +577,11 @@ function fromHash(){const m=location.hash.match(/^#p-([0-9r]+)$/);return m&&CONF
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-go]");
   if(b){const k=b.dataset.go; if(location.hash==="#p-"+k) go(k); else location.hash="p-"+k; return;}
+  const fb=e.target.closest("[data-fold]");
+  if(fb){const ph=fb.closest(".phase"), a=fb.dataset.fold;
+    if(a==="open"||a==="close") ph.querySelectorAll("details.fold").forEach(d=>d.open=a==="open");
+    else ph.querySelectorAll("details.secfold").forEach(d=>d.open=a==="secopen");
+    return;}
   const cp=e.target.closest("[data-copypre],[data-copyq]");
   if(cp){
     const text=cp.hasAttribute("data-copypre")?cp.closest(".copyrow").previousElementSibling.textContent
@@ -577,7 +625,7 @@ async function load(){
         (x.f.url?'<a href="'+esc(x.f.url)+'" target="_blank" rel="noopener">Open ↗</a>':"")+
         '<a href="https://scholar.google.com/scholar?q='+encodeURIComponent(x.f.apa.replace(/\*/g,"").slice(0,150))+'" target="_blank" rel="noopener">Scholar ↗</a></div></div>').join(""):"");
     }else if(d.items.some(x=>x.f.kind==="act")) body='<div class="intro">'+md(d.intro)+"</div>"+boardHtml(d);
-    else body='<div class="intro">'+md(d.intro)+"</div>"+renderItems(d.items);
+    else {const r=renderItems(d.items); body='<div class="intro">'+md(d.intro)+"</div>"+foldBar(r)+r;}
     const prev=CONFIG.pages[i-1], next=CONFIG.pages[i+1];
     return '<section class="phase" id="p-'+k+'"><div class="kicker">'+esc(CONFIG.kicker)+" · "+esc(label)+"</div><h2>"+esc(d.title||label)+"</h2>"+body+
       '<div class="pager">'+(prev?'<button class="pill" data-go="'+prev[0]+'">← '+esc(prev[1])+"</button>":"<span></span>")+
@@ -590,14 +638,14 @@ async function load(){
 <script>
 /* file names per page key — keep in step with content/ */
 window.CONTENT_FILES={
-  "1":"content/01-author.md",
-  "2":"content/02-validity.md",
-  "3":"content/03-listening.md",
-  "4":"content/04-speaking.md",
-  "5":"content/05-reading.md",
-  "6":"content/06-writing.md",
-  "7":"content/07-trends.md",
-  "8":"content/08-tasks.md",
+  "1":"content/01-tasks.md",
+  "2":"content/02-author.md",
+  "3":"content/03-validity.md",
+  "4":"content/04-listening.md",
+  "5":"content/05-speaking.md",
+  "6":"content/06-reading.md",
+  "7":"content/07-writing.md",
+  "8":"content/08-trends.md",
   "9":"content/09-chatbot.md",
   "p":"content/papers.md"
 };

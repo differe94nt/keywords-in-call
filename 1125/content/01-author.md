@@ -74,6 +74,10 @@ do: For your paper, check the card against the paper: **research question, metho
 kind: step
 do: Name one earlier week this paper speaks to — evaluating materials (W3–W4), learner language (W7), the four skills (W10) — and one thing it would change in your final project.
 
+## Tasks before tools
+kind: step
+do: On **Tasks: TBLT & PBL**, check the 11/11 activity board against the definition of a task, and compare task-based with problem-based learning.
+
 ## Then build
 kind: step
 do: On **Build a chatbot**, turn one finding into a listening or speaking chatbot on Mizou, and practise your own speaking on Yoodli.

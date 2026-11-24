@@ -17,7 +17,7 @@ const CONFIG = {
   title: "Week 12 · 11/25 · Reading Aryadoust",
   kicker: "11/25 · Reading Aryadoust",
   storeKey: "w12-1125",
-  pages: [["1","The author"],["2","Validity & measurement"],["3","Listening"],["4","Speaking"],["5","Reading"],["6","Writing"],["7","CALL & AI trends"],["8","Build a chatbot"],["r","Sources"]],
+  pages: [["1","The author"],["2","Validity & measurement"],["3","Listening"],["4","Speaking"],["5","Reading"],["6","Writing"],["7","CALL & AI trends"],["8","Tasks: TBLT & PBL"],["9","Build a chatbot"],["r","Sources"]],
   links: [["11/11 · Four skills","../1111/"],["Final project","../final/"],["AI studio","../ai-tools/"]]
 };
 </script>
@@ -329,7 +329,7 @@ function chips(ids){
 }
 
 /* ── items ── */
-const LABELS={rq:"Research question or aim",method:"Method",did:"What they did",found:"Key findings",design:"For teaching & test design",angle:"Why it is on this page",means:"For your activity",role:"Where AI helps",check:"Check",do:"Do this",tip:"Tip",time:"Time",who:"Who",what:"What",why:"Why",basis:"Based on",note:"Note",output:"You leave with",ask:"Ask"};
+const LABELS={rq:"Research question or aim",method:"Method",did:"What they did",found:"Key findings",design:"For teaching & test design",angle:"Why it is on this page",means:"For your activity",role:"Where AI helps",check:"Check",do:"Do this",tip:"Tip",time:"Time",who:"Who",what:"What",why:"Why",basis:"Based on",key:"Key points",note:"Note",output:"You leave with",ask:"Ask"};
 const SKIP=new Set(["kind","badge","refs","link","now","copy","date","id","wide","paper","download","access","themes","home","short","title","cite"]);
 function fieldsHtml(f){
   return Object.keys(f).filter(k=>!SKIP.has(k)).map(k=>{
@@ -597,7 +597,8 @@ window.CONTENT_FILES={
   "5":"content/05-reading.md",
   "6":"content/06-writing.md",
   "7":"content/07-trends.md",
-  "8":"content/08-chatbot.md",
+  "8":"content/08-tasks.md",
+  "9":"content/09-chatbot.md",
   "p":"content/papers.md"
 };
 load();

@@ -119,6 +119,10 @@ Goal: learners can [e.g. describe a plan and give two reasons].
 Never ask for personal information.
 ```
 
+## A task bot
+kind: card
+For a bot built as a **task** — with an information gap, a decision and a language focus at the end — use the template on the [Tasks: TBLT & PBL](#p-8) page.
+
 ## Rules to add in either bot
 kind: prompt
 ```text

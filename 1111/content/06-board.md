@@ -29,6 +29,11 @@ do: Choose a tool, then click each activity it could serve. The same tool may fi
 kind: step
 do: Fill in the worksheet under the board for the **one** activity your group will build and show. You will start your presentation with it.
 
+## Is it a task?
+kind: card
+wide: yes
+Not every activity here is a *task* in the research sense: some are exercises that practise a form. The 11/25 page [Tasks: TBLT & PBL](../1125/#p-8) gives the four criteria, sorts seven of these activities, and compares task-based with problem-based learning.
+
 ## L1
 kind: act
 skill: L
